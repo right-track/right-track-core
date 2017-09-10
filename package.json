@@ -1,0 +1,15 @@
+{
+  "name": "right-track-core",
+  "version": "0.0.1",
+  "description": "Right Track Core Library",
+  "main": "src/index.js",
+  "author": "David Waring <dev@davidwaring.net>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "docdash": "^0.4.0",
+    "jsdoc": "^3.5.4"
+  }
+}
