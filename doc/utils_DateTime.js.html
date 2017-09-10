@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>utils/DateTime.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Agency.html">Agency</a></li><li><a href="DateTime.html">DateTime</a><ul class='methods'><li data-type='method'><a href="DateTime.html#getDateInt">getDateInt</a></li><li data-type='method'><a href="DateTime.html#getTimeGTFS">getTimeGTFS</a></li><li data-type='method'><a href="DateTime.html#getTimeSeconds">getTimeSeconds</a></li><li data-type='method'><a href="DateTime.html#isDateSet">isDateSet</a></li></ul></li><li><a href="Route.html">Route</a></li><li><a href="Service.html">Service</a></li><li><a href="ServiceException.html">ServiceException</a></li><li><a href="Stop.html">Stop</a><ul class='methods'><li data-type='method'><a href="Stop.html#.sortById">sortById</a></li><li data-type='method'><a href="Stop.html#.sortByName">sortByName</a></li><li data-type='method'><a href="Stop.html#.sortByTransferWeight">sortByTransferWeight</a></li></ul></li><li><a href="StopTime.html">StopTime</a><ul class='methods'><li data-type='method'><a href="StopTime.html#.sortByStopSequence">sortByStopSequence</a></li><li data-type='method'><a href="StopTime.html#.sortByStopTransferWeight">sortByStopTransferWeight</a></li></ul></li><li><a href="Trip.html">Trip</a><ul class='methods'><li data-type='method'><a href="Trip.html#getStopTime">getStopTime</a></li><li data-type='method'><a href="Trip.html#hasStopTime">hasStopTime</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">utils/DateTime.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+/**
+ * Right Track Date Time
+ * ---------------------
+ * This class handles the various representations of dates and
+ * times used by the GTFS Spec and the Right Track Library and
+ * the various transformations between them.
+ *
+ * Time Formats
+ * - _string_ hh:mm aa (1:30 PM) | **Human Readable Time**
+ * - _string_ HH:mm:ss (13:30:00) | **GTFS Time**
+ * - _string_ HH:mm (13:30)
+ * - _string_ HHmm (1330)
+ * - _int_ seconds since midnight (7:00 am = 25200) | **Time Seconds**
+ *
+ * Date Formats
+ * - _int_ yyyymmdd (20170930) | **Date Integer**
+ *
+ * @class
+ */
+class DateTime {
+
+    /**
+     * Right Track Date Time Constructor
+     * @constructor
+     * @param {(string|int)} time String or Integer representation of the time.  Can be in one
+     * of the following formats: 1) HH:mm:ss 2) HH:mm 3) HHmm 4) hh:mm aa or 5) an integer of the
+     * number of seconds since midnight (ex 7:00 am = 25200)
+     * @param {int=} date The date of the DateTime in the format yyyymmdd
+     */
+    constructor(time, date=19700101) {
+
+        /**
+         * INTERNAL REPRESENTATION
+         * time = {int} number of seconds since midnight
+         * date = {int} date in the format of yyyymmdd
+         * TODO: May need to use datetime lib (ie moments)
+         */
+
+
+        // ==== PARSE THE TIME ==== //
+
+        // Time Format: integer with seconds in day
+        if ( Number.isInteger(time) ) {
+
+            // Check to make sure time int is within reasonable range
+            if ( time >= 0 &amp;&amp; time &lt;= 115200 ) {
+                this.time = time;
+            }
+
+            // Time int is not within reasonable range of 0 --> 32 hours
+            else {
+                throw new Error("DATETIME ERROR: Time Integer is out of bounds!");
+            }
+        }
+        else {
+
+            // Time format: hh:mm aa
+            let matches = time.match("((1[0-2]|0?[1-9]):([0-5][0-9])\\s?([AaPp][Mm]))");
+            if ( null !== matches &amp;&amp; matches.length > 0 ) {
+                let h = parseInt(time.split(":")[0]);
+                let m = parseInt(time.split(":")[1].substr(0, 2));
+                let aa = time.slice(-2).toLowerCase();
+
+                // Reset h to 0 for 12 AM
+                if ( aa === "am" &amp;&amp; h === 12 ) {
+                    h = 0;
+                }
+
+                // Add 12 to h for pm
+                else if ( aa === "pm" ) {
+                    h = h + 12;
+                }
+
+                this.time = h*3600 + m*60;
+            }
+
+            // Time Format: HH:mm:ss OR HH:mm
+            else if ( time.indexOf(":") > -1 ) {
+                let parts = time.split(":");
+
+                // When there is either 1 or 2 colons
+                if ( parts.length === 3 || parts.length === 2 ) {
+                    let h = parseInt(parts[0]);
+                    let m = parseInt(parts[1]);
+                    let s = parts.length === 3 ? parseInt(parts[2]) : 0;
+
+                    // Check to make sure time parts are within a reasonable range
+                    if (Number.isInteger(h) &amp;&amp; h >= 0 &amp;&amp; h &lt;= 32 &amp;&amp;
+                        Number.isInteger(m) &amp;&amp; m >= 0 &amp;&amp; m &lt;= 59 &amp;&amp;
+                        Number.isInteger(s) &amp;&amp; s >= 0 &amp;&amp; s &lt;= 59) {
+                        this.time = h*3600 + m*60 + s;
+                    }
+                    else {
+                        throw new Error("DATETIME ERROR: Could not parse the time. h=" + h + ", m=" + m + ", s=" + s);
+                    }
+
+                }
+
+                // Time format: incorrect with colon
+                else {
+                    throw new Error("DATETIME ERROR: Could not parse the time: " + time);
+                }
+
+            }
+
+            // Time Format: HHmm
+            else if ( time.length === 4 ) {
+
+                // Parse hours and minutes from time
+                let h = parseInt(time.substring(0, 2));
+                let m = parseInt(time.substring(2, 4));
+
+                // Check to make sure time parse are numbers within a reasonable range
+                if ( Number.isInteger(h) &amp;&amp; h >= 0 &amp;&amp; h &lt;= 32 &amp;&amp;
+                     Number.isInteger(m) &amp;&amp; m >= 0 &amp;&amp; m &lt;= 59 ) {
+                    this.time = h*3600 + m*60;
+                }
+                else {
+                    throw new Error("DATETIME ERROR: Could not parse the time. h=" + h + ", m=" + m);
+                }
+
+            }
+
+            // Time Format: incorrect
+            else {
+                throw new Error("DATETIME ERROR: Could not parse the time: " + time);
+            }
+
+        }
+
+
+
+        // ==== PARSE THE DATE ==== //
+
+
+        // Make sure the date is within a reasonable range
+        if ( date >= 19700101 &amp;&amp; date &lt;= 21001231 ) {
+            this.date = date;
+        }
+        else {
+            throw new Error("DATETIME ERROR: Date is not within the expected range. date=" + date);
+        }
+
+    }
+
+
+
+    // ==== TIME GETTERS ==== //
+
+    /**
+     * Get the GTFS Spec time representation (HH:mm:ss)
+     * @returns {string} GTFS Time (HH:mm:ss)
+     */
+    getTimeGTFS() {
+        let h = Math.floor(this.time/3600);
+        let m = Math.floor((this.time%3600)/60);
+        let s = Math.floor((this.time%3600)%60);
+
+        // Pad with leading 0s
+        if ( h &lt; 10 ) {
+            h = "0" + h;
+        }
+        if ( m &lt; 10 ) {
+            m = "0" + m;
+        }
+        if ( s &lt; 10 ) {
+            s = "0" + s;
+        }
+
+        return h + ":" + m + ":" + s;
+    }
+
+    /**
+     * Get the time in seconds since midnight
+     * @returns {int} time integer in seconds
+     */
+    getTimeSeconds() {
+        return this.time;
+    }
+
+
+    // ==== DATE GETTERS ==== //
+
+    /**
+     * Check if the date is set
+     * @returns {boolean} true if the date is set
+     */
+    isDateSet() {
+        return this.date !== 19700101;
+    }
+
+    /**
+     * Get the integer representation of the date (yyyymmdd)
+     * @returns {int} date integer (yyyymmdd)
+     */
+    getDateInt() {
+        return this.date;
+    }
+
+}
+
+
+
+
+
+module.exports = DateTime;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Sep 10 2017 15:00:45 GMT-0400 (EDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
