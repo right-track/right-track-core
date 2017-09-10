@@ -6,6 +6,8 @@ const Stop = require("./gtfs/Stop.js");
 const StopTime = require("./gtfs/StopTime.js");
 const Trip = require("./gtfs/Trip.js");
 
+const About = require("./rt/About.js");
+
 const DateTime = require("./utils/DateTime");
 
 module.exports = {
@@ -17,6 +19,9 @@ module.exports = {
         Stop: Stop,
         StopTime: StopTime,
         Trip: Trip
+    },
+    rt: {
+        About: About
     },
     utils: {
         DateTime: DateTime

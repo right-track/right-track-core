@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>ServiceException - Documentation</title>
+    <title>Holiday - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">ServiceException</h1>
+    <h1 class="page-title">Holiday</h1>
     
 
     
@@ -40,15 +40,17 @@
 <header>
     
         <h2>
-        ServiceException
+        Holiday
         </h2>
         
-            <div class="class-description"><h2>GTFS Service Exception</h2><p>Representation of a row in the GTFS Calendar_Dates table.</p>
-<p>GTFS Required Fields:</p>
+            <div class="class-description"><h2>RT Holiday</h2><p>Representation of the data in the rt_holidays table, which holds
+information about observed holidays and their service information.</p>
+<p>Right Track Fields:</p>
 <ul>
-<li>Service ID</li>
 <li>Date</li>
-<li>Exception Type</li>
+<li>Name</li>
+<li>Peak</li>
+<li>Service Information</li>
 </ul></div>
         
     
@@ -63,7 +65,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="ServiceException"><span class="type-signature"></span>new ServiceException<span class="signature">(serviceId, date, excpetionType)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Holiday"><span class="type-signature"></span>new Holiday<span class="signature">(date, name, peak, serviceInformation)</span><span class="type-signature"></span></h4>
 
     
 
@@ -75,7 +77,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_ServiceException.js.html">gtfs/ServiceException.js</a>, <a href="gtfs_ServiceException.js.html#line16">line 16</a>
+        <a href="rt_Holiday.js.html">rt/Holiday.js</a>, <a href="rt_Holiday.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -106,13 +108,6 @@
     
 
     
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="https://developers.google.com/transit/gtfs/reference/calendar_dates-file">GTFS Spec</a></li>
-        </ul>
-    </dd>
-    
 
     
 </dl>
@@ -122,7 +117,7 @@
 
 
 <div class="description">
-    <p>Service Exception Constructor</p>
+    <p>Right Track Holiday Constructor</p>
 </div>
 
 
@@ -160,29 +155,6 @@
 
         <tr>
             
-                <td class="name"><code>serviceId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Service ID</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>date</code></td>
             
 
@@ -199,20 +171,20 @@
 
             
 
-            <td class="description last"><p>Service Date (yyyymmdd)</p></td>
+            <td class="description last"><p>Holiday Date (yyyymmdd)</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>excpetionType</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">int</span>
+<span class="param-type">string</span>
 
 
             
@@ -222,7 +194,53 @@
 
             
 
-            <td class="description last"><p>Service Exception Type</p></td>
+            <td class="description last"><p>Holiday Name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>peak</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Holiday Peak Status (true if there are still peak trains)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>serviceInformation</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Holiday Service Information</p></td>
         </tr>
 
     
@@ -258,156 +276,6 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id=".SERVICE_ADDED"><span class="type-signature">(static) </span>SERVICE_ADDED<span class="type-signature"> :number</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_ServiceException.js.html">gtfs/ServiceException.js</a>, <a href="gtfs_ServiceException.js.html#line40">line 40</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Service Exception Type: Service Added</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">number</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".SERVICE_REMOVED"><span class="type-signature">(static) </span>SERVICE_REMOVED<span class="type-signature"> :number</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_ServiceException.js.html">gtfs/ServiceException.js</a>, <a href="gtfs_ServiceException.js.html#line46">line 46</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Service Exception Type: Service Removed</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">number</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-    
 
     
 
@@ -426,7 +294,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Sep 10 2017 16:25:39 GMT-0400 (EDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Sep 10 2017 16:25:38 GMT-0400 (EDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

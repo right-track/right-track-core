@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>gtfs/Service.js - Documentation</title>
+    <title>rt/Holiday.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">gtfs/Service.js</h1>
+    <h1 class="page-title">rt/Holiday.js</h1>
     
 
     
@@ -40,80 +40,40 @@
             <pre class="prettyprint source linenums"><code>'use strict';
 
 /**
- * GTFS Service
- * ------------
- * Representation of a row in the GTFS Calendar table.
+ * RT Holiday
+ * --------
+ * Representation of the data in the rt_holidays table, which holds
+ * information about observed holidays and their service information.
  *
- * GTFS Required Fields:
- * - Service ID
- * - Monday
- * - Tuesday
- * - Wednesday
- * - Thursday
- * - Friday
- * - Saturday
- * - Sunday
- * - Start Date
- * - End Date
+ * Right Track Fields:
+ * - Date
+ * - Name
+ * - Peak
+ * - Service Information
  *
- * GTFS Optional Fields:
- * - Service Exceptions
- *
- * @see {@link https://developers.google.com/transit/gtfs/reference/calendar-file|GTFS Spec}
  * @class
  */
-class Service {
+class Holiday {
 
     /**
-     * Service Constructor
+     * Right Track Holiday Constructor
      * @constructor
-     * @param {string} serviceId Service ID
-     * @param {int} mon Service availability for Monday
-     * @param {int} tue Service availability for Tuesday
-     * @param {int} wed Service availability for Wednesday
-     * @param {int} thu Service availability for Thursday
-     * @param {int} fri Service availability for Friday
-     * @param {int} sat Service availability for Saturday
-     * @param {int} sun Service availability for Sunday
-     * @param {int} startDate Service Start Date (yyyymmdd)
-     * @param {int} endDate Service End Date (yyyymmdd)
-     * @param {ServiceException[]} [exceptions=[]] List of Service Exceptions
+     * @param {int} date Holiday Date (yyyymmdd)
+     * @param {string} name Holiday Name
+     * @param {boolean} peak Holiday Peak Status (true if there are still peak trains)
+     * @param {string} serviceInformation Holiday Service Information
      */
-    constructor(serviceId, mon, tue, wed, thu, fri, sat, sun, startDate, endDate,
-                exceptions=[]) {
-        this.id = serviceId;
-        this.monday = mon;
-        this.tuesday = tue;
-        this.wednesday = wed;
-        this.thursday = thu;
-        this.friday = fri;
-        this.saturday = sat;
-        this.sunday = sun;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.serviceExceptions = exceptions;
+    constructor(date, name, peak, serviceInformation) {
+        this.date = date;
+        this.name = name;
+        this.peak = peak;
+        this.serviceInformation = serviceInformation;
     }
 
 }
 
 
-// ==== SERVICE AVAILABILITY CODES ==== //
-
-/**
- * Service Availability: Available
- * @type {number}
- */
-Service.SERVICE_AVAILABLE = 1;
-
-/**
- * Service Availability: Unavailable
- * @type {number}
- */
-Service.SERVICE_UNAVAILABLE = 0;
-
-
-module.exports = Service;
-</code></pre>
+module.exports = Holiday;</code></pre>
         </article>
     </section>
 
