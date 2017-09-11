@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>DateTime - Documentation</title>
+    <title>RightTrackDB - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">DateTime</h1>
+    <h1 class="page-title">RightTrackDB</h1>
     
 
     
@@ -40,24 +40,11 @@
 <header>
     
         <h2>
-        DateTime
+        RightTrackDB
         </h2>
         
-            <div class="class-description"><h2>Right Track Date Time</h2><p>This class handles the various representations of dates and
-times used by the GTFS Spec and the Right Track Library and
-the various transformations between them.</p>
-<p>Time Formats</p>
-<ul>
-<li><em>string</em> hh:mm aa (1:30 PM) | <strong>Human Readable Time</strong></li>
-<li><em>string</em> HH:mm:ss (13:30:00) | <strong>GTFS Time</strong></li>
-<li><em>string</em> HH:mm (13:30)</li>
-<li><em>string</em> HHmm (1330)</li>
-<li><em>int</em> seconds since midnight (7:00 am = 25200) | <strong>Time Seconds</strong></li>
-</ul>
-<p>Date Formats</p>
-<ul>
-<li><em>int</em> yyyymmdd (20170930) | <strong>Date Integer</strong></li>
-</ul></div>
+            <div class="class-description"><h2>Right Track Database</h2><p>This class is a wrapper for the SQLite functions
+performed on the Right Track Database.</p></div>
         
     
 </header>
@@ -71,7 +58,7 @@ the various transformations between them.</p>
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="DateTime"><span class="type-signature"></span>new DateTime<span class="signature">(time, date<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="RightTrackDB"><span class="type-signature"></span>new RightTrackDB<span class="signature">(id, location)</span><span class="type-signature"></span></h4>
 
     
 
@@ -83,7 +70,7 @@ the various transformations between them.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_DateTime.js.html">utils/DateTime.js</a>, <a href="utils_DateTime.js.html#line22">line 22</a>
+        <a href="db_RightTrackDB.js.html">db/RightTrackDB.js</a>, <a href="db_RightTrackDB.js.html#line14">line 14</a>
     </li></ul></dd>
     
 
@@ -123,7 +110,7 @@ the various transformations between them.</p>
 
 
 <div class="description">
-    <p>Right Track Date Time Constructor</p>
+    <p>Right Track Database Constructor</p>
 </div>
 
 
@@ -149,11 +136,7 @@ the various transformations between them.</p>
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -165,79 +148,46 @@ the various transformations between them.</p>
 
         <tr>
             
-                <td class="name"><code>time</code></td>
+                <td class="name"><code>id</code></td>
             
 
             <td class="type">
             
                 
 <span class="param-type">string</span>
-|
-
-<span class="param-type">int</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last"><p>String or Integer representation of the time.  Can be in one
-of the following formats: 1) HH:mm:ss 2) HH:mm 3) HHmm 4) hh:mm aa or 5) an integer of the
-number of seconds since midnight (ex 7:00 am = 25200)</p></td>
+            <td class="description last"><p>Agency ID</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>date</code></td>
+                <td class="name"><code>location</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">int</span>
+<span class="param-type">string</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                    <code>19700101</code>
-                
-                </td>
-            
 
-            <td class="description last"><p>The date of the DateTime in the format yyyymmdd</p></td>
+            <td class="description last"><p>File path to the Right Track database</p></td>
         </tr>
 
     
@@ -282,7 +232,7 @@ number of seconds since midnight (ex 7:00 am = 25200)</p></td>
 
     
 
-    <h4 class="name" id="getDateInt"><span class="type-signature"></span>getDateInt<span class="signature">()</span><span class="type-signature"> &rarr; {int}</span></h4>
+    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(statement, callback)</span><span class="type-signature"></span></h4>
 
     
 
@@ -294,7 +244,7 @@ number of seconds since midnight (ex 7:00 am = 25200)</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_DateTime.js.html">utils/DateTime.js</a>, <a href="utils_DateTime.js.html#line198">line 198</a>
+        <a href="db_RightTrackDB.js.html">db/RightTrackDB.js</a>, <a href="db_RightTrackDB.js.html#line51">line 51</a>
     </li></ul></dd>
     
 
@@ -334,7 +284,7 @@ number of seconds since midnight (ex 7:00 am = 25200)</p></td>
 
 
 <div class="description">
-    <p>Get the integer representation of the date (yyyymmdd)</p>
+    <p>Select a single row from the database</p>
 </div>
 
 
@@ -347,146 +297,90 @@ number of seconds since midnight (ex 7:00 am = 25200)</p></td>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>date integer (yyyymmdd)</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">int</span>
-
-
-    </dd>
-</dl>
-
+    <h5>Parameters:</h5>
     
 
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
 
         
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>statement</code></td>
             
 
-    
-
-    <h4 class="name" id="getTimeGTFS"><span class="type-signature"></span>getTimeGTFS<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_DateTime.js.html">utils/DateTime.js</a>, <a href="utils_DateTime.js.html#line156">line 156</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Get the GTFS Spec time representation (HH:mm:ss)</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>GTFS Time (HH:mm:ss)</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
+            <td class="type">
+            
+                
 <span class="param-type">string</span>
 
 
-    </dd>
-</dl>
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Select Statement</p></td>
+        </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="RightTrackDB.html#~getCallback">RightTrackDB~getCallback</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Get callback function</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         
@@ -494,7 +388,7 @@ number of seconds since midnight (ex 7:00 am = 25200)</p></td>
 
     
 
-    <h4 class="name" id="getTimeSeconds"><span class="type-signature"></span>getTimeSeconds<span class="signature">()</span><span class="type-signature"> &rarr; {int}</span></h4>
+    <h4 class="name" id="select"><span class="type-signature"></span>select<span class="signature">(statement, callback)</span><span class="type-signature"></span></h4>
 
     
 
@@ -506,7 +400,7 @@ number of seconds since midnight (ex 7:00 am = 25200)</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_DateTime.js.html">utils/DateTime.js</a>, <a href="utils_DateTime.js.html#line179">line 179</a>
+        <a href="db_RightTrackDB.js.html">db/RightTrackDB.js</a>, <a href="db_RightTrackDB.js.html#line33">line 33</a>
     </li></ul></dd>
     
 
@@ -546,7 +440,7 @@ number of seconds since midnight (ex 7:00 am = 25200)</p></td>
 
 
 <div class="description">
-    <p>Get the time in seconds since midnight</p>
+    <p>Select multiple rows from the database</p>
 </div>
 
 
@@ -559,48 +453,104 @@ number of seconds since midnight (ex 7:00 am = 25200)</p></td>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>time integer in seconds</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">int</span>
-
-
-    </dd>
-</dl>
-
+    <h5>Parameters:</h5>
     
 
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
 
         
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>statement</code></td>
             
 
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Select Statement</p></td>
+        </tr>
+
     
 
-    <h4 class="name" id="isDateSet"><span class="type-signature"></span>isDateSet<span class="signature">()</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="RightTrackDB.html#~selectCallback">RightTrackDB~selectCallback</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Select callback function</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+
+    
+
+    <h4 class="name" id="~getCallback"><span class="type-signature"></span>getCallback<span class="signature">(row)</span><span class="type-signature"></span></h4>
 
     
 
@@ -612,7 +562,7 @@ number of seconds since midnight (ex 7:00 am = 25200)</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_DateTime.js.html">utils/DateTime.js</a>, <a href="utils_DateTime.js.html#line190">line 190</a>
+        <a href="db_RightTrackDB.js.html">db/RightTrackDB.js</a>, <a href="db_RightTrackDB.js.html#line76">line 76</a>
     </li></ul></dd>
     
 
@@ -652,7 +602,8 @@ number of seconds since midnight (ex 7:00 am = 25200)</p></td>
 
 
 <div class="description">
-    <p>Check if the date is set</p>
+    <p>This callback is performed after performing a SELECT query
+that will return the first row.</p>
 </div>
 
 
@@ -665,45 +616,204 @@ number of seconds since midnight (ex 7:00 am = 25200)</p></td>
 
 
 
+    <h5>Parameters:</h5>
+    
 
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
 
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
+        <th>Type</th>
 
         
-<div class="param-desc">
-    <p>true if the date is set</p>
-</div>
 
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
         
-<span class="param-type">boolean</span>
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>row</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
 
 
-    </dd>
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>First selected row</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+
+    
+
+    <h4 class="name" id="~selectCallback"><span class="type-signature"></span>selectCallback<span class="signature">(rows)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="db_RightTrackDB.js.html">db/RightTrackDB.js</a>, <a href="db_RightTrackDB.js.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
+
+
+
+
+<div class="description">
+    <p>This callback is performed after performing a SELECT query
+that can return multiple rows.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
 
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
 
         
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
     
 
+        <tr>
+            
+                <td class="name"><code>rows</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Selected rows</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
     
 
     

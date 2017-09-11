@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>gtfs/Agency.js - Documentation</title>
+    <title>query/StopsTable.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">gtfs/Agency.js</h1>
+    <h1 class="page-title">query/StopsTable.js</h1>
     
 
     
@@ -39,45 +39,71 @@
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
 
+const Stop = require("../gtfs/Stop.js");
+
+
 /**
- * GTFS Agency
- * -----------
- * Representation of the GTFS Agency definition.
- *
- * GTFS Required Fields:
- * - Agency Name
- * - Agency URL
- * - Agency Timezone
- *
- * GTFS Optional Fields:
- * - Agency ID
- *
- * @see {@link https://developers.google.com/transit/gtfs/reference/agency-file|GTFS Spec}
- * @class
+ * Get the specified stop from the specified database
+ * @param {RightTrackDB} db The Right Track Database to query
+ * @param {string} id Stop ID
+ * @param {getStopCallback} callback GetStop callback function
  */
-class Agency {
+let getStop = function(db, id, callback) {
 
-    /**
-     * Agency Constructor
-     * @constructor
-     * @param {string} name Agency Name
-     * @param {string} url Agency URL
-     * @param {string} timezone Agency Timezone
-     * @param {string=} id Agency ID
-     */
-    constructor(name, url, timezone,
-                id="-1") {
-        this.name = name;
-        this.url = url;
-        this.timezone = timezone;
-        this.id = id;
-    }
+    // Build Select Statement
+    let select = "SELECT gtfs_stops.stop_id, gtfs_stops.stop_name, gtfs_stops.stop_lat, " +
+        "gtfs_stops.stop_lon, gtfs_stops.stop_url, gtfs_stops.wheelchair_boarding, " +
+        "rt_stops_extra.status_id, rt_stops_extra.display_name, rt_stops_extra.transfer_weight " +
+        "FROM gtfs_stops, rt_stops_extra " +
+        "WHERE gtfs_stops.stop_id=rt_stops_extra.stop_id AND " +
+        "gtfs_stops.stop_id='" + id + "';";
 
-}
+    // Query the database
+    db.get(select, function(result) {
+
+        // Build the Stop
+        if ( result !== undefined ) {
+            let final_name = result.stop_name;
+            if ( result.display_name !== undefined &amp;&amp; result.display_name !== "" ) {
+                final_name = result.display_name;
+            }
+
+            let stop = new Stop(
+                result.stop_id,
+                final_name,
+                result.stop_lat,
+                result.stop_lon,
+                result.stop_url,
+                result.wheelchair_boarding,
+                result.status_id,
+                result.transfer_weight
+            );
+
+            callback(stop);
+        }
+
+    });
+
+};
 
 
-module.exports = Agency;
-</code></pre>
+
+// ==== CALLBACK DEFINITIONS ==== //
+
+/**
+ * This callback is performed after a single Stop has been
+ * selected from the database.
+ * @callback getStopCallback
+ * @param {Stop} stop The selected Stop
+ */
+
+
+
+
+
+module.exports = {
+    getStop: getStop
+};</code></pre>
         </article>
     </section>
 

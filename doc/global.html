@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Link - Documentation</title>
+    <title>Global - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Link</h1>
+    <h1 class="page-title">Global</h1>
     
 
     
@@ -40,18 +40,8 @@
 <header>
     
         <h2>
-        Link
-        </h2>
         
-            <div class="class-description"><h2>RT Link</h2><p>Representation of the data in the rt_links table.  These links are
-for additional resources and information regarding the service agency.</p>
-<p>Right Track Fields:</p>
-<ul>
-<li>Category</li>
-<li>Title</li>
-<li>Description</li>
-<li>Url</li>
-</ul></div>
+        </h2>
         
     
 </header>
@@ -61,11 +51,71 @@ for additional resources and information regarding the service agency.</p>
     
         
 
-    
-    <h2>Constructor</h2>
+<dl class="details">
+
     
 
-    <h4 class="name" id="Link"><span class="type-signature"></span>new Link<span class="signature">(category, title, description, url)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+        
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="getStop"><span class="type-signature"></span>getStop<span class="signature">(db, id, callback)</span><span class="type-signature"></span></h4>
 
     
 
@@ -77,7 +127,7 @@ for additional resources and information regarding the service agency.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Link.js.html">rt/Link.js</a>, <a href="rt_Link.js.html#line17">line 17</a>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -117,7 +167,7 @@ for additional resources and information regarding the service agency.</p>
 
 
 <div class="description">
-    <p>Right Track Link Constructor</p>
+    <p>Get the specified stop from the specified database</p>
 </div>
 
 
@@ -155,13 +205,13 @@ for additional resources and information regarding the service agency.</p>
 
         <tr>
             
-                <td class="name"><code>category</code></td>
+                <td class="name"><code>db</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span>
 
 
             
@@ -171,14 +221,14 @@ for additional resources and information regarding the service agency.</p>
 
             
 
-            <td class="description last"><p>Link Category</p></td>
+            <td class="description last"><p>The Right Track Database to query</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>title</code></td>
+                <td class="name"><code>id</code></td>
             
 
             <td class="type">
@@ -194,20 +244,20 @@ for additional resources and information regarding the service agency.</p>
 
             
 
-            <td class="description last"><p>Link Title</p></td>
+            <td class="description last"><p>Stop ID</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>description</code></td>
+                <td class="name"><code>callback</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><a href="global.html#getStopCallback">getStopCallback</a></span>
 
 
             
@@ -217,30 +267,7 @@ for additional resources and information regarding the service agency.</p>
 
             
 
-            <td class="description last"><p>Link Description</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>url</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Link URL</p></td>
+            <td class="description last"><p>GetStop callback function</p></td>
         </tr>
 
     
@@ -262,16 +289,36 @@ for additional resources and information regarding the service agency.</p>
 
 
 
-    
-    </div>
-
+        
     
 
     
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
 
     
 
-     
+    <h4 class="name" id="getStopCallback"><span class="type-signature"></span>getStopCallback<span class="signature">(stop)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+
+    
+
+    
 
     
 
@@ -279,6 +326,110 @@ for additional resources and information regarding the service agency.</p>
 
     
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>This callback is performed after a single Stop has been
+selected from the database.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>stop</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Stop.html">Stop</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The selected Stop</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
     
 
     
