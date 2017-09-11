@@ -1,3 +1,12 @@
+'use strict';
+
+
+// ==== GET RIGHT TRACK CORE CLASSES ==== //
+
+const RightTrackDB = require("./db/RightTrackDB.js");
+
+const StopsTable = require("./query/StopsTable.js");
+
 const Agency = require("./gtfs/Agency.js");
 const Route = require("./gtfs/Route.js");
 const Service = require("./gtfs/Service.js");
@@ -7,10 +16,22 @@ const StopTime = require("./gtfs/StopTime.js");
 const Trip = require("./gtfs/Trip.js");
 
 const About = require("./rt/About.js");
+const Holiday = require("./rt/Holiday.js");
+const Link = require("./rt/Link.js");
 
 const DateTime = require("./utils/DateTime");
 
+
+
+// ==== DEFINE MODULE EXPORT ==== //
+
 module.exports = {
+    db: {
+        RightTrackDB: RightTrackDB
+    },
+    query: {
+        stops: StopsTable
+    },
     gtfs: {
         Agency: Agency,
         Route: Route,
@@ -21,9 +42,11 @@ module.exports = {
         Trip: Trip
     },
     rt: {
-        About: About
+        About: About,
+        Holiday: Holiday,
+        Link: Link
     },
     utils: {
         DateTime: DateTime
     }
-}
+};

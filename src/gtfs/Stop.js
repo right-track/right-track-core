@@ -33,19 +33,19 @@ class Stop {
      * @param {number} lon Stop Longitude
      * @param {string=} url Stop URL
      * @param {int=} wheelchairBoarding Stop Wheelchair Boarding
-     * @param {string=} rtStatusId Right Track Stop Status ID
-     * @param {int=} rtTransferWeight Right Track Stop Transfer Weight
+     * @param {string=} statusId Right Track Stop Status ID
+     * @param {int=} transferWeight Right Track Stop Transfer Weight
      */
     constructor(id, name, lat, lon,
-                url=undefined, wheelchairBoarding=Stop.WHEELCHAIR_BOARDING_UNKNOWN, rtStatusId="-1", rtTransferWeight=1) {
+                url="", wheelchairBoarding=Stop.WHEELCHAIR_BOARDING_UNKNOWN, statusId="-1", transferWeight=1) {
         this.id = id;
         this.name = name;
         this.lat = lat;
         this.lon = lon;
         this.url = url;
         this.wheelchairBoarding = wheelchairBoarding;
-        this.rtStatusId = rtStatusId;
-        this.rtTransferWeight = rtTransferWeight;
+        this.statusID = statusId;
+        this.transferWeight = transferWeight;
     }
 
 
@@ -120,10 +120,10 @@ Stop.sortByName = function(a, b) {
  * @returns {number} compare integer
  */
 Stop.sortByTransferWeight = function(a, b) {
-    if ( a.rtTransferWeight > b.rtTransferWeight ) {
+    if ( a.transferWeight > b.transferWeight ) {
         return -1;
     }
-    else if ( a.rtTransferWeight < b.rtTransferWeight ) {
+    else if ( a.transferWeight < b.transferWeight ) {
         return 1;
     }
     else {

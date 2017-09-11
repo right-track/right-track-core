@@ -2,17 +2,19 @@
   "name": "right-track-core",
   "version": "0.0.1",
   "description": "Right Track Core Library",
-  "main": "src/index.js",
   "author": "David Waring <dev@davidwaring.net>",
   "license": "MIT",
   "private": true,
+  "main": "src/index.js",
   "scripts": {
     "debug": "node debug.js",
-    "docs": "node node_modules/.bin/jsdoc -c jsdoc.json --readme README.md"
+    "docs": "node node_modules/jsdoc/jsdoc.js -c jsdoc.json --readme README.md"
   },
-  "dependencies": {},
+  "dependencies": {
+    "sqlite3": "^3.1.10"
+  },
   "devDependencies": {
-    "docdash": "^0.4.0",
-    "jsdoc": "^3.5.4"
+    "jsdoc": "^3.5.4",
+    "docdash": "^0.4.0"
   }
 }
