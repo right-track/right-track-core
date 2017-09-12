@@ -17,6 +17,8 @@
  * Date Formats
  * - _int_ yyyymmdd (20170930) | **Date Integer**
  *
+ * **package:** core.utils.DateTime
+ *
  * @class
  */
 class DateTime {

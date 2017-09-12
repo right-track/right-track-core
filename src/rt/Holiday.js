@@ -12,6 +12,8 @@
  * - Peak
  * - Service Information
  *
+ * **package:** core.rt.Holiday
+ *
  * @class
  */
 class Holiday {

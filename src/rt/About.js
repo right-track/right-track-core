@@ -14,6 +14,8 @@
  * - Version
  * - Version Notes
  *
+ * **package:** core.rt.About
+ *
  * @class
  */
 class About {

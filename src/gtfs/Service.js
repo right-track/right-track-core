@@ -20,6 +20,8 @@
  * GTFS Optional Fields:
  * - Service Exceptions
  *
+ * **package:** core.gtfs.Service
+ *
  * @see {@link https://developers.google.com/transit/gtfs/reference/calendar-file|GTFS Spec}
  * @class
  */

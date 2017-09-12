@@ -13,6 +13,8 @@
  * GTFS Optional Fields:
  * - Agency ID
  *
+ * **package:** core.gtfs.Agency
+ *
  * @see {@link https://developers.google.com/transit/gtfs/reference/agency-file|GTFS Spec}
  * @class
  */

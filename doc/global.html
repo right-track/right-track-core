@@ -22,7 +22,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Agency.html">Agency</a></li><li><a href="DateTime.html">DateTime</a><ul class='methods'><li data-type='method'><a href="DateTime.html#getDateInt">getDateInt</a></li><li data-type='method'><a href="DateTime.html#getTimeGTFS">getTimeGTFS</a></li><li data-type='method'><a href="DateTime.html#getTimeSeconds">getTimeSeconds</a></li><li data-type='method'><a href="DateTime.html#isDateSet">isDateSet</a></li></ul></li><li><a href="Holiday.html">Holiday</a></li><li><a href="Link.html">Link</a></li><li><a href="RightTrackDB.html">RightTrackDB</a><ul class='methods'><li data-type='method'><a href="RightTrackDB.html#get">get</a></li><li data-type='method'><a href="RightTrackDB.html#select">select</a></li></ul></li><li><a href="Route.html">Route</a></li><li><a href="Service.html">Service</a></li><li><a href="ServiceException.html">ServiceException</a></li><li><a href="Stop.html">Stop</a><ul class='methods'><li data-type='method'><a href="Stop.html#.sortById">sortById</a></li><li data-type='method'><a href="Stop.html#.sortByName">sortByName</a></li><li data-type='method'><a href="Stop.html#.sortByTransferWeight">sortByTransferWeight</a></li></ul></li><li><a href="StopTime.html">StopTime</a><ul class='methods'><li data-type='method'><a href="StopTime.html#.sortByStopSequence">sortByStopSequence</a></li><li data-type='method'><a href="StopTime.html#.sortByStopTransferWeight">sortByStopTransferWeight</a></li></ul></li><li><a href="Trip.html">Trip</a><ul class='methods'><li data-type='method'><a href="Trip.html#getStopTime">getStopTime</a></li><li data-type='method'><a href="Trip.html#hasStopTime">hasStopTime</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#getStop">getStop</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Agency.html">Agency</a></li><li><a href="DateTime.html">DateTime</a><ul class='methods'><li data-type='method'><a href="DateTime.html#getDateInt">getDateInt</a></li><li data-type='method'><a href="DateTime.html#getTimeGTFS">getTimeGTFS</a></li><li data-type='method'><a href="DateTime.html#getTimeSeconds">getTimeSeconds</a></li><li data-type='method'><a href="DateTime.html#isDateSet">isDateSet</a></li></ul></li><li><a href="Holiday.html">Holiday</a></li><li><a href="Link.html">Link</a></li><li><a href="Route.html">Route</a></li><li><a href="Service.html">Service</a></li><li><a href="ServiceException.html">ServiceException</a></li><li><a href="Stop.html">Stop</a><ul class='methods'><li data-type='method'><a href="Stop.html#.sortById">sortById</a></li><li data-type='method'><a href="Stop.html#.sortByName">sortByName</a></li><li data-type='method'><a href="Stop.html#.sortByTransferWeight">sortByTransferWeight</a></li></ul></li><li><a href="StopTime.html">StopTime</a><ul class='methods'><li data-type='method'><a href="StopTime.html#.sortByStopSequence">sortByStopSequence</a></li><li data-type='method'><a href="StopTime.html#.sortByStopTransferWeight">sortByStopTransferWeight</a></li></ul></li><li><a href="Trip.html">Trip</a><ul class='methods'><li data-type='method'><a href="Trip.html#getStopTime">getStopTime</a></li><li data-type='method'><a href="Trip.html#hasStopTime">hasStopTime</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#getStop">getStop</a></li><li><a href="global.html#getStopByName">getStopByName</a></li><li><a href="global.html#getStopByStatusId">getStopByStatusId</a></li><li><a href="global.html#getStops">getStops</a></li><li><a href="global.html#getStopsWithStatus">getStopsWithStatus</a></li></ul>
 </nav>
 
 <div id="main">
@@ -127,7 +127,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line12">line 12</a>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line22">line 22</a>
     </li></ul></dd>
     
 
@@ -167,7 +167,8 @@
 
 
 <div class="description">
-    <p>Get the specified stop from the specified database</p>
+    <p>Get the Stop specified by ID from the passed database</p>
+<p><strong>package:</strong> core.query.stops.getStop()</p>
 </div>
 
 
@@ -211,7 +212,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span>
+<span class="param-type">RightTrackDB</span>
 
 
             
@@ -221,7 +222,7 @@
 
             
 
-            <td class="description last"><p>The Right Track Database to query</p></td>
+            <td class="description last"><p>The Right Track Database Interface to query</p></td>
         </tr>
 
     
@@ -267,7 +268,682 @@
 
             
 
-            <td class="description last"><p>GetStop callback function</p></td>
+            <td class="description last"><p>getStop callback function</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getStopByName"><span class="type-signature"></span>getStopByName<span class="signature">(db, name, callback)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line87">line 87</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Get the Stop specified by name from the passed database</p>
+<p><strong>package:</strong> core.query.stops.getStopByName()</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>db</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RightTrackDB</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The Right Track Database Interface to query</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Stop Name (found in either gtfs_stops, rt_alt_stop_names or rt_stops_extra tables)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#getStopCallback">getStopCallback</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>getStop callback function</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getStopByStatusId"><span class="type-signature"></span>getStopByStatusId<span class="signature">(db, statusId, callback)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line155">line 155</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Get the Stop specified by status id from the passed database</p>
+<p><strong>package:</strong> core.query.stops.getStopByStatusId()</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>db</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RightTrackDB</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The Right Track Database Interface to query</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>statusId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the status id of the Stop</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#getStopCallback">getStopCallback</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>getStop callback function</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getStops"><span class="type-signature"></span>getStops<span class="signature">(db, callback)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line231">line 231</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Get all of the Stops that are stored in the passed database.</p>
+<p><strong>package:</strong> core.query.stops.getStops()</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>db</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RightTrackDB</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The Right Track Database Interface to query</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#getStopsCallback">getStopsCallback</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>getStops callback function</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getStopsWithStatus"><span class="type-signature"></span>getStopsWithStatus<span class="signature">(db, callback)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line303">line 303</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Get all of the Stops with a valid (!= -1) Status ID that are stored
+in the passed database.</p>
+<p><strong>package:</strong> core.query.stops.getStopsWithStatus()</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>db</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RightTrackDB</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The Right Track Database Interface to query</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#getStopsCallback">getStopsCallback</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>getStops callback function</p></td>
         </tr>
 
     
@@ -312,7 +988,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line54">line 54</a>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line6">line 6</a>
     </li></ul></dd>
     
 
@@ -430,6 +1106,140 @@ selected from the database.</p>
 
 
             
+                
+
+    
+
+    <h4 class="name" id="getStopsCallback"><span class="type-signature"></span>getStopsCallback<span class="signature">(stops)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line216">line 216</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>This callback is performed after multiple Stops have been
+selected from the database.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>stops</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Stop.html">Stop</a>></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>An array of the selected Stops</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
     
 
     
@@ -445,7 +1255,7 @@ selected from the database.</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Mon Sep 11 2017 11:13:43 GMT-0400 (EDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Tue Sep 12 2017 19:26:07 GMT-0400 (EDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -22,6 +22,8 @@ const StopTime = require("./StopTime.js");
  * - Trip Direction Description
  * - Trip Peak Indicator
  *
+ * **package:** core.gtfs.Trip
+ *
  * @see {@link https://developers.google.com/transit/gtfs/reference/trips-file|GTFS Spec}
  * @class
  */

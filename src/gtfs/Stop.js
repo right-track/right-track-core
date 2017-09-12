@@ -19,6 +19,8 @@
  * - RT Status ID
  * - RT Transfer Weight
  *
+ * **package:** core.gtfs.Stop
+ *
  * @see {@link https://developers.google.com/transit/gtfs/reference/stops-file|GTFS Spec}
  * @class
  */

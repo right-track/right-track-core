@@ -12,6 +12,8 @@
  * - Description
  * - Url
  *
+ * **package:** core.rt.Link
+ *
  * @class
  */
 class Link {

@@ -10,6 +10,8 @@
  * - Date
  * - Exception Type
  *
+ * **package:** core.gtfs.ServiceException
+ *
  * @see {@link https://developers.google.com/transit/gtfs/reference/calendar_dates-file|GTFS Spec}
  * @class
  */
