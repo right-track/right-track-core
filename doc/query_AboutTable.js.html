@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>query/AboutTable.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,37 +27,76 @@
 
 <div id="main">
     
+    <h1 class="page-title">query/AboutTable.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+const About = require("../rt/About");
 
 
+/**
+ * This callback is performed after the database metadata
+ * from the rt_about table has been queried from the database.
+ * @callback getAboutCallback
+ * @param {About} about The database About information
+ */
+
+/**
+ * Get the data stored in the rt_about table from the
+ * passed database.
+ *
+ * **package:** core.query.about.getAbout()
+ *
+ * @param {RightTrackDB} db The Right Track Database to query
+ * @param {getAboutCallback} callback getAbout callback function
+ */
+let getAbout = function(db, callback) {
+
+    // Build select statement
+    let select = "SELECT compile_date, gtfs_publish_date, start_date, " +
+        "end_date, version, notes FROM rt_about";
+
+    // Query the database
+    db.get(select, function(result) {
+
+        // Build the About object
+        if ( result !== undefined ) {
+
+            let about = new About(
+                result.compile_date,
+                result.gtfs_publish_date,
+                result.start_date,
+                result.end_date,
+                result.version,
+                result.notes
+            );
+
+            // return About with callback
+            if ( callback !== undefined ) {
+                callback(about);
+            }
+
+        }
+
+    });
+
+};
 
 
-
-
-
-
-
-    
-
-
-    <section class="readme">
-        <article><h1>Right Track Core Library</h1><p>This module contains the core data classes and functionality 
-of the Right Track Library.  This module is required for 
-the use of the Right Track API Server and the Right 
-Track Android apps.</p>
-<h3>Features and Functionality</h3><p>This project is still in the very early stages of 
-development and does not have any fully supported 
-features or functionality.  Things working now 
-may still be changed and could break in the future.</p>
-<p>Stay tuned for the first release.</p></article>
+// Export Functions
+module.exports = {
+    getAbout: getAbout
+};</code></pre>
+        </article>
     </section>
-
-
 
 
 

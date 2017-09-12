@@ -15,7 +15,7 @@ const Stop = require("../gtfs/Stop.js");
  *
  * **package:** core.query.stops.getStop()
  *
- * @param {RightTrackDB} db The Right Track Database Interface to query
+ * @param {RightTrackDB} db The Right Track Database to query
  * @param {string} id Stop ID
  * @param {getStopCallback} callback getStop callback function
  */
@@ -80,7 +80,7 @@ let getStop = function(db, id, callback) {
  *
  * **package:** core.query.stops.getStopByName()
  *
- * @param {RightTrackDB} db The Right Track Database Interface to query
+ * @param {RightTrackDB} db The Right Track Database to query
  * @param {string} name Stop Name (found in either gtfs_stops, rt_alt_stop_names or rt_stops_extra tables)
  * @param {getStopCallback} callback getStop callback function
  */
@@ -148,7 +148,7 @@ let getStopByName = function(db, name, callback) {
  *
  * **package:** core.query.stops.getStopByStatusId()
  *
- * @param {RightTrackDB} db The Right Track Database Interface to query
+ * @param {RightTrackDB} db The Right Track Database to query
  * @param {string} statusId the status id of the Stop
  * @param {getStopCallback} callback getStop callback function
  */
@@ -225,7 +225,7 @@ let getStopByStatusId = function(db, statusId, callback) {
  *
  * **package:** core.query.stops.getStops()
  *
- * @param {RightTrackDB} db The Right Track Database Interface to query
+ * @param {RightTrackDB} db The Right Track Database to query
  * @param {getStopsCallback} callback getStops callback function
  */
 let getStops = function(db, callback) {
@@ -297,7 +297,7 @@ let getStops = function(db, callback) {
  *
  * **package:** core.query.stops.getStopsWithStatus()
  *
- * @param {RightTrackDB} db The Right Track Database Interface to query
+ * @param {RightTrackDB} db The Right Track Database to query
  * @param {getStopsCallback} callback getStops callback function
  */
 let getStopsWithStatus = function(db, callback) {
@@ -364,6 +364,7 @@ let getStopsWithStatus = function(db, callback) {
 };
 
 
+// Export Functions
 module.exports = {
     getStop: getStop,
     getStopByName: getStopByName,

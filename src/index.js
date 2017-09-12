@@ -3,6 +3,7 @@
 
 // ==== GET RIGHT TRACK CORE CLASSES ==== //
 
+const AboutTable = require("./query/AboutTable");
 const StopsTable = require("./query/StopsTable.js");
 
 const Agency = require("./gtfs/Agency.js");
@@ -25,6 +26,7 @@ const DateTime = require("./utils/DateTime");
 
 module.exports = {
     query: {
+        about: AboutTable,
         stops: StopsTable
     },
     gtfs: {

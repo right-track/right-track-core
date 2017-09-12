@@ -22,7 +22,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Agency.html">Agency</a></li><li><a href="DateTime.html">DateTime</a><ul class='methods'><li data-type='method'><a href="DateTime.html#getDateInt">getDateInt</a></li><li data-type='method'><a href="DateTime.html#getTimeGTFS">getTimeGTFS</a></li><li data-type='method'><a href="DateTime.html#getTimeSeconds">getTimeSeconds</a></li><li data-type='method'><a href="DateTime.html#isDateSet">isDateSet</a></li></ul></li><li><a href="Holiday.html">Holiday</a></li><li><a href="Link.html">Link</a></li><li><a href="Route.html">Route</a></li><li><a href="Service.html">Service</a></li><li><a href="ServiceException.html">ServiceException</a></li><li><a href="Stop.html">Stop</a><ul class='methods'><li data-type='method'><a href="Stop.html#.sortById">sortById</a></li><li data-type='method'><a href="Stop.html#.sortByName">sortByName</a></li><li data-type='method'><a href="Stop.html#.sortByTransferWeight">sortByTransferWeight</a></li></ul></li><li><a href="StopTime.html">StopTime</a><ul class='methods'><li data-type='method'><a href="StopTime.html#.sortByStopSequence">sortByStopSequence</a></li><li data-type='method'><a href="StopTime.html#.sortByStopTransferWeight">sortByStopTransferWeight</a></li></ul></li><li><a href="Trip.html">Trip</a><ul class='methods'><li data-type='method'><a href="Trip.html#getStopTime">getStopTime</a></li><li data-type='method'><a href="Trip.html#hasStopTime">hasStopTime</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#getStop">getStop</a></li><li><a href="global.html#getStopByName">getStopByName</a></li><li><a href="global.html#getStopByStatusId">getStopByStatusId</a></li><li><a href="global.html#getStops">getStops</a></li><li><a href="global.html#getStopsWithStatus">getStopsWithStatus</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Agency.html">Agency</a></li><li><a href="DateTime.html">DateTime</a><ul class='methods'><li data-type='method'><a href="DateTime.html#getDateInt">getDateInt</a></li><li data-type='method'><a href="DateTime.html#getTimeGTFS">getTimeGTFS</a></li><li data-type='method'><a href="DateTime.html#getTimeSeconds">getTimeSeconds</a></li><li data-type='method'><a href="DateTime.html#isDateSet">isDateSet</a></li></ul></li><li><a href="Holiday.html">Holiday</a></li><li><a href="Link.html">Link</a></li><li><a href="Route.html">Route</a></li><li><a href="Service.html">Service</a></li><li><a href="ServiceException.html">ServiceException</a></li><li><a href="Stop.html">Stop</a><ul class='methods'><li data-type='method'><a href="Stop.html#.sortById">sortById</a></li><li data-type='method'><a href="Stop.html#.sortByName">sortByName</a></li><li data-type='method'><a href="Stop.html#.sortByTransferWeight">sortByTransferWeight</a></li></ul></li><li><a href="StopTime.html">StopTime</a><ul class='methods'><li data-type='method'><a href="StopTime.html#.sortByStopSequence">sortByStopSequence</a></li><li data-type='method'><a href="StopTime.html#.sortByStopTransferWeight">sortByStopTransferWeight</a></li></ul></li><li><a href="Trip.html">Trip</a><ul class='methods'><li data-type='method'><a href="Trip.html#getStopTime">getStopTime</a></li><li data-type='method'><a href="Trip.html#hasStopTime">hasStopTime</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#getAbout">getAbout</a></li><li><a href="global.html#getStop">getStop</a></li><li><a href="global.html#getStopByName">getStopByName</a></li><li><a href="global.html#getStopByStatusId">getStopByStatusId</a></li><li><a href="global.html#getStops">getStops</a></li><li><a href="global.html#getStopsWithStatus">getStopsWithStatus</a></li></ul>
 </nav>
 
 <div id="main">
@@ -109,6 +109,164 @@
 
     
         <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="getAbout"><span class="type-signature"></span>getAbout<span class="signature">(db, callback)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="query_AboutTable.js.html">query/AboutTable.js</a>, <a href="query_AboutTable.js.html#line22">line 22</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Get the data stored in the rt_about table from the
+passed database.</p>
+<p><strong>package:</strong> core.query.about.getAbout()</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>db</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RightTrackDB</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The Right Track Database to query</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#getAboutCallback">getAboutCallback</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>getAbout callback function</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
             
@@ -222,7 +380,7 @@
 
             
 
-            <td class="description last"><p>The Right Track Database Interface to query</p></td>
+            <td class="description last"><p>The Right Track Database to query</p></td>
         </tr>
 
     
@@ -402,7 +560,7 @@
 
             
 
-            <td class="description last"><p>The Right Track Database Interface to query</p></td>
+            <td class="description last"><p>The Right Track Database to query</p></td>
         </tr>
 
     
@@ -582,7 +740,7 @@
 
             
 
-            <td class="description last"><p>The Right Track Database Interface to query</p></td>
+            <td class="description last"><p>The Right Track Database to query</p></td>
         </tr>
 
     
@@ -762,7 +920,7 @@
 
             
 
-            <td class="description last"><p>The Right Track Database Interface to query</p></td>
+            <td class="description last"><p>The Right Track Database to query</p></td>
         </tr>
 
     
@@ -920,7 +1078,7 @@ in the passed database.</p>
 
             
 
-            <td class="description last"><p>The Right Track Database Interface to query</p></td>
+            <td class="description last"><p>The Right Track Database to query</p></td>
         </tr>
 
     
@@ -972,6 +1130,140 @@ in the passed database.</p>
         <h3 class="subsection-title">Type Definitions</h3>
 
         
+                
+
+    
+
+    <h4 class="name" id="getAboutCallback"><span class="type-signature"></span>getAboutCallback<span class="signature">(about)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="query_AboutTable.js.html">query/AboutTable.js</a>, <a href="query_AboutTable.js.html#line6">line 6</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>This callback is performed after the database metadata
+from the rt_about table has been queried from the database.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>about</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="About.html">About</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The database About information</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
                 
 
     
@@ -1255,7 +1547,7 @@ selected from the database.</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Tue Sep 12 2017 19:26:07 GMT-0400 (EDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Tue Sep 12 2017 19:43:03 GMT-0400 (EDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
