@@ -3,8 +3,6 @@
 
 // ==== GET RIGHT TRACK CORE CLASSES ==== //
 
-const RightTrackDB = require("./db/RightTrackDB.js");
-
 const StopsTable = require("./query/StopsTable.js");
 
 const Agency = require("./gtfs/Agency.js");
@@ -26,9 +24,6 @@ const DateTime = require("./utils/DateTime");
 // ==== DEFINE MODULE EXPORT ==== //
 
 module.exports = {
-    db: {
-        RightTrackDB: RightTrackDB
-    },
     query: {
         stops: StopsTable
     },
