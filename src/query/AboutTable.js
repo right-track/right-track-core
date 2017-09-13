@@ -1,6 +1,6 @@
 'use strict';
 
-const About = require("../rt/About");
+const About = require("../rt/About.js");
 
 
 // ==== CALLBACK FUNCTIONS ==== //
