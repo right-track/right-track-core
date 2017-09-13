@@ -5,6 +5,7 @@
 
 const AboutTable = require("./query/AboutTable.js");
 const CalendarTable = require("./query/CalendarTable.js");
+const HolidayTable = require("./query/HolidayTable.js");
 const StopsTable = require("./query/StopsTable.js");
 
 const Agency = require("./gtfs/Agency.js");
@@ -29,6 +30,7 @@ module.exports = {
     query: {
         about: AboutTable,
         calendar: CalendarTable,
+        holidays: HolidayTable,
         stops: StopsTable
     },
     gtfs: {
