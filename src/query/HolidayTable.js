@@ -32,6 +32,9 @@ const Holiday = require("../rt/Holiday.js");
 /**
  * Get a list of Holidays that are stored in the specified
  * database.
+ *
+ * **package:** core.query.holidays.getHolidays()
+ *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {getHolidaysCallback} callback getHolidays callback function
  */
@@ -82,6 +85,9 @@ let getHolidays = function(db, callback) {
 /**
  * Get the Holiday for the specified date or 'undefined' if
  * there is no holiday on the date
+ *
+ * **package:** core.query.holidays.getHoliday()
+ *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {int} date the date (yyyymmdd)
  * @param {getHolidayCallback} callback getHoliday callback function
@@ -128,6 +134,9 @@ let getHoliday = function(db, date, callback) {
 
 /**
  * Check if the specified date is a Holiday
+ *
+ * **package:** core.query.holidays.isHoliday()
+ *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {int} date The date to check (yyyymmdd)
  * @param {isHolidayCallback} callback isHoliday callback function

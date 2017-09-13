@@ -1,4 +1,43 @@
-'use strict';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>query/CalendarTable.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Agency.html">Agency</a></li><li><a href="DateTime.html">DateTime</a><ul class='methods'><li data-type='method'><a href="DateTime.html#.create">create</a></li><li data-type='method'><a href="DateTime.html#.createFromDate">createFromDate</a></li><li data-type='method'><a href="DateTime.html#.createFromTime">createFromTime</a></li><li data-type='method'><a href="DateTime.html#getDateDOW">getDateDOW</a></li><li data-type='method'><a href="DateTime.html#getDateInt">getDateInt</a></li><li data-type='method'><a href="DateTime.html#getTimeGTFS">getTimeGTFS</a></li><li data-type='method'><a href="DateTime.html#getTimeSeconds">getTimeSeconds</a></li><li data-type='method'><a href="DateTime.html#isDateSet">isDateSet</a></li></ul></li><li><a href="Holiday.html">Holiday</a></li><li><a href="Link.html">Link</a></li><li><a href="Route.html">Route</a></li><li><a href="Service.html">Service</a></li><li><a href="ServiceException.html">ServiceException</a></li><li><a href="Stop.html">Stop</a><ul class='methods'><li data-type='method'><a href="Stop.html#.sortById">sortById</a></li><li data-type='method'><a href="Stop.html#.sortByName">sortByName</a></li><li data-type='method'><a href="Stop.html#.sortByTransferWeight">sortByTransferWeight</a></li></ul></li><li><a href="StopTime.html">StopTime</a><ul class='methods'><li data-type='method'><a href="StopTime.html#.sortByStopSequence">sortByStopSequence</a></li><li data-type='method'><a href="StopTime.html#.sortByStopTransferWeight">sortByStopTransferWeight</a></li></ul></li><li><a href="Trip.html">Trip</a><ul class='methods'><li data-type='method'><a href="Trip.html#getStopTime">getStopTime</a></li><li data-type='method'><a href="Trip.html#hasStopTime">hasStopTime</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#getAbout">getAbout</a></li><li><a href="global.html#getHoliday">getHoliday</a></li><li><a href="global.html#getHolidays">getHolidays</a></li><li><a href="global.html#getService">getService</a></li><li><a href="global.html#getServiceExceptions">getServiceExceptions</a></li><li><a href="global.html#getServicesDefault">getServicesDefault</a></li><li><a href="global.html#getServicesEffective">getServicesEffective</a></li><li><a href="global.html#getStop">getStop</a></li><li><a href="global.html#getStopByName">getStopByName</a></li><li><a href="global.html#getStopByStatusId">getStopByStatusId</a></li><li><a href="global.html#getStops">getStops</a></li><li><a href="global.html#getStopsWithStatus">getStopsWithStatus</a></li><li><a href="global.html#isHoliday">isHoliday</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">query/CalendarTable.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
 
 const Service = require("../gtfs/Service.js");
 const ServiceException = require("../gtfs/ServiceException.js");
@@ -52,11 +91,11 @@ let getService = function(db, id, callback) {
         let rtn = [];
 
         // Parse each passed service id
-        for ( let i = 0; i < id.length; i++ ) {
+        for ( let i = 0; i &lt; id.length; i++ ) {
             let serviceId = id[i];
             getService(db, serviceId, function(service) {
                 rtn.push(service);
-                if ( i === id.length-1 && callback !== undefined ) {
+                if ( i === id.length-1 &amp;&amp; callback !== undefined ) {
                     callback(rtn);
                 }
             });
@@ -83,7 +122,7 @@ let getService = function(db, id, callback) {
             if ( results !== undefined ) {
 
                 // Parse each returned row
-                for ( let i = 0; i < results.length; i++ ) {
+                for ( let i = 0; i &lt; results.length; i++ ) {
                     let row = results[i];
 
                     let se = new ServiceException(
@@ -172,7 +211,7 @@ let getServicesEffective = function(db, date, callback) {
             let serviceIdsToAdd = [];
 
             // Parse the exceptions
-            for ( let i = 0; i < serviceExceptions.length; i++ ) {
+            for ( let i = 0; i &lt; serviceExceptions.length; i++ ) {
                 let serviceException = serviceExceptions[i];
 
                 // Exception Type: Added
@@ -180,7 +219,7 @@ let getServicesEffective = function(db, date, callback) {
 
                     // Make sure service isn't already in list
                     let found = false;
-                    for ( let j = 0; j < defaultServices.length; j++ ) {
+                    for ( let j = 0; j &lt; defaultServices.length; j++ ) {
                         if ( defaultServices[j].id === serviceException.serviceId ) {
                             found = true;
                         }
@@ -198,7 +237,7 @@ let getServicesEffective = function(db, date, callback) {
 
                     // Find matching default service
                     let removeIndex = -1;
-                    for ( let j = 0; j < defaultServices.length; j++ ) {
+                    for ( let j = 0; j &lt; defaultServices.length; j++ ) {
                         if ( defaultServices[j].id === serviceException.serviceId ) {
                             removeIndex = j;
                         }
@@ -217,7 +256,7 @@ let getServicesEffective = function(db, date, callback) {
             // Add services, if we need to
             if ( serviceIdsToAdd.length > 0 ) {
                 getService(db, serviceIdsToAdd, function (services) {
-                    for (let i = 0; i < services.length; i++) {
+                    for (let i = 0; i &lt; services.length; i++) {
                         let service = services[i];
                         defaultServices.push(service);
                     }
@@ -258,7 +297,7 @@ let getServicesDefault = function(db, date, callback) {
     // Get default services
     let select = "SELECT service_id, monday, tuesday, wednesday, thursday, friday, saturday, sunday, " +
         "start_date, end_date FROM gtfs_calendar WHERE " + dow + "=" + Service.SERVICE_AVAILABLE + " " +
-        "AND start_date<=" + date + " AND end_date>=" + date + ";";
+        "AND start_date&lt;=" + date + " AND end_date>=" + date + ";";
 
     // Query the database
     db.select(select, function(results) {
@@ -267,7 +306,7 @@ let getServicesDefault = function(db, date, callback) {
         if ( results !== undefined ) {
 
             // Parse each row in the results...
-            for ( let i = 0; i < results.length; i++ ) {
+            for ( let i = 0; i &lt; results.length; i++ ) {
                 let row = results[i];
 
                 let service = new Service(
@@ -324,7 +363,7 @@ let getServiceExceptions = function(db, date, callback) {
         if ( results !== undefined ) {
 
             // Parse each row in the results
-            for ( let i = 0; i < results.length; i++ ) {
+            for ( let i = 0; i &lt; results.length; i++ ) {
                 let row = results[i];
 
                 // Create Service Exception
@@ -356,4 +395,22 @@ module.exports = {
     getServicesEffective: getServicesEffective,
     getServicesDefault: getServicesDefault,
     getServiceExceptions: getServiceExceptions
-};
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Wed Sep 13 2017 15:52:00 GMT-0400 (EDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
