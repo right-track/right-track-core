@@ -3,12 +3,25 @@
 const Stop = require("../gtfs/Stop.js");
 
 
+// ==== CALLBACK FUNCTIONS ==== //
+
 /**
  * This callback is performed after a single Stop has been
  * selected from the database.
  * @callback getStopCallback
  * @param {Stop} stop The selected Stop
  */
+
+/**
+ * This callback is performed after multiple Stops have been
+ * selected from the database.
+ * @callback getStopsCallback
+ * @param {Stop[]} stops An array of the selected Stops
+ */
+
+
+
+// ==== QUERY FUNCTIONS ==== //
 
 /**
  * Get the Stop specified by ID from the passed database
@@ -212,13 +225,6 @@ let getStopByStatusId = function(db, statusId, callback) {
 
 };
 
-
-/**
- * This callback is performed after multiple Stops have been
- * selected from the database.
- * @callback getStopsCallback
- * @param {Stop[]} stops An array of the selected Stops
- */
 
 /**
  * Get all of the Stops that are stored in the passed database.

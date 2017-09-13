@@ -201,10 +201,59 @@ class DateTime {
         return this.date;
     }
 
+    /**
+     * Get the full name of the weekday of the date (monday, tuesday, etc)
+     * @returns {string} day of week
+     */
+    getDateDOW() {
+        let dow = new Array(7);
+        dow[0] = "sunday";
+        dow[1] = "monday";
+        dow[2] = "tuesday";
+        dow[3] = "wednesday";
+        dow[4] = "thursday";
+        dow[5] = "friday";
+        dow[6] = "saturday";
+
+        let s = this.date.toString();
+        let y = s.substr(0, 4);
+        let m = s.substr(4, 2);
+        let d = s.substr(6, 2);
+
+        let jd = new Date(y, m-1, d);
+        return dow[jd.getDay()];
+    }
+
 }
 
 
+/**
+ * DateTime Factory
+ * @param {string} time Time
+ * @param {int} date Date
+ * @returns {DateTime} DateTime
+ */
+DateTime.create = function(time, date) {
+    return new DateTime(time, date);
+}
 
+/**
+ * DateTime Factory
+ * @param {string} time Time
+ * @returns {DateTime} DateTime
+ */
+DateTime.createFromTime = function(time) {
+    return new DateTime(time);
+};
+
+/**
+ * DateTime Factory
+ * @param {int} date Date
+ * @returns {DateTime} DateTime
+ */
+DateTime.createFromDate = function(date) {
+    return new DateTime("00:00:00", date);
+};
 
 
 module.exports = DateTime;

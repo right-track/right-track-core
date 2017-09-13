@@ -3,12 +3,18 @@
 const About = require("../rt/About");
 
 
+// ==== CALLBACK FUNCTIONS ==== //
+
 /**
  * This callback is performed after the database metadata
  * from the rt_about table has been queried from the database.
  * @callback getAboutCallback
  * @param {About} about The database About information
  */
+
+
+
+// ==== QUERY FUNCTIONS ==== //
 
 /**
  * Get the data stored in the rt_about table from the
