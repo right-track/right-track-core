@@ -47,14 +47,206 @@
 
     <section class="readme">
         <article><h1>Right Track Core Library</h1><p>This module contains the core data classes and functionality 
-of the Right Track Library.  This module is required for 
-the use of the Right Track API Server and the Right 
-Track Android apps.</p>
-<h3>Features and Functionality</h3><p>This project is still in the very early stages of 
-development and does not have any fully supported 
-features or functionality.  Things working now 
-may still be changed and could break in the future.</p>
-<p>Stay tuned for the first release.</p></article>
+of the Right Track Library.  It can query a <em>Right Track Database</em> 
+(a combination of GTFS data and additional custom data) that is 
+built using the <strong>right-track-db-build</strong> module and create data classes 
+representing the data.</p>
+<p>This module is a requirement for the <strong>right-track-api-server</strong>, the 
+<strong>right-track-online</strong> website and the <strong>right-track-mobile</strong> mobile apps.</p>
+<p>Agency specific functionality (such as real-time feed information) is 
+added through the <strong>right-track-agency-{id}</strong> modules.</p>
+<h3>Features and Functionality</h3><p>This project is still very much a work in progress and is being actively 
+developed.  Functionality may be added and/or removed without notice.</p>
+<p>Currently, the module supports the following features:</p>
+<ul>
+<li>GTFS Data Models for the following classes:<ul>
+<li>Agency</li>
+<li>Route</li>
+<li>Service (from gtfs calendar.txt)</li>
+<li>ServiceException (from gtfs calendar_dates.txt)</li>
+<li>Stop</li>
+<li>StopTime</li>
+<li>Trip</li>
+</ul>
+</li>
+<li>Right Track Data Models<ul>
+<li>additional data added to Stops</li>
+<li>About (database metadata)</li>
+<li>Holiday (service information for holidays)</li>
+<li>Link (links for additional transit resources)</li>
+</ul>
+</li>
+<li>Right Track Database queries</li>
+<li>General purpose utility functions</li>
+</ul>
+<h3>Documentation</h3><p>Full documentation can be found in the <strong>/doc/</strong> directory in this 
+repository.</p>
+<h3>Module Structure</h3><p>To use this module, the data classes and query functions are returned 
+on import in an Object that follows a package-like structure</p>
+<pre class="prettyprint source lang-javascript"><code>const core = require(&quot;right-track-core&quot;);</code></pre><p>where <code>core</code> is an object with the following structure:</p>
+<pre class="prettyprint source"><code>// See full documentation for function parameters
+{ 
+  query: { 
+     about: { 
+         getAbout()
+     },
+     calendar: { 
+         getService(),
+         getServicesEffective(),
+         getServicesDefault(),
+         getServiceExceptions() 
+     },
+     holidays: { 
+         getHolidays(),
+         getHoliday(),
+         isHoliday() 
+     },
+     links: { 
+         getCategories(),
+         getLinks(),
+         getLinksByCategory() 
+     }, 
+     routes: { 
+         getRoute(),
+         getRoutes() 
+     },
+     stops: { 
+         getStop(),
+         getStopByName(),
+         getStopByStatusId(),
+         getStops(),
+         getStopsByRoute(),
+         getStopsWithStatus() 
+     },
+     stoptimes: { 
+         getStopTimesByTrip(),
+         getStopTimeByTripStop() 
+     },
+     trips: { 
+         getTrip(),
+         getTripByDeparture() 
+     } 
+  },
+  gtfs: { 
+     Agency()
+     Route() {
+         Route.ROUTE_TYPE_LIGHT_RAIL: 0,
+         Route.ROUTE_TYPE_SUBWAY: 1,
+         Route.ROUTE_TYPE_RAIL: 2,
+         Route.ROUTE_TYPE_BUS: 3,
+         Route.ROUTE_TYPE_FERRY: 4,
+         Route.ROUTE_TYPE_CABLE_CAR: 5,
+         Route.ROUTE_TYPE_GONDOLA: 6,
+         Route.ROUTE_TYPE_FUNICULAR: 7 
+     },
+     Service() {
+         Service.SERVICE_AVAILABLE: 1, 
+         SERVICE_UNAVAILABLE: 0
+     },
+     ServiceException() {
+         Service.SERVICE_ADDED: 1, 
+         Service.SERVICE_REMOVED: 2
+     },
+     Stop() { 
+         Stop.WHEELCHAIR_BOARDING_UNKNOWN: 0,
+         Stop.WHEELCHAIR_BOARDING_YES: 1,
+         Stop.WHEELCHAIR_BOARDING_NO: 2,
+         Stop.sortById(),
+         Stop.sortByName(),
+         Stop.sortByTransferWeight()
+     },
+     StopTime() { 
+         StopTime.PICKUP_TYPE_REGULAR: 0,
+         StopTime.PICKUP_TYPE_NONE: 1,
+         StopTime.PICKUP_TYPE_PHONE_AGENCY: 2,
+         StopTime.PICKUP_TYPE_DRIVER_COORDINATION: 3,
+         StopTime.DROP_OFF_TYPE_REGULAR: 0,
+         StopTime.DROP_OFF_TYPE_NONE: 1,
+         StopTime.DROP_OFF_TYPE_PHONE_AGENCY: 2,
+         StopTime.DROP_OFF_TYPE_DRIVER_COORDINATION: 3,
+         StopTime.sortByStopTransferWeight(),
+         StopTime.sortByStopSequence()
+     },
+     Trip() { 
+         Trip.WHEELCHAIR_ACCESSIBLE_UNKNOWN: 0,
+         Trip.WHEELCHAIR_ACCESSIBLE_YES: 1,
+         Trip.WHEELCHAIR_ACCESSIBLE_N0: 2 
+     } 
+  },
+  rt: {
+     About(),
+     Holiday(),
+     Link()
+  },
+  utils: { 
+     DateTime() {
+         create(),
+         createFromTime(),
+         createFromDate()
+     }
+  }
+}</code></pre><h3>Usage</h3><p>Create a GTFS data class</p>
+<pre class="prettyprint source lang-javascript"><code>const core = require(&quot;right-track-core&quot;);
+
+// Create a new Agency for Metro North Railroad
+let metroNorth = new core.gtfs.Agency(&quot;Metro North Railroad&quot;, &quot;https://mta.info/mnr&quot;, &quot;America/New_York&quot;, &quot;mnr&quot;);
+console.log(metroNorth);
+// Agency {
+//     name: 'Metro North Railroad',
+//     url: 'https://mta.info/mnr',
+//     timezone: 'America/New_York',
+//     id: 'mnr' 
+// }
+
+
+// Create a new Route for the New Haven Line
+const Route = core.gtfs.Route;
+let newHavenLine = new Route(&quot;nh&quot;, &quot;new haven&quot;, &quot;New Haven Line&quot;, Route.ROUTE_TYPE_RAIL, metroNorth, &quot;ff0000&quot;, &quot;000000&quot;);
+console.log(newHavenLine);
+// Route newHavenLine:
+// Route {
+//     id: 'nh',
+//     shortName: 'new haven',
+//     longName: 'New Haven Line',
+//     type: 2,
+//     agency:
+//         Agency {
+//             name: 'Metro North Railroad',
+//             url: 'https://mta.info/mnr',
+//             timezone: 'America/New_York',
+//             id: 'mnr' 
+//         },
+//     color: 'ff0000',
+//     textColor: '000000' 
+// }</code></pre><p>Query a <strong>Right Track Database</strong> to get data.</p>
+<p>Note: the <em>query</em> functions of this module require a <em>RightTrackDB</em> class<br>as a parameter.  This class is an SQLite wrapper class that provides the 
+actual SQLite functionality.  The <strong>right-track-db-sqlite3</strong> module provides 
+this functionality using the <a href="https://github.com/mapbox/node-sqlite3">node-sqlite3</a> 
+module.</p>
+<pre class="prettyprint source lang-javascript"><code>const core = require(&quot;right-track-core&quot;);
+const RightTrackDB = require(&quot;right-track-db-sqlite3&quot;);
+const mnr = require(&quot;right-track-agency-mnr&quot;);
+const config = mnr.config(&quot;../path/to/config.json&quot;);  // use mnr.config() to use default configuration
+
+// Create the Right Track DB using the mnr config
+let db = new RightTrackDB(config.id, config.db_location);
+
+// Query the database for the stop with ID == '110'
+core.query.stops.getStop(db, &quot;110&quot;, function(stop) {
+    console.log(stop);
+});
+
+// Returns Stop:
+// Stop {
+//     id: '110',
+//     name: 'Larchmont',
+//     lat: 40.933394,
+//     lon: -73.759792,
+//     url: 'http://as0.mta.info/mnr/stations/station_detail.cfm?key=208',
+//     wheelchairBoarding: 1,
+//     statusID: '110',
+//     transferWeight: 1171 
+// }</code></pre></article>
     </section>
 
 
@@ -67,7 +259,7 @@ may still be changed and could break in the future.</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Thu Sep 14 2017 13:47:41 GMT-0400 (EDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Thu Sep 14 2017 15:28:35 GMT-0400 (EDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
