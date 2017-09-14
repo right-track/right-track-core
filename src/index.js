@@ -9,6 +9,7 @@ const HolidayTable = require("./query/HolidayTable.js");
 const LinksTable = require("./query/LinksTable.js");
 const RoutesTable = require("./query/RoutesTable.js");
 const StopsTable = require("./query/StopsTable.js");
+const StopTimesTable = require("./query/StopTimesTable.js");
 
 const Agency = require("./gtfs/Agency.js");
 const Route = require("./gtfs/Route.js");
@@ -35,7 +36,8 @@ module.exports = {
         holidays: HolidayTable,
         links: LinksTable,
         routes: RoutesTable,
-        stops: StopsTable
+        stops: StopsTable,
+        stoptimes: StopTimesTable
     },
     gtfs: {
         Agency: Agency,
