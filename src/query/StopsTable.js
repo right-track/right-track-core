@@ -24,15 +24,25 @@ const Stop = require("../gtfs/Stop.js");
 // ==== QUERY FUNCTIONS ==== //
 
 /**
- * Get the Stop specified by ID from the passed database
+ * Get the Stop(s) specified by ID(s) from the passed database
  *
  * **package:** core.query.stops.getStop()
  *
  * @param {RightTrackDB} db The Right Track Database to query
- * @param {string} id Stop ID
- * @param {getStopCallback} callback getStop callback function
+ * @param {string|string[]} id Stop ID(s)
+ * @param {getStopCallback|getStopsCallback} callback getStop(s) callback function
  */
 let getStop = function(db, id, callback) {
+
+    // Build stop id string
+    let stopIds = "";
+    if ( typeof id === "string" ) {
+        stopIds = "('" + id + "')";
+    }
+    else {
+        stopIds = "('" + id.join("', '") + "')";
+    }
+
 
     // Build Select Statement
     let select = "SELECT gtfs_stops.stop_id, gtfs_stops.stop_name, gtfs_stops.stop_lat, " +
@@ -40,42 +50,60 @@ let getStop = function(db, id, callback) {
         "rt_stops_extra.status_id, rt_stops_extra.display_name, rt_stops_extra.transfer_weight " +
         "FROM gtfs_stops, rt_stops_extra " +
         "WHERE gtfs_stops.stop_id=rt_stops_extra.stop_id AND " +
-        "gtfs_stops.stop_id='" + id + "';";
+        "gtfs_stops.stop_id IN " + stopIds + ";";
 
     // Query the database
-    db.get(select, function(result) {
+    db.select(select, function(results) {
 
         // Build the Stop
-        if ( result !== undefined ) {
+        if ( results !== undefined ) {
 
-            // Use rt display_name if provided
-            let final_name = result.stop_name;
-            if ( result.display_name !== undefined && result.display_name !== "" ) {
-                final_name = result.display_name;
+            // List of Stops to return
+            let rtn = [];
+
+            // Parse each returned stop...
+            for ( let i = 0; i < results.length; i++ ) {
+                let row = results[i];
+
+                // Use rt display_name if provided
+                let final_name = row.stop_name;
+                if (row.display_name !== undefined && row.display_name !== "") {
+                    final_name = row.display_name;
+                }
+
+                // Set wheelchair boarding to unknown if status not in database
+                let wheelchair_boarding = row.wheelchair_boarding;
+                if (row.wheelchair_boarding === null) {
+                    wheelchair_boarding = Stop.WHEELCHAIR_BOARDING_UNKNOWN;
+                }
+
+                // build the Stop
+                let stop = new Stop(
+                    row.stop_id,
+                    final_name,
+                    row.stop_lat,
+                    row.stop_lon,
+                    row.stop_url,
+                    wheelchair_boarding,
+                    row.status_id,
+                    row.transfer_weight
+                );
+
+                // Add stop to list
+                rtn.push(stop);
+
             }
 
-            // Set wheelchair boarding to unknown if status not in database
-            let wheelchair_boarding = result.wheelchair_boarding;
-            if ( result.wheelchair_boarding === null ) {
-                wheelchair_boarding = Stop.WHEELCHAIR_BOARDING_UNKNOWN;
+            // return the Stops in the callback
+            if (callback !== undefined) {
+                if ( rtn.length === 1 ) {
+                    callback(rtn[0]);
+                }
+                else {
+                    callback(rtn);
+                }
             }
 
-            // build the Stop
-            let stop = new Stop(
-                result.stop_id,
-                final_name,
-                result.stop_lat,
-                result.stop_lon,
-                result.stop_url,
-                wheelchair_boarding,
-                result.status_id,
-                result.transfer_weight
-            );
-
-            // return the Stop in the callback
-            if ( callback !== undefined ) {
-                callback(stop);
-            }
         }
 
         // Could not find matching stop
@@ -227,7 +255,8 @@ let getStopByStatusId = function(db, statusId, callback) {
 
 
 /**
- * Get all of the Stops that are stored in the passed database.
+ * Get all of the Stops that are stored in the passed database
+ * (sorted alphabetically)
  *
  * **package:** core.query.stops.getStops()
  *
@@ -287,6 +316,7 @@ let getStops = function(db, callback) {
 
             // return the stops in the callback
             if ( callback !== undefined ) {
+                stops.sort(Stop.sortByName);
                 callback(stops);
             }
 
@@ -297,9 +327,65 @@ let getStops = function(db, callback) {
 };
 
 
+
+/**
+ * Get all of the Stops that are associated with the
+ * specified route (sorted alphabetically)
+ *
+ * **package:** core.query.stops.getStopsByRoute()
+ *
+ * @param {RightTrackDB} db The Right Track Database to query
+ * @param {string} routeId The Route ID
+ * @param {getStopsCallback} callback getStops callback function
+ */
+let getStopsByRoute = function(db, routeId, callback) {
+
+    // Build select statement
+    // Get all Stop IDs that have a trip that uses the specified route
+    let select = "SELECT DISTINCT stop_id FROM gtfs_stop_times WHERE trip_id IN " +
+        "(SELECT DISTINCT trip_id FROM gtfs_trips WHERE route_id='" + routeId + "');";
+
+    // Query the database
+    db.select(select, function(results) {
+
+        // Parse the results...
+        if ( results !== undefined ) {
+
+            // Stop IDs to get
+            let stopIds = [];
+
+            // Parse each row of the results
+            for ( let i = 0; i < results.length; i++ ) {
+                let row = results[i];
+
+                // Get the stop ID and add to list
+                stopIds.push(row.stop_id);
+            }
+
+            // Build stops from the stop ids
+            getStop(db, stopIds, function(stops) {
+
+                // Sort Stops By Name
+                stops.sort(Stop.sortByName);
+
+                // Return stops with callback
+                if ( callback !== undefined ) {
+                    callback(stops);
+                }
+
+            })
+
+        }
+
+    });
+
+
+};
+
+
 /**
  * Get all of the Stops with a valid (!= -1) Status ID that are stored
- * in the passed database.
+ * in the passed database (sorted alphabetically)
  *
  * **package:** core.query.stops.getStopsWithStatus()
  *
@@ -360,6 +446,7 @@ let getStopsWithStatus = function(db, callback) {
 
             // return the stops in the callback
             if ( callback !== undefined ) {
+                stops.sort(Stop.sortByName);
                 callback(stops);
             }
 
@@ -376,5 +463,6 @@ module.exports = {
     getStopByName: getStopByName,
     getStopByStatusId: getStopByStatusId,
     getStops: getStops,
+    getStopsByRoute: getStopsByRoute,
     getStopsWithStatus: getStopsWithStatus
 };
