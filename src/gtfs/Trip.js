@@ -47,21 +47,16 @@ class Trip {
         this.id = id;
         this.route = route;
         this.service = service;
-        this._stopTimes = stopTimes;
+        this.stopTimes = stopTimes;
         this.shortName = shortName;
         this.directionId = directionId;
         this.wheelchairAccessible = wheelchairAccessible;
         this.directionDescription = directionDescription;
+
+        // Sort stoptimes by stop sequence
+        this.stopTimes.sort(StopTime.sortByStopSequence);
     }
 
-    /**
-     * Get the list of StopTimes (sorted by stop sequence) for this Trip
-     * @returns {StopTime[]} List of StopTimes sorted by stop sequence
-     */
-    get stopTimes() {
-        this._stopTimes.sort(StopTime.sortByStopSequence);
-        return this._stopTimes;
-    }
 
     /**
      * Get the StopTime associated with the specified Stop
@@ -69,8 +64,8 @@ class Trip {
      * @returns {StopTime} matching StopTime
      */
     getStopTime(stop) {
-        for ( let i = 0; i < this._stopTimes.length; i++ ) {
-            let stopTime = this._stopTimes[i];
+        for ( let i = 0; i < this.stopTimes.length; i++ ) {
+            let stopTime = this.stopTimes[i];
             if ( stopTime.stop.id === stop.id ) {
                 return stopTime;
             }
@@ -83,8 +78,8 @@ class Trip {
      * @returns {boolean} true if the Stop is found in list of StopTimes
      */
     hasStopTime(stop) {
-        for ( let i = 0; i < this._stopTimes.length; i++ ) {
-            let stopTime = this._stopTimes[i];
+        for ( let i = 0; i < this.stopTimes.length; i++ ) {
+            let stopTime = this.stopTimes[i];
             if ( stopTime.stop.id === stop.id ) {
                 return true;
             }

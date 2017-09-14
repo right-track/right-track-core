@@ -34,9 +34,10 @@ const StopTime = require("../gtfs/StopTime.js");
  *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} tripId Trip ID
+ * @param {int} date The date (yyyymmdd) the trip operates on
  * @param {getStopTimesCallback} callback getStopTimes callback function
  */
-let getStopTimesByTrip = function(db, tripId, callback) {
+let getStopTimesByTrip = function(db, tripId, date, callback) {
 
     // Build the select statement
     let select = "SELECT " +
@@ -89,7 +90,8 @@ let getStopTimesByTrip = function(db, tripId, callback) {
                     row.arrival_time_seconds,
                     row.departure_time_seconds,
                     row.pickup_type,
-                    row.drop_off_type
+                    row.drop_off_type,
+                    date
                 );
 
                 // Add stoptime to list
@@ -117,9 +119,10 @@ let getStopTimesByTrip = function(db, tripId, callback) {
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} tripId Trip ID
  * @param {string} stopId Stop ID
+ * @param {int} date The date (yyyymmdd) the the Trip operates on
  * @param {getStopTimeCallback} callback getStopTime callback function
  */
-let getStopTimeByTripStop = function(db, tripId, stopId, callback) {
+let getStopTimeByTripStop = function(db, tripId, stopId, date, callback) {
 
     // Build the select statement
     let select = "SELECT " +
@@ -165,7 +168,8 @@ let getStopTimeByTripStop = function(db, tripId, stopId, callback) {
                 result.arrival_time_seconds,
                 result.departure_time_seconds,
                 result.pickup_type,
-                result.drop_off_type
+                result.drop_off_type,
+                date
             );
 
 

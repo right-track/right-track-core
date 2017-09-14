@@ -37,7 +37,6 @@ class DateTime {
          * INTERNAL REPRESENTATION
          * time = {int} number of seconds since midnight
          * date = {int} date in the format of yyyymmdd
-         * TODO: May need to use datetime lib (ie moments)
          */
 
 
@@ -71,7 +70,7 @@ class DateTime {
                 }
 
                 // Add 12 to h for pm
-                else if ( aa === "pm" ) {
+                else if ( aa === "pm" && h !== 12 ) {
                     h = h + 12;
                 }
 
@@ -219,9 +218,84 @@ class DateTime {
         let y = s.substr(0, 4);
         let m = s.substr(4, 2);
         let d = s.substr(6, 2);
-
         let jd = new Date(y, m-1, d);
+
         return dow[jd.getDay()];
+    }
+
+    /**
+     * Get the date integer (yyyymmdd) of the day following
+     * this date
+     * @returns {int} the next date (yyyymmdd)
+     */
+    getNextDateInt() {
+        let s = this.date.toString();
+        let y = s.substr(0, 4);
+        let m = s.substr(4, 2);
+        let d = s.substr(6, 2);
+        let jd = new Date(y, m-1, d);
+
+        jd.setDate(jd.getDate() + 1);
+
+        y = jd.getFullYear();
+        m = jd.getMonth()+1;
+        d = jd.getDate();
+
+        if ( m < 10 ) {
+            m = "0" + m;
+        }
+        if ( d < 10 ) {
+            d = "0" + d;
+        }
+
+        return parseInt("" + y + m + d);
+    }
+
+    /**
+     * Get the date integer (yyyymmdd) of the day
+     * preceding this date
+     * @returns {int} the previous date (yyyymmdd)
+     */
+    getPreviousDateInt() {
+        let s = this.date.toString();
+        let y = s.substr(0, 4);
+        let m = s.substr(4, 2);
+        let d = s.substr(6, 2);
+        let jd = new Date(y, m-1, d);
+
+        jd.setDate(jd.getDate() - 1);
+
+        y = jd.getFullYear();
+        m = jd.getMonth()+1;
+        d = jd.getDate();
+
+        if ( m < 10 ) {
+            m = "0" + m;
+        }
+        if ( d < 10 ) {
+            d = "0" + d;
+        }
+
+        return parseInt("" + y + m + d);
+    }
+
+
+    /**
+     * Get a String representation of the DateTIme
+     * @returns {string} string of DateTime
+     */
+    toString() {
+        let str = "";
+        if ( this.date !== 19700101 ) {
+            let s = this.date.toString();
+            let y = s.substr(0, 4);
+            let m = s.substr(4, 2);
+            let d = s.substr(6, 2);
+
+            str = str + y + "-" + m + "-" + d + " ";
+        }
+        str = str + "@ " + this.getTimeGTFS();
+        return str;
     }
 
 }
@@ -235,7 +309,7 @@ class DateTime {
  */
 DateTime.create = function(time, date) {
     return new DateTime(time, date);
-}
+};
 
 /**
  * DateTime Factory
