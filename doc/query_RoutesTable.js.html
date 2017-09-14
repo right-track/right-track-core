@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>query/LinksTable.js - Documentation</title>
+    <title>query/RoutesTable.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">query/LinksTable.js</h1>
+    <h1 class="page-title">query/RoutesTable.js</h1>
     
 
     
@@ -39,24 +39,26 @@
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
 
-const Link = require("../rt/Link.js");
+const Agency = require("../gtfs/Agency.js");
+const Route = require("../gtfs/Route.js");
 
 
 // ==== CALLBACK FUNCTIONS ==== //
 
 /**
- * This callback is performed after the Link Categories
- * have been selected from the database.
- * @callback getLinkCategoriesCallback
- * @param {string[]} categories The selected link categories
+ * This callback is performed after the Route has been
+ * selected from the database
+ * @callback getRouteCallback
+ * @param {Route} route The selected Route
  */
 
 /**
- * This callback is performed after the Links have been
- * selected from the database.
- * @callback getLinksCallback
- * @param {Link[]} links The selected Links
+ * This callback is performed after the Routes have been
+ * selected from the database
+ * @callback getRoutesCallback
+ * @param {Route[]} routes The selected Routes
  */
+
 
 
 
@@ -64,90 +66,57 @@ const Link = require("../rt/Link.js");
 
 
 /**
- * Get a list of all link category titles
+ * Get the Route (with its Agency) specified by the Route ID
+ * from the passed database
  *
- * **package:** core.query.links.getCategories()
+ * **package:** core.query.routes.getRoute()
  *
  * @param {RightTrackDB} db The Right Track DB to query
- * @param {getLinkCategoriesCallback} callback getCategories callback function
+ * @param {string} id Route ID
+ * @param {getRouteCallback} callback getRoute callback function
  */
-let getCategories = function(db, callback) {
+let getRoute = function(db, id, callback) {
 
     // Build the select statement
-    let select = "SELECT DISTINCT link_category_title FROM rt_links";
+    let select = "SELECT gtfs_routes.route_id, gtfs_routes.route_short_name, " +
+        "gtfs_routes.route_long_name, gtfs_routes.route_type, gtfs_routes.route_color, " +
+        "gtfs_routes.route_text_color, " +
+        "gtfs_agency.agency_id, gtfs_agency.agency_name, gtfs_agency.agency_url, " +
+        "gtfs_agency.agency_timezone " +
+        "FROM gtfs_routes, gtfs_agency " +
+        "WHERE gtfs_routes.agency_id=gtfs_agency.agency_id AND " +
+        "gtfs_routes.route_id='" + id + "';";
 
     // Query the database
-    db.select(select, function(results) {
+    db.get(select, function(result) {
 
-        // List of categories to return
-        let rtn = [];
+        // Parse the database result...
+        if ( result !== undefined ) {
 
-        // Parse the results...
-        if ( results !== undefined ) {
+            // Create Agency
+            let agency = new Agency(
+                result.agency_name,
+                result.agency_url,
+                result.agency_timezone,
+                result.agency_id
+            );
 
-            // Parse each row
-            for ( let i = 0; i &lt; results.length; i++ ) {
-                let row = results[i];
-                rtn.push(row.link_category_title);
+            // Create Route
+            let route = new Route(
+                result.route_id,
+                result.route_short_name,
+                result.route_long_name,
+                result.route_type,
+                agency,
+                result.route_color,
+                result.route_text_color
+            );
+
+            // Return the Route with the callback
+            if ( callback !== undefined ) {
+                callback(route);
             }
 
-        }
-
-        // Return the categories with the callback
-        if ( callback !== undefined ) {
-            callback(rtn);
-        }
-
-    });
-
-};
-
-
-
-/**
- * Get all of the Agency link information from the database
- *
- * **package:** core.query.links.getLinks()
- *
- * @param {RightTrackDB} db The Right Track Database to query
- * @param {getLinksCallback} callback getLinks callback function
- */
-let getLinks = function(db, callback) {
-
-    // Build select statement
-    let select = "SELECT link_category_title, link_title, link_description, link_url FROM rt_links;";
-
-    // Query the database
-    db.select(select, function(results) {
-
-        // List of links to return
-        let rtn = [];
-
-        // Parse the returned results...
-        if ( results !== undefined ) {
-
-            // Parse each row
-            for ( let i = 0; i &lt; results.length; i++ ) {
-                let row = results[i];
-
-                // Build the link
-                let link = new Link(
-                    row.link_category_title,
-                    row.link_title,
-                    row.link_description,
-                    row.link_url
-                );
-
-                // Add link to list
-                rtn.push(link);
-            }
-
-        }
-
-
-        // Return the links with the callback
-        if ( callback !== undefined ) {
-            callback(rtn);
         }
 
     });
@@ -156,64 +125,81 @@ let getLinks = function(db, callback) {
 
 
 /**
- * Get all of the Agency link information from the database
- * with the specified link category title.
+ * Get all of the Routes that are stored in the passed database
  *
- * **package:** core.query.links.getLinksByCategory()
+ * **package:** core.query.routes.getRoutes()
  *
- * @param {RightTrackDB} db The Right Track Database to query
- * @param {string} category Link category title
- * @param {getLinksCallback} callback getLinks callback function
+ * @param {RightTrackDB} db The Right Track DB to query
+ * @param {getRoutesCallback} callback getRoutes callback function
  */
-let getLinksByCategory = function(db, category, callback) {
+let getRoutes = function(db, callback) {
 
-    // Build select statement
-    let select = "SELECT link_category_title, link_title, link_description, link_url " +
-        "FROM rt_links WHERE link_category_title='" + category + "';";
+    // Build the select statement
+    let select = "SELECT gtfs_routes.route_id, gtfs_routes.route_short_name, " +
+        "gtfs_routes.route_long_name, gtfs_routes.route_type, gtfs_routes.route_color, " +
+        "gtfs_routes.route_text_color, " +
+        "gtfs_agency.agency_id, gtfs_agency.agency_name, gtfs_agency.agency_url, " +
+        "gtfs_agency.agency_timezone " +
+        "FROM gtfs_routes, gtfs_agency " +
+        "WHERE gtfs_routes.agency_id=gtfs_agency.agency_id";
 
     // Query the database
     db.select(select, function(results) {
 
-        // List of links to return
+        // List of routes to return
         let rtn = [];
 
-        // Parse the returned results...
+        // Parse the results
         if ( results !== undefined ) {
 
-            // Parse each row
+            // Parse each row of the results...
             for ( let i = 0; i &lt; results.length; i++ ) {
                 let row = results[i];
 
-                // Build the link
-                let link = new Link(
-                    row.link_category_title,
-                    row.link_title,
-                    row.link_description,
-                    row.link_url
+                // Create Agency
+                let agency = new Agency(
+                    row.agency_name,
+                    row.agency_url,
+                    row.agency_timezone,
+                    row.agency_id
                 );
 
-                // Add link to list
-                rtn.push(link);
+                // Create Route
+                let route = new Route(
+                    row.route_id,
+                    row.route_short_name,
+                    row.route_long_name,
+                    row.route_type,
+                    agency,
+                    row.route_color,
+                    row.route_text_color
+                );
+
+                // Add the route to the return list
+                rtn.push(route);
             }
 
         }
 
-
-        // Return the links with the callback
+        // Return the route list with the callback
         if ( callback !== undefined ) {
             callback(rtn);
         }
 
+
     });
 
+
 };
+
+
+
 
 
 // Export Functions
 module.exports = {
-    getCategories: getCategories,
-    getLinks: getLinks,
-    getLinksByCategory: getLinksByCategory
+    getRoute : getRoute,
+    getRoutes: getRoutes
 };</code></pre>
         </article>
     </section>

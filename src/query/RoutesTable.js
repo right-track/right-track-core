@@ -29,6 +29,9 @@ const Route = require("../gtfs/Route.js");
 /**
  * Get the Route (with its Agency) specified by the Route ID
  * from the passed database
+ *
+ * **package:** core.query.routes.getRoute()
+ *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} id Route ID
  * @param {getRouteCallback} callback getRoute callback function
@@ -84,6 +87,9 @@ let getRoute = function(db, id, callback) {
 
 /**
  * Get all of the Routes that are stored in the passed database
+ *
+ * **package:** core.query.routes.getRoutes()
+ *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {getRoutesCallback} callback getRoutes callback function
  */
