@@ -110,7 +110,7 @@ where ```core``` is an object with the following structure:
      },
      Service() {
          Service.SERVICE_AVAILABLE: 1, 
-         SERVICE_UNAVAILABLE: 0
+         Service.SERVICE_UNAVAILABLE: 0
      },
      ServiceException() {
          Service.SERVICE_ADDED: 1, 
