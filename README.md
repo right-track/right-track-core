@@ -71,7 +71,7 @@ where ```core``` is an object with the following structure:
          isHoliday() 
      },
      links: { 
-         getCategories(),
+         getLinkCategories(),
          getLinks(),
          getLinksByCategory() 
      }, 
@@ -199,11 +199,10 @@ console.log(newHavenLine);
 
 Query a **Right Track Database** to get data.
 
-Note: the _query_ functions of this module require a _RightTrackDB_ class  
-as a parameter.  This class is an SQLite wrapper class that provides the 
-actual SQLite functionality.  The **right-track-db-sqlite3** module provides 
-this functionality using the [node-sqlite3](https://github.com/mapbox/node-sqlite3) 
-module.
+Note: the _query_ functions of this module require a _RightTrackDB_ object as a 
+parameter.  This class is an SQLite wrapper class that provides the actual SQLite 
+functionality.  The **right-track-db-sqlite3** module provides this functionality 
+using the [node-sqlite3](https://github.com/mapbox/node-sqlite3) module.
 
 ```javascript
 const core = require("right-track-core");
