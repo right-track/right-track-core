@@ -32,7 +32,7 @@ const Link = require("../rt/Link.js");
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {getLinkCategoriesCallback} callback getCategories callback function
  */
-let getCategories = function(db, callback) {
+let getLinkCategories = function(db, callback) {
 
     // Build the select statement
     let select = "SELECT DISTINCT link_category_title FROM rt_links";
@@ -172,7 +172,7 @@ let getLinksByCategory = function(db, category, callback) {
 
 // Export Functions
 module.exports = {
-    getCategories: getCategories,
+    getLinkCategories: getLinkCategories,
     getLinks: getLinks,
     getLinksByCategory: getLinksByCategory
 };
