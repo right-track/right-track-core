@@ -138,6 +138,8 @@ let getStopTimeByTripStop = function(db, tripId, stopId, date, callback) {
     // Query the database
     db.get(select, function(result) {
 
+        let stopTime = undefined;
+
         // Parse the database result...
         if ( result !== undefined ) {
 
@@ -160,7 +162,7 @@ let getStopTimeByTripStop = function(db, tripId, stopId, date, callback) {
             );
 
             // Build StopTime
-            let stopTime = new StopTime(
+            stopTime = new StopTime(
                 stop,
                 result.arrival_time,
                 result.departure_time,
@@ -172,12 +174,11 @@ let getStopTimeByTripStop = function(db, tripId, stopId, date, callback) {
                 date
             );
 
+        }
 
-            // Return the StopTimes with the callback
-            if ( callback !== undefined ) {
-                callback(stopTime);
-            }
-
+        // Return the StopTimes with the callback
+        if ( callback !== undefined ) {
+            callback(stopTime);
         }
 
     });

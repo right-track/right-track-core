@@ -52,14 +52,21 @@ let getService = function(db, id, callback) {
         let rtn = [];
 
         // Parse each passed service id
+        let count = 0;
         for ( let i = 0; i < id.length; i++ ) {
             let serviceId = id[i];
+
+            // Build the Service
             getService(db, serviceId, function(service) {
                 rtn.push(service);
-                if ( i === id.length-1 && callback !== undefined ) {
+                count++;
+
+                // Return list of Services with callback after all have finished
+                if ( count === id.length && callback !== undefined ) {
                     callback(rtn);
                 }
             });
+
         }
 
     }

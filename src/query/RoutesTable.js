@@ -51,6 +51,8 @@ let getRoute = function(db, id, callback) {
     // Query the database
     db.get(select, function(result) {
 
+        let route = undefined;
+
         // Parse the database result...
         if ( result !== undefined ) {
 
@@ -63,7 +65,7 @@ let getRoute = function(db, id, callback) {
             );
 
             // Create Route
-            let route = new Route(
+            route = new Route(
                 result.route_id,
                 result.route_short_name,
                 result.route_long_name,
@@ -73,11 +75,11 @@ let getRoute = function(db, id, callback) {
                 result.route_text_color
             );
 
-            // Return the Route with the callback
-            if ( callback !== undefined ) {
-                callback(route);
-            }
+        }
 
+        // Return the Route with the callback
+        if ( callback !== undefined ) {
+            callback(route);
         }
 
     });

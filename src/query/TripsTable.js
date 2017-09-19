@@ -296,6 +296,10 @@ let getTripByDeparture = function(db, originId, destinationId, dateTime, callbac
                         else {
                             console.warn("NO MATCHING TRIP FOUND FOR DEPARTURE");
                             console.warn(originId + " --> " + destinationId + " ON " + dateTime.toString());
+
+                            if ( callback !== undefined ) {
+                                callback(undefined);
+                            }
                         }
 
 

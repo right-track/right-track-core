@@ -34,10 +34,12 @@ let getAbout = function(db, callback) {
     // Query the database
     db.get(select, function(result) {
 
+        let about = undefined;
+
         // Build the About object
         if ( result !== undefined ) {
 
-            let about = new About(
+            about = new About(
                 result.compile_date,
                 result.gtfs_publish_date,
                 result.start_date,
@@ -46,11 +48,11 @@ let getAbout = function(db, callback) {
                 result.notes
             );
 
-            // return About with callback
-            if ( callback !== undefined ) {
-                callback(about);
-            }
+        }
 
+        // return About with callback
+        if ( callback !== undefined ) {
+            callback(about);
         }
 
     });

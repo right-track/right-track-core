@@ -109,6 +109,9 @@ let getStop = function(db, id, callback) {
         // Could not find matching stop
         else {
             console.error("Could not find matching Stop with id: " + id);
+            if ( callback !== undefined ) {
+                callback(undefined);
+            }
         }
 
     });
@@ -154,6 +157,9 @@ let getStopByName = function(db, name, callback) {
                         // Stop not found in rt_stops_extra
                         if ( result === undefined ) {
                             console.error("Could not look up stop by name: " + name);
+                            if ( callback !== undefined ) {
+                                callback(undefined);
+                            }
                         }
 
                         // Stop found in rt_stops_extra
@@ -245,6 +251,9 @@ let getStopByStatusId = function(db, statusId, callback) {
             // Could not find matching Stop...
             else {
                 console.error("Could not find matching Stop with Status ID: " + statusId);
+                if ( callback !== undefined ) {
+                    callback(undefined);
+                }
             }
 
         });
