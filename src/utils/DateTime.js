@@ -181,6 +181,62 @@ class DateTime {
         return this.time;
     }
 
+    /**
+     * Get the human readable time (12 hr with AM/PM)
+     * @returns {string} human readable time
+     */
+    getTimeReadable() {
+        let h = Math.floor(this.time/3600);
+        let m = Math.floor((this.time%3600)/60);
+        let s = Math.floor((this.time%3600)%60);
+
+
+        // Pad Minutes with 0s
+        if ( m < 10 ) {
+            m = "0" + m;
+        }
+
+
+        // 12 AM
+        if ( h === 0 ) {
+            return "12:" + m + " AM";
+        }
+
+        // AM
+        else if ( h < 12 ) {
+            return h + ":" + m + " AM";
+        }
+
+        // 12 PM
+        else if ( h === 12 ) {
+            return h + ":" + m + " PM";
+        }
+
+        // PM
+        else if ( h < 24 ) {
+            h = h - 12;
+            return h + ":" + m + " PM";
+        }
+
+        // Next day
+        else if ( h === 24 ) {
+            h = 12;
+            return h + ":" + m + " AM";
+        }
+
+        // Next Dat
+        else if ( h > 24 ) {
+            h = h - 24;
+            return h + ":" + m + " AM";
+        }
+
+        // Shouldn't reach here
+        else {
+            return this.getTimeGTFS();
+        }
+
+    }
+
 
     // ==== DATE GETTERS ==== //
 
