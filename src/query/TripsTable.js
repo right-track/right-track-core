@@ -159,6 +159,14 @@ let getTrip = function(db, id, date, callback) {
 
         }
 
+        // No trip found...
+        else {
+            // Return trip with callback
+            if ( callback !== undefined ) {
+                callback(undefined);
+            }
+        }
+
     });
 
 };
