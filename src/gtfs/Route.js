@@ -100,4 +100,26 @@ Route.ROUTE_TYPE_GONDOLA = 6;
 Route.ROUTE_TYPE_FUNICULAR = 7;
 
 
+
+// ==== SORT FUNCTIONS ==== //
+
+/**
+ * Sort Route by Name (ascending)
+ * @param {Route} a first Route
+ * @param {Route} b second Route
+ * @returns {number} compare integer
+ */
+Route.sortByName = function(a, b) {
+    if ( a.longName < b.longName ) {
+        return -1;
+    }
+    else if ( a.longName > b.longName ) {
+        return 1;
+    }
+    else {
+        return 0;
+    }
+};
+
+
 module.exports = Route;

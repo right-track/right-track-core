@@ -64,6 +64,13 @@ let getRoute = function(db, id, callback) {
                 result.agency_id
             );
 
+
+            // Hotfix: When short name is not provided
+            // TODO: Handle this on the db-build process
+            if ( result.route_short_name === null ) {
+                result.route_short_name = result.route_long_name;
+            }
+
             // Create Route
             route = new Route(
                 result.route_id,
@@ -127,6 +134,12 @@ let getRoutes = function(db, callback) {
                     row.agency_id
                 );
 
+                // Hotfix: When short name is not provided
+                // TODO: Handle this on the db-build process
+                if ( row.route_short_name === null ) {
+                    row.route_short_name = row.route_long_name;
+                }
+
                 // Create Route
                 let route = new Route(
                     row.route_id,
@@ -146,6 +159,7 @@ let getRoutes = function(db, callback) {
 
         // Return the route list with the callback
         if ( callback !== undefined ) {
+            rtn.sort(Route.sortByName);
             callback(rtn);
         }
 
