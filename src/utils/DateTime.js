@@ -335,6 +335,29 @@ class DateTime {
         return parseInt("" + y + m + d);
     }
 
+    /**
+     * Get a String representation of the DateTime to be
+     * used as a MySQL DateTime
+     * @returns {string} MySQL DateTime String
+     */
+    toMySQLString() {
+        let str = "";
+        if ( this.date === 19700101 ) {
+            console.warn("DATE NOT SET");
+        }
+
+        // Set date
+        let s = this.date.toString();
+        let y = s.substr(0, 4);
+        let m = s.substr(4, 2);
+        let d = s.substr(6, 2);
+        str = str + y + "-" + m + "-" + d + " ";
+
+        // Set time
+        str = str + this.getTimeGTFS();
+
+        return str;
+    }
 
     /**
      * Get a String representation of the DateTIme
