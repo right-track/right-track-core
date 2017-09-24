@@ -21,6 +21,7 @@ const StopTime = require("./gtfs/StopTime.js");
 const Trip = require("./gtfs/Trip.js");
 
 const About = require("./rt/About.js");
+const Favorite = require("./rt/Favorite.js");
 const Holiday = require("./rt/Holiday.js");
 const Link = require("./rt/Link.js");
 
@@ -52,6 +53,7 @@ module.exports = {
     },
     rt: {
         About: About,
+        Favorite: Favorite,
         Holiday: Holiday,
         Link: Link
     },

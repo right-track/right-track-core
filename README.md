@@ -144,6 +144,7 @@ where ```core``` is an object with the following structure:
   },
   rt: {
      About(),
+     Favorite(),
      Holiday(),
      Link()
   },
