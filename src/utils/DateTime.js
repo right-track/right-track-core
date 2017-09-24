@@ -358,7 +358,41 @@ class DateTime {
 
 
 /**
- * DateTime Factory
+ * DateTime Factory: date and time of now
+ * @returns {DateTime} DateTime
+ */
+DateTime.now = function() {
+    let jd = new Date();
+
+    // Construct Date
+    let y = jd.getFullYear();
+    let m = jd.getMonth() + 1;
+    let d = jd.getDate();
+    if ( m < 10 ) {
+        m = "0" + m;
+    }
+    if ( d < 10 ) {
+        d = "0" + d;
+    }
+    let date = parseInt("" + y + m + d);
+
+    // Construct Time
+    let h = jd.getHours();
+    let min = jd.getMinutes();
+    if ( h < 10 ) {
+        h = "0" + h;
+    }
+    if ( min < 10 ) {
+        min = "0" + min;
+    }
+    let time = h + ":" + min + ":00";
+
+    return new DateTime(time, date);
+};
+
+
+/**
+ * DateTime Factory: with time and date
  * @param {string} time Time
  * @param {int} date Date
  * @returns {DateTime} DateTime
@@ -368,7 +402,7 @@ DateTime.create = function(time, date) {
 };
 
 /**
- * DateTime Factory
+ * DateTime Factory: with time
  * @param {string} time Time
  * @returns {DateTime} DateTime
  */
@@ -377,7 +411,7 @@ DateTime.createFromTime = function(time) {
 };
 
 /**
- * DateTime Factory
+ * DateTime Factory: with date
  * @param {int} date Date
  * @returns {DateTime} DateTime
  */
