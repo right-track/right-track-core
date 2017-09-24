@@ -280,6 +280,35 @@ class DateTime {
     }
 
     /**
+     * Add or Subtract the specified number of days to the
+     * DateTime's date and return the new date int (yyyymmdd)
+     * @param delta +/- number of days to add
+     * @returns {Number} Date Int (yyyymmdd)
+     */
+    getDateIntAdd(delta) {
+        let s = this.date.toString();
+        let y = s.substr(0, 4);
+        let m = s.substr(4, 2);
+        let d = s.substr(6, 2);
+        let jd = new Date(y, m-1, d);
+
+        jd.setDate(jd.getDate() + delta);
+
+        y = jd.getFullYear();
+        m = jd.getMonth()+1;
+        d = jd.getDate();
+
+        if ( m < 10 ) {
+            m = "0" + m;
+        }
+        if ( d < 10 ) {
+            d = "0" + d;
+        }
+
+        return parseInt("" + y + m + d);
+    }
+
+    /**
      * Get the date integer (yyyymmdd) of the day following
      * this date
      * @returns {int} the next date (yyyymmdd)
