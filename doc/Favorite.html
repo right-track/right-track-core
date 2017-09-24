@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Stop - Documentation</title>
+    <title>Favorite - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Stop</h1>
+    <h1 class="page-title">Favorite</h1>
     
 
     
@@ -40,28 +40,39 @@
 <header>
     
         <h2>
-        Stop
+        Favorite
         </h2>
         
-            <div class="class-description"><h2>GTFS Stop</h2><p>Representation of the GTFS Stop definition.</p>
-<p>GTFS Required Fields:</p>
-<ul>
-<li>GTFS Stop ID</li>
-<li>Stop Name (RT display_name when present otherwise GTFS stop_name)</li>
-<li>GTFS Stop Lat</li>
-<li>GTFS Stop Lon</li>
-</ul>
-<p>GTFS Optional Fields:</p>
-<ul>
-<li>GTFS Stop URL</li>
-<li>GTFS Wheelchair Boarding</li>
-</ul>
-<p>Right Track Fields:</p>
-<ul>
-<li>RT Status ID</li>
-<li>RT Transfer Weight</li>
-</ul>
-<p><strong>package:</strong> core.gtfs.Stop</p></div>
+            <div class="class-description"><h2>RT Favorite</h2><p>Representation of a Right Track User Favorite.  This can be a
+saved Station or Trip with the associated parameters and
+optional options.</p>
+<p>The following describes the format for the Favorite parameters
+and options.</p>
+<h2>Station</h2><p><strong>Parameters:</strong></p>
+<pre class="prettyprint source"><code> {
+     stop: {
+         id: 'Stop ID',
+         statusId: 'Stop Status ID',
+         name: 'Stop Name'
+     }
+ }</code></pre><p> <strong>Options:</strong></p>
+<p> Currently, there are no options for a Favorite Station.</p>
+<h2>Trip</h2><p><strong>Parameters:</strong></p>
+<pre class="prettyprint source"><code> {
+     origin: {
+         id: 'Stop ID'
+         statusId: 'Stop Status ID',
+         name: 'Stop Name'
+     },
+     destination: {
+         id 'Stop ID'
+         statusId: 'Stop Status ID',
+         name: 'Stop Name'
+     }
+ }</code></pre><p> <strong>Options:</strong></p>
+<pre class="prettyprint source"><code> {
+     allowTransfers: true
+ }</code></pre><p><strong>package:</strong> core.rt.Favorite</p></div>
         
     
 </header>
@@ -75,7 +86,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="Stop"><span class="type-signature"></span>new Stop<span class="signature">(id, name, lat, lon, url<span class="signature-attributes">opt</span>, wheelchairBoarding<span class="signature-attributes">opt</span>, statusId<span class="signature-attributes">opt</span>, transferWeight<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Favorite"><span class="type-signature"></span>new Favorite<span class="signature">(type, sequence, parameters, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -87,7 +98,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line27">line 27</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line59">line 59</a>
     </li></ul></dd>
     
 
@@ -118,12 +129,255 @@
     
 
     
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="https://developers.google.com/transit/gtfs/reference/stops-file">GTFS Spec</a></li>
-        </ul>
-    </dd>
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Create a new Favorite with the specified information</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Favorite Type</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sequence</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Favorite Sequence (1, 2, etc...)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>parameters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Favorite Parameters</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Favorite Options</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".FAVORITE_TYPE_STATION"><span class="type-signature">(static) </span>FAVORITE_TYPE_STATION<span class="type-signature"></span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line98">line 98</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
     
 
     
@@ -134,7 +388,321 @@
 
 
 <div class="description">
-    <p>GTFS Stop Constructor</p>
+    <p>Favorite Type: Station</p>
+</div>
+
+
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".FAVORITE_TYPE_TRIP"><span class="type-signature">(static) </span>FAVORITE_TYPE_TRIP<span class="type-signature"></span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line101">line 101</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Favorite Type: Trip</p>
+</div>
+
+
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".createStation"><span class="type-signature">(static) </span>createStation<span class="signature">(stop, sequence)</span><span class="type-signature"> &rarr; {<a href="Favorite.html">Favorite</a>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line113">line 113</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Favorite Factory: create a Favorite Station</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>stop</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Stop.html">Stop</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The Stop to save as a Favorite Station</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sequence</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The Favorite sequence</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Favorite Station</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Favorite.html">Favorite</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".createTrip"><span class="type-signature">(static) </span>createTrip<span class="signature">(origin, destination, sequence, allowTransfers<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="Favorite.html">Favorite</a>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line136">line 136</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Favorite Factory: create a Favorite Trip</p>
 </div>
 
 
@@ -176,13 +744,13 @@
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>origin</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><a href="Stop.html">Stop</a></span>
 
 
             
@@ -204,20 +772,20 @@
                 </td>
             
 
-            <td class="description last"><p>Stop ID</p></td>
+            <td class="description last"><p>The origin of the Favorite Trip</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>destination</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><a href="Stop.html">Stop</a></span>
 
 
             
@@ -239,121 +807,14 @@
                 </td>
             
 
-            <td class="description last"><p>Stop Name</p></td>
+            <td class="description last"><p>The destination of the Favorite Trip</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>lat</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>Stop Latitude</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>lon</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>Stop Longitude</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>url</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>Stop URL</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>wheelchairBoarding</code></td>
+                <td class="name"><code>sequence</code></td>
             
 
             <td class="type">
@@ -368,8 +829,6 @@
             
                 <td class="attributes">
                 
-                    &lt;optional><br>
-                
 
                 
 
@@ -383,20 +842,20 @@
                 </td>
             
 
-            <td class="description last"><p>Stop Wheelchair Boarding</p></td>
+            <td class="description last"><p>The Favorite sequence</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>statusId</code></td>
+                <td class="name"><code>allowTransfers</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -417,51 +876,12 @@
             
                 <td class="default">
                 
-                    <code>-1</code>
+                    <code>true</code>
                 
                 </td>
             
 
-            <td class="description last"><p>Right Track Stop Status ID</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>transferWeight</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">int</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>1</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>Right Track Stop Transfer Weight</p></td>
+            <td class="description last"><p>Allow Transfers</p></td>
         </tr>
 
     
@@ -481,101 +901,38 @@
 
 
 
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
+<h5>Returns:</h5>
 
         
-            
-<h4 class="name" id=".WHEELCHAIR_BOARDING_NO"><span class="type-signature">(static) </span>WHEELCHAIR_BOARDING_NO<span class="type-signature"> :number</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line76">line 76</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Wheelchair Boarding: impossible</p>
+<div class="param-desc">
+    <p>Favorite Trip</p>
 </div>
 
 
 
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">number</span>
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Favorite.html">Favorite</a></span>
 
 
-        </li>
-    </ul>
+    </dd>
+</dl>
 
-
-
-
+    
 
 
         
             
-<h4 class="name" id=".WHEELCHAIR_BOARDING_UNKNOWN"><span class="type-signature">(static) </span>WHEELCHAIR_BOARDING_UNKNOWN<span class="type-signature"> :number</span></h4>
 
+    
+
+    <h4 class="name" id=".sortBySequence"><span class="type-signature">(static) </span>sortBySequence<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
 
 
 
@@ -585,7 +942,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line64">line 64</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line168">line 168</a>
     </li></ul></dd>
     
 
@@ -625,163 +982,7 @@
 
 
 <div class="description">
-    <p>Wheelchair Boarding: info unknown</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">number</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".WHEELCHAIR_BOARDING_YES"><span class="type-signature">(static) </span>WHEELCHAIR_BOARDING_YES<span class="type-signature"> :number</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line70">line 70</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Wheelchair Boarding: possible</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">number</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    <h4 class="name" id=".sortById"><span class="type-signature">(static) </span>sortById<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {number}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line88">line 88</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Sort Stops by ID (ascending)</p>
+    <p>Sort Favorites by sequence (ascending)</p>
 </div>
 
 
@@ -825,7 +1026,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="Stop.html">Stop</a></span>
+<span class="param-type"><a href="Favorite.html">Favorite</a></span>
 
 
             
@@ -835,7 +1036,7 @@
 
             
 
-            <td class="description last"><p>first Stop</p></td>
+            <td class="description last"><p>first Favorite</p></td>
         </tr>
 
     
@@ -848,7 +1049,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="Stop.html">Stop</a></span>
+<span class="param-type"><a href="Favorite.html">Favorite</a></span>
 
 
             
@@ -858,7 +1059,7 @@
 
             
 
-            <td class="description last"><p>second Stop</p></td>
+            <td class="description last"><p>second Favorite</p></td>
         </tr>
 
     
@@ -907,7 +1108,7 @@
 
     
 
-    <h4 class="name" id=".sortByName"><span class="type-signature">(static) </span>sortByName<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="isStation"><span class="type-signature"></span>isStation<span class="signature">()</span><span class="type-signature"> &rarr; {boolean}</span></h4>
 
     
 
@@ -919,7 +1120,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line106">line 106</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line79">line 79</a>
     </li></ul></dd>
     
 
@@ -959,7 +1160,7 @@
 
 
 <div class="description">
-    <p>Sort Stops by Name (ascending)</p>
+    <p>Check if the Favorite is a Favorite Station</p>
 </div>
 
 
@@ -970,78 +1171,6 @@
 
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>a</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Stop.html">Stop</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>first Stop</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>b</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Stop.html">Stop</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>second Stop</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -1060,7 +1189,7 @@
 
         
 <div class="param-desc">
-    <p>compare integer</p>
+    <p>true if Station</p>
 </div>
 
 
@@ -1071,7 +1200,7 @@
     </dt>
     <dd>
         
-<span class="param-type">number</span>
+<span class="param-type">boolean</span>
 
 
     </dd>
@@ -1085,7 +1214,7 @@
 
     
 
-    <h4 class="name" id=".sortByTransferWeight"><span class="type-signature">(static) </span>sortByTransferWeight<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="isTrip"><span class="type-signature"></span>isTrip<span class="signature">()</span><span class="type-signature"> &rarr; {boolean}</span></h4>
 
     
 
@@ -1097,7 +1226,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line124">line 124</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line87">line 87</a>
     </li></ul></dd>
     
 
@@ -1137,7 +1266,7 @@
 
 
 <div class="description">
-    <p>Sort Stops by Transfer Weight (descending)</p>
+    <p>Check if the Favorite is a Favorite Trip</p>
 </div>
 
 
@@ -1148,78 +1277,6 @@
 
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>a</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Stop.html">Stop</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>first Stop</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>b</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Stop.html">Stop</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>second Stop</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -1238,7 +1295,7 @@
 
         
 <div class="param-desc">
-    <p>compare integer</p>
+    <p>true if Trip</p>
 </div>
 
 
@@ -1249,7 +1306,7 @@
     </dt>
     <dd>
         
-<span class="param-type">number</span>
+<span class="param-type">boolean</span>
 
 
     </dd>
