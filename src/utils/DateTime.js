@@ -224,7 +224,7 @@ class DateTime {
             return h + ":" + m + " AM";
         }
 
-        // Next Dat
+        // Next Day
         else if ( h > 24 ) {
             h = h - 24;
             return h + ":" + m + " AM";
@@ -386,6 +386,43 @@ class DateTime {
         str = str + this.getTimeGTFS();
 
         return str;
+    }
+
+    /**
+     * Get a String representation of the DateTime to be used
+     * in HTTP Headers
+     * @returns {string} HTTP Header String
+     */
+    toHTTPString() {
+        let str = "";
+
+        // Get date
+        let s = this.date.toString();
+        let y = s.substr(0, 4);
+        let m = s.substr(4, 2);
+        let d = s.substr(6, 2);
+
+        // Create JS Date
+        let date = new Date(y, m-1, d);
+
+        // Get Time
+        let hour = Math.floor(this.time/3600);
+        let mins = Math.floor((this.time%3600)/60);
+        let secs = Math.floor((this.time%3600)%60);
+
+        // Next day
+        if ( hour >= 24 ) {
+            hour = hour - 24;
+            date.setDate(date.getDate()+1);
+        }
+
+        // Set Time
+        date.setHours(hour);
+        date.setMinutes(mins);
+        date.setSeconds(secs);
+
+
+        return date.toUTCString();
     }
 
     /**
