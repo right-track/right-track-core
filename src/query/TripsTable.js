@@ -181,13 +181,13 @@ let getTrip = function(db, id, date, callback) {
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} originId Origin Stop ID
  * @param {string} destinationId Destination Stop ID
- * @param {DateTime} dateTime
+ * @param {DateTime} departure DateTime of trip departure
  * @param {getTripCallback} callback getTrip callback function
  */
-let getTripByDeparture = function(db, originId, destinationId, dateTime, callback) {
+let getTripByDeparture = function(db, originId, destinationId, departure, callback) {
 
     // Get Effective Services for departure date
-    CalendarTable.getServicesEffective(db, dateTime.getDateInt(), function(services) {
+    CalendarTable.getServicesEffective(db, departure.getDateInt(), function(services) {
 
         // Build Service ID String
         let serviceIds = [];
@@ -203,7 +203,7 @@ let getTripByDeparture = function(db, originId, destinationId, dateTime, callbac
             "SELECT trip_id FROM gtfs_stop_times WHERE stop_id='" + destinationId + "' " +
             "AND trip_id IN (" +
             "SELECT trip_id FROM gtfs_stop_times " +
-            "WHERE stop_id='" + originId + "' AND departure_time_seconds=" + dateTime.getTimeSeconds() +
+            "WHERE stop_id='" + originId + "' AND departure_time_seconds=" + departure.getTimeSeconds() +
             "));";
 
         // Query the database
@@ -218,8 +218,8 @@ let getTripByDeparture = function(db, originId, destinationId, dateTime, callbac
                     let row = results[j];
 
                     // Get StopTimes for origin and destination
-                    StopTimesTable.getStopTimeByTripStop(db, row.trip_id, originId, dateTime.getDateInt(), function(originStopTime) {
-                        StopTimesTable.getStopTimeByTripStop(db, row.trip_id, destinationId, dateTime.getDateInt(), function(destinationStopTime) {
+                    StopTimesTable.getStopTimeByTripStop(db, row.trip_id, originId, departure.getDateInt(), function(originStopTime) {
+                        StopTimesTable.getStopTimeByTripStop(db, row.trip_id, destinationId, departure.getDateInt(), function(destinationStopTime) {
 
                             // Check stop sequence
                             // If origin comes before destination, use that trip
@@ -255,7 +255,7 @@ let getTripByDeparture = function(db, originId, destinationId, dateTime, callbac
                     let serviceIdString = "('" + serviceIds.join("', '") + "')";
 
                     // Get 24+ hour time (seconds)
-                    let timeSeconds = dateTime.getTimeSeconds() + 86400;
+                    let timeSeconds = departure.getTimeSeconds() + 86400;
 
                     // Find a matching trip in the gtfs_stop_times table
                     let select = "SELECT trip_id FROM gtfs_trips " +
@@ -280,8 +280,8 @@ let getTripByDeparture = function(db, originId, destinationId, dateTime, callbac
                                 let row = results[j];
 
                                 // Get StopTimes for origin and destination
-                                StopTimesTable.getStopTimeByTripStop(db, row.trip_id, originId, dateTime.getPreviousDateInt(), function (originStopTime) {
-                                    StopTimesTable.getStopTimeByTripStop(db, row.trip_id, destinationId, dateTime.getPreviousDateInt(), function (destinationStopTime) {
+                                StopTimesTable.getStopTimeByTripStop(db, row.trip_id, originId, prev.getDateInt(), function (originStopTime) {
+                                    StopTimesTable.getStopTimeByTripStop(db, row.trip_id, destinationId, prev.getDateInt(), function (destinationStopTime) {
 
                                         // Check stop sequence
                                         // If origin comes before destination, use that trip
@@ -303,7 +303,7 @@ let getTripByDeparture = function(db, originId, destinationId, dateTime, callbac
                         // STILL NO MATCHING TRAIN FOUND
                         else {
                             console.warn("NO MATCHING TRIP FOUND FOR DEPARTURE");
-                            console.warn(originId + " --> " + destinationId + " ON " + dateTime.toString());
+                            console.warn(originId + " --> " + destinationId + " ON " + departure.toString());
 
                             if ( callback !== undefined ) {
                                 callback(undefined);
@@ -320,7 +320,7 @@ let getTripByDeparture = function(db, originId, destinationId, dateTime, callbac
 
         });
 
-    })
+    });
 
 };
 
