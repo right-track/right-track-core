@@ -1,6 +1,6 @@
 'use strict';
 
-const DateTime = require("../utils/DateTime.js");
+const DateTime = require('../utils/DateTime.js');
 
 /**
  * GTFS StopTime
@@ -29,35 +29,38 @@ const DateTime = require("../utils/DateTime.js");
  */
 class StopTime {
 
-    /**
-     * StopTime Constructor
-     * @constructor
-     * @param {Stop} stop StopTime Stop
-     * @param {string} arrivalTime StopTime Arrival Time (GTFS Time String)
-     * @param {string} departureTime StopTime Departure Time (GTFS Time String)
-     * @param {int} stopSequence StopTime Stop Sequence
-     * @param {int=} arrivalTimeSeconds StopTime Arrival Time (Time Seconds)
-     * @param {int=} departureTimeSeconds StopTime Departure Time (Time Seconds)
-     * @param {int=} pickupType StopTime Pickup Type
-     * @param {int=} dropOffType StopTime Drop Off Type
-     * @param {int=} date StopTime date (yyyymmdd)
-     */
-    constructor(stop, arrivalTime, departureTime, stopSequence,
-                arrivalTimeSeconds, departureTimeSeconds, pickupType=StopTime.PICKUP_TYPE_REGULAR,
-                dropOffType=StopTime.DROP_OFF_TYPE_REGULAR, date=19700101) {
-        let _arrivalDateTime = new DateTime(arrivalTime, date);
-        let _departureDateTime = new DateTime(departureTime, date);
+  /**
+   * StopTime Constructor
+   * @constructor
+   * @param {Stop} stop StopTime Stop
+   * @param {string} arrivalTime StopTime Arrival Time (GTFS Time String)
+   * @param {string} departureTime StopTime Departure Time (GTFS Time String)
+   * @param {int} stopSequence StopTime Stop Sequence
+   * @param {int=} arrivalTimeSeconds StopTime Arrival Time (Time Seconds)
+   * @param {int=} departureTimeSeconds StopTime Departure Time (Time Seconds)
+   * @param {int=} pickupType StopTime Pickup Type
+   * @param {int=} dropOffType StopTime Drop Off Type
+   * @param {int=} date StopTime date (yyyymmdd)
+   */
+  constructor(stop, arrivalTime, departureTime, stopSequence,
+              arrivalTimeSeconds, departureTimeSeconds, pickupType=StopTime.PICKUP_TYPE_REGULAR,
+              dropOffType=StopTime.DROP_OFF_TYPE_REGULAR, date=19700101) {
 
-        this.stop = stop;
-        this.arrivalTime = arrivalTime;
-        this.departureTime = departureTime;
-        this.stopSequence = stopSequence;
-        this.arrivalTimeSeconds = (typeof arrivalTimeSeconds !== 'undefined') ? arrivalTimeSeconds : _arrivalDateTime.getTimeSeconds();
-        this.departureTimeSeconds = (typeof departureTimeSeconds !== 'undefined') ? departureTimeSeconds : _departureDateTime.getTimeSeconds();
-        this.pickupType = pickupType;
-        this.dropOffType = dropOffType;
-        this.date = date;
-    }
+    this.stop = stop;
+    this.arrivalTime = arrivalTime;
+    this.departureTime = departureTime;
+    this.stopSequence = stopSequence;
+    this.arrivalTimeSeconds = (typeof arrivalTimeSeconds !== 'undefined')
+      ? arrivalTimeSeconds
+      : new DateTime(arrivalTime, date).getTimeSeconds();
+    this.departureTimeSeconds = (typeof departureTimeSeconds !== 'undefined')
+      ? departureTimeSeconds
+      : new DateTime(departureTime, date).getTimeSeconds();
+    this.pickupType = pickupType;
+    this.dropOffType = dropOffType;
+    this.date = date;
+
+  }
 
 }
 
@@ -127,15 +130,15 @@ StopTime.DROP_OFF_TYPE_DRIVER_COORDINATION = 3;
  * @returns {number} compare integer
  */
 StopTime.sortByStopTransferWeight = function(a, b) {
-    if ( a.stop.rtTransferWeight > b.stop.rtTransferWeight ) {
-        return -1;
-    }
-    else if ( a.stop.rtTransferWeight < b.stop.rtTransferWeight ) {
-        return 1;
-    }
-    else {
-        return 0;
-    }
+  if ( a.stop.transferWeight > b.stop.transferWeight ) {
+    return -1;
+  }
+  else if ( a.stop.transferWeight < b.stop.transferWeight ) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
 };
 
 /**
@@ -145,15 +148,15 @@ StopTime.sortByStopTransferWeight = function(a, b) {
  * @return {number} compare integer
  */
 StopTime.sortByStopSequence = function(a, b) {
-    if ( a.stopSequence < b.stopSequence ) {
-        return -1;
-    }
-    else if ( a.stopSequence > b.stopSequence ) {
-        return 1;
-    }
-    else {
-        return 0;
-    }
+  if ( a.stopSequence < b.stopSequence ) {
+    return -1;
+  }
+  else if ( a.stopSequence > b.stopSequence ) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
 };
 
 

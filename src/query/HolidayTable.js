@@ -1,6 +1,6 @@
 'use strict';
 
-const Holiday = require("../rt/Holiday.js");
+const Holiday = require('../rt/Holiday.js');
 
 
 // ==== CALLBACK FUNCTIONS ==== //
@@ -9,21 +9,24 @@ const Holiday = require("../rt/Holiday.js");
  * This callback is performed after a single Holiday has been
  * selected from the database.
  * @callback getHolidayCallback
- * @param {Holiday} holiday The selected Holiday
+ * @param {Error} error Database Query Error
+ * @param {Holiday} [holiday] The selected Holiday
  */
 
 /**
  * This callback is performed after multiple Holidays have been
  * selected from the database.
  * @callback getHolidaysCallback
- * @param {Holiday[]} holidays The selected Holidays
+ * @param {Error} error Database Query Error
+ * @param {Holiday[]} [holidays] The selected Holidays
  */
 
 /**
  * This callback is performed after checking to see if a
  * specified date is listed as a Holiday
  * @callback isHolidayCallback
- * @param {boolean} isHoliday true/false if date is Holiday
+ * @param {Error} error Database Query Error
+ * @param {boolean} [isHoliday] true/false if date is Holiday
  */
 
 
@@ -38,48 +41,46 @@ const Holiday = require("../rt/Holiday.js");
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {getHolidaysCallback} callback getHolidays callback function
  */
-let getHolidays = function(db, callback) {
+function getHolidays(db, callback) {
 
-    // Build select statement
-    let select = "SELECT date, holiday_name, peak, " +
-        "service_info FROM rt_holidays";
+  // Build select statement
+  let select = "SELECT date, holiday_name, peak, service_info FROM rt_holidays";
 
-    // Query the database
-    db.select(select, function(results) {
+  // Query the database
+  db.select(select, function(err, results) {
 
-        // list of Holidays to return
-        let rtn = [];
+    // Database Query Error
+    if ( err ) {
+      return callback(
+        new Error('Could not get Holidays from database')
+      );
+    }
 
-        // Parse the results...
-        if ( results !== undefined ) {
+    // list of Holidays to return
+    let rtn = [];
 
-            // Parse each row of the results
-            for ( let i = 0; i < results.length; i++ ) {
-                let row = results[i];
+    // Parse each row of the results
+    for ( let i = 0; i < results.length; i++ ) {
+      let row = results[i];
 
-                // Build holiday
-                let holiday = new Holiday(
-                    row.date,
-                    row.holiday_name,
-                    row.peak,
-                    row.service_info
-                );
+      // Build holiday
+      let holiday = new Holiday(
+        row.date,
+        row.holiday_name,
+        row.peak,
+        row.service_info
+      );
 
-                // Add holiday to list
-                rtn.push(holiday);
-            }
+      // Add holiday to list
+      rtn.push(holiday);
+    }
 
-        }
+    // Return list of holidays with callback
+    return callback(null, rtn);
 
+  });
 
-        // Return list of holidays with callback
-        if ( callback !== undefined ) {
-            callback(rtn);
-        }
-
-    });
-
-};
+}
 
 
 /**
@@ -92,44 +93,48 @@ let getHolidays = function(db, callback) {
  * @param {int} date the date (yyyymmdd)
  * @param {getHolidayCallback} callback getHoliday callback function
  */
-let getHoliday = function(db, date, callback) {
+function getHoliday(db, date, callback) {
 
-    // Build the select statement
-    let select = "SELECT date, holiday_name, peak, service_info " +
-        "FROM rt_holidays WHERE date=" + date;
+  // Build the select statement
+  let select = "SELECT date, holiday_name, peak, service_info " +
+    "FROM rt_holidays WHERE date=" + date;
 
-    console.log(select);
+  console.log(select);
 
-    // Query the database
-    db.get(select, function(result) {
+  // Query the database
+  db.get(select, function(err, result) {
 
-        // Parse the result
-        if ( result !== undefined ) {
+    // Database Query Error
+    if ( err ) {
+      return callback(
+        new Error('Could not get Holiday for date ' + date + ' from database')
+      );
+    }
 
-            // Build the Holiday
-            let holiday = new Holiday(
-                result.date,
-                result.holiday_name,
-                result.peak,
-                result.service_info
-            );
+    // Holiday was found...
+    if ( result !== undefined ) {
 
-            // Return the holiday with the specified callback
-            if ( callback !== undefined ) {
-                callback(holiday);
-            }
-        }
+      // Build the Holiday
+      let holiday = new Holiday(
+        result.date,
+        result.holiday_name,
+        result.peak,
+        result.service_info
+      );
 
-        // No holiday found, return undefined with the specified callback
-        else {
-            if ( callback !== undefined ) {
-                callback(undefined);
-            }
-        }
+      // Return the holiday with the specified callback
+      return callback(null, holiday);
 
-    })
+    }
 
-};
+    // No holiday found, return undefined with the specified callback
+    else {
+        return callback(null, undefined);
+    }
+
+  })
+
+}
 
 
 /**
@@ -141,29 +146,34 @@ let getHoliday = function(db, date, callback) {
  * @param {int} date The date to check (yyyymmdd)
  * @param {isHolidayCallback} callback isHoliday callback function
  */
-let isHoliday = function(db, date, callback) {
+function isHoliday(db, date, callback) {
 
-    // Get matching holiday
-    let select = "SELECT date, holiday_name, peak, service_info " +
-        "FROM rt_holidays WHERE date=" + date;
+  // Get matching holiday
+  let select = "SELECT date, holiday_name, peak, service_info " +
+    "FROM rt_holidays WHERE date=" + date;
 
-    // Query the database
-    db.get(select, function(result) {
+  // Query the database
+  db.get(select, function(err, result) {
 
-        // Return if holiday is found with callback
-        if ( callback !== undefined ) {
-            callback(result !== undefined);
-        }
+    // Database Query Error
+    if ( err ) {
+      return callback(
+        new Error('Could not check if date ' + date + ' is a Holiday')
+      );
+    }
 
-    });
+    // Return if holiday is found with callback
+    return callback(null, result !== undefined);
 
-};
+  });
+
+}
 
 
 
 // Export the functions
 module.exports = {
-    getHolidays: getHolidays,
-    getHoliday: getHoliday,
-    isHoliday: isHoliday
+  getHolidays: getHolidays,
+  getHoliday: getHoliday,
+  isHoliday: isHoliday
 };

@@ -27,35 +27,35 @@
  */
 class Service {
 
-    /**
-     * Service Constructor
-     * @constructor
-     * @param {string} serviceId Service ID
-     * @param {int} mon Service availability for Monday
-     * @param {int} tue Service availability for Tuesday
-     * @param {int} wed Service availability for Wednesday
-     * @param {int} thu Service availability for Thursday
-     * @param {int} fri Service availability for Friday
-     * @param {int} sat Service availability for Saturday
-     * @param {int} sun Service availability for Sunday
-     * @param {int} startDate Service Start Date (yyyymmdd)
-     * @param {int} endDate Service End Date (yyyymmdd)
-     * @param {ServiceException[]} [exceptions=[]] List of Service Exceptions
-     */
-    constructor(serviceId, mon, tue, wed, thu, fri, sat, sun, startDate, endDate,
-                exceptions=[]) {
-        this.id = serviceId;
-        this.monday = mon;
-        this.tuesday = tue;
-        this.wednesday = wed;
-        this.thursday = thu;
-        this.friday = fri;
-        this.saturday = sat;
-        this.sunday = sun;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.serviceExceptions = exceptions;
-    }
+  /**
+   * Service Constructor
+   * @constructor
+   * @param {string} serviceId Service ID
+   * @param {int} mon Service availability for Monday
+   * @param {int} tue Service availability for Tuesday
+   * @param {int} wed Service availability for Wednesday
+   * @param {int} thu Service availability for Thursday
+   * @param {int} fri Service availability for Friday
+   * @param {int} sat Service availability for Saturday
+   * @param {int} sun Service availability for Sunday
+   * @param {int} startDate Service Start Date (yyyymmdd)
+   * @param {int} endDate Service End Date (yyyymmdd)
+   * @param {ServiceException[]} [exceptions=[]] List of Service Exceptions
+   */
+  constructor(serviceId, mon, tue, wed, thu, fri, sat, sun, startDate, endDate,
+              exceptions=[]) {
+    this.id = serviceId;
+    this.monday = mon;
+    this.tuesday = tue;
+    this.wednesday = wed;
+    this.thursday = thu;
+    this.friday = fri;
+    this.saturday = sat;
+    this.sunday = sun;
+    this.startDate = startDate;
+    this.endDate = endDate;
+    this.serviceExceptions = exceptions;
+  }
 
 }
 

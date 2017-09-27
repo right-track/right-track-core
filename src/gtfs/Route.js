@@ -23,28 +23,28 @@
  */
 class Route {
 
-    /**
-     * Route Constructor
-     * @constructor
-     * @param {string} id Route ID
-     * @param {string} shortName Route Short Name
-     * @param {string} longName Route Long Name
-     * @param {int} type Route Type
-     * @param {Agency=} agency Route Parent Agency
-     * @param {string=} color Route Color
-     * @param {string=} textColor Route Text Color
-     */
-    constructor(id, shortName, longName, type,
-                agency=undefined, color="#ffffff", textColor="#000000") {
-        this.id = id;
-        this.shortName = shortName;
-        this.longName = longName;
-        this.type = type;
-        this.agency = agency;
-        this.color = color;
-        this.textColor = textColor;
-    }
-    
+  /**
+   * Route Constructor
+   * @constructor
+   * @param {string} id Route ID
+   * @param {string} shortName Route Short Name
+   * @param {string} longName Route Long Name
+   * @param {int} type Route Type
+   * @param {Agency=} agency Route Parent Agency
+   * @param {string=} color Route Color
+   * @param {string=} textColor Route Text Color
+   */
+  constructor(id, shortName, longName, type,
+              agency=undefined, color='#ffffff', textColor='#000000') {
+    this.id = id;
+    this.shortName = shortName;
+    this.longName = longName;
+    this.type = type;
+    this.agency = agency;
+    this.color = color;
+    this.textColor = textColor;
+  }
+
 }
 
 
@@ -110,15 +110,15 @@ Route.ROUTE_TYPE_FUNICULAR = 7;
  * @returns {number} compare integer
  */
 Route.sortByName = function(a, b) {
-    if ( a.longName < b.longName ) {
-        return -1;
-    }
-    else if ( a.longName > b.longName ) {
-        return 1;
-    }
-    else {
-        return 0;
-    }
+  if ( a.longName < b.longName ) {
+    return -1;
+  }
+  else if ( a.longName > b.longName ) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
 };
 
 

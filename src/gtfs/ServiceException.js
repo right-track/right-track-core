@@ -17,19 +17,19 @@
  */
 class ServiceException {
 
-    /**
-     * Service Exception Constructor
-     * @constructor
-     * @param {string} serviceId Service ID
-     * @param {int} date Service Date (yyyymmdd)
-     * @param {int} excpetionType Service Exception Type
-     */
-    constructor(serviceId, date, exceptionType) {
-        this.serviceId = serviceId;
-        this.date = date;
-        this.exceptionType = exceptionType;
-    }
-    
+  /**
+   * Service Exception Constructor
+   * @constructor
+   * @param {string} serviceId Service ID
+   * @param {int} date Service Date (yyyymmdd)
+   * @param {int} exceptionType Service Exception Type
+   */
+  constructor(serviceId, date, exceptionType) {
+    this.serviceId = serviceId;
+    this.date = date;
+    this.exceptionType = exceptionType;
+  }
+  
 }
 
 

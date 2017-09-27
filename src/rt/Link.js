@@ -18,20 +18,20 @@
  */
 class Link {
 
-    /**
-     * Right Track Link Constructor
-     * @constructor
-     * @param {string} category Link Category
-     * @param {string} title Link Title
-     * @param {string} description Link Description
-     * @param {string} url Link URL
-     */
-    constructor(category, title, description, url) {
-        this.category = category;
-        this.title = title;
-        this.description = description;
-        this.url = url;
-    }
+  /**
+   * Right Track Link Constructor
+   * @constructor
+   * @param {string} category Link Category
+   * @param {string} title Link Title
+   * @param {string} description Link Description
+   * @param {string} url Link URL
+   */
+  constructor(category, title, description, url) {
+    this.category = category;
+    this.title = title;
+    this.description = description;
+    this.url = url;
+  }
 
 }
 

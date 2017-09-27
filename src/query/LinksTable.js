@@ -1,6 +1,6 @@
 'use strict';
 
-const Link = require("../rt/Link.js");
+const Link = require('../rt/Link.js');
 
 
 // ==== CALLBACK FUNCTIONS ==== //
@@ -9,14 +9,16 @@ const Link = require("../rt/Link.js");
  * This callback is performed after the Link Categories
  * have been selected from the database.
  * @callback getLinkCategoriesCallback
- * @param {string[]} categories The selected link categories
+ * @param {Error} error Database Query Error
+ * @param {string[]} [categories] The selected link categories
  */
 
 /**
  * This callback is performed after the Links have been
  * selected from the database.
  * @callback getLinksCallback
- * @param {Link[]} links The selected Links
+ * @param {Error} error Database Query Error
+ * @param {Link[]} [links] The selected Links
  */
 
 
@@ -34,32 +36,32 @@ const Link = require("../rt/Link.js");
  */
 let getLinkCategories = function(db, callback) {
 
-    // Build the select statement
-    let select = "SELECT DISTINCT link_category_title FROM rt_links";
+  // Build the select statement
+  let select = "SELECT DISTINCT link_category_title FROM rt_links";
 
-    // Query the database
-    db.select(select, function(results) {
+  // Query the database
+  db.select(select, function(err, results) {
 
-        // List of categories to return
-        let rtn = [];
+    // Database Query Error
+    if ( err ) {
+      return callback(
+        new Error('Could not get link categories from database')
+      );
+    }
 
-        // Parse the results...
-        if ( results !== undefined ) {
+    // List of categories to return
+    let rtn = [];
 
-            // Parse each row
-            for ( let i = 0; i < results.length; i++ ) {
-                let row = results[i];
-                rtn.push(row.link_category_title);
-            }
+    // Parse each row
+    for ( let i = 0; i < results.length; i++ ) {
+      let row = results[i];
+      rtn.push(row.link_category_title);
+    }
 
-        }
+    // Return the categories with the callback
+    return callback(null, rtn);
 
-        // Return the categories with the callback
-        if ( callback !== undefined ) {
-            callback(rtn);
-        }
-
-    });
+  });
 
 };
 
@@ -73,47 +75,47 @@ let getLinkCategories = function(db, callback) {
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {getLinksCallback} callback getLinks callback function
  */
-let getLinks = function(db, callback) {
+function getLinks(db, callback) {
 
-    // Build select statement
-    let select = "SELECT link_category_title, link_title, link_description, link_url FROM rt_links;";
+  // Build select statement
+  let select = "SELECT link_category_title, link_title, link_description, link_url FROM rt_links;";
 
-    // Query the database
-    db.select(select, function(results) {
+  // Query the database
+  db.select(select, function(err, results) {
 
-        // List of links to return
-        let rtn = [];
+    // Database Query Error
+    if ( err ) {
+      return callback(
+        new Error('Could not get links from database')
+      );
+    }
 
-        // Parse the returned results...
-        if ( results !== undefined ) {
+    // List of links to return
+    let rtn = [];
 
-            // Parse each row
-            for ( let i = 0; i < results.length; i++ ) {
-                let row = results[i];
+    // Parse each row
+    for ( let i = 0; i < results.length; i++ ) {
+      let row = results[i];
 
-                // Build the link
-                let link = new Link(
-                    row.link_category_title,
-                    row.link_title,
-                    row.link_description,
-                    row.link_url
-                );
+      // Build the link
+      let link = new Link(
+        row.link_category_title,
+        row.link_title,
+        row.link_description,
+        row.link_url
+      );
 
-                // Add link to list
-                rtn.push(link);
-            }
-
-        }
+      // Add link to list
+      rtn.push(link);
+    }
 
 
-        // Return the links with the callback
-        if ( callback !== undefined ) {
-            callback(rtn);
-        }
+    // Return the links with the callback
+    return callback(null, rtn);
 
-    });
+  });
 
-};
+}
 
 
 /**
@@ -126,53 +128,53 @@ let getLinks = function(db, callback) {
  * @param {string} category Link category title
  * @param {getLinksCallback} callback getLinks callback function
  */
-let getLinksByCategory = function(db, category, callback) {
+function getLinksByCategory(db, category, callback) {
 
-    // Build select statement
-    let select = "SELECT link_category_title, link_title, link_description, link_url " +
-        "FROM rt_links WHERE link_category_title='" + category + "';";
+  // Build select statement
+  let select = "SELECT link_category_title, link_title, link_description, link_url " +
+    "FROM rt_links WHERE link_category_title='" + category + "';";
 
-    // Query the database
-    db.select(select, function(results) {
+  // Query the database
+  db.select(select, function(err, results) {
 
-        // List of links to return
-        let rtn = [];
+    // Database Query Error
+    if ( err ) {
+      return callback(
+        new Error('Could not get links for category ' + category + ' from database')
+      );
+    }
 
-        // Parse the returned results...
-        if ( results !== undefined ) {
+    // List of links to return
+    let rtn = [];
 
-            // Parse each row
-            for ( let i = 0; i < results.length; i++ ) {
-                let row = results[i];
+    // Parse each row
+    for ( let i = 0; i < results.length; i++ ) {
+      let row = results[i];
 
-                // Build the link
-                let link = new Link(
-                    row.link_category_title,
-                    row.link_title,
-                    row.link_description,
-                    row.link_url
-                );
+      // Build the link
+      let link = new Link(
+        row.link_category_title,
+        row.link_title,
+        row.link_description,
+        row.link_url
+      );
 
-                // Add link to list
-                rtn.push(link);
-            }
-
-        }
+      // Add link to list
+      rtn.push(link);
+    }
 
 
-        // Return the links with the callback
-        if ( callback !== undefined ) {
-            callback(rtn);
-        }
+    // Return the links with the callback
+    callback(null, rtn);
 
-    });
+  });
 
-};
+}
 
 
 // Export Functions
 module.exports = {
-    getLinkCategories: getLinkCategories,
-    getLinks: getLinks,
-    getLinksByCategory: getLinksByCategory
+  getLinkCategories: getLinkCategories,
+  getLinks: getLinks,
+  getLinksByCategory: getLinksByCategory
 };

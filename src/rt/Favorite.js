@@ -16,11 +16,11 @@
  * **Parameters:**
  * ```
  *  {
- *      stop: {
- *          id: 'Stop ID',
- *          statusId: 'Stop Status ID',
- *          name: 'Stop Name'
- *      }
+ *    stop: {
+ *      id: 'Stop ID',
+ *      statusId: 'Stop Status ID',
+ *      name: 'Stop Name'
+ *    }
  *  }
  *  ```
  *
@@ -34,23 +34,23 @@
  * **Parameters:**
  * ```
  *  {
- *      origin: {
- *          id: 'Stop ID'
- *          statusId: 'Stop Status ID',
- *          name: 'Stop Name'
- *      },
- *      destination: {
- *          id 'Stop ID'
- *          statusId: 'Stop Status ID',
- *          name: 'Stop Name'
- *      }
+ *    origin: {
+ *      id: 'Stop ID'
+ *      statusId: 'Stop Status ID',
+ *      name: 'Stop Name'
+ *    },
+ *    destination: {
+ *      id 'Stop ID'
+ *      statusId: 'Stop Status ID',
+ *      name: 'Stop Name'
+ *    }
  *  }
  *  ```
  *
  *  **Options:**
  *  ```
  *  {
- *      allowTransfers: true
+ *    allowTransfers: true
  *  }
  *  ```
  *
@@ -58,35 +58,35 @@
  */
 class Favorite {
 
-    /**
-     * Create a new Favorite with the specified information
-     * @param {int} type Favorite Type
-     * @param {int} sequence Favorite Sequence (1, 2, etc...)
-     * @param {object} parameters Favorite Parameters
-     * @param {object=} options Favorite Options
-     */
-    constructor(type, sequence, parameters, options={}) {
-        this.type = type;
-        this.sequence = sequence;
-        this.parameters = parameters;
-        this.options = options;
-    }
+  /**
+   * Create a new Favorite with the specified information
+   * @param {int} type Favorite Type
+   * @param {int} sequence Favorite Sequence (1, 2, etc...)
+   * @param {object} parameters Favorite Parameters
+   * @param {object=} options Favorite Options
+   */
+  constructor(type, sequence, parameters, options={}) {
+    this.type = type;
+    this.sequence = sequence;
+    this.parameters = parameters;
+    this.options = options;
+  }
 
-    /**
-     * Check if the Favorite is a Favorite Station
-     * @returns {boolean} true if Station
-     */
-    isStation() {
-        return this.type === Favorite.FAVORITE_TYPE_STATION;
-    }
+  /**
+   * Check if the Favorite is a Favorite Station
+   * @returns {boolean} true if Station
+   */
+  isStation() {
+    return this.type === Favorite.FAVORITE_TYPE_STATION;
+  }
 
-    /**
-     * Check if the Favorite is a Favorite Trip
-     * @returns {boolean} true if Trip
-     */
-    isTrip() {
-        return this.type === Favorite.FAVORITE_TYPE_TRIP;
-    }
+  /**
+   * Check if the Favorite is a Favorite Trip
+   * @returns {boolean} true if Trip
+   */
+  isTrip() {
+    return this.type === Favorite.FAVORITE_TYPE_TRIP;
+  }
 
 }
 
@@ -112,18 +112,18 @@ Favorite.FAVORITE_TYPE_TRIP = 2;
  * @returns {Favorite} Favorite Station
  */
 Favorite.createStation = function(stop, sequence, opts={}) {
-    return new Favorite(
-        Favorite.FAVORITE_TYPE_STATION,
-        sequence,
-        {
-            stop: {
-                id: stop.id,
-                statusId: stop.statusId,
-                name: stop.name
-            }
-        },
-        opts
-    );
+  return new Favorite(
+    Favorite.FAVORITE_TYPE_STATION,
+    sequence,
+    {
+      stop: {
+        id: stop.id,
+        statusId: stop.statusId,
+        name: stop.name
+      }
+    },
+    opts
+  );
 };
 
 /**
@@ -135,23 +135,23 @@ Favorite.createStation = function(stop, sequence, opts={}) {
  * @returns {Favorite} Favorite Trip
  */
 Favorite.createTrip = function(origin, destination, sequence, opts={}) {
-    return new Favorite(
-        Favorite.FAVORITE_TYPE_TRIP,
-        sequence,
-        {
-            origin: {
-                id: origin.id,
-                statusId: origin.statusId,
-                name: origin.name
-            },
-            destination: {
-                id: destination.id,
-                statusId: destination.statusId,
-                name: destination.name
-            }
-        },
-        opts
-    )
+  return new Favorite(
+    Favorite.FAVORITE_TYPE_TRIP,
+    sequence,
+    {
+      origin: {
+        id: origin.id,
+        statusId: origin.statusId,
+        name: origin.name
+      },
+      destination: {
+        id: destination.id,
+        statusId: destination.statusId,
+        name: destination.name
+      }
+    },
+    opts
+  )
 };
 
 
@@ -165,15 +165,15 @@ Favorite.createTrip = function(origin, destination, sequence, opts={}) {
  * @returns {number} compare integer
  */
 Favorite.sortBySequence = function(a, b) {
-    if ( a.sequence < b.sequence ) {
-        return -1;
-    }
-    else if ( a.sequence > b.sequence ) {
-        return 1;
-    }
-    else {
-        return 0;
-    }
+  if ( a.sequence < b.sequence ) {
+    return -1;
+  }
+  else if ( a.sequence > b.sequence ) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
 };
 
 

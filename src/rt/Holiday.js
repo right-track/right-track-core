@@ -18,20 +18,20 @@
  */
 class Holiday {
 
-    /**
-     * Right Track Holiday Constructor
-     * @constructor
-     * @param {int} date Holiday Date (yyyymmdd)
-     * @param {string} name Holiday Name
-     * @param {boolean} peak Holiday Peak Status (true if there are still peak trains)
-     * @param {string} serviceInformation Holiday Service Information
-     */
-    constructor(date, name, peak, serviceInformation) {
-        this.date = date;
-        this.name = name;
-        this.peak = peak;
-        this.serviceInformation = serviceInformation;
-    }
+  /**
+   * Right Track Holiday Constructor
+   * @constructor
+   * @param {int} date Holiday Date (yyyymmdd)
+   * @param {string} name Holiday Name
+   * @param {boolean} peak Holiday Peak Status (true if there are still peak trains)
+   * @param {string} serviceInformation Holiday Service Information
+   */
+  constructor(date, name, peak, serviceInformation) {
+    this.date = date;
+    this.name = name;
+    this.peak = peak;
+    this.serviceInformation = serviceInformation;
+  }
 
 }
 
