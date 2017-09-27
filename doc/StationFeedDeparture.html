@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>rt/Link.js - Documentation</title>
+    <title>StationFeedDeparture - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,57 +27,257 @@
 
 <div id="main">
     
-    <h1 class="page-title">rt/Link.js</h1>
+    <h1 class="page-title">StationFeedDeparture</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
+        <h2>
+        StationFeedDeparture
+        </h2>
+        
+            <div class="class-description"><h2>Station Feed Departure</h2><p>Real-time and departure information about the departure of
+a single Trip from a Stop.  Used by the StationFeed Class.</p></div>
+        
+    
+</header>
 
-/**
- * RT Link
- * --------
- * Representation of the data in the rt_links table.  These links are
- * for additional resources and information regarding the service agency.
- *
- * Right Track Fields:
- * - Category
- * - Title
- * - Description
- * - Url
- *
- * **package:** core.rt.Link
- *
- * @class
- */
-class Link {
+<article>
+    <div class="container-overview">
+    
+        
 
-  /**
-   * Right Track Link Constructor
-   * @constructor
-   * @param {string} category Link Category
-   * @param {string} title Link Title
-   * @param {string} description Link Description
-   * @param {string} url Link URL
-   */
-  constructor(category, title, description, url) {
-    this.category = category;
-    this.title = title;
-    this.description = description;
-    this.url = url;
-  }
+    
+    <h2>Constructor</h2>
+    
 
-}
+    <h4 class="name" id="StationFeedDeparture"><span class="type-signature"></span>new StationFeedDeparture<span class="signature">(departure, destination, trip, status)</span><span class="type-signature"></span></h4>
+
+    
 
 
-module.exports = Link;</code></pre>
-        </article>
-    </section>
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="rt_StationFeed.js.html">rt/StationFeed.js</a>, <a href="rt_StationFeed.js.html#line34">line 34</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Station Feed Departure Constructor</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>departure</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="DateTime.html">DateTime</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>DateTime of scheduled departure</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>destination</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Stop.html">Stop</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Destination Stop</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>trip</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Trip.html">Trip</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Departure Trip</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>status</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="StationFeedDepartureStatus.html">StationFeedDepartureStatus</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Real-time Status Information</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
