@@ -108,9 +108,10 @@ Favorite.FAVORITE_TYPE_TRIP = 2;
  * Favorite Factory: create a Favorite Station
  * @param {Stop} stop The Stop to save as a Favorite Station
  * @param {int} sequence The Favorite sequence
+ * @param {object=} opts={} Station Options
  * @returns {Favorite} Favorite Station
  */
-Favorite.createStation = function(stop, sequence) {
+Favorite.createStation = function(stop, sequence, opts={}) {
     return new Favorite(
         Favorite.FAVORITE_TYPE_STATION,
         sequence,
@@ -121,7 +122,7 @@ Favorite.createStation = function(stop, sequence) {
                 name: stop.name
             }
         },
-        {}
+        opts
     );
 };
 
@@ -130,28 +131,26 @@ Favorite.createStation = function(stop, sequence) {
  * @param {Stop} origin The origin of the Favorite Trip
  * @param {Stop} destination The destination of the Favorite Trip
  * @param {int} sequence The Favorite sequence
- * @param {boolean=} allowTransfers=true Allow Transfers
+ * @param {object=} opts={} Trip Options
  * @returns {Favorite} Favorite Trip
  */
-Favorite.createTrip = function(origin, destination, sequence, allowTransfers=true) {
+Favorite.createTrip = function(origin, destination, sequence, opts={}) {
     return new Favorite(
         Favorite.FAVORITE_TYPE_TRIP,
         sequence,
         {
             origin: {
                 id: origin.id,
-                statusId: origin.statusID,
+                statusId: origin.statusId,
                 name: origin.name
             },
             destination: {
                 id: destination.id,
-                statusId: destination.statusID,
+                statusId: destination.statusId,
                 name: destination.name
             }
         },
-        {
-            allowTransfers: allowTransfers
-        }
+        opts
     )
 };
 
