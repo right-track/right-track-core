@@ -24,6 +24,7 @@ const About = require("./rt/About.js");
 const Favorite = require("./rt/Favorite.js");
 const Holiday = require("./rt/Holiday.js");
 const Link = require("./rt/Link.js");
+const StationFeed = require("./rt/StationFeed.js");
 
 const DateTime = require("./utils/DateTime");
 
@@ -55,7 +56,8 @@ module.exports = {
         About: About,
         Favorite: Favorite,
         Holiday: Holiday,
-        Link: Link
+        Link: Link,
+        StationFeed: StationFeed
     },
     utils: {
         DateTime: DateTime
