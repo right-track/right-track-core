@@ -36,11 +36,17 @@ let getStop = function(db, id, callback) {
 
     // Build stop id string
     let stopIds = "";
-    if ( typeof id === "string" ) {
+    if ( typeof id === "string" || typeof id === "number" ) {
         stopIds = "('" + id + "')";
     }
     else {
-        stopIds = "('" + id.join("', '") + "')";
+        try {
+            stopIds = "('" + id.join("', '") + "')";
+        }
+        catch(err) {
+            console.warn(err);
+            stopIds = "('" + id + "')";
+        }
     }
 
 
@@ -96,7 +102,10 @@ let getStop = function(db, id, callback) {
 
             // return the Stops in the callback
             if (callback !== undefined) {
-                if ( rtn.length === 1 ) {
+                if ( rtn.length === 0 ) {
+                    callback(undefined);
+                }
+                else if ( rtn.length === 1 ) {
                     callback(rtn[0]);
                 }
                 else {
