@@ -46,7 +46,7 @@ class Stop {
         this.lon = lon;
         this.url = url;
         this.wheelchairBoarding = wheelchairBoarding;
-        this.statusID = statusId;
+        this.statusId = statusId;
         this.transferWeight = transferWeight;
     }
 
