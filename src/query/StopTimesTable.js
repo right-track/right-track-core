@@ -57,9 +57,7 @@ function getStopTimesByTrip(db, tripId, date, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get StopTimes for Trip ' + tripId + ' from database')
-      );
+      return callback(err);
     }
 
     // List of StopTimes to return
@@ -143,9 +141,12 @@ function getStopTimeByTripStop(db, tripId, stopId, date, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get StopTime for Trip ' + tripId + ' and Stop ' + stopId + ' from database')
-      );
+      return callback(err);
+    }
+
+    // Stop Not Found
+    if ( result === undefined ) {
+      return callback(null, undefined);
     }
 
     // Use the stop_name by default unless display_name is set

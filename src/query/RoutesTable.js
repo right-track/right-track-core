@@ -56,9 +56,12 @@ function getRoute(db, id, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get Route ' + id + ' from database')
-      );
+      return callback(err);
+    }
+
+    // Route not found
+    if ( result === undefined ) {
+      return callback(null, undefined);
     }
 
     // Create Agency
@@ -112,9 +115,7 @@ function getRoutes(db, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get Routes from database')
-      );
+      return callback(err);
     }
 
     // List of routes to return

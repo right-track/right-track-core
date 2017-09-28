@@ -44,9 +44,7 @@ let getLinkCategories = function(db, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get link categories from database')
-      );
+      return callback(err);
     }
 
     // List of categories to return
@@ -85,9 +83,7 @@ function getLinks(db, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get links from database')
-      );
+      return callback(err);
     }
 
     // List of links to return
@@ -139,9 +135,7 @@ function getLinksByCategory(db, category, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get links for category ' + category + ' from database')
-      );
+      return callback(err);
     }
 
     // List of links to return

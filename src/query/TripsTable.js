@@ -72,10 +72,15 @@ let getTrip = function(db, id, date, callback) {
   db.select(select, function(err, results) {
 
     // Database Query Error
-    if ( err || results.length === 0 ) {
+    if ( err ) {
       return callback(
-        new Error('Could not get Trip ' + id + ' from database')
+        new Error('Could not get Trip from database')
       );
+    }
+
+    // No Trip Found
+    if ( results.length === 0 ) {
+      return callback(null, undefined);
     }
 
     // Get Agency and Route info from first row
@@ -106,9 +111,7 @@ let getTrip = function(db, id, date, callback) {
 
       // Database Query Error
       if ( err ) {
-        return callback(
-          new Error('Could not get Service ' + row.service_id + ' from database')
-        );
+        return callback(err);
       }
 
       // List of StopTimes
@@ -206,9 +209,7 @@ function getTripByDeparture(db, originId, destinationId, departure, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get Effective Services for date ' + departure.getDateInt())
-      );
+      return callback(err);
     }
 
     // Build Service ID String
@@ -285,9 +286,7 @@ function getTripByDeparture(db, originId, destinationId, departure, callback) {
 
           // Database Query Error
           if ( err ) {
-            return callback(
-              new Error('Could not get Effective Services for date ' + prev.getDateInt())
-            );
+            return callback(err);
           }
 
           // Build Service ID String
@@ -335,7 +334,7 @@ function getTripByDeparture(db, originId, destinationId, departure, callback) {
                     // Check stop sequence
                     // If origin comes before destination, use that trip
                     if (!orErr && !deErr && originStopTime.stopSequence <= destinationStopTime.stopSequence) {
-                      getTrip(db, row.trip_id, prev.getDateInt(), function (err, trip) {
+                      getTrip(db, row.trip_id, prev.getDateInt(), function(err, trip) {
                         return callback(err, trip);
                       });
                     }
@@ -349,9 +348,7 @@ function getTripByDeparture(db, originId, destinationId, departure, callback) {
 
             // STILL NO MATCHING TRAIN FOUND
             else {
-              return callback(
-                new Error('No Matching Trip Found for Departure')
-              );
+              return callback(null, undefined);
             }
 
 

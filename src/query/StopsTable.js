@@ -65,9 +65,7 @@ function getStop(db, id, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get Stop(s) ' + id + ' from database')
-      );
+      return callback(err);
     }
 
     // List of Stops to return
@@ -106,10 +104,14 @@ function getStop(db, id, callback) {
 
     }
 
-    // return the Stops in the callback
+    // Return Error if no Stops found
     if ( rtn.length === 0 ) {
-      return callback(null, undefined);
+      return callback(
+        new Error('No matching Stop(s) found in the database')
+      );
     }
+
+    // Return Stop(s)
     else if ( rtn.length === 1 ) {
       return callback(null, rtn[0]);
     }
@@ -122,6 +124,7 @@ function getStop(db, id, callback) {
 }
 
 
+// TODO: Break this up into multiple functions?
 /**
  * Get the Stop specified by name from the passed database
  *
@@ -134,6 +137,7 @@ function getStop(db, id, callback) {
 function getStopByName(db, name, callback) {
 
 
+
   // ==== GTFS_STOPS ==== //
 
   // Get stop id for name in gtfs_stops
@@ -142,61 +146,66 @@ function getStopByName(db, name, callback) {
   // Query database for stop
   db.get(select, function(err, result) {
 
+    // Database Error
+    if ( err ) {
+      return callback(err);
+    }
+
     // Found a Stop, return
-    if ( !err ) {
+    if ( result !== undefined ) {
       return getStop(db, result.stop_id, callback);
     }
 
-    // Stop not found in gtfs_stops...
-    else {
 
 
-      // ==== RT_ALT_STOP_NAMES ==== //
+    // ==== RT_ALT_STOP_NAMES ==== //
 
-      // Check rt_alt_stop_names for stop name
-      let select = "SELECT stop_id FROM rt_alt_stop_names WHERE alt_stop_name='" + name + "' COLLATE NOCASE;";
+    // Check rt_alt_stop_names for stop name
+    let select = "SELECT stop_id FROM rt_alt_stop_names WHERE alt_stop_name='" + name + "' COLLATE NOCASE;";
 
-      // Query database for stop
+    // Query database for stop
+    db.get(select, function(err, result) {
+
+      // Database Error
+      if ( err ) {
+        return callback(err);
+      }
+
+      // Found a Stop, return
+      if ( result !== undefined ) {
+        return getStop(db, result.stop_id, callback);
+      }
+
+
+
+      // ==== RT_STOPS_EXTRA ==== //
+
+      // Check rt_stops_extra for stop name
+      let select = "SELECT stop_id FROM rt_stops_extra WHERE display_name='" + name + "' COLLATE NOCASE;";
+
+      // Query the database for stop
       db.get(select, function(err, result) {
 
-        // Found a Stop, return
-        if ( !err ) {
+        // Database Error
+        if ( err ) {
+          return callback(err);
+        }
+
+        // Found a Stop, return Stop
+        if ( result !== undefined ) {
           return getStop(db, result.stop_id, callback);
         }
 
-        // Stop not found in rt_alt_stop_names...
+        // No Stop Found, return undefined
         else {
-
-
-          // ==== RT_STOPS_EXTRA ==== //
-
-          // Check rt_stops_extra for stop name
-          let select = "SELECT stop_id FROM rt_stops_extra WHERE display_name='" + name + "' COLLATE NOCASE;";
-
-          // Query the database for stop
-          db.get(select, function(err, result) {
-
-            // Found a Stop, return
-            if ( !err ) {
-              return getStop(db, result.stop_id, callback);
-            }
-
-
-            // ==== STOP NOT FOUND ==== //
-
-            else {
-              return callback(
-                new Error('Could not look up stop by name: ' + name)
-              );
-            }
-
-          });
-
+          return callback(null, undefined);
         }
 
       });
 
-    }
+
+    });
+
 
   });
 
@@ -233,11 +242,14 @@ function getStopByStatusId(db, statusId, callback) {
   // Query the database
   db.get(select, function(err, result) {
 
-    // Database Query Error
+    // Database Error
     if ( err ) {
-      return callback(
-        new Error('Could not get Stop for statusId ' + statusId + ' from database')
-      );
+      return callback(err);
+    }
+
+    // No Stop found...
+    if ( result === undefined ) {
+      return callback(null, undefined);
     }
 
     // Use rt display_name if provided
@@ -295,9 +307,7 @@ function getStops(db, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get Stops from database')
-      );
+      return callback(err);
     }
 
     // Array to hold stops to return
@@ -368,9 +378,7 @@ function getStopsByRoute(db, routeId, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get Stop IDs for Route ' + routeId + ' from database')
-      );
+      return callback(err);
     }
 
     // Stop IDs to get
@@ -386,9 +394,7 @@ function getStopsByRoute(db, routeId, callback) {
     getStop(db, stopIds, function(err, stops) {
 
       if ( err ) {
-        return callback(
-          new Error('Could not get Stops for Route ' + routeId + ' from database')
-        );
+        return callback(err);
       }
 
       // Return sorted stops with callback
@@ -426,9 +432,7 @@ function getStopsWithStatus(db, callback) {
 
     // Database query error
     if ( err ) {
-      return callback(
-        new Error('Could not get Stops with Status from database')
-      );
+      return callback(err);
     }
 
     // Array to hold stops to return

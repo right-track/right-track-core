@@ -51,9 +51,7 @@ function getHolidays(db, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get Holidays from database')
-      );
+      return callback(err);
     }
 
     // list of Holidays to return
@@ -106,9 +104,7 @@ function getHoliday(db, date, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get Holiday for date ' + date + ' from database')
-      );
+      return callback(err);
     }
 
     // Holiday was found...
@@ -157,9 +153,7 @@ function isHoliday(db, date, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not check if date ' + date + ' is a Holiday')
-      );
+      return callback(err);
     }
 
     // Return if holiday is found with callback

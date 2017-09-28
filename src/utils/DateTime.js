@@ -494,7 +494,7 @@ DateTime.createFromDateTime = function(datetime) {
  * @returns {DateTime} DateTime
  */
 DateTime.createFromTime = function(time) {
-  return new DateTime(time);
+  return new DateTime(time, 19700101);
 };
 
 /**

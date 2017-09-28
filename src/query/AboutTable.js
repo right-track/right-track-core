@@ -37,6 +37,11 @@ function getAbout(db, callback) {
 
     // Database Query Error
     if ( err ) {
+      return callback(err);
+    }
+
+    // No About info returned
+    if ( result === undefined ) {
       return callback(
         new Error('Could not get About info from Right Track DB')
       );

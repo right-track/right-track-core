@@ -62,9 +62,7 @@ function getService(db, id, callback) {
       // Build the Service
       getService(db, serviceId, function(err, service) {
         if ( err ) {
-          return callback(
-            new Error('Could not get Service ' + serviceId + ' from database')
-          );
+          return callback(err);
         }
 
         // Add Service to list
@@ -94,9 +92,7 @@ function getService(db, id, callback) {
 
       // Database Query Error
       if ( err ) {
-        return callback(
-          new Error('Could not get Service Exception(s) for Service ' + id + ' from database')
-        );
+        return callback(err);
       }
 
       // List of service exceptions and start and end dates
@@ -136,9 +132,7 @@ function getService(db, id, callback) {
 
         // Database Query Error
         if ( err ) {
-          return callback(
-            new Error('Could not get Service ' + id + ' from database')
-          );
+          return callback(err);
         }
 
         // Defaults, when no service in calendar table
@@ -211,16 +205,12 @@ function getServicesEffective(db, date, callback) {
 
       // Check for Default Services Error
       if ( defaultError ) {
-        return callback(
-          new Error('Could not get Default Services for date ' + date + ' from the database')
-        );
+        return callback(defaultError);
       }
 
       // Check for Service Exceptions Error
       if ( exceptionsError ) {
-        return callback(
-          new Error('Could not Service Exceptions for date ' + date + ' from database')
-        );
+        return callback(exceptionsError);
       }
 
 
@@ -276,9 +266,7 @@ function getServicesEffective(db, date, callback) {
 
           // Error Getting Services
           if ( err ) {
-            return callback(
-              new Error('Could not get additional Services for Date ' + date + ' from database')
-            );
+            return callback(err);
           }
 
           // Add Services to list
@@ -336,9 +324,7 @@ let getServicesDefault = function(db, date, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get Default Services for Date ' + date + ' from database')
-      );
+      return callback(err);
     }
 
 
@@ -395,9 +381,7 @@ let getServiceExceptions = function(db, date, callback) {
 
     // Database Query Error
     if ( err ) {
-      return callback(
-        new Error('Could not get Service Exceptions for Date ' + date + ' from database')
-      );
+      return callback(err);
     }
 
     // Parse each row in the results
