@@ -150,13 +150,82 @@ class DateTime {
   }
 
 
+  // ==== INTERNAL HELPER FUNCTIONS ==== //
 
+  /**
+   * Get a JavaScript Date representation of the DateTime
+   * @returns {Date}
+   * @private
+   */
+  _getJSDate() {
+    let hours = this._getHours();
+    if ( hours >= 24 ) {
+      hours = hours - 24;
+    }
 
+    return new Date(
+      this._getYear(),
+      this._getMonth()-1,
+      this._getDate(),
+      this._getHours(),
+      this._getMins(),
+      this._getSecs()
+    );
+  }
 
+  /**
+   * Get the DateTime's Hours
+   * @returns {number}
+   * @private
+   */
+  _getHours() {
+    return Math.floor(this.time/3600);
+  }
 
+  /**
+   * Get the DateTime's Minutes
+   * @returns {number}
+   * @private
+   */
+  _getMins() {
+    return Math.floor((this.time%3600)/60);
+  }
 
+  /**
+   * Get the DateTime's Seconds
+   * @returns {number}
+   * @private
+   */
+  _getSecs() {
+    return Math.floor((this.time%3600)%60);
+  }
 
+  /**
+   * Get the DateTime's Year
+   * @returns {string}
+   * @private
+   */
+  _getYear() {
+    return this.date.toString().substr(0, 4);
+  }
 
+  /**
+   * Get the DateTime's Month (1 based)
+   * @returns {string}
+   * @private
+   */
+  _getMonth() {
+    return this.date.toString().substring(4, 6);
+  }
+
+  /**
+   * Get the DateTime's Date
+   * @returns {string}
+   * @private
+   */
+  _getDate() {
+    return this.date.toString().substring(6, 8);
+  }
 
 
   // ==== MUTATORS ==== //
@@ -164,19 +233,15 @@ class DateTime {
   /**
    * Add or Subtract the specified number of days to the DateTime's date
    * @param delta +/- number of days to add
+   * @returns {DateTime} return the DateTime
    */
   deltaDays(delta) {
-    let s = this.date.toString();
-    let y = s.substr(0, 4);
-    let m = s.substr(4, 2);
-    let d = s.substr(6, 2);
-    let jd = new Date(y, m-1, d);
+    let date = this._getJSDate();
+    date.setDate(date.getDate() + delta);
 
-    jd.setDate(jd.getDate() + delta);
-
-    y = jd.getFullYear();
-    m = jd.getMonth()+1;
-    d = jd.getDate();
+    let y = date.getFullYear();
+    let m = date.getMonth()+1;
+    let d = date.getDate();
 
     if ( m < 10 ) {
       m = '0' + m;
@@ -186,21 +251,26 @@ class DateTime {
     }
 
     this.date = parseInt('' + y + m + d);
+
+    return this;
   }
 
 
+  /**
+   * Add or Subtract the specified number of minutes to the DateTime's time
+   * @param delta +/- number of minutes to add
+   * @returns {DateTime} return the DateTime
+   */
   deltaMins(delta) {
-    let h = Math.floor(this.time/3600);
-    let m = Math.floor((this.time%3600)/60);
-    let s = Math.floor((this.time%3600)%60);
-
     let hDelta = Math.floor(delta/60);
     let mDelta = Math.floor(delta%60);
 
-    h = h + hDelta;
-    m = m + mDelta;
+    let h = this._getHours() + hDelta;
+    let m = this._getMins() + mDelta;
 
-    this.time = h*3600 + m*60 + s;
+    this.time = h*3600 + m*60 + this._getSecs();
+
+    return this;
   }
 
 
@@ -209,13 +279,21 @@ class DateTime {
   // ==== TIME GETTERS ==== //
 
   /**
+   * Get the time in seconds since midnight
+   * @returns {int} time integer in seconds
+   */
+  getTimeSeconds() {
+    return this.time;
+  }
+
+  /**
    * Get the GTFS Spec time representation (HH:mm:ss)
    * @returns {string} GTFS Time (HH:mm:ss)
    */
   getTimeGTFS() {
-    let h = Math.floor(this.time/3600);
-    let m = Math.floor((this.time%3600)/60);
-    let s = Math.floor((this.time%3600)%60);
+    let h = this._getHours();
+    let m = this._getMins();
+    let s = this._getSecs();
 
     // Pad with leading 0s
     if ( h < 10 ) {
@@ -232,28 +310,18 @@ class DateTime {
   }
 
   /**
-   * Get the time in seconds since midnight
-   * @returns {int} time integer in seconds
-   */
-  getTimeSeconds() {
-    return this.time;
-  }
-
-  /**
    * Get the human readable time (12 hr with AM/PM)
    * @returns {string} human readable time
    */
   getTimeReadable() {
-    let h = Math.floor(this.time/3600);
-    let m = Math.floor((this.time%3600)/60);
-    let s = Math.floor((this.time%3600)%60);
-
+    let h = this._getHours();
+    let m = this._getMins();
+    let s = this._getSecs();
 
     // Pad Minutes with 0s
     if ( m < 10 ) {
       m = '0' + m;
     }
-
 
     // 12 AM
     if ( h === 0 ) {
@@ -328,13 +396,7 @@ class DateTime {
     dow[5] = 'friday';
     dow[6] = 'saturday';
 
-    let s = this.date.toString();
-    let y = s.substr(0, 4);
-    let m = s.substr(4, 2);
-    let d = s.substr(6, 2);
-    let jd = new Date(y, m-1, d);
-
-    return dow[jd.getDay()];
+    return dow[this._getJSDate().getDay()];
   }
 
   /**
@@ -343,20 +405,15 @@ class DateTime {
    * @returns {string} MySQL DateTime String
    */
   toMySQLString() {
-    let str = '';
     if ( this.date === 19700101 ) {
       console.warn('DATE NOT SET');
     }
 
     // Set date
-    let s = this.date.toString();
-    let y = s.substr(0, 4);
-    let m = s.substr(4, 2);
-    let d = s.substr(6, 2);
-    str = str + y + '-' + m + '-' + d + ' ';
+    let str = this._getYear() + '-' + this._getMonth() + '-' + this._getDate();
 
     // Set time
-    str = str + this.getTimeGTFS();
+    str = str + ' ' + this.getTimeGTFS();
 
     return str;
   }
@@ -367,35 +424,7 @@ class DateTime {
    * @returns {string} HTTP Header String
    */
   toHTTPString() {
-    let str = '';
-
-    // Get date
-    let s = this.date.toString();
-    let y = s.substr(0, 4);
-    let m = s.substr(4, 2);
-    let d = s.substr(6, 2);
-
-    // Create JS Date
-    let date = new Date(y, m-1, d);
-
-    // Get Time
-    let hour = Math.floor(this.time/3600);
-    let mins = Math.floor((this.time%3600)/60);
-    let secs = Math.floor((this.time%3600)%60);
-
-    // Next day
-    if ( hour >= 24 ) {
-      hour = hour - 24;
-      date.setDate(date.getDate()+1);
-    }
-
-    // Set Time
-    date.setHours(hour);
-    date.setMinutes(mins);
-    date.setSeconds(secs);
-
-
-    return date.toUTCString();
+    return this._getJSDate().toUTCString();
   }
 
   /**
@@ -405,15 +434,21 @@ class DateTime {
   toString() {
     let str = '';
     if ( this.date !== 19700101 ) {
-      let s = this.date.toString();
-      let y = s.substr(0, 4);
-      let m = s.substr(4, 2);
-      let d = s.substr(6, 2);
-
+      let y = this._getYear();
+      let m = this._getMonth();
+      let d = this._getDate();
       str = str + y + '-' + m + '-' + d + ' ';
     }
     str = str + '@ ' + this.getTimeGTFS();
     return str;
+  }
+
+  /**
+   * Create a new DateTime Object with the properties of this one
+   * @returns {DateTime} DateTime with same date and time
+   */
+  clone() {
+    return new DateTime(this.time, this.date);
   }
 
 }
@@ -421,13 +456,34 @@ class DateTime {
 
 
 
+
+// ==== DATETIME FACTORIES ==== //
+
+
+/**
+ * DateTime Factory: with time and date
+ * @param {string} time Time
+ * @param {int} date Date
+ * @returns {DateTime} DateTime
+ */
+DateTime.create = function(time, date) {
+  return new DateTime(time, date);
+};
+
 /**
  * DateTime Factory: date and time of now
  * @returns {DateTime} DateTime
  */
 DateTime.now = function() {
-  let jd = new Date();
+  return DateTime.createFromJSDate(new Date());
+};
 
+
+/**
+ * DateTime Factory: with JavaScript Date
+ * @param {Date} date JavaScript Date
+ */
+DateTime.createFromJSDate = function(jd) {
   // Construct Date
   let y = jd.getFullYear();
   let m = jd.getMonth() + 1;
@@ -456,36 +512,6 @@ DateTime.now = function() {
   let time = h + ':' + min + ':' + sec;
 
   return new DateTime(time, date);
-};
-
-
-/**
- * DateTime Factory: with time and date
- * @param {string} time Time
- * @param {int} date Date
- * @returns {DateTime} DateTime
- */
-DateTime.create = function(time, date) {
-  return new DateTime(time, date);
-};
-
-
-/**
- * DateTime Factory: with JavaScript Date
- * @param {Date} date JavaScript Date
- */
-DateTime.createFromJSDate = function(date) {
-  // TODO
-};
-
-
-/**
- * DateTime Factory: with DateTime
- * @param {DateTime} datetime DateTime to clone
- * @returns {DateTime} DateTime
- */
-DateTime.createFromDateTime = function(datetime) {
-  return new DateTime(datetime.time, datetime.date);
 };
 
 /**

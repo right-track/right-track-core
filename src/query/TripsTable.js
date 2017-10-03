@@ -280,8 +280,7 @@ function getTripByDeparture(db, originId, destinationId, departure, callback) {
         // ==== GET EFFECTIVE SERVICES ==== //
 
         // Get effective services for the previous day
-        let prev = DateTime.createFromDateTime(departure);
-        prev.deltaDays(-1);
+        let prev = departure.clone().deltaDays(-1);
         CalendarTable.getServicesEffective(db, prev.getDateInt(), function(err, services) {
 
           // Database Query Error
