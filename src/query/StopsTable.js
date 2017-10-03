@@ -396,7 +396,9 @@ function getStopsByRoute(db, routeId, callback) {
       }
 
       // Return sorted stops with callback
-      stops.sort(Stop.sortByName);
+      if ( stops !== undefined ) {
+        stops.sort(Stop.sortByName);
+      }
       return callback(null, stops);
 
     });
