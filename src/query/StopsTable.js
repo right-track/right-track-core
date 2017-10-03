@@ -104,11 +104,9 @@ function getStop(db, id, callback) {
 
     }
 
-    // Return Error if no Stops found
+    // No Stop(s) found, return undefined
     if ( rtn.length === 0 ) {
-      return callback(
-        new Error('No matching Stop(s) found in the database')
-      );
+      return callback(null, undefined);
     }
 
     // Return Stop(s)
