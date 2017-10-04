@@ -52,6 +52,26 @@ class StationFeedDeparture {
 
 
 /**
+ * Sort Departures by scheduled departure date/time
+ * @param {StationFeedDeparture} a Departure A
+ * @param {StationFeedDeparture} b Departure B
+ * @returns {int} compare integer
+ */
+StationFeedDeparture.sort = function(a, b) {
+  if ( a.departure < b.departure ) {
+    return -1;
+  }
+  else if ( a.departure > b.departure ) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+};
+
+
+
+/**
  * Station Feed Departure Status
  * -----------------------------
  * Real-time Status Information about a departure from a Stop.
