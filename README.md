@@ -29,10 +29,13 @@ Currently, the module supports the following features:
   - StopTime
   - Trip
 - Right Track Data Models
-  - additional data added to Stops
   - About (database metadata)
+  - Favorite (Class structure for User favorites - station and trips)
   - Holiday (service information for holidays)
   - Link (links for additional transit resources)
+  - Station Feed (real-time status feed for departures from a single Stop)
+    - Station Feed Departure
+    - Station Feed Departure Status
 - Right Track Database queries
 - General purpose utility functions
 
@@ -106,7 +109,8 @@ where ```core``` is an object with the following structure:
      Route.ROUTE_TYPE_FERRY: 4,
      Route.ROUTE_TYPE_CABLE_CAR: 5,
      Route.ROUTE_TYPE_GONDOLA: 6,
-     Route.ROUTE_TYPE_FUNICULAR: 7 
+     Route.ROUTE_TYPE_FUNICULAR: 7,
+     Route.sortByName()
    },
    Service() {
      Service.SERVICE_AVAILABLE: 1, 
@@ -144,9 +148,15 @@ where ```core``` is an object with the following structure:
   },
   rt: {
    About(),
-   Favorite(),
+   Favorite() {
+     Favorite.FAVORITE_TYPE_STATION: 1,
+     Favorite.FAVORITE_TYPE_TRIP: 2,
+     Favorite.createStation(),
+     Favorite.createTrip(),
+     Favorite.sortBySequence()
+   },
    Holiday(),
-   Link()
+   Link(),
    StationFeed() {
      StationFeed.StationFeedDeparture() {
        StationFeed.StationFeedDeparture.sort()
@@ -156,9 +166,11 @@ where ```core``` is an object with the following structure:
   },
   utils: { 
    DateTime() {
-     create(),
-     createFromTime(),
-     createFromDate()
+     DateTime.create(),
+     DateTime.now(),
+     DateTime.createFromJSDate(),
+     DateTime.createFromTime(),
+     DateTime.createFromDate()
    }
   }
 }
@@ -215,10 +227,15 @@ using the [node-sqlite3](https://github.com/mapbox/node-sqlite3) module.
 const core = require('right-track-core');
 const RightTrackDB = require('right-track-db-sqlite3');
 const mnr = require('right-track-agency-mnr');
-const config = mnr.config('../path/to/config.json');  // use mnr.config() to use default configuration
+
+// read an additional agency config file (skip this step to use default values)
+mnr.config.read('../path/to/config.json');
+
+// Get the agency configuration properties
+let config = mnr.config.get();
 
 // Create the Right Track DB using the mnr config
-let db = new RightTrackDB(config.id, config.db_location);
+let db = new RightTrackDB(config.id, config.db.location);
 
 // Query the database for the stop with ID == '110'
 core.query.stops.getStop(db, '110', function(err, stop) {
