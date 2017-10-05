@@ -147,6 +147,12 @@ where ```core``` is an object with the following structure:
    Favorite(),
    Holiday(),
    Link()
+   StationFeed() {
+     StationFeed.StationFeedDeparture() {
+       StationFeed.StationFeedDeparture.sort()
+     },
+     StationFeed.StationFeedDepartureStatus()
+   }
   },
   utils: { 
    DateTime() {

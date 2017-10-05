@@ -6,15 +6,19 @@
  * ----------------
  * A real-time feed of status information of departures
  * from a single Stop.
+ *
+ * **package:** core.rt.StationFeed
+ *
+ * @class
  */
 class StationFeed {
 
   /**
    * Station Feed Constructor
    * @constructor
-   * @param {Stop} stop Station Feed Stop
-   * @param {DateTime} updated DateTime of when the data was updated
-   * @param {StationFeedDeparture[]} departures List of Station Feed Departures
+   * @param {Stop} stop Station Feed Origin Stop
+   * @param {DateTime} updated DateTime of when the data was last updated
+   * @param {StationFeed.StationFeedDeparture[]} departures List of Station Feed Departures
    */
   constructor(stop, updated, departures) {
     this.stop = stop;
@@ -30,8 +34,12 @@ class StationFeed {
  * ----------------------
  * Real-time and departure information about the departure of
  * a single Trip from a Stop.  Used by the StationFeed Class.
+ *
+ * **package:** core.rt.StationFeed.StationFeedDeparture
+ *
+ * @class
  */
-class StationFeedDeparture {
+StationFeed.StationFeedDeparture = class StationFeedDeparture {
 
   /**
    * Station Feed Departure Constructor
@@ -39,7 +47,7 @@ class StationFeedDeparture {
    * @param {DateTime} departure DateTime of scheduled departure
    * @param {Stop} destination Destination Stop
    * @param {Trip} trip Departure Trip
-   * @param {StationFeedDepartureStatus} status Real-time Status Information
+   * @param {StationFeed.StationFeedDepartureStatus} status Real-time Status Information
    */
   constructor(departure, destination, trip, status) {
     this.departure = departure;
@@ -48,16 +56,16 @@ class StationFeedDeparture {
     this.status = status;
   }
 
-}
+};
 
 
 /**
  * Sort Departures by scheduled departure date/time
- * @param {StationFeedDeparture} a Departure A
- * @param {StationFeedDeparture} b Departure B
+ * @param {StationFeed.StationFeedDeparture} a Departure A
+ * @param {StationFeed.StationFeedDeparture} b Departure B
  * @returns {int} compare integer
  */
-StationFeedDeparture.sort = function(a, b) {
+StationFeed.StationFeedDeparture.sort = function(a, b) {
   if ( a.departure < b.departure ) {
     return -1;
   }
@@ -75,8 +83,12 @@ StationFeedDeparture.sort = function(a, b) {
  * Station Feed Departure Status
  * -----------------------------
  * Real-time Status Information about a departure from a Stop.
+ *
+ * **package:** core.rt.StationFeed.StationFeedDepartureStatus
+ *
+ * @class
  */
-class StationFeedDepartureStatus {
+StationFeed.StationFeedDepartureStatus = class StationFeedDepartureStatus {
 
   /**
    * Station Feed Departure Status Constructor
@@ -85,7 +97,7 @@ class StationFeedDepartureStatus {
    * @param {int} delay Delay of departure (minutes)
    * @param {DateTime} estDeparture DateTime of estimated departure
    * @param {string} track Departure Track
-   * @param {string=} remarks Additional Remarksr
+   * @param {string=} remarks Additional Remarks
    */
   constructor(status, delay, estDeparture, track, remarks) {
     this.status = status;
@@ -95,12 +107,7 @@ class StationFeedDepartureStatus {
     this.remarks = remarks;
   }
 
-}
-
-
-// Export the Classes
-module.exports = {
-  feed: StationFeed,
-  departure: StationFeedDeparture,
-  status: StationFeedDepartureStatus
 };
+
+
+module.exports = StationFeed;
