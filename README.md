@@ -1,17 +1,19 @@
 Right Track Core Library
 =======================
 
-This module contains the core data classes and functionality 
-of the Right Track Library.  It can query a _Right Track Database_ 
-(a combination of GTFS data and additional custom data) that is 
-built using the **right-track-db-build** module and create data classes 
-representing the data.
+This Node module contains the core data classes and functionality of the
+[Right Track Library](https://github.com/right-track/). It can query a 
+_Right Track Database_ (a combination of GTFS data and additional custom data) 
+that is built using the [right-track-db-build](https://github.com/right-track/right-track-db-build) 
+module and create data classes representing the data.
 
-This module is a requirement for the **right-track-api-server**, the 
-**right-track-online** website and the **right-track-mobile** mobile apps.
+This module is a requirement for the [right-track-server](https://github.com/right-track/right-track-server), 
+the [right-track-online](https://github.com/right-track/right-track-online) website 
+and the planned upcoming right track mobile apps.
 
 Agency specific functionality (such as real-time feed information) is 
-added through the **right-track-agency-{id}** modules.
+added through the various [right-track-agency-{id}](https://github.com/right-track/right-track-agency-template) 
+modules.
 
 ### Features and Functionality
 
@@ -42,7 +44,7 @@ Currently, the module supports the following features:
 ### Documentation
 
 Full documentation can be found in the **/doc/** directory in this 
-repository.
+repository or online at [https://docs.righttrack.io/right-track-core](https://docs.righttrack.io/right-track-core)
 
 ### Module Structure
 
@@ -198,7 +200,6 @@ console.log(metroNorth);
 const Route = core.gtfs.Route;
 let newHavenLine = new Route('nh', 'new haven', 'New Haven Line', Route.ROUTE_TYPE_RAIL, metroNorth, 'ff0000', '000000');
 console.log(newHavenLine);
-// Route newHavenLine:
 // Route {
 //   id: 'nh',
 //   shortName: 'new haven',
@@ -219,7 +220,7 @@ console.log(newHavenLine);
 Query a **Right Track Database** to get data.
 
 Note: the _query_ functions of this module require a _RightTrackDB_ object as a 
-parameter.  This class is an SQLite wrapper class that provides the actual SQLite 
+parameter.  This Class is a SQLite wrapper class that provides the actual SQLite 
 functionality.  The **right-track-db-sqlite3** module provides this functionality 
 using the [node-sqlite3](https://github.com/mapbox/node-sqlite3) module.
 
