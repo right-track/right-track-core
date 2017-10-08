@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module gtfs/Trip
+ */
+
 const StopTime = require('./StopTime.js');
 
 /**
@@ -21,8 +25,6 @@ const StopTime = require('./StopTime.js');
  * Right Track Fields:
  * - Trip Direction Description
  * - Trip Peak Indicator
- *
- * **package:** core.gtfs.Trip
  *
  * @see {@link https://developers.google.com/transit/gtfs/reference/trips-file|GTFS Spec}
  * @class

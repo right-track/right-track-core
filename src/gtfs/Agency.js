@@ -1,6 +1,10 @@
 'use strict';
 
 /**
+ * @module gtfs/Agency
+ */
+
+/**
  * GTFS Agency
  * -----------
  * Representation of the GTFS Agency definition.
@@ -12,8 +16,6 @@
  *
  * GTFS Optional Fields:
  * - Agency ID
- *
- * **package:** core.gtfs.Agency
  *
  * @see {@link https://developers.google.com/transit/gtfs/reference/agency-file|GTFS Spec}
  * @class

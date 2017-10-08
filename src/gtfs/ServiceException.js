@@ -1,6 +1,10 @@
 'use strict';
 
 /**
+ * @module gtfs/ServiceException
+ */
+
+/**
  * GTFS Service Exception
  * ----------------------
  * Representation of a row in the GTFS Calendar_Dates table.
@@ -9,8 +13,6 @@
  * - Service ID
  * - Date
  * - Exception Type
- *
- * **package:** core.gtfs.ServiceException
  *
  * @see {@link https://developers.google.com/transit/gtfs/reference/calendar_dates-file|GTFS Spec}
  * @class

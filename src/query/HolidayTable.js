@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module query/holiday
+ */
+
 const Holiday = require('../rt/Holiday.js');
 
 

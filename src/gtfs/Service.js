@@ -1,6 +1,10 @@
 'use strict';
 
 /**
+ * @module gtfs/Service
+ */
+
+/**
  * GTFS Service
  * ------------
  * Representation of a row in the GTFS Calendar table.
@@ -19,8 +23,6 @@
  *
  * GTFS Optional Fields:
  * - Service Exceptions
- *
- * **package:** core.gtfs.Service
  *
  * @see {@link https://developers.google.com/transit/gtfs/reference/calendar-file|GTFS Spec}
  * @class

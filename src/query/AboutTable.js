@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * @module query/about
+ */
+
+
 const About = require('../rt/About.js');
 
 

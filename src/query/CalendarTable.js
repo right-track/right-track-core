@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module query/calendar
+ */
+
 const Service = require('../gtfs/Service.js');
 const ServiceException = require('../gtfs/ServiceException.js');
 const DateTime = require('../utils/DateTime.js');

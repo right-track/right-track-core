@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module query/trips
+ */
+
 const DateTime = require('../utils/DateTime.js');
 const Agency = require('../gtfs/Agency.js');
 const Route = require('../gtfs/Route.js');

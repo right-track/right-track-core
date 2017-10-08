@@ -1,6 +1,10 @@
 'use strict';
 
 /**
+ * @module rt/Holiday
+ */
+
+/**
  * RT Holiday
  * --------
  * Representation of the data in the rt_holidays table, which holds
@@ -11,8 +15,6 @@
  * - Name
  * - Peak
  * - Service Information
- *
- * **package:** core.rt.Holiday
  *
  * @class
  */

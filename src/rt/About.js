@@ -1,6 +1,10 @@
 'use strict';
 
 /**
+ * @module rt/About
+ */
+
+/**
  * RT About
  * --------
  * Representation of the data in the rt_about table, which holds the
@@ -13,8 +17,6 @@
  * - End Date
  * - Version
  * - Version Notes
- *
- * **package:** core.rt.About
  *
  * @class
  */

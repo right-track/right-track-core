@@ -1,6 +1,10 @@
 'use strict';
 
 /**
+ * @module rt/Favorite
+ */
+
+/**
  * RT Favorite
  * -----------
  * Representation of a Right Track User Favorite.  This can be a
@@ -53,8 +57,6 @@
  *    allowTransfers: true
  *  }
  *  ```
- *
- * **package:** core.rt.Favorite
  */
 class Favorite {
 

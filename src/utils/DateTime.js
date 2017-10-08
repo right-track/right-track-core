@@ -1,6 +1,10 @@
 'use strict';
 
 /**
+ * @module utils/DateTime
+ */
+
+/**
  * Right Track Date Time
  * ---------------------
  * This class handles the various representations of dates and
@@ -16,8 +20,6 @@
  *
  * Date Formats
  * - _int_ yyyymmdd (20170930) | **Date Integer**
- *
- * **package:** core.utils.DateTime
  *
  * @class
  */

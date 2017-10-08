@@ -1,6 +1,10 @@
 'use strict';
 
 /**
+ * @module gtfs/Route
+ */
+
+/**
  * GTFS Route
  * ----------
  * Representation of the GTFS Route definition.
@@ -15,8 +19,6 @@
  * - GTFS Agency
  * - Route Color
  * - Route Text Color
- *
- * **package:** core.gtfs.Route
  *
  * @see {@link https://developers.google.com/transit/gtfs/reference/routes-file|GTFS Spec}
  * @class

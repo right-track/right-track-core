@@ -1,6 +1,10 @@
 'use strict';
 
 /**
+ * @module rt/Link
+ */
+
+/**
  * RT Link
  * --------
  * Representation of the data in the rt_links table.  These links are
@@ -11,8 +15,6 @@
  * - Title
  * - Description
  * - Url
- *
- * **package:** core.rt.Link
  *
  * @class
  */

@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module query/routes
+ */
+
 const Agency = require('../gtfs/Agency.js');
 const Route = require('../gtfs/Route.js');
 

@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module gtfs/StopTime
+ */
+
 const DateTime = require('../utils/DateTime.js');
 
 /**
@@ -21,8 +25,6 @@ const DateTime = require('../utils/DateTime.js');
  *
  * Right Track Fields:
  * - Date (yyyymmdd)
- *
- * **package:** core.gtfs.StopTime
  *
  * @see {@link https://developers.google.com/transit/gtfs/reference/stops_times-file|GTFS Spec}
  * @class

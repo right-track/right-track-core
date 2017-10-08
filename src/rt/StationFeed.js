@@ -1,13 +1,14 @@
 'use strict';
 
+/**
+ * @module rt/StationFeed
+ */
 
 /**
  * Station Feed
  * ----------------
  * A real-time feed of status information of departures
  * from a single Stop.
- *
- * **package:** core.rt.StationFeed
  *
  * @class
  */
@@ -34,8 +35,6 @@ class StationFeed {
  * ----------------------
  * Real-time and departure information about the departure of
  * a single Trip from a Stop.  Used by the StationFeed Class.
- *
- * **package:** core.rt.StationFeed.StationFeedDeparture
  *
  * @class
  */
@@ -83,8 +82,6 @@ StationFeed.StationFeedDeparture.sort = function(a, b) {
  * Station Feed Departure Status
  * -----------------------------
  * Real-time Status Information about a departure from a Stop.
- *
- * **package:** core.rt.StationFeed.StationFeedDepartureStatus
  *
  * @class
  */

@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module query/stoptimes
+ */
+
 const Stop = require('../gtfs/Stop.js');
 const StopTime = require('../gtfs/StopTime.js');
 

@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module query/links
+ */
+
 const Link = require('../rt/Link.js');
 
 
