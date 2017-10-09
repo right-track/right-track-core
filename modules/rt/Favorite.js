@@ -17,7 +17,7 @@
  * and options.
  *
  *
- * ## Station
+ * ### Station
  *
  * **Parameters:**
  * ```
@@ -35,7 +35,7 @@
  *  Currently, there are no options for a Favorite Station.
  *
  *
- * ## Trip
+ * ### Trip
  *
  * **Parameters:**
  * ```
@@ -71,8 +71,8 @@ class Favorite {
    * Create a new Favorite with the specified information
    * @param {int} type Favorite Type
    * @param {int} sequence Favorite Sequence (1, 2, etc...)
-   * @param {object} parameters Favorite Parameters
-   * @param {object=} options Favorite Options
+   * @param {Favorite~FavoriteStationParameters|Favorite~FavoriteTripParameters} parameters Favorite Parameters
+   * @param {Favorite~FavoriteStationOptions|Favorite~FavoriteTripOptions} [options={}] Favorite Options
    */
   constructor(type, sequence, parameters, options={}) {
     this.type = type;
@@ -103,10 +103,18 @@ class Favorite {
 
 // ==== FAVORITE TYPES ==== //
 
-/** Favorite Type: Station */
+/**
+ * Favorite Type: Station
+ * @const {number}
+ * @default
+ */
 Favorite.FAVORITE_TYPE_STATION = 1;
 
-/** Favorite Type: Trip */
+/**
+ * Favorite Type: Trip
+ * @const {number}
+ * @default
+ */
 Favorite.FAVORITE_TYPE_TRIP = 2;
 
 
@@ -117,7 +125,7 @@ Favorite.FAVORITE_TYPE_TRIP = 2;
  * Favorite Factory: create a Favorite Station
  * @param {Stop} stop The Stop to save as a Favorite Station
  * @param {int} sequence The Favorite sequence
- * @param {object=} opts={} Station Options
+ * @param {Favorite~FavoriteStationOptions} [opts={}] Station Options
  * @returns {Favorite} Favorite Station
  */
 Favorite.createStation = function(stop, sequence, opts={}) {
@@ -140,7 +148,7 @@ Favorite.createStation = function(stop, sequence, opts={}) {
  * @param {Stop} origin The origin of the Favorite Trip
  * @param {Stop} destination The destination of the Favorite Trip
  * @param {int} sequence The Favorite sequence
- * @param {object=} opts={} Trip Options
+ * @param {Favorite~FavoriteTripOptions} [opts={}] Trip Options
  * @returns {Favorite} Favorite Trip
  */
 Favorite.createTrip = function(origin, destination, sequence, opts={}) {
@@ -184,6 +192,44 @@ Favorite.sortBySequence = function(a, b) {
     return 0;
   }
 };
+
+
+
+// ==== TYPE DEFINITIONS ==== //
+
+/**
+ * The Parameters for a Favorite Station
+ * @typedef {Object} Favorite~FavoriteStationParameters
+ * @property stop The Favorite Station
+ * @property stop.id Stop Id
+ * @property stop.statusId Stop Status Id
+ * @property stop.name Stop Name
+ */
+
+/**
+ * The Options for a Favorite Station
+ * @typedef {Object} Favorite~FavoriteStationOptions
+ */
+
+/**
+ * The Parameters for a Favorite Trip
+ * @typedef {Object} Favorite~FavoriteTripParameters
+ * @property origin The Origin Stop
+ * @property origin.id Origin Id
+ * @property origin.statusId Origin Status Id
+ * @property origin.name Origin Name
+ * @property destination The Destination Stop
+ * @property destination.id Destination Id
+ * @property destination.statusId Destination Status Id
+ * @property destination.name Destination Name
+ */
+
+/**
+ * The Options for a Favorite Trip
+ * @typedef {Object} Favorite~FavoriteTripOptions
+ * @property {boolean} allowTransfers Allow the Trip Result to include transfers
+ */
+
 
 
 module.exports = Favorite;
