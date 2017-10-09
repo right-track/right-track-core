@@ -483,6 +483,9 @@ function getStopsWithStatus(db, callback) {
 
 }
 
+// TODO: Get Stops near location
+// TODO: Get closest stop to location
+
 
 // Export Functions
 module.exports = {
