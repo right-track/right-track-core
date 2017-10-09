@@ -5,7 +5,7 @@ This Node module contains the core data classes and functionality of the
 [Right Track Library](https://github.com/right-track/). It can query a 
 _Right Track Database_ (a combination of GTFS data and additional custom data) 
 that is built using the [right-track-db-build](https://github.com/right-track/right-track-db-build) 
-module and create data classes representing the data.
+module and create data classes representing the queried data.
 
 This module is a requirement for the [right-track-server](https://github.com/right-track/right-track-server), 
 the [right-track-online](https://github.com/right-track/right-track-online) website 
@@ -22,7 +22,7 @@ developed.  Functionality may be added and/or removed without notice.
 
 Currently, the module supports the following features:
 
-- GTFS Data Models for the following classes:
+- GTFS Data Models:
   - Agency
   - Route
   - Service (from gtfs calendar.txt)
@@ -30,12 +30,13 @@ Currently, the module supports the following features:
   - Stop
   - StopTime
   - Trip
-- Right Track Data Models
+- Right Track Data Models:
   - About (database metadata)
-  - Favorite (Class structure for User favorites - station and trips)
+  - Favorite (Class for User favorites - station and trips)
   - Holiday (service information for holidays)
   - Link (links for additional transit resources)
-  - Station Feed (real-time status feed for departures from a single Stop)
+  - Station Real-Time Status Feed
+    - Station Feed
     - Station Feed Departure
     - Station Feed Departure Status
 - Right Track Database queries
@@ -48,145 +49,37 @@ repository or online at [https://docs.righttrack.io/right-track-core](https://do
 
 ### Module Structure
 
-To use this module, the data classes and query functions are returned 
-on import in an Object that follows a package-like structure
+This module is essentially a bundled group of sub-modules representing each of 
+the supported data types.  To import the entire collection, `require` the 
+`right-track-core` module.  The returned Object will be a collection of all of 
+the sub-modules that follows a package-like structure mirroring the module paths.
+
+For example, to get the GTFS `Agency` class from the collection:
+
+```jacascript
+const core = require('right-track-core');
+const Agency = core.gtfs.Agency;
+``` 
+
+Sub-modules can also be loaded individually by requiring the specific module:
 
 ```javascript
-const core = require('right-track-core');
+const Agency = require('right-track-core/modules/gtfs/Agency');
 ```
 
-where ```core``` is an object with the following structure:
-
-```
-// See full documentation for function parameters
-{ 
-  query: { 
-   about: { 
-     getAbout()
-   },
-   calendar: { 
-     getService(),
-     getServicesEffective(),
-     getServicesDefault(),
-     getServiceExceptions() 
-   },
-   holidays: { 
-     getHolidays(),
-     getHoliday(),
-     isHoliday() 
-   },
-   links: { 
-     getLinkCategories(),
-     getLinks(),
-     getLinksByCategory() 
-   }, 
-   routes: { 
-     getRoute(),
-     getRoutes() 
-   },
-   stops: { 
-     getStop(),
-     getStopByName(),
-     getStopByStatusId(),
-     getStops(),
-     getStopsByRoute(),
-     getStopsWithStatus() 
-   },
-   stoptimes: { 
-     getStopTimesByTrip(),
-     getStopTimeByTripStop() 
-   },
-   trips: { 
-     getTrip(),
-     getTripByDeparture() 
-   } 
-  },
-  gtfs: { 
-   Agency()
-   Route() {
-     Route.ROUTE_TYPE_LIGHT_RAIL: 0,
-     Route.ROUTE_TYPE_SUBWAY: 1,
-     Route.ROUTE_TYPE_RAIL: 2,
-     Route.ROUTE_TYPE_BUS: 3,
-     Route.ROUTE_TYPE_FERRY: 4,
-     Route.ROUTE_TYPE_CABLE_CAR: 5,
-     Route.ROUTE_TYPE_GONDOLA: 6,
-     Route.ROUTE_TYPE_FUNICULAR: 7,
-     Route.sortByName()
-   },
-   Service() {
-     Service.SERVICE_AVAILABLE: 1, 
-     Service.SERVICE_UNAVAILABLE: 0
-   },
-   ServiceException() {
-     Service.SERVICE_ADDED: 1, 
-     Service.SERVICE_REMOVED: 2
-   },
-   Stop() { 
-     Stop.WHEELCHAIR_BOARDING_UNKNOWN: 0,
-     Stop.WHEELCHAIR_BOARDING_YES: 1,
-     Stop.WHEELCHAIR_BOARDING_NO: 2,
-     Stop.sortById(),
-     Stop.sortByName(),
-     Stop.sortByTransferWeight()
-   },
-   StopTime() { 
-     StopTime.PICKUP_TYPE_REGULAR: 0,
-     StopTime.PICKUP_TYPE_NONE: 1,
-     StopTime.PICKUP_TYPE_PHONE_AGENCY: 2,
-     StopTime.PICKUP_TYPE_DRIVER_COORDINATION: 3,
-     StopTime.DROP_OFF_TYPE_REGULAR: 0,
-     StopTime.DROP_OFF_TYPE_NONE: 1,
-     StopTime.DROP_OFF_TYPE_PHONE_AGENCY: 2,
-     StopTime.DROP_OFF_TYPE_DRIVER_COORDINATION: 3,
-     StopTime.sortByStopTransferWeight(),
-     StopTime.sortByStopSequence()
-   },
-   Trip() { 
-     Trip.WHEELCHAIR_ACCESSIBLE_UNKNOWN: 0,
-     Trip.WHEELCHAIR_ACCESSIBLE_YES: 1,
-     Trip.WHEELCHAIR_ACCESSIBLE_N0: 2 
-   } 
-  },
-  rt: {
-   About(),
-   Favorite() {
-     Favorite.FAVORITE_TYPE_STATION: 1,
-     Favorite.FAVORITE_TYPE_TRIP: 2,
-     Favorite.createStation(),
-     Favorite.createTrip(),
-     Favorite.sortBySequence()
-   },
-   Holiday(),
-   Link(),
-   StationFeed() {
-     StationFeed.StationFeedDeparture() {
-       StationFeed.StationFeedDeparture.sort()
-     },
-     StationFeed.StationFeedDepartureStatus()
-   }
-  },
-  utils: { 
-   DateTime() {
-     DateTime.create(),
-     DateTime.now(),
-     DateTime.createFromJSDate(),
-     DateTime.createFromTime(),
-     DateTime.createFromDate()
-   }
-  }
-}
-```
+Refer to the **Documentation** for the complete module structure.
 
 ### Usage
 
-Create a GTFS data class
+#### Create a GTFS data class
 
 ```javascript
 const core = require('right-track-core');
+const Agency = core.gtfs.Agency;
+const Route = core.gtfs.Route;
 
 // Create a new Agency for Metro North Railroad
-let metroNorth = new core.gtfs.Agency('Metro North Railroad', 'https://mta.info/mnr', 'America/New_York', 'mnr');
+let metroNorth = new Agency('Metro North Railroad', 'https://mta.info/mnr', 'America/New_York', 'mnr');
 console.log(metroNorth);
 // Agency {
 //   name: 'Metro North Railroad',
@@ -197,7 +90,6 @@ console.log(metroNorth);
 
 
 // Create a new Route for the New Haven Line
-const Route = core.gtfs.Route;
 let newHavenLine = new Route('nh', 'new haven', 'New Haven Line', Route.ROUTE_TYPE_RAIL, metroNorth, 'ff0000', '000000');
 console.log(newHavenLine);
 // Route {
@@ -217,20 +109,29 @@ console.log(newHavenLine);
 // }
 ```
 
-Query a **Right Track Database** to get data.
+#### Query a Right Track Database
 
-Note: the _query_ functions of this module require a _RightTrackDB_ object as a 
-parameter.  This Class is a SQLite wrapper class that provides the actual SQLite 
-functionality.  The **right-track-db-sqlite3** module provides this functionality 
-using the [node-sqlite3](https://github.com/mapbox/node-sqlite3) module.
+The _query_ functions of this module query a specific type of SQLite database 
+([Right Track Database](https://github.com/right-track/right-track-db-build)) that 
+contains the GTFS data and additional Right Track data. In order to make a query, 
+there are two additional dependencies:
+
+- A **RightTrackDB** Class Object. This acts as a SQLite wrapper that 
+provides the actual SQLite functionality.  The [right-track-db-sqlite3](https://github.com/right-track/right-track-db-sqlite3) 
+module provides this functionality using the [node-sqlite3](https://github.com/mapbox/node-sqlite3) 
+module and should work in any environment supported by node-sqlite3.
+
+- A **Right Track Agency** implementation.  This provides the agency-specific 
+configuration properties as well as the agency's Right Track Database (or the 
+location of the database).
+
+The following example queries the information for a `Stop` with id `110` from a 
+Right Track Database for [Metro North Railroad](https://github.com/right-track/right-track-agency-mnr). 
 
 ```javascript
 const core = require('right-track-core');
 const RightTrackDB = require('right-track-db-sqlite3');
 const mnr = require('right-track-agency-mnr');
-
-// read an additional agency config file (skip this step to use default values)
-mnr.config.read('../path/to/config.json');
 
 // Get the agency configuration properties
 let config = mnr.config.get();
