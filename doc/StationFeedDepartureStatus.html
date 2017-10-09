@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>gtfs/index.js - Documentation</title>
+    <title>StationFeedDepartureStatus - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,46 +27,324 @@
 
 <div id="main">
     
-    <h1 class="page-title">gtfs/index.js</h1>
+    <h1 class="page-title">StationFeedDepartureStatus</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
+        <h2>
+        StationFeedDepartureStatus
+        </h2>
+        
+            <div class="class-description"><h2>Station Feed Departure Status</h2><p>Real-time Status Information about a departure from a Stop.</p>
+<p><strong>Module:</strong> <a href="module-rt_StationFeed_StationFeedDepartureStatus.html">rt/StationFeed/StationFeedDepartureStatus</a></p></div>
+        
+    
+</header>
 
-/**
- * GTFS Data Classes
- * -----------------
- *
- * The following modules represent GTFS data types:
- * - [Agency]{@link module:gtfs/Agency}
- * - [Route]{@link module:gtfs/Route}
- * - [Service]{@link module:gtfs/Service}
- * - [ServiceException]{@link module:gtfs/ServiceException}
- * - [Stop]{@link module:gtfs/Stop}
- * - [StopTime]{@link module:gtfs/StopTime}
- * - [Trip]{@link module:gtfs/Trip}
- *
- * @module gtfs
- */
+<article>
+    <div class="container-overview">
+    
+        
 
-module.exports = {
-  Agency: require('./Agency.js'),
-  Route: require('./Route.js'),
-  Service: require('./Service.js'),
-  ServiceException: require('./ServiceException.js'),
-  Stop: require('./Stop.js'),
-  StopTime: require('./StopTime.js'),
-  Trip: require('./Trip.js')
-};
-</code></pre>
-        </article>
-    </section>
+    
+    <h2>Constructor</h2>
+    
+
+    <h4 class="name" id="StationFeedDepartureStatus"><span class="type-signature"></span>new StationFeedDepartureStatus<span class="signature">(status, delay, estDeparture, track, remarks<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="rt_StationFeed_StationFeedDepartureStatus.js.html">rt/StationFeed/StationFeedDepartureStatus.js</a>, <a href="rt_StationFeed_StationFeedDepartureStatus.js.html#line19">line 19</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Station Feed Departure Status Constructor</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>status</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Status label</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>delay</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Delay of departure (minutes)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>estDeparture</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="DateTime.html">DateTime</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>DateTime of estimated departure</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>track</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Departure Track</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>remarks</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Additional Remarks</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

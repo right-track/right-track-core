@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>gtfs/index.js - Documentation</title>
+    <title>rt/StationFeed/StationFeed.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">gtfs/index.js</h1>
+    <h1 class="page-title">rt/StationFeed/StationFeed.js</h1>
     
 
     
@@ -40,31 +40,41 @@
             <pre class="prettyprint source linenums"><code>'use strict';
 
 /**
- * GTFS Data Classes
- * -----------------
- *
- * The following modules represent GTFS data types:
- * - [Agency]{@link module:gtfs/Agency}
- * - [Route]{@link module:gtfs/Route}
- * - [Service]{@link module:gtfs/Service}
- * - [ServiceException]{@link module:gtfs/ServiceException}
- * - [Stop]{@link module:gtfs/Stop}
- * - [StopTime]{@link module:gtfs/StopTime}
- * - [Trip]{@link module:gtfs/Trip}
- *
- * @module gtfs
+ * Right Track StationFeed Class
+ * @see {@link StationFeed}
+ * @module rt/StationFeed/StationFeed
  */
 
-module.exports = {
-  Agency: require('./Agency.js'),
-  Route: require('./Route.js'),
-  Service: require('./Service.js'),
-  ServiceException: require('./ServiceException.js'),
-  Stop: require('./Stop.js'),
-  StopTime: require('./StopTime.js'),
-  Trip: require('./Trip.js')
-};
-</code></pre>
+/**
+ * Station Feed
+ * ----------------
+ * A real-time feed of status information of departures
+ * from a single Stop.
+ *
+ * **Module:** {@link module:rt/StationFeed/StationFeed|rt/StationFeed/StationFeed}
+ *
+ * @class
+ * @alias StationFeed
+ */
+class StationFeed {
+
+  /**
+   * Station Feed Constructor
+   * @constructor
+   * @param {Stop} stop Station Feed Origin Stop
+   * @param {DateTime} updated DateTime of when the data was last updated
+   * @param {StationFeedDeparture[]} departures List of Station Feed Departures
+   */
+  constructor(stop, updated, departures) {
+    this.stop = stop;
+    this.updated = updated;
+    this.departures = departures;
+  }
+
+}
+
+
+module.exports = StationFeed;</code></pre>
         </article>
     </section>
 

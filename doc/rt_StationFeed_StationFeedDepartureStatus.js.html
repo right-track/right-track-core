@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>gtfs/index.js - Documentation</title>
+    <title>rt/StationFeed/StationFeedDepartureStatus.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">gtfs/index.js</h1>
+    <h1 class="page-title">rt/StationFeed/StationFeedDepartureStatus.js</h1>
     
 
     
@@ -40,31 +40,43 @@
             <pre class="prettyprint source linenums"><code>'use strict';
 
 /**
- * GTFS Data Classes
- * -----------------
- *
- * The following modules represent GTFS data types:
- * - [Agency]{@link module:gtfs/Agency}
- * - [Route]{@link module:gtfs/Route}
- * - [Service]{@link module:gtfs/Service}
- * - [ServiceException]{@link module:gtfs/ServiceException}
- * - [Stop]{@link module:gtfs/Stop}
- * - [StopTime]{@link module:gtfs/StopTime}
- * - [Trip]{@link module:gtfs/Trip}
- *
- * @module gtfs
+ * Right Track StationFeedDepartureStatus Class
+ * @see {@link StationFeedDepartureStatus}
+ * @module rt/StationFeed/StationFeedDepartureStatus
  */
 
-module.exports = {
-  Agency: require('./Agency.js'),
-  Route: require('./Route.js'),
-  Service: require('./Service.js'),
-  ServiceException: require('./ServiceException.js'),
-  Stop: require('./Stop.js'),
-  StopTime: require('./StopTime.js'),
-  Trip: require('./Trip.js')
-};
-</code></pre>
+/**
+ * Station Feed Departure Status
+ * -----------------------------
+ * Real-time Status Information about a departure from a Stop.
+ *
+ * **Module:** {@link module:rt/StationFeed/StationFeedDepartureStatus|rt/StationFeed/StationFeedDepartureStatus}
+ *
+ * @class
+ * @alias StationFeedDepartureStatus
+ */
+class StationFeedDepartureStatus {
+
+  /**
+   * Station Feed Departure Status Constructor
+   * @constructor
+   * @param {string} status Status label
+   * @param {int} delay Delay of departure (minutes)
+   * @param {DateTime} estDeparture DateTime of estimated departure
+   * @param {string} track Departure Track
+   * @param {string=} remarks Additional Remarks
+   */
+  constructor(status, delay, estDeparture, track, remarks) {
+    this.status = status;
+    this.delay = delay;
+    this.estDeparture = estDeparture;
+    this.track = track;
+    this.remarks = remarks;
+  }
+
+}
+
+module.exports = StationFeedDepartureStatus;</code></pre>
         </article>
     </section>
 
