@@ -4,7 +4,7 @@
  * GTFS Data Classes
  * -----------------
  *
- * The GTFS modules include the following data Classes:
+ * The following modules represent GTFS data types:
  * - [Agency]{@link module:gtfs/Agency}
  * - [Route]{@link module:gtfs/Route}
  * - [Service]{@link module:gtfs/Service}

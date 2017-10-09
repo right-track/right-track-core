@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * Right Track Favorite Class
+ * @see {@link Favorite}
  * @module rt/Favorite
  */
 
@@ -57,6 +59,11 @@
  *    allowTransfers: true
  *  }
  *  ```
+ *
+ * **Module:** {@link module:rt/Favorite|rt/Favorite}
+ *
+ * @class
+ * @alias Favorite
  */
 class Favorite {
 

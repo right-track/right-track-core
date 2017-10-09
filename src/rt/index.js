@@ -4,7 +4,7 @@
  * Right Track Data Classes
  * ------------------------
  *
- * The Right Track modules include the following data Classes:
+ * The following modules represent Right Track data types:
  * - [About]{@link module:rt/About}
  * - [Favorite]{@link module:rt/Favorite}
  * - [Holiday]{@link module:rt/Holiday}
@@ -19,5 +19,5 @@ module.exports = {
   Favorite: require('./Favorite.js'),
   Holiday: require('./Holiday.js'),
   Link: require('./Link.js'),
-  StationFeed: require('./StationFeed.js')
+  StationFeed: require('./StationFeed/')
 };

@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * GTFS Agency Class
+ * @see {@link Agency}
  * @module gtfs/Agency
  */
 
@@ -17,8 +19,11 @@
  * GTFS Optional Fields:
  * - Agency ID
  *
+ * **Module:** {@link module:gtfs/Agency|gtfs/Agency}
+ *
  * @see {@link https://developers.google.com/transit/gtfs/reference/agency-file|GTFS Spec}
  * @class
+ * @alias Agency
  */
 class Agency {
 
@@ -28,7 +33,7 @@ class Agency {
 	 * @param {string} name Agency Name
 	 * @param {string} url Agency URL
 	 * @param {string} timezone Agency Timezone
-	 * @param {string=} id Agency ID
+	 * @param {string} [id] Agency ID
 	 */
 	constructor(name, url, timezone,
 				id='-1') {

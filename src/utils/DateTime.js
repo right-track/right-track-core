@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * DateTime Class
+ * @see {@link DateTime}
  * @module utils/DateTime
  */
 
@@ -21,7 +23,10 @@
  * Date Formats
  * - _int_ yyyymmdd (20170930) | **Date Integer**
  *
+ * **Module:** {@link module:utils/DateTime|utils/DateTime}
+ *
  * @class
+ * @alias DateTime
  */
 class DateTime {
 

@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * Right Track About Class
+ * @see {@link About}
  * @module rt/About
  */
 
@@ -18,7 +20,10 @@
  * - Version
  * - Version Notes
  *
+ * **Module:** {@link module:rt/About|rt/About}
+ *
  * @class
+ * @alias About
  */
 class About {
 

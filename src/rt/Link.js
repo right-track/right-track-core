@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * Right Track Link Class
+ * @see {@link Link}
  * @module rt/Link
  */
 
@@ -16,7 +18,10 @@
  * - Description
  * - Url
  *
+ * **Module:** {@link module:rt/Link|rt/Link}
+ *
  * @class
+ * @alias Link
  */
 class Link {
 

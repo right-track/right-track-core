@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * GTFS Trip Class
+ * @see {@link Trip}
  * @module gtfs/Trip
  */
 
@@ -26,8 +28,11 @@ const StopTime = require('./StopTime.js');
  * - Trip Direction Description
  * - Trip Peak Indicator
  *
+ * **Module:** {@link module:gtfs/Trip|gtfs/Trip}
+ *
  * @see {@link https://developers.google.com/transit/gtfs/reference/trips-file|GTFS Spec}
  * @class
+ * @alias Trip
  */
 class Trip {
 
@@ -38,10 +43,10 @@ class Trip {
    * @param {Route} route Trip Route
    * @param {Service} service Trip Service
    * @param {StopTime[]} stopTimes Trip StopTimes list
-   * @param {string=} shortName Trip Short Name
-   * @param {int=} directionId Trip Direction ID
-   * @param {int=} wheelchairAccessible Trip Wheelchair Accessibility code
-   * @param {string=} directionDescription Trip Direction Description
+   * @param {string} [shortName] Trip Short Name
+   * @param {int} [directionId] Trip Direction ID
+   * @param {int} [wheelchairAccessible] Trip Wheelchair Accessibility code
+   * @param {string} [directionDescription] Trip Direction Description
    */
   constructor(id, route, service, stopTimes,
               shortName='', directionId=-1, wheelchairAccessible=Trip.WHEELCHAIR_ACCESSIBLE_UNKNOWN,
@@ -96,19 +101,22 @@ class Trip {
 
 /**
  * Trip Wheelchair Accessibility: Unknown
- * @type {number}
+ * @const {number}
+ * @default 0
  */
 Trip.WHEELCHAIR_ACCESSIBLE_UNKNOWN = 0;
 
 /**
  * Trip Wheelchair Accessibility: Accessible
- * @type {number}
+ * @const {number}
+ * @default
  */
 Trip.WHEELCHAIR_ACCESSIBLE_YES = 1;
 
 /**
  * Trip Wheelchair Accessibility: Inaccessible
- * @type {number}
+ * @const {number}
+ * @default
  */
 Trip.WHEELCHAIR_ACCESSIBLE_N0 = 2;
 

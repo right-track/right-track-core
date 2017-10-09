@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * GTFS ServiceException Class
+ * @see {@link ServiceException}
  * @module gtfs/ServiceException
  */
 
@@ -14,8 +16,11 @@
  * - Date
  * - Exception Type
  *
+ * **Module:** {@link module:gtfs/ServiceException|gtfs/ServiceException}
+ *
  * @see {@link https://developers.google.com/transit/gtfs/reference/calendar_dates-file|GTFS Spec}
  * @class
+ * @alias ServiceException
  */
 class ServiceException {
 
@@ -39,13 +44,15 @@ class ServiceException {
 
 /**
  * Service Exception Type: Service Added
- * @type {number}
+ * @const {number}
+ * @default
  */
 ServiceException.SERVICE_ADDED = 1;
 
 /**
  * Service Exception Type: Service Removed
- * @type {number}
+ * @const {number}
+ * @default
  */
 ServiceException.SERVICE_REMOVED = 2;
 

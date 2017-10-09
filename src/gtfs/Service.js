@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * GTFS Service Class
+ * @see {@link Service}
  * @module gtfs/Service
  */
 
@@ -24,8 +26,11 @@
  * GTFS Optional Fields:
  * - Service Exceptions
  *
+ * **Module:** {@link module:gtfs/Service|gtfs/Service}
+ *
  * @see {@link https://developers.google.com/transit/gtfs/reference/calendar-file|GTFS Spec}
  * @class
+ * @alias Service
  */
 class Service {
 
@@ -66,13 +71,15 @@ class Service {
 
 /**
  * Service Availability: Available
- * @type {number}
+ * @const {number}
+ * @default
  */
 Service.SERVICE_AVAILABLE = 1;
 
 /**
  * Service Availability: Unavailable
- * @type {number}
+ * @const {number}
+ * @default 0
  */
 Service.SERVICE_UNAVAILABLE = 0;
 

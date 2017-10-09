@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * GTFS Stop Class
+ * @see {@link Stop}
  * @module gtfs/Stop
  */
 
@@ -23,8 +25,11 @@
  * - RT Status ID
  * - RT Transfer Weight
  *
+ * **Module:** {@link module:gtfs/Stop|gtfs/Stop}
+ *
  * @see {@link https://developers.google.com/transit/gtfs/reference/stops-file|GTFS Spec}
  * @class
+ * @alias Stop
  */
 class Stop {
 
@@ -35,10 +40,10 @@ class Stop {
    * @param {string} name Stop Name
    * @param {number} lat Stop Latitude
    * @param {number} lon Stop Longitude
-   * @param {string=} url Stop URL
-   * @param {int=} wheelchairBoarding Stop Wheelchair Boarding
-   * @param {string=} statusId Right Track Stop Status ID
-   * @param {int=} transferWeight Right Track Stop Transfer Weight
+   * @param {string} [url] Stop URL
+   * @param {int} [wheelchairBoarding] Stop Wheelchair Boarding
+   * @param {string} [statusId] Right Track Stop Status ID
+   * @param {int} [transferWeight] Right Track Stop Transfer Weight
    */
   constructor(id, name, lat, lon,
               url='', wheelchairBoarding=Stop.WHEELCHAIR_BOARDING_UNKNOWN, statusId='-1', transferWeight=1) {
@@ -61,19 +66,22 @@ class Stop {
 
 /**
  * Wheelchair Boarding: info unknown
- * @type {number}
+ * @const {number}
+ * @default 0
  */
 Stop.WHEELCHAIR_BOARDING_UNKNOWN = 0;
 
 /**
  * Wheelchair Boarding: possible
- * @type {number}
+ * @const {number}
+ * @default
  */
 Stop.WHEELCHAIR_BOARDING_YES = 1;
 
 /**
  * Wheelchair Boarding: impossible
- * @type {number}
+ * @const {number}
+ * @default
  */
 Stop.WHEELCHAIR_BOARDING_NO = 2;
 

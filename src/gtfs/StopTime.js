@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * GTFS StopTime Class
+ * @see {@link StopTime}
  * @module gtfs/StopTime
  */
 
@@ -26,8 +28,11 @@ const DateTime = require('../utils/DateTime.js');
  * Right Track Fields:
  * - Date (yyyymmdd)
  *
+ * **Module:** {@link module:gtfs/StopTime|gtfs/StopTime}
+ *
  * @see {@link https://developers.google.com/transit/gtfs/reference/stops_times-file|GTFS Spec}
  * @class
+ * @alias StopTime
  */
 class StopTime {
 
@@ -38,11 +43,11 @@ class StopTime {
    * @param {string} arrivalTime StopTime Arrival Time (GTFS Time String)
    * @param {string} departureTime StopTime Departure Time (GTFS Time String)
    * @param {int} stopSequence StopTime Stop Sequence
-   * @param {int=} arrivalTimeSeconds StopTime Arrival Time (Time Seconds)
-   * @param {int=} departureTimeSeconds StopTime Departure Time (Time Seconds)
-   * @param {int=} pickupType StopTime Pickup Type
-   * @param {int=} dropOffType StopTime Drop Off Type
-   * @param {int=} date StopTime date (yyyymmdd)
+   * @param {int} [arrivalTimeSeconds] StopTime Arrival Time (Time Seconds)
+   * @param {int} [departureTimeSeconds] StopTime Departure Time (Time Seconds)
+   * @param {int} [pickupType] StopTime Pickup Type
+   * @param {int} [dropOffType] StopTime Drop Off Type
+   * @param {int} [date] StopTime date (yyyymmdd)
    */
   constructor(stop, arrivalTime, departureTime, stopSequence,
               arrivalTimeSeconds, departureTimeSeconds, pickupType=StopTime.PICKUP_TYPE_REGULAR,
@@ -71,25 +76,29 @@ class StopTime {
 
 /**
  * Pickup Type: Regularly scheduled pickup
- * @type {number}
+ * @const {number}
+ * @default 0
  */
 StopTime.PICKUP_TYPE_REGULAR = 0;
 
 /**
  * Pickup Type: No pickup available
- * @type {number}
+ * @const {number}
+ * @default
  */
 StopTime.PICKUP_TYPE_NONE = 1;
 
 /**
  * Pickup Type: Phone agency to arrange
- * @type {number}
+ * @const {number}
+ * @default
  */
 StopTime.PICKUP_TYPE_PHONE_AGENCY = 2;
 
 /**
  * Pickup Type: Coordinate with driver
- * @type {number}
+ * @const {number}
+ * @default
  */
 StopTime.PICKUP_TYPE_DRIVER_COORDINATION = 3;
 
@@ -99,25 +108,29 @@ StopTime.PICKUP_TYPE_DRIVER_COORDINATION = 3;
 
 /**
  * Drop Off Type: Regularly scheduled drop off
- * @type {number}
+ * @const {number}
+ * @default 0
  */
 StopTime.DROP_OFF_TYPE_REGULAR = 0;
 
 /**
  * Drop Off Type: No drop off available
- * @type {number}
+ * @const {number}
+ * @default
  */
 StopTime.DROP_OFF_TYPE_NONE = 1;
 
 /**
  * Drop Off Type: Phone agency to arrange
- * @type {number}
+ * @const {number}
+ * @default
  */
 StopTime.DROP_OFF_TYPE_PHONE_AGENCY = 2;
 
 /**
  * Drop Off Type: Coordinate with driver
- * @type {number}
+ * @const {number}
+ * @default
  */
 StopTime.DROP_OFF_TYPE_DRIVER_COORDINATION = 3;
 

@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * Right Track Holiday Class
+ * @see {@link Holiday}
  * @module rt/Holiday
  */
 
@@ -16,7 +18,10 @@
  * - Peak
  * - Service Information
  *
+ * **Module:** {@link module:rt/Holiday|rt/Holiday}
+ *
  * @class
+ * @alias Holiday
  */
 class Holiday {
 

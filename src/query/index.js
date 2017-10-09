@@ -5,14 +5,14 @@
  * ------------------------------
  *
  * The following modules are used to query the Right Track Database:
- * - [About]{@link module:query/about}
- * - [Calendar]{@link module:query/calendar}
- * - [Holiday]{@link module:query/holiday}
- * - [Links]{@link module:query/links}
- * - [Routes]{@link module:query/routes}
- * - [Stops]{@link module:query/stops}
- * - [StopTimes]{@link module:query/stoptimes}
- * - [Trips]{@link module:query/trips}
+ * - [about]{@link module:query/about}
+ * - [calendar]{@link module:query/calendar}
+ * - [holiday]{@link module:query/holiday}
+ * - [links]{@link module:query/links}
+ * - [routes]{@link module:query/routes}
+ * - [stops]{@link module:query/stops}
+ * - [stopTimes]{@link module:query/stoptimes}
+ * - [trips]{@link module:query/trips}
  *
  * @module query
  */

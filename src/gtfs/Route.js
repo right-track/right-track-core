@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * GTFS Route Class
+ * @see {@link Route}
  * @module gtfs/Route
  */
 
@@ -20,8 +22,11 @@
  * - Route Color
  * - Route Text Color
  *
+ * **Module:** {@link module:gtfs/Route|gtfs/Route}
+ *
  * @see {@link https://developers.google.com/transit/gtfs/reference/routes-file|GTFS Spec}
  * @class
+ * @alias Route
  */
 class Route {
 
@@ -32,9 +37,9 @@ class Route {
    * @param {string} shortName Route Short Name
    * @param {string} longName Route Long Name
    * @param {int} type Route Type
-   * @param {Agency=} agency Route Parent Agency
-   * @param {string=} color Route Color
-   * @param {string=} textColor Route Text Color
+   * @param {Agency} [agency] Route Parent Agency
+   * @param {string} [color] Route Color
+   * @param {string} [textColor] Route Text Color
    */
   constructor(id, shortName, longName, type,
               agency=undefined, color='#ffffff', textColor='#000000') {
@@ -55,49 +60,57 @@ class Route {
 
 /**
  * Route Type: Light Rail
- * @type {number}
+ * @const {number}
+ * @default 0
  */
 Route.ROUTE_TYPE_LIGHT_RAIL = 0;
 
 /**
  * Route Type: Subway
- * @type {number}
+ * @const {number}
+ * @default
  */
 Route.ROUTE_TYPE_SUBWAY = 1;
 
 /**
  * Route Type: Rail
- * @type {number}
+ * @const {number}
+ * @default
  */
 Route.ROUTE_TYPE_RAIL = 2;
 
 /**
  * Route Type: Bus
- * @type {number}
+ * @const {number}
+ * @default
  */
 Route.ROUTE_TYPE_BUS = 3;
 
 /**
  * Route Type: Ferry
- * @type {number}
+ * @const {number}
+ * @default
  */
 Route.ROUTE_TYPE_FERRY = 4;
 
 /**
  * Route Type: Cable Car
- * @type {number}
+ * @const {number}
+ * @default
  */
 Route.ROUTE_TYPE_CABLE_CAR = 5;
 
 /**
  * Route Type: Gondola
- * @type {number}
+ * @const {number}
+ * @default
  */
 Route.ROUTE_TYPE_GONDOLA = 6;
 
 /**
  * Route Type: Funicular
- * @type {number}
+ * @const {number}
+ * @default
  */
 Route.ROUTE_TYPE_FUNICULAR = 7;
 
