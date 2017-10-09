@@ -8,7 +8,7 @@
     "type": "git",
     "url": "https://github.com/right-track/right-track-core.git"
   },
-  "main": "src/index.js",
+  "main": "modules/index.js",
   "scripts": {
     "docs": "jsdoc -c jsdoc.json --readme README.md --template $NODE_PATH/docdash"
   },
