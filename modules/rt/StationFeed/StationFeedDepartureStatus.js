@@ -16,7 +16,7 @@
  * @class
  * @alias StationFeedDepartureStatus
  */
-StationFeedDepartureStatus = class StationFeedDepartureStatus {
+class StationFeedDepartureStatus {
 
   /**
    * Station Feed Departure Status Constructor
@@ -35,6 +35,6 @@ StationFeedDepartureStatus = class StationFeedDepartureStatus {
     this.remarks = remarks;
   }
 
-};
+}
 
 module.exports = StationFeedDepartureStatus;

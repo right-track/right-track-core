@@ -18,7 +18,7 @@
  * @class
  * @alias StationFeedDeparture
  */
-StationFeedDeparture = class StationFeedDeparture {
+class StationFeedDeparture {
 
   /**
    * Station Feed Departure Constructor
@@ -35,7 +35,7 @@ StationFeedDeparture = class StationFeedDeparture {
     this.status = status;
   }
 
-};
+}
 
 
 /**
