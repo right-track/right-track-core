@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * ### About Query Functions
+ * These functions query the `rt_about` table in the Right Track Database.
  * @module query/about
  */
 
@@ -26,10 +28,8 @@ const About = require('../rt/About.js');
  * Get the data stored in the rt_about table from the
  * passed database.
  *
- * **package:** core.query.about.getAbout()
- *
  * @param {RightTrackDB} db The Right Track Database to query
- * @param {getAboutCallback} callback getAbout callback function
+ * @param {function} callback {@link module:query/about~getAboutCallback|getAboutCallback} callback function
  */
 function getAbout(db, callback) {
 

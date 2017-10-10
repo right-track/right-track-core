@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * ### Trip Query Functions
+ * These functions query the `gtfs_trips` table in the Right Track Database.
  * @module query/trips
  */
 
@@ -50,7 +52,7 @@ const StopTimesTable = require('./StopTimesTable.js');
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} id Trip ID
  * @param {int} date The date (yyyymmdd) that the Trip operates on
- * @param {getTripCallback} callback getTrip callback function
+ * @param {function} callback {@link module:query/trips~getTripCallback|getTripCallback} callback function
  */
 let getTrip = function(db, id, date, callback) {
 
@@ -193,7 +195,7 @@ let getTrip = function(db, id, date, callback) {
  * @param {string} originId Origin Stop ID
  * @param {string} destinationId Destination Stop ID
  * @param {DateTime} departure DateTime of trip departure
- * @param {getTripCallback} callback getTrip callback function
+ * @param {function} callback {@link module:query/trips~getTripCallback|getTripCallback} callback function
  */
 function getTripByDeparture(db, originId, destinationId, departure, callback) {
 

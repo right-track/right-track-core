@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * ### Holiday Query Functions
+ * These functions query the `rt_holidays` table in the Right Track Database.
  * @module query/holiday
  */
 
@@ -40,10 +42,8 @@ const Holiday = require('../rt/Holiday.js');
  * Get a list of Holidays that are stored in the specified
  * database.
  *
- * **package:** core.query.holidays.getHolidays()
- *
  * @param {RightTrackDB} db The Right Track DB to query
- * @param {getHolidaysCallback} callback getHolidays callback function
+ * @param {function} callback {@link module:query/holiday~getHolidaysCallback|getHolidaysCallback} callback function
  */
 function getHolidays(db, callback) {
 
@@ -89,11 +89,9 @@ function getHolidays(db, callback) {
  * Get the Holiday for the specified date or 'undefined' if
  * there is no holiday on the date
  *
- * **package:** core.query.holidays.getHoliday()
- *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {int} date the date (yyyymmdd)
- * @param {getHolidayCallback} callback getHoliday callback function
+ * @param {function} callback {@link module:query/holiday~getHolidayCallback|getHolidayCallback} callback function
  */
 function getHoliday(db, date, callback) {
 
@@ -140,11 +138,9 @@ function getHoliday(db, date, callback) {
 /**
  * Check if the specified date is a Holiday
  *
- * **package:** core.query.holidays.isHoliday()
- *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {int} date The date to check (yyyymmdd)
- * @param {isHolidayCallback} callback isHoliday callback function
+ * @param {function} callback {@link module:query/holiday~isHolidayCallback|isHolidayCallback} callback function
  */
 function isHoliday(db, date, callback) {
 

@@ -1,6 +1,9 @@
 'use strict';
 
 /**
+ * ### Service and ServiceException Query Functions
+ * These functions query the `gtfs_calendar` and `gtfs_calendar_dates` tables
+ * in the Right Track Database.
  * @module query/calendar
  */
 
@@ -44,11 +47,9 @@ const DateTime = require('../utils/DateTime.js');
  * database.  The Service will also include any included Service
  * Exceptions for the Service.
  *
- * **package:** core.query.calendar.getService()
- *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {String|String[]} id Service ID or list of Service IDs
- * @param {getServiceCallback|getServicesCallback} callback getService(s) callback function
+ * @param {function} callback {@link module:query/calendar~getServiceCallback|getServiceCallback} or {@link module:query/calendar~getServicesCallback|getServicesCallback} callback function
  */
 function getService(db, id, callback) {
 
@@ -192,11 +193,9 @@ function getService(db, id, callback) {
  * Get the Services in effect on the specified date.  This includes
  * any exceptions found in the calendar_dates file.
  *
- * **package:** core.query.calendar.getServicesEffective()
- *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {int} date The date to query (yyyymmdd)
- * @param {getServicesCallback} callback getServices callback function
+ * @param {function} callback {@link module:query/calendar~getServicesCallback|getServicesCallback} callback function
  */
 function getServicesEffective(db, date, callback) {
 
@@ -302,11 +301,9 @@ function getServicesEffective(db, date, callback) {
  * Get the default Services in effect on the specified date.  These
  * services don't include any changes due to service exceptions.
  *
- * **package:** core.query.calendar.getServicesDefault()
- *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {int} date The date to query (yyyymmdd)
- * @param {getServicesCallback} callback getServices callback function
+ * @param {function} callback {@link module:query/calendar~getServicesCallback|getServicesCallback} callback function
  */
 let getServicesDefault = function(db, date, callback) {
 
@@ -365,11 +362,9 @@ let getServicesDefault = function(db, date, callback) {
  * Get the Service Exceptions in effect on the specified date.  This includes
  * Services that are either added or removed on the specified date
  *
- * **package:** core.query.calendar.getServiceExceptions()
- *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {int} date The date to query (yyyymmdd)
- * @param {getServiceExceptionsCallback} callback getServiceExceptions callback function
+ * @param {function} callback {@link module:query/calendar~getServiceExceptionsCallback|getServiceExceptionsCallback} callback function
  */
 let getServiceExceptions = function(db, date, callback) {
 

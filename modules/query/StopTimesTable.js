@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * ### StopTime Query Functions
+ * These functions query the `gtfs_stop_times` table in the Right Track Database.
  * @module query/stoptimes
  */
 
@@ -36,12 +38,10 @@ const StopTime = require('../gtfs/StopTime.js');
  * Get the list of StopTimes for the specified Trip
  * from the passed database (sorted by stop sequence)
  *
- * **package:** core.query.stoptimes.getStopTimesByTrip()
- *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} tripId Trip ID
  * @param {int} date The date (yyyymmdd) the trip operates on
- * @param {getStopTimesCallback} callback getStopTimes callback function
+ * @param {function} callback {@link module:query/stoptimes~getStopTimesCallback|getStopTimesCallback} callback function
  */
 function getStopTimesByTrip(db, tripId, date, callback) {
 
@@ -119,13 +119,11 @@ function getStopTimesByTrip(db, tripId, date, callback) {
  * Get the StopTime for the specified Trip and the
  * specified Stop from the passed database
  *
- * **package:** core.query.stoptimes.getStopTimeByTripStop()
- *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} tripId Trip ID
  * @param {string} stopId Stop ID
  * @param {int} date The date (yyyymmdd) the the Trip operates on
- * @param {getStopTimeCallback} callback getStopTime callback function
+ * @param {function} callback {@link module:query/stoptimes~getStopTimeCallback|getStopTimeCallback} callback function
  */
 function getStopTimeByTripStop(db, tripId, stopId, date, callback) {
 

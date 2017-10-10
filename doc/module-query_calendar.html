@@ -40,6 +40,8 @@
 <header>
     
         
+            
+        
     
 </header>
 
@@ -47,6 +49,83 @@
     <div class="container-overview">
     
         
+            <div class="description"><h3>Service and ServiceException Query Functions</h3><p>These functions query the <code>gtfs_calendar</code> and <code>gtfs_calendar_dates</code> tables
+in the Right Track Database.</p></div>
+        
+
+        
+            
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line3">line 3</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
     
@@ -84,7 +163,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line53">line 53</a>
+        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line54">line 54</a>
     </li></ul></dd>
     
 
@@ -127,7 +206,6 @@
     <p>Get the Service(s) specified by Service ID(s) from the passed
 database.  The Service will also include any included Service
 Exceptions for the Service.</p>
-<p><strong>package:</strong> core.query.calendar.getService()</p>
 </div>
 
 
@@ -220,10 +298,7 @@ Exceptions for the Service.</p>
             <td class="type">
             
                 
-<span class="param-type">getServiceCallback</span>
-|
-
-<span class="param-type">getServicesCallback</span>
+<span class="param-type">function</span>
 
 
             
@@ -233,7 +308,7 @@ Exceptions for the Service.</p>
 
             
 
-            <td class="description last"><p>getService(s) callback function</p></td>
+            <td class="description last"><p><a href="module-query_calendar.html#~getServiceCallback">getServiceCallback</a> or <a href="module-query_calendar.html#~getServicesCallback">getServicesCallback</a> callback function</p></td>
         </tr>
 
     
@@ -272,7 +347,7 @@ Exceptions for the Service.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line374">line 374</a>
+        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line369">line 369</a>
     </li></ul></dd>
     
 
@@ -314,7 +389,6 @@ Exceptions for the Service.</p>
 <div class="description">
     <p>Get the Service Exceptions in effect on the specified date.  This includes
 Services that are either added or removed on the specified date</p>
-<p><strong>package:</strong> core.query.calendar.getServiceExceptions()</p>
 </div>
 
 
@@ -404,7 +478,7 @@ Services that are either added or removed on the specified date</p>
             <td class="type">
             
                 
-<span class="param-type">getServiceExceptionsCallback</span>
+<span class="param-type">function</span>
 
 
             
@@ -414,7 +488,7 @@ Services that are either added or removed on the specified date</p>
 
             
 
-            <td class="description last"><p>getServiceExceptions callback function</p></td>
+            <td class="description last"><p><a href="module-query_calendar.html#~getServiceExceptionsCallback">getServiceExceptionsCallback</a> callback function</p></td>
         </tr>
 
     
@@ -453,7 +527,7 @@ Services that are either added or removed on the specified date</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line311">line 311</a>
+        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line308">line 308</a>
     </li></ul></dd>
     
 
@@ -495,7 +569,6 @@ Services that are either added or removed on the specified date</p>
 <div class="description">
     <p>Get the default Services in effect on the specified date.  These
 services don't include any changes due to service exceptions.</p>
-<p><strong>package:</strong> core.query.calendar.getServicesDefault()</p>
 </div>
 
 
@@ -585,7 +658,7 @@ services don't include any changes due to service exceptions.</p>
             <td class="type">
             
                 
-<span class="param-type">getServicesCallback</span>
+<span class="param-type">function</span>
 
 
             
@@ -595,7 +668,7 @@ services don't include any changes due to service exceptions.</p>
 
             
 
-            <td class="description last"><p>getServices callback function</p></td>
+            <td class="description last"><p><a href="module-query_calendar.html#~getServicesCallback">getServicesCallback</a> callback function</p></td>
         </tr>
 
     
@@ -634,7 +707,7 @@ services don't include any changes due to service exceptions.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line201">line 201</a>
+        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line200">line 200</a>
     </li></ul></dd>
     
 
@@ -676,7 +749,6 @@ services don't include any changes due to service exceptions.</p>
 <div class="description">
     <p>Get the Services in effect on the specified date.  This includes
 any exceptions found in the calendar_dates file.</p>
-<p><strong>package:</strong> core.query.calendar.getServicesEffective()</p>
 </div>
 
 
@@ -766,7 +838,7 @@ any exceptions found in the calendar_dates file.</p>
             <td class="type">
             
                 
-<span class="param-type">getServicesCallback</span>
+<span class="param-type">function</span>
 
 
             
@@ -776,7 +848,7 @@ any exceptions found in the calendar_dates file.</p>
 
             
 
-            <td class="description last"><p>getServices callback function</p></td>
+            <td class="description last"><p><a href="module-query_calendar.html#~getServicesCallback">getServicesCallback</a> callback function</p></td>
         </tr>
 
     
@@ -821,7 +893,7 @@ any exceptions found in the calendar_dates file.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line14">line 14</a>
+        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -998,7 +1070,7 @@ selected from the database.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line30">line 30</a>
+        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line33">line 33</a>
     </li></ul></dd>
     
 
@@ -1175,7 +1247,7 @@ been selected from the database.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line22">line 22</a>
+        <a href="query_CalendarTable.js.html">query/CalendarTable.js</a>, <a href="query_CalendarTable.js.html#line25">line 25</a>
     </li></ul></dd>
     
 
@@ -1351,7 +1423,7 @@ selected from the database.</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Oct 09 2017 18:07:18 GMT-0400 (EDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Oct 09 2017 20:50:22 GMT-0400 (EDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

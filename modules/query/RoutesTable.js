@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * ### Route Query Functions
+ * These functions query the `gtfs_routes` table in the Right Track Database.
  * @module query/routes
  */
 
@@ -37,11 +39,9 @@ const Route = require('../gtfs/Route.js');
  * Get the Route (with its Agency) specified by the Route ID
  * from the passed database
  *
- * **package:** core.query.routes.getRoute()
- *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} id Route ID
- * @param {getRouteCallback} callback getRoute callback function
+ * @param {function} callback {@link module:query/routes~getRouteCallback|getRouteCallback} callback function
  */
 function getRoute(db, id, callback) {
 
@@ -98,10 +98,8 @@ function getRoute(db, id, callback) {
 /**
  * Get all of the Routes that are stored in the passed database
  *
- * **package:** core.query.routes.getRoutes()
- *
  * @param {RightTrackDB} db The Right Track DB to query
- * @param {getRoutesCallback} callback getRoutes callback function
+ * @param {function} callback {@link module:query/routes~getRoutesCallback|getRoutesCallback} callback function
  */
 function getRoutes(db, callback) {
 

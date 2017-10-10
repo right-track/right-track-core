@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * ### Link Query Functions
+ * These functions query the `rt_links` table in the Right Track Database.
  * @module query/links
  */
 
@@ -33,10 +35,8 @@ const Link = require('../rt/Link.js');
 /**
  * Get a list of all link category titles
  *
- * **package:** core.query.links.getCategories()
- *
  * @param {RightTrackDB} db The Right Track DB to query
- * @param {getLinkCategoriesCallback} callback getCategories callback function
+ * @param {function} callback {@link module:query/links~getLinkCategoriesCallback|getLinkCategoriesCallback} callback function
  */
 let getLinkCategories = function(db, callback) {
 
@@ -72,10 +72,8 @@ let getLinkCategories = function(db, callback) {
 /**
  * Get all of the Agency link information from the database
  *
- * **package:** core.query.links.getLinks()
- *
  * @param {RightTrackDB} db The Right Track Database to query
- * @param {getLinksCallback} callback getLinks callback function
+ * @param {function} callback {@link module:query/links~getLinksCallback|getLinksCallback} callback function
  */
 function getLinks(db, callback) {
 
@@ -122,11 +120,9 @@ function getLinks(db, callback) {
  * Get all of the Agency link information from the database
  * with the specified link category title.
  *
- * **package:** core.query.links.getLinksByCategory()
- *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {string} category Link category title
- * @param {getLinksCallback} callback getLinks callback function
+ * @param {function} callback {@link module:query/links~getLinksCallback|getLinksCallback} callback function
  */
 function getLinksByCategory(db, category, callback) {
 
