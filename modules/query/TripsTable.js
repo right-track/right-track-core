@@ -47,8 +47,6 @@ const StopTimesTable = require('./StopTimesTable.js');
  * Get the Trip (with Route, Service and StopTimes) specified by
  * the Trip ID from the passed database
  *
- * **package:** core.query.trips.getTrip()
- *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} id Trip ID
  * @param {int} date The date (yyyymmdd) that the Trip operates on
@@ -188,8 +186,6 @@ let getTrip = function(db, id, date, callback) {
 /**
  * Find the Trip that leaves the specified origin Stop for the specified
  * destination Stop at the departure time specified by the dateTime
- *
- * **package:** core.query.trips.getTripByDeparture()
  *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} originId Origin Stop ID
