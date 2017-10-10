@@ -15,7 +15,7 @@ const StopTime = require('../gtfs/StopTime.js');
 /**
  * This callback is performed after the StopTimes has been
  * selected from the database
- * @callback getStopTimeCallback
+ * @callback module:query/stoptimes~getStopTimeCallback
  * @param {Error} error Database Query Error
  * @param {StopTime} [stopTime] The selected StopTime
  */
@@ -23,7 +23,7 @@ const StopTime = require('../gtfs/StopTime.js');
 /**
  * This callback is performed after the StopTimes have been
  * selected from the database
- * @callback getStopTimesCallback
+ * @callback module:query/stoptimes~getStopTimesCallback
  * @param {Error} error Database Query Error
  * @param {StopTime[]} [stopTimes] The selected StopTimes
  */

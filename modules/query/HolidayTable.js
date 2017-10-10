@@ -14,7 +14,7 @@ const Holiday = require('../rt/Holiday.js');
 /**
  * This callback is performed after a single Holiday has been
  * selected from the database.
- * @callback getHolidayCallback
+ * @callback module:query/holiday~getHolidayCallback
  * @param {Error} error Database Query Error
  * @param {Holiday} [holiday] The selected Holiday
  */
@@ -22,7 +22,7 @@ const Holiday = require('../rt/Holiday.js');
 /**
  * This callback is performed after multiple Holidays have been
  * selected from the database.
- * @callback getHolidaysCallback
+ * @callback module:query/holiday~getHolidaysCallback
  * @param {Error} error Database Query Error
  * @param {Holiday[]} [holidays] The selected Holidays
  */
@@ -30,7 +30,7 @@ const Holiday = require('../rt/Holiday.js');
 /**
  * This callback is performed after checking to see if a
  * specified date is listed as a Holiday
- * @callback isHolidayCallback
+ * @callback module:query/holiday~isHolidayCallback
  * @param {Error} error Database Query Error
  * @param {boolean} [isHoliday] true/false if date is Holiday
  */

@@ -14,7 +14,7 @@ const Link = require('../rt/Link.js');
 /**
  * This callback is performed after the Link Categories
  * have been selected from the database.
- * @callback getLinkCategoriesCallback
+ * @callback module:query/links~getLinkCategoriesCallback
  * @param {Error} error Database Query Error
  * @param {string[]} [categories] The selected link categories
  */
@@ -22,7 +22,7 @@ const Link = require('../rt/Link.js');
 /**
  * This callback is performed after the Links have been
  * selected from the database.
- * @callback getLinksCallback
+ * @callback module:query/links~getLinksCallback
  * @param {Error} error Database Query Error
  * @param {Link[]} [links] The selected Links
  */

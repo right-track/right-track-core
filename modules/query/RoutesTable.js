@@ -15,7 +15,7 @@ const Route = require('../gtfs/Route.js');
 /**
  * This callback is performed after the Route has been
  * selected from the database
- * @callback getRouteCallback
+ * @callback module:query/routes~getRouteCallback
  * @param {Error} error Database Query Error
  * @param {Route} [route] The selected Route
  */
@@ -23,7 +23,7 @@ const Route = require('../gtfs/Route.js');
 /**
  * This callback is performed after the Routes have been
  * selected from the database
- * @callback getRoutesCallback
+ * @callback module:query/routes~getRoutesCallback
  * @param {Error} error Database Query Error
  * @param {Route[]} [routes] The selected Routes
  */

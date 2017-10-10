@@ -17,7 +17,7 @@ const DateTime = require('../utils/DateTime.js');
 /**
  * This callback if performed after a Service has been
  * selected from the database.
- * @callback getServiceCallback
+ * @callback module:query/calendar~getServiceCallback
  * @param {Error} error Database Query Error
  * @param {Service} [service] The selected Service
  */
@@ -25,7 +25,7 @@ const DateTime = require('../utils/DateTime.js');
 /**
  * This callback if performed after Services have been
  * selected from the database.
- * @callback getServicesCallback
+ * @callback module:query/calendar~getServicesCallback
  * @param {Error} error Database Query Error
  * @param {Service[]} [services] The selected Services
  */
@@ -33,7 +33,7 @@ const DateTime = require('../utils/DateTime.js');
 /**
  * This callback if performed after Service Excpetions have
  * been selected from the database.
- * @callback getServiceExceptionsCallback
+ * @callback module:query/calendar~getServiceExceptionsCallback
  * @param {Error} error Database Query Error
  * @param {ServiceException[]} [exceptions] The selected Service Exceptions
  */
@@ -188,7 +188,6 @@ function getService(db, id, callback) {
 
 }
 
-// TODO: accept a list of dates
 /**
  * Get the Services in effect on the specified date.  This includes
  * any exceptions found in the calendar_dates file.

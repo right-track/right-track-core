@@ -15,7 +15,7 @@ const Stop = require('../gtfs/Stop.js');
 /**
  * This callback is performed after a single Stop has been
  * selected from the database.
- * @callback getStopCallback
+ * @callback module:query/stops~getStopCallback
  * @param {Error} error Database Query Error
  * @param {Stop} [stop] The selected Stop
  */
@@ -23,7 +23,7 @@ const Stop = require('../gtfs/Stop.js');
 /**
  * This callback is performed after multiple Stops have been
  * selected from the database.
- * @callback getStopsCallback
+ * @callback module:query/stops~getStopsCallback
  * @param {Error} error Database Query Error
  * @param {Stop[]} [stops] An array of the selected Stops
  */

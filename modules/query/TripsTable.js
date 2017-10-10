@@ -6,11 +6,8 @@
  * @module query/trips
  */
 
-const DateTime = require('../utils/DateTime.js');
 const Agency = require('../gtfs/Agency.js');
 const Route = require('../gtfs/Route.js');
-const Service = require('../gtfs/Service.js');
-const ServiceException = require('../gtfs/ServiceException.js');
 const Stop = require('../gtfs/Stop.js');
 const StopTime = require('../gtfs/StopTime.js');
 const Trip = require('../gtfs/Trip.js');
@@ -23,7 +20,7 @@ const StopTimesTable = require('./StopTimesTable.js');
 /**
  * This callback is performed after the Trip has been
  * selected from the database
- * @callback getTripCallback
+ * @callback module:query/trips~getTripCallback
  * @param {Error} error Database Query Error
  * @param {Trip} [trip] The selected Trip
  */
@@ -31,7 +28,7 @@ const StopTimesTable = require('./StopTimesTable.js');
 /**
  * This callback is performed after the Trips have been
  * selected from the database
- * @callback getTripsCallback
+ * @callback module:query/trips~getTripsCallback
  * @param {Error} error Database Query Error
  * @param {Trip[]} [trips] The selected Trips
  */

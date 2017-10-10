@@ -15,7 +15,7 @@ const About = require('../rt/About.js');
 /**
  * This callback is performed after the database metadata
  * from the rt_about table has been queried from the database.
- * @callback getAboutCallback
+ * @callback module:query/about~getAboutCallback
  * @param {Error} error Database Query Error
  * @param {About} [about] The database About information
  */
