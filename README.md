@@ -1,5 +1,9 @@
 Right Track Core Library
-=======================
+========================
+
+#### node module: [right-track-core](https://www.npmjs.com/package/right-track-core)
+
+--- 
 
 This Node module contains the core data classes and functionality of the
 [Right Track Library](https://github.com/right-track/). It can query a 
@@ -12,7 +16,7 @@ the [right-track-online](https://github.com/right-track/right-track-online) webs
 and the planned upcoming right track mobile apps.
 
 Agency specific functionality (such as real-time feed information) is 
-added through the various [right-track-agency-{id}](https://github.com/right-track/right-track-agency-template) 
+added through the various [right-track-agency-{id}](https://github.com/right-track/right-track-agency-abstract) 
 modules.
 
 ### Features and Functionality
@@ -116,8 +120,8 @@ The _query_ functions of this module query a specific type of SQLite database
 contains the GTFS data and additional Right Track data. In order to make a query, 
 there are two additional dependencies:
 
-- A **RightTrackDB** Class Object. This acts as a SQLite wrapper that 
-provides the actual SQLite functionality.  The [right-track-db-sqlite3](https://github.com/right-track/right-track-db-sqlite3) 
+- A **RightTrackDB** Class Object. This acts as a SQLite wrapper that provides 
+the actual SQLite functionality.  The [right-track-db-sqlite3](https://github.com/right-track/right-track-db-sqlite3) 
 module provides this functionality using the [node-sqlite3](https://github.com/mapbox/node-sqlite3) 
 module and should work in any environment supported by node-sqlite3.
 
