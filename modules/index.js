@@ -1,20 +1,38 @@
 'use strict';
 
-
-// ==== GET RIGHT TRACK CORE CLASSES ==== //
-
-const query = require('./query');
-const gtfs = require('./gtfs');
-const rt = require('./rt');
-const utils = require('./utils');
-
-
-
-// ==== DEFINE MODULE EXPORT ==== //
+/**
+ * ### Right Track Core Library
+ *
+ * The `right-track-core` module is a bundle of modules representing GTFS and
+ * Right Track data classes as well as methods for querying a Right Track
+ * Database.
+ *
+ * @module /
+ */
 
 module.exports = {
-  query: query,
-  gtfs: gtfs,
-  rt: rt,
-  utils: utils
+
+  /**
+   * GTFS Classes
+   * @see module:gtfs
+   */
+  gtfs: require('./gtfs'),
+
+  /**
+   * Right Track Classes
+   * @see module:rt
+   */
+  rt: require('./rt'),
+
+  /**
+   * Right Track Database Query Functions
+   * @see module:query
+   */
+  query: require('./query'),
+
+  /**
+   * Right Track Utility Functions
+   * @see module:utils
+   */
+  utils: require('./utils')
 };

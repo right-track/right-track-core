@@ -1,29 +1,58 @@
 'use strict';
 
 /**
- * Right Track DB Query Functions
- * ------------------------------
- *
- * The following modules are used to query the Right Track Database:
- * - [about]{@link module:query/about}
- * - [calendar]{@link module:query/calendar}
- * - [holiday]{@link module:query/holiday}
- * - [links]{@link module:query/links}
- * - [routes]{@link module:query/routes}
- * - [stops]{@link module:query/stops}
- * - [stopTimes]{@link module:query/stoptimes}
- * - [trips]{@link module:query/trips}
- *
+ * ### Right Track DB Query Functions
+ * These modules are used to query the various tables in a Right Track Database
  * @module query
  */
 
 module.exports = {
+
+  /**
+   * Query rt_about table
+   * @see module:query/about
+   */
   about: require('./AboutTable.js'),
+
+  /**
+   * Query gtfs_calendar and gtfs_calendar_dates tables
+   * @see module:query/calendar
+   */
   calendar: require('./CalendarTable.js'),
+
+  /**
+   * Query rt_holidays table
+   * @see module:query/holiday
+   */
   holiday: require('./HolidayTable.js'),
+
+  /**
+   * Query rt_links table
+   * @see module:query/links
+   */
   links: require('./LinksTable.js'),
+
+  /**
+   * Query gtfs_routes table
+   * @see module:query/routes
+   */
   routes: require('./RoutesTable.js'),
+
+  /**
+   * Query gtfs_stops table
+   * @see module:query/stops
+   */
   stops: require('./StopsTable.js'),
+
+  /**
+   * Query gtfs_stop_times table
+   * @see module:query/stoptimes
+   */
   stoptimes: require('./StopTimesTable.js'),
+
+  /**
+   * Query gtfs_trips table
+   * @see module:query/trips
+   */
   trips: require('./TripsTable.js')
 };

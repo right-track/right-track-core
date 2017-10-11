@@ -1,15 +1,18 @@
 'use strict';
 
 /**
- * Right Track Utility Functions
- * -----------------------------
- *
- * The following modules provide additional utility functions:
- * - [DateTime]{@link module:utils/DateTime}
- *
+ * ### Right Track Utility Functions
+ * These classes and functions provide additional functionality shared
+ * across various Right Track projects
  * @module utils
  */
 
 module.exports = {
+
+  /**
+   * Right Track DateTime Class
+   * @see DateTime
+   */
   DateTime: require('./DateTime.js')
+
 };

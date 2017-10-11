@@ -1,27 +1,52 @@
 'use strict';
 
 /**
- * GTFS Data Classes
- * -----------------
- *
- * The following modules represent GTFS data types:
- * - [Agency]{@link module:gtfs/Agency}
- * - [Route]{@link module:gtfs/Route}
- * - [Service]{@link module:gtfs/Service}
- * - [ServiceException]{@link module:gtfs/ServiceException}
- * - [Stop]{@link module:gtfs/Stop}
- * - [StopTime]{@link module:gtfs/StopTime}
- * - [Trip]{@link module:gtfs/Trip}
- *
+ * ### GTFS Data Classes
+ * These classes are used to represent GTFS data
  * @module gtfs
  */
 
 module.exports = {
+
+  /**
+   * GTFS Agency Class
+   * @see Agency
+   */
   Agency: require('./Agency.js'),
+
+  /**
+   * GTFS Route Class
+   * @see Route
+   */
   Route: require('./Route.js'),
+
+  /**
+   * GTFS Service Class
+   * @see Service
+   */
   Service: require('./Service.js'),
+
+  /**
+   * GTFS ServiceException Class
+   * @see ServiceException
+   */
   ServiceException: require('./ServiceException.js'),
+
+  /**
+   * GTFS Stop Class
+   * @see Stop
+   */
   Stop: require('./Stop.js'),
+
+  /**
+   * GTFS StopTime Class
+   * @see StopTime
+   */
   StopTime: require('./StopTime.js'),
+
+  /**
+   * GTFS Trip Class
+   * @see Trip
+   */
   Trip: require('./Trip.js')
 };
