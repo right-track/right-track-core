@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>rt/index.js - Documentation</title>
+    <title>index.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">rt/index.js</h1>
+    <h1 class="page-title">index.js</h1>
     
 
     
@@ -40,42 +40,40 @@
             <pre class="prettyprint source linenums"><code>'use strict';
 
 /**
- * ### Right Track Data Classes
- * These classes are used to represent the custom Right Track data
- * @module rt
+ * ### Right Track Core Library
+ *
+ * The `right-track-core` module is a bundle of modules representing GTFS and
+ * Right Track data classes as well as methods for querying a Right Track
+ * Database.
+ *
+ * @module /
  */
 
 module.exports = {
 
   /**
-   * Right Track About Class
-   * @see About
+   * GTFS Classes
+   * @see module:gtfs
    */
-  About: require('./About.js'),
+  gtfs: require('./gtfs'),
 
   /**
-   * Right Track Favorite Class
-   * @see Favorite
+   * Right Track Classes
+   * @see module:rt
    */
-  Favorite: require('./Favorite.js'),
+  rt: require('./rt'),
 
   /**
-   * Right Track Holiday Class
-   * @see Holiday
+   * Right Track Database Query Functions
+   * @see module:query
    */
-  Holiday: require('./Holiday.js'),
+  query: require('./query'),
 
   /**
-   * Right Track Link Class
-   * @see Link
+   * Right Track Utility Functions
+   * @see module:utils
    */
-  Link: require('./Link.js'),
-
-  /**
-   * Right Track Station Feed Classes
-   * @see module:rt/StationFeed
-   */
-  StationFeed: require('./StationFeed/')
+  utils: require('./utils')
 };
 </code></pre>
         </article>
