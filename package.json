@@ -2,16 +2,20 @@
   "name": "right-track-core",
   "version": "0.9.2",
   "description": "Right Track Core Library",
-  "author": "David Waring <dev@davidwaring.net>",
+  "author": "David Waring <dev@davidwaring.net> (https://davidwaring.net)",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/right-track/right-track-core.git"
-  },
   "main": "modules/index.js",
   "scripts": {
     "docs": "jsdoc -c jsdoc.json --readme README.md --template $NODE_PATH/docdash"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "homepage": "https://righttrack.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/right-track/right-track-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/right-track/right-track-core/issues",
+    "email": "dev@davidwaring.net"
+  }
 }
