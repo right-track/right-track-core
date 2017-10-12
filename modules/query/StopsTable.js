@@ -127,7 +127,6 @@ function getStop(db, id, callback) {
 }
 
 
-// TODO: Break this up into multiple functions?
 /**
  * Get the Stop specified by name from the passed database
  *
@@ -137,76 +136,59 @@ function getStop(db, id, callback) {
  */
 function getStopByName(db, name, callback) {
 
+  // Different queries to lookup stop by name
+  let queries = [
+    "SELECT stop_id FROM gtfs_stops WHERE stop_name='" + name + "' COLLATE NOCASE;",
+    "SELECT stop_id FROM rt_alt_stop_names WHERE alt_stop_name='" + name + "' COLLATE NOCASE;",
+    "SELECT stop_id FROM rt_stops_extra WHERE display_name='" + name + "' COLLATE NOCASE;"
+  ];
 
+  // Test each query for the stop name
+  let found = false;
+  let count = 0;
+  for ( let i = 0; i < queries.length; i++ ) {
 
-  // ==== GTFS_STOPS ==== //
+    // Perform the specified query
+    _queryForStopByName(db, queries[i], function(stop) {
 
-  // Get stop id for name in gtfs_stops
-  let select = "SELECT stop_id FROM gtfs_stops WHERE stop_name='" + name + "' COLLATE NOCASE;";
-
-  // Query database for stop
-  db.get(select, function(err, result) {
-
-    // Database Error
-    if ( err ) {
-      return callback(err);
-    }
-
-    // Found a Stop, return
-    if ( result !== undefined ) {
-      return getStop(db, result.stop_id, callback);
-    }
-
-
-
-    // ==== RT_ALT_STOP_NAMES ==== //
-
-    // Check rt_alt_stop_names for stop name
-    let select = "SELECT stop_id FROM rt_alt_stop_names WHERE alt_stop_name='" + name + "' COLLATE NOCASE;";
-
-    // Query database for stop
-    db.get(select, function(err, result) {
-
-      // Database Error
-      if ( err ) {
-        return callback(err);
+      // Return the result: if not already found and the query was successful
+      if ( !found && stop !== undefined ) {
+        found = true;
+        return callback(null, stop);
       }
 
-      // Found a Stop, return
-      if ( result !== undefined ) {
-        return getStop(db, result.stop_id, callback);
+      // Return after all queries have finished
+      count ++;
+      if ( count === queries.length ) {
+        return callback(null, undefined);
       }
-
-
-
-      // ==== RT_STOPS_EXTRA ==== //
-
-      // Check rt_stops_extra for stop name
-      let select = "SELECT stop_id FROM rt_stops_extra WHERE display_name='" + name + "' COLLATE NOCASE;";
-
-      // Query the database for stop
-      db.get(select, function(err, result) {
-
-        // Database Error
-        if ( err ) {
-          return callback(err);
-        }
-
-        // Found a Stop, return Stop
-        if ( result !== undefined ) {
-          return getStop(db, result.stop_id, callback);
-        }
-
-        // No Stop Found, return undefined
-        else {
-          return callback(null, undefined);
-        }
-
-      });
-
 
     });
+  }
 
+}
+
+/**
+ * Perform a query searching for Stop by it's name
+ * @param {RightTrackDB} db The Right Track Database to query
+ * @param {string} query The full SELECT query to perform
+ * @param {function} callback Callback function accepting the Stop, if found
+ * @private
+ */
+function _queryForStopByName(db, query, callback) {
+
+  // Perform the search query
+  db.get(query, function(err, result) {
+
+    // No stop found, return undefined
+    if ( result === undefined ) {
+      return callback(undefined);
+    }
+
+    // Stop found, return the Stop from it's ID
+    getStop(db, result.stop_id, function(err, stop) {
+      return callback(stop);
+    });
 
   });
 
