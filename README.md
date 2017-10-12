@@ -16,7 +16,7 @@ the [right-track-online](https://github.com/right-track/right-track-online) webs
 and the planned upcoming right track mobile apps.
 
 Agency specific functionality (such as real-time feed information) is 
-added through the various [right-track-agency-{id}](https://github.com/right-track/right-track-agency-abstract) 
+added through the various [right-track-agency-{id}](https://github.com/right-track/right-track-agency) 
 modules.
 
 ### Features and Functionality

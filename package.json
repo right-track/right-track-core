@@ -8,7 +8,9 @@
   "scripts": {
     "docs": "jsdoc -c jsdoc.json --readme README.md --template $NODE_PATH/docdash"
   },
-  "dependencies": {},
+  "dependencies": {
+    "right-track-db": "^1.1.0"
+  },
   "homepage": "https://righttrack.io",
   "repository": {
     "type": "git",
