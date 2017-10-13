@@ -47,7 +47,7 @@ const StopTime = require('../gtfs/StopTime.js');
 function getStopTimesByTrip(db, tripId, date, callback) {
 
   // Check Cache for StopTimes
-  let cacheKey = tripId;
+  let cacheKey = db.id + "-" + tripId;
   let cache = cache_stoptimesByTrip.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -138,7 +138,7 @@ function getStopTimesByTrip(db, tripId, date, callback) {
 function getStopTimeByTripStop(db, tripId, stopId, date, callback) {
 
   // Cache Cache for StopTimes
-  let cacheKey = tripId + '-' + stopId;
+  let cacheKey = db.id + "-" + tripId + '-' + stopId;
   let cache = cache_stoptimesByTripStop.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);

@@ -42,7 +42,7 @@ const Link = require('../rt/Link.js');
 let getLinkCategories = function(db, callback) {
 
   // Check Cache for Link Categories
-  let cacheKey = 'categories';
+  let cacheKey = db.id + "-" + 'categories';
   let cache = cache_linkCategories.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -89,7 +89,7 @@ let getLinkCategories = function(db, callback) {
 function getLinks(db, callback) {
 
   // Check cache for links
-  let cacheKey = 'links';
+  let cacheKey = db.id + "-" + 'links';
   let cache = cache_links.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -147,7 +147,7 @@ function getLinks(db, callback) {
 function getLinksByCategory(db, category, callback) {
 
   // Check cache for links for category
-  let cacheKey = category;
+  let cacheKey = db.id + "-" + category;
   let cache = cache_linksByCategory.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -185,7 +185,7 @@ function getLinksByCategory(db, category, callback) {
     }
 
     // Add links to cache
-    cache_linksByCategory.put(cacheKey, rtn);
+    cache_linksByCategory.put(cacheKey, rtn)
 
     // Return the links with the callback
     callback(null, rtn);

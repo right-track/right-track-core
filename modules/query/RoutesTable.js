@@ -61,7 +61,7 @@ function getRoute(db, id, callback) {
   }
 
   // Check the cache for Route
-  let cacheKey = routeIds;
+  let cacheKey = db.id + "-" + routeIds;
   let cache = cache_route.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -145,7 +145,7 @@ function getRoute(db, id, callback) {
 function getRoutes(db, callback) {
 
   // Check cache for routes
-  let cacheKey = 'routes';
+  let cacheKey = db.id + "-" + 'routes';
   let cache = cache_routes.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);

@@ -52,7 +52,7 @@ const StopTimesTable = require('./StopTimesTable.js');
 let getTrip = function(db, id, date, callback) {
 
   // Check cache for trip
-  let cacheKey = id;
+  let cacheKey = db.id + "-" + id;
   let cache = cache_tripsById.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -199,7 +199,7 @@ let getTrip = function(db, id, date, callback) {
 function getTripByShortName(db, shortName, date, callback) {
 
   // Check Cache for Trip
-  let cacheKey = shortName + "-" + date;
+  let cacheKey = db.id + "-" + shortName + "-" + date;
   let cache = cache_tripsByShortName.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -256,7 +256,7 @@ function getTripByShortName(db, shortName, date, callback) {
 function getTripByDeparture(db, originId, destinationId, departure, callback) {
 
   // Check cache for trip
-  let cacheKey = originId + "-" + destinationId + "-" + departure.getTimeSeconds() + "-" + departure.getDateInt();
+  let cacheKey = db.id + "-" + originId + "-" + destinationId + "-" + departure.getTimeSeconds() + "-" + departure.getDateInt();
   let cache = cache_tripsByDeparture.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);

@@ -49,7 +49,7 @@ const Holiday = require('../rt/Holiday.js');
 function getHolidays(db, callback) {
 
   // Check cache for holidays
-  let cacheKey = 'holidays';
+  let cacheKey = db.id + "-" + 'holidays';
   let cache = cache_holidays.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -107,7 +107,7 @@ function getHolidays(db, callback) {
 function getHoliday(db, date, callback) {
 
   // Check cache for Holiday
-  let cacheKey = date;
+  let cacheKey = db.id + "-" + date;
   let cache = cache_holidayByDate.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -164,7 +164,7 @@ function getHoliday(db, date, callback) {
 function isHoliday(db, date, callback) {
 
   // Check cache for is holiday
-  let cacheKey = date;
+  let cacheKey = db.id + "-" + date;
   let cache = cache_isHolidayByDate.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);

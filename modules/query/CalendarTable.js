@@ -90,7 +90,7 @@ function getService(db, id, callback) {
   else {
 
     // Check cache for Service
-    let cacheKey = id;
+    let cacheKey = db.id + "-" + id;
     let cache = cache_serviceById.get(cacheKey);
     if ( cache !== null ) {
       return callback(null, cache);
@@ -210,7 +210,7 @@ function getService(db, id, callback) {
 function getServicesEffective(db, date, callback) {
 
   // Check Cache for Effective Services
-  let cacheKey = date;
+  let cacheKey = db.id + "-" + date;
   let cache = cache_servicesEffectiveByDate.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -333,7 +333,7 @@ function getServicesEffective(db, date, callback) {
 let getServicesDefault = function(db, date, callback) {
 
   // Check cache for services
-  let cacheKey = date;
+  let cacheKey = db.id + "-" + date;
   let cache = cache_servicesDefaultByDate.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -403,7 +403,7 @@ let getServicesDefault = function(db, date, callback) {
 let getServiceExceptions = function(db, date, callback) {
 
   // Check cache for service exceptions
-  let cacheKey = date;
+  let cacheKey = db.id + "-" + date;
   let cache = cache_serviceExceptionsByDate.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);

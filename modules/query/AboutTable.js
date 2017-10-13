@@ -35,7 +35,7 @@ const About = require('../rt/About.js');
 function getAbout(db, callback) {
 
   // Check for cached item
-  let cacheKey = 'about';
+  let cacheKey = db.id + "-" + 'about';
   let cache = cache_about.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);

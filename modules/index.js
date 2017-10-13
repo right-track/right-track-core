@@ -36,5 +36,5 @@ module.exports = {
    * @see module:utils
    */
   utils: require('./utils')
-  
+
 };

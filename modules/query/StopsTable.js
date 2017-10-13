@@ -58,7 +58,7 @@ function getStop(db, id, callback) {
   }
 
   // Check cache for stop
-  let cacheKey = stopIds;
+  let cacheKey = db.id + "-" + stopIds;
   let cache = cache_stopById.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -147,7 +147,7 @@ function getStop(db, id, callback) {
 function getStopByName(db, name, callback) {
 
   // Check cache for Stop
-  let cacheKey = name;
+  let cacheKey = db.id + "-" + name;
   let cache = cache_stopByName.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -230,7 +230,7 @@ function getStopByStatusId(db, statusId, callback) {
   }
 
   // Check cache for stop
-  let cacheKey = statusId;
+  let cacheKey = db.id + "-" + statusId;
   let cache = cache_stopByStatusId.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -303,7 +303,7 @@ function getStopByStatusId(db, statusId, callback) {
 function getStops(db, callback) {
 
   // Check cache for stops
-  let cacheKey = 'stops';
+  let cacheKey = db.id + "-" + 'stops';
   let cache = cache_stops.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -386,7 +386,7 @@ function getStops(db, callback) {
 function getStopsByRoute(db, routeId, callback) {
 
   // Check cache for Stops
-  let cacheKey = routeId;
+  let cacheKey = db.id + "-" + routeId;
   let cache = cache_stopsByRoute.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -448,7 +448,7 @@ function getStopsByRoute(db, routeId, callback) {
 function getStopsWithStatus(db, callback) {
 
   // Check cache for Stops
-  let cacheKey = 'stopsWithStatus';
+  let cacheKey = db.id + "-" + 'stopsWithStatus';
   let cache = cache_stopsWithStatus.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
