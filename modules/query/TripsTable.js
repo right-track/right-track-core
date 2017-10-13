@@ -11,6 +11,7 @@ const Route = require('../gtfs/Route.js');
 const Stop = require('../gtfs/Stop.js');
 const StopTime = require('../gtfs/StopTime.js');
 const Trip = require('../gtfs/Trip.js');
+const DateTime = require('../utils/DateTime.js');
 const CalendarTable = require('./CalendarTable.js');
 const StopTimesTable = require('./StopTimesTable.js');
 
@@ -39,7 +40,6 @@ const StopTimesTable = require('./StopTimesTable.js');
 // ==== QUERY FUNCTIONS ==== //
 
 
-// TODO: Accept multiple trip ids
 /**
  * Get the Trip (with Route, Service and StopTimes) specified by
  * the Trip ID from the passed database
@@ -179,11 +179,10 @@ let getTrip = function(db, id, date, callback) {
 };
 
 
-// TODO: Clean this up and break into multiple functions
+
 /**
  * Find the Trip that leaves the specified origin Stop for the specified
- * destination Stop at the departure time specified by the dateTime
- *
+ * destination Stop at the departure time specified by the DateTime
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} originId Origin Stop ID
  * @param {string} destinationId Destination Stop ID
@@ -193,18 +192,101 @@ let getTrip = function(db, id, date, callback) {
 function getTripByDeparture(db, originId, destinationId, departure, callback) {
 
   // Check to make sure both origin and destination have IDs set
-  if ( originId === "" || destinationId === "" ) {
+  if ( originId === "" || originId === undefined ||
+      destinationId === "" || destinationId === undefined ) {
     return callback(
       new Error('Could not get Trip, origin and/or destination id not set')
     );
   }
 
 
+  // ORIGINAL DEPARTURE DATE
+  _getTripByDeparture(db, originId, destinationId, departure, function(err, trip) {
+    if ( err ) {
+      return callback(err);
+    }
 
-  // ==== GET EFFECTIVE SERVICES ===== //
+    // Trip Found...
+    if ( trip !== undefined ) {
+      return callback(null, trip);
+    }
+
+
+    // PREVIOUS DEPARTURE DATE, +24 HOUR TIME
+    let prev = DateTime.create(
+      departure.getTimeSeconds() + 86400,
+      departure.clone().deltaDays(-1).getDateInt()
+    );
+
+    _getTripByDeparture(db, originId, destinationId, prev, function(err, trip) {
+
+      // Return results
+      return callback(err, trip);
+
+    });
+
+
+  });
+
+}
+
+/**
+ * Get the Trip that matches the origin, destination and departure information
+ * @param {RightTrackDB} db The Right Track DB to query
+ * @param {string} originId Origin Stop ID
+ * @param {string} destinationId Destination Stop ID
+ * @param {DateTime} departure Departure DateTime
+ * @param {function} callback getTrip callback function
+ * @private
+ */
+function _getTripByDeparture(db, originId, destinationId, departure, callback) {
 
   // Get Effective Services for departure date
-  CalendarTable.getServicesEffective(db, departure.getDateInt(), function(err, services) {
+  _buildEffectiveServiceIDString(db, departure.getDateInt(), function(err, serviceIdString) {
+    if ( err ) {
+      return callback(err);
+    }
+
+    // Find a matching trip
+    _getMatchingTripId(db, originId, destinationId, departure, serviceIdString, function(err, tripId) {
+      if ( err ) {
+        return callback(err);
+      }
+
+      // --> No matching trip found
+      if ( tripId === undefined ) {
+        return callback(null, undefined);
+      }
+
+      // Build the matching trip...
+      getTrip(db, tripId, departure.getDateInt(), function(err, trip) {
+        if ( err ) {
+          return callback(err);
+        }
+
+        // --> Return the matching trip
+        return callback(err, trip);
+
+      });
+
+    });
+
+  });
+
+}
+
+/**
+ * Build the Effective Service ID String for SELECT query
+ * @param {RightTrackDB} db The Right Track DB to query
+ * @param {int} date Date Integer (yyyymmdd)
+ * @param {function} callback Callback function accepting the Service ID string
+ * @private
+ */
+function _buildEffectiveServiceIDString(db, date, callback) {
+  console.log("--> BUILDING EFFECTIVE SERVICE IDS FOR " + date);
+
+  // Query the Calendar for effective services
+  CalendarTable.getServicesEffective(db, date, function(err, services) {
 
     // Database Query Error
     if ( err ) {
@@ -218,151 +300,86 @@ function getTripByDeparture(db, originId, destinationId, departure, callback) {
     }
     let serviceIdString = "('" + serviceIds.join("', '") + "')";
 
-
-
-
-    // ==== FIND MATCHING TRIP ON DEPARTURE DATE ==== //
-
-    // Find a matching trip in the gtfs_stop_times table
-    let select = "SELECT trip_id FROM gtfs_trips " +
-      "WHERE service_id IN " + serviceIdString + " " +
-      "AND trip_id IN (" +
-      "SELECT trip_id FROM gtfs_stop_times WHERE stop_id='" + destinationId + "' " +
-      "AND trip_id IN (" +
-      "SELECT trip_id FROM gtfs_stop_times " +
-      "WHERE stop_id='" + originId + "' AND departure_time_seconds=" + departure.getTimeSeconds() +
-      "));";
-
-    // Query the database
-    db.select(select, function(err, results) {
-
-
-      // Parse the results
-      if ( !err && results.length > 0 ) {
-
-        // Find the best match
-        for ( let j = 0; j < results.length; j++ ) {
-          let row = results[j];
-
-          // Get StopTimes for origin and destination
-          StopTimesTable.getStopTimeByTripStop(db, row.trip_id, originId, departure.getDateInt(), function(orErr, originStopTime) {
-            StopTimesTable.getStopTimeByTripStop(db, row.trip_id, destinationId, departure.getDateInt(), function(deErr, destinationStopTime) {
-
-
-              // ==== MATCH FOUND ==== //
-
-              // Check stop sequence
-              // If origin comes before destination, use that trip
-              if ( !orErr && !deErr && originStopTime.stopSequence <= destinationStopTime.stopSequence ) {
-                getTrip(db, row.trip_id, departure.getDateInt(), function(err, trip) {
-                  return callback(err, trip);
-                });
-              }
-
-            });
-          });
-
-        }
-
-      }
-
-
-
-      // ==== FIND MATCHING TRIP ON PREVIOUS DATE ==== //
-
-      // No matching trip found...
-      // Check the previous day with 24+ hour time
-      else {
-
-
-
-        // ==== GET EFFECTIVE SERVICES ==== //
-
-        // Get effective services for the previous day
-        let prev = departure.clone().deltaDays(-1);
-        CalendarTable.getServicesEffective(db, prev.getDateInt(), function(err, services) {
-
-          // Database Query Error
-          if ( err ) {
-            return callback(err);
-          }
-
-          // Build Service ID String
-          let serviceIds = [];
-          for ( let i = 0; i < services.length; i++ ) {
-            serviceIds.push(services[i].id);
-          }
-          let serviceIdString = "('" + serviceIds.join("', '") + "')";
-
-
-
-
-          // ==== FIND MATCHING TRIP ==== //
-
-          // Get 24+ hour time (seconds)
-          let timeSeconds = departure.getTimeSeconds() + 86400;
-
-          // Find a matching trip in the gtfs_stop_times table
-          let select = "SELECT trip_id FROM gtfs_trips " +
-            "WHERE service_id IN " + serviceIdString + " " +
-            "AND trip_id IN (" +
-            "SELECT trip_id FROM gtfs_stop_times WHERE stop_id='" + destinationId + "' " +
-            "AND trip_id IN (" +
-            "SELECT trip_id FROM gtfs_stop_times " +
-            "WHERE stop_id='" + originId + "' AND departure_time_seconds=" + timeSeconds +
-            "));";
-
-          // Query the database
-          db.select(select, function(err, results) {
-
-            // Parse the results
-            if ( !err && results.length > 0 ) {
-
-              // Find the best match
-              for ( let j = 0; j < results.length; j++ ) {
-                let row = results[j];
-
-                // Get StopTimes for origin and destination
-                StopTimesTable.getStopTimeByTripStop(db, row.trip_id, originId, prev.getDateInt(), function (orErr, originStopTime) {
-                  StopTimesTable.getStopTimeByTripStop(db, row.trip_id, destinationId, prev.getDateInt(), function (deErr, destinationStopTime) {
-
-
-                    // ==== MATCH FOUND ==== //
-
-                    // Check stop sequence
-                    // If origin comes before destination, use that trip
-                    if (!orErr && !deErr && originStopTime.stopSequence <= destinationStopTime.stopSequence) {
-                      getTrip(db, row.trip_id, prev.getDateInt(), function(err, trip) {
-                        return callback(err, trip);
-                      });
-                    }
-
-                  });
-                });
-              }
-
-            }
-
-
-            // STILL NO MATCHING TRAIN FOUND
-            else {
-              return callback(null, undefined);
-            }
-
-
-          });
-
-        });
-
-      }
-
-    });
+    // Return Service ID String
+    return callback(null, serviceIdString);
 
   });
 
 }
 
+/**
+ * Get the Trip ID of the trip matching the origin, destination, and departure information
+ * @param {RightTrackDB} db The Right Track DB to query
+ * @param {string} originId Origin Stop ID
+ * @param {string} destinationId Destination Stop ID
+ * @param {DateTime} departure DateTime of departure
+ * @param {string} serviceIdString Effective Service ID string
+ * @param {function} callback Callback function accepting trip id
+ * @private
+ */
+function _getMatchingTripId(db, originId, destinationId, departure, serviceIdString, callback) {
+  console.log("--> FIND MATCHING TRIP: " + serviceIdString);
 
+  // Find a matching trip in the gtfs_stop_times table
+  let select = "SELECT trip_id FROM gtfs_trips " +
+    "WHERE service_id IN " + serviceIdString + " " +
+    "AND trip_id IN (" +
+    "SELECT trip_id FROM gtfs_stop_times WHERE stop_id='" + destinationId + "' " +
+    "AND trip_id IN (" +
+    "SELECT trip_id FROM gtfs_stop_times " +
+    "WHERE stop_id='" + originId + "' AND departure_time_seconds=" + departure.getTimeSeconds() +
+    "));";
+
+  // Query the database
+  db.select(select, function(err, results) {
+
+    // Database Query Error
+    if ( err ) {
+      return callback(err);
+    }
+
+    // No results found
+    if ( results.length === 0 ) {
+      return callback(null, undefined);
+    }
+
+    // Find the best match
+    let found = false;
+    let count = 0;
+    for ( let j = 0; j < results.length; j++ ) {
+      let row = results[j];
+
+      // Get StopTimes for origin and destination
+      StopTimesTable.getStopTimeByTripStop(db, row.trip_id, originId, departure.getDateInt(), function(orErr, originStopTime) {
+        StopTimesTable.getStopTimeByTripStop(db, row.trip_id, destinationId, departure.getDateInt(), function(deErr, destinationStopTime) {
+          if ( orErr ) {
+            return callback(orErr);
+          }
+          if ( deErr ) {
+            return callback(deErr);
+          }
+
+          // Check stop sequence
+          // If origin comes before destination, use that trip
+          if ( originStopTime.stopSequence <= destinationStopTime.stopSequence ) {
+            found = true;
+            return callback(null, row.trip_id);
+          }
+
+          // No match found
+          count ++;
+          if ( !found && count === results.length ) {
+            return callback(null, undefined);
+          }
+
+        });
+      });
+
+    }
+
+  });
+
+}
 
 
 

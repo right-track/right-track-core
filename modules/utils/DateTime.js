@@ -53,13 +53,13 @@ class DateTime {
     if ( Number.isInteger(time) ) {
 
       // Check to make sure time int is within reasonable range
-      if ( time >= 0 && time <= 115200 ) {
+      if ( time >= 0 && time <= 172800 ) {
         this.time = time;
       }
 
-      // Time int is not within reasonable range of 0 --> 32 hours
+      // Time int is not within reasonable range of 0 --> 48 hours
       else {
-        throw new Error('DATETIME ERROR: Time Integer is out of bounds!');
+        console.warn('DATETIME ERROR: Time Integer is out of bounds!');
       }
 
     }
@@ -174,7 +174,7 @@ class DateTime {
       this._getYear(),
       this._getMonth()-1,
       this._getDate(),
-      this._getHours(),
+      hours,
       this._getMins(),
       this._getSecs()
     );
@@ -323,7 +323,6 @@ class DateTime {
   getTimeReadable() {
     let h = this._getHours();
     let m = this._getMins();
-    let s = this._getSecs();
 
     // Pad Minutes with 0s
     if ( m < 10 ) {
@@ -469,7 +468,7 @@ class DateTime {
 
 /**
  * DateTime Factory: with time and date
- * @param {string} time Time
+ * @param {string|int} time Time
  * @param {int} date Date
  * @returns {DateTime} DateTime
  */
@@ -488,7 +487,7 @@ DateTime.now = function() {
 
 /**
  * DateTime Factory: with JavaScript Date
- * @param {Date} date JavaScript Date
+ * @param {Date} jd JavaScript Date
  */
 DateTime.createFromJSDate = function(jd) {
   // Construct Date
