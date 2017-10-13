@@ -1,5 +1,7 @@
 'use strict';
 
+const calc = require('../utils/calc.js');
+
 /**
  * GTFS Stop Class
  * @see {@link Stop}
@@ -57,6 +59,15 @@ class Stop {
     this.transferWeight = transferWeight;
   }
 
+  /**
+   * Set the Stop's distance property to the distance from the specified
+   * location.
+   * @param {number} lat Location's latitude (decimal degrees)
+   * @param {number} lon Location's longitude (decimal degrees)
+   */
+  setDistance(lat, lon) {
+    this.distance = calc.distance(this.lat, this.lon, lat, lon);
+  }
 
 }
 
@@ -141,6 +152,25 @@ Stop.sortByTransferWeight = function(a, b) {
   else {
     return 0;
   }
+};
+
+
+/**
+ * Sort Stops by Distance (if set)
+ * @param {Stop} a first Stop
+ * @param {Stop} b second Stop
+ * @returns {number} compare integer
+ */
+Stop.sortByDistance = function(a, b) {
+  if ( a.distance !== undefined && b.distance !== undefined ) {
+    if ( a.distance < b.distance ) {
+      return -1;
+    }
+    else if ( a.distance > b.distance ) {
+      return 1;
+    }
+  }
+  return 0;
 };
 
 

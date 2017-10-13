@@ -13,6 +13,12 @@ module.exports = {
    * Right Track DateTime Class
    * @see DateTime
    */
-  DateTime: require('./DateTime.js')
+  DateTime: require('./DateTime.js'),
+
+  /**
+   * Right Track calculation helper functions
+   * @see module:utils/calc
+   */
+  calc: require('./calc.js')
 
 };

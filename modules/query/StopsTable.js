@@ -456,8 +456,73 @@ function getStopsWithStatus(db, callback) {
 
 }
 
-// TODO: Get Stops near location
-// TODO: Get closest stop to location
+
+/**
+ * Get Stops sorted by distance from the specified location. Optionally filter
+ * the returned stops to include up to `count` results and/or within `distance`
+ * miles from the location.
+ * @param {RightTrackDB} db The Right Track Database to query
+ * @param {number} lat Location latitude (decimal degrees)
+ * @param {number} lon Location longitude (decimal degrees)
+ * @param {int|undefined} count Max number of Stops to return
+ * @param {number|undefined} distance Max distance (miles) Stops can be from location
+ * @param {function} callback {@link module:query/stops~getStopsCallback|getStopsCallback} callback function
+ */
+function getStopsByLocation(db, lat, lon, count, distance, callback) {
+
+  // Get all of the Stops
+  getStops(db, function(err, stops) {
+    if ( err || stops === undefined ) {
+      return callback(err);
+    }
+
+
+    // Calc distance to/from each stop
+    for ( let i = 0; i < stops.length; i++ ) {
+      stops[i].setDistance(lat, lon);
+    }
+
+    // Sort by distance
+    stops.sort(Stop.sortByDistance);
+
+
+
+    // Filter the stops to return
+    let rtn = [];
+
+
+    // Return 'count' stops
+    if ( count !== undefined ) {
+      for ( let i = 0; i < count; i++ ) {
+        if ( stops.length > i ) {
+          rtn.push(stops[i]);
+        }
+      }
+    }
+
+    // No 'count' specified, add all stops
+    else {
+      rtn = stops;
+    }
+
+
+    // Filter by distance
+    if ( distance !== undefined ) {
+      let temp = [];
+      for ( let i = 0; i < rtn.length; i++ ) {
+        if ( rtn[i].distance <= distance ) {
+          temp.push(rtn[i]);
+        }
+      }
+      rtn = temp;
+    }
+
+
+    // Return the Stops
+    return callback(null, rtn);
+
+  });
+}
 
 
 // Export Functions
@@ -467,5 +532,6 @@ module.exports = {
   getStopByStatusId: getStopByStatusId,
   getStops: getStops,
   getStopsByRoute: getStopsByRoute,
-  getStopsWithStatus: getStopsWithStatus
+  getStopsWithStatus: getStopsWithStatus,
+  getStopsByLocation: getStopsByLocation
 };
