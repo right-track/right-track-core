@@ -6,6 +6,7 @@
  * @module query/stoptimes
  */
 
+const cache = require('memory-cache');
 const Stop = require('../gtfs/Stop.js');
 const StopTime = require('../gtfs/StopTime.js');
 
@@ -44,6 +45,13 @@ const StopTime = require('../gtfs/StopTime.js');
  * @param {function} callback {@link module:query/stoptimes~getStopTimesCallback|getStopTimesCallback} callback function
  */
 function getStopTimesByTrip(db, tripId, date, callback) {
+
+  // Check Cache for StopTimes
+  let cacheKey = tripId;
+  let cache = cache_stoptimesByTrip.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
 
   // Build the select statement
   let select = "SELECT " +
@@ -106,6 +114,8 @@ function getStopTimesByTrip(db, tripId, date, callback) {
       rtn.push(stopTime);
     }
 
+    // Add StopTimes to cache
+    cache_stoptimesByTrip.put(cacheKey, rtn);
 
     // Return the StopTimes with the callback
     return callback(null, rtn);
@@ -126,6 +136,13 @@ function getStopTimesByTrip(db, tripId, date, callback) {
  * @param {function} callback {@link module:query/stoptimes~getStopTimeCallback|getStopTimeCallback} callback function
  */
 function getStopTimeByTripStop(db, tripId, stopId, date, callback) {
+
+  // Cache Cache for StopTimes
+  let cacheKey = tripId + '-' + stopId;
+  let cache = cache_stoptimesByTripStop.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
 
   // Build the select statement
   let select = "SELECT " +
@@ -182,6 +199,8 @@ function getStopTimeByTripStop(db, tripId, stopId, date, callback) {
       date
     );
 
+    // Add StopTimes to Cache
+    cache_stoptimesByTripStop.put(cacheKey, stopTime);
 
     // Return the StopTimes with the callback
     return callback(null, stopTime);
@@ -192,8 +211,24 @@ function getStopTimeByTripStop(db, tripId, stopId, date, callback) {
 
 
 
+
+// ==== SETUP CACHES ==== //
+let cache_stoptimesByTrip = new cache.Cache();
+let cache_stoptimesByTripStop = new cache.Cache();
+
+/**
+ * Clear the LinksTable caches
+ * @private
+ */
+function clearCache() {
+  cache_stoptimesByTrip.clear();
+  cache_stoptimesByTripStop.clear();
+}
+
+
 // Export Functions
 module.exports = {
   getStopTimesByTrip: getStopTimesByTrip,
-  getStopTimeByTripStop: getStopTimeByTripStop
+  getStopTimeByTripStop: getStopTimeByTripStop,
+  clearCache: clearCache
 };

@@ -7,6 +7,7 @@
  * @module query/calendar
  */
 
+const cache = require('memory-cache');
 const Service = require('../gtfs/Service.js');
 const ServiceException = require('../gtfs/ServiceException.js');
 const DateTime = require('../utils/DateTime.js');
@@ -87,6 +88,13 @@ function getService(db, id, callback) {
 
   // When given a single service id to query...
   else {
+
+    // Check cache for Service
+    let cacheKey = id;
+    let cache = cache_serviceById.get(cacheKey);
+    if ( cache !== null ) {
+      return callback(null, cache);
+    }
 
     // Get the service exceptions for the specified service
     let select = "SELECT date, exception_type FROM gtfs_calendar_dates WHERE " +
@@ -177,6 +185,9 @@ function getService(db, id, callback) {
           exceptions
         );
 
+        // Save Service in cache
+        cache_serviceById.put(cacheKey, service);
+
         // return service in callback, if provided
         return callback(null, service);
 
@@ -197,6 +208,13 @@ function getService(db, id, callback) {
  * @param {function} callback {@link module:query/calendar~getServicesCallback|getServicesCallback} callback function
  */
 function getServicesEffective(db, date, callback) {
+
+  // Check Cache for Effective Services
+  let cacheKey = date;
+  let cache = cache_servicesEffectiveByDate.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
 
   // Get the Default Services
   getServicesDefault(db, date, function(defaultError, defaultServices) {
@@ -277,6 +295,9 @@ function getServicesEffective(db, date, callback) {
             defaultServices.push(service);
           }
 
+          // Add Services to Cache
+          cache_servicesEffectiveByDate.put(cacheKey, defaultServices);
+
           // Return Services
           return callback(null, defaultServices);
 
@@ -285,7 +306,12 @@ function getServicesEffective(db, date, callback) {
 
       // Return Default Services
       else {
+
+        // Add Services to Cache
+        cache_servicesEffectiveByDate.put(cacheKey, defaultServices);
+
         return callback(null, defaultServices);
+
       }
 
 
@@ -305,6 +331,13 @@ function getServicesEffective(db, date, callback) {
  * @param {function} callback {@link module:query/calendar~getServicesCallback|getServicesCallback} callback function
  */
 let getServicesDefault = function(db, date, callback) {
+
+  // Check cache for services
+  let cacheKey = date;
+  let cache = cache_servicesDefaultByDate.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
 
   // Array of default services to return
   let rtn = [];
@@ -348,6 +381,8 @@ let getServicesDefault = function(db, date, callback) {
       rtn.push(service);
     }
 
+    // Add Services to Cache
+    cache_servicesDefaultByDate.put(cacheKey, rtn);
 
     // Return the default services with provided callback
     return callback(null, rtn);
@@ -366,6 +401,13 @@ let getServicesDefault = function(db, date, callback) {
  * @param {function} callback {@link module:query/calendar~getServiceExceptionsCallback|getServiceExceptionsCallback} callback function
  */
 let getServiceExceptions = function(db, date, callback) {
+
+  // Check cache for service exceptions
+  let cacheKey = date;
+  let cache = cache_serviceExceptionsByDate.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
 
   // Array of Service Exceptions to return
   let rtn = [];
@@ -397,6 +439,8 @@ let getServiceExceptions = function(db, date, callback) {
       rtn.push(se);
     }
 
+    // Add Service Exceptions to cache
+    cache_serviceExceptionsByDate.put(cacheKey, rtn);
 
     // Return service exceptions with provided callback
     return callback(null, rtn);
@@ -406,10 +450,31 @@ let getServiceExceptions = function(db, date, callback) {
 };
 
 
+
+// ==== SETUP CACHES ==== //
+let cache_serviceById = new cache.Cache();
+let cache_servicesEffectiveByDate = new cache.Cache();
+let cache_servicesDefaultByDate = new cache.Cache();
+let cache_serviceExceptionsByDate = new cache.Cache();
+
+/**
+ * Clear the CalendarTable caches
+ * @private
+ */
+function clearCache() {
+  cache_serviceById.clear();
+  cache_servicesEffectiveByDate.clear();
+  cache_servicesDefaultByDate.clear();
+  cache_serviceExceptionsByDate.clear();
+}
+
+
+
 // Export the functions
 module.exports = {
   getService: getService,
   getServicesEffective: getServicesEffective,
   getServicesDefault: getServicesDefault,
-  getServiceExceptions: getServiceExceptions
+  getServiceExceptions: getServiceExceptions,
+  clearCache: clearCache
 };

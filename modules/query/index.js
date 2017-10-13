@@ -6,6 +6,22 @@
  * @module query
  */
 
+
+/**
+ * Clear the query caches for each of the query modules
+ */
+function clearCache() {
+  require('./AboutTable.js').clearCache();
+  require('./CalendarTable.js').clearCache();
+  require('./HolidayTable.js').clearCache();
+  require('./LinksTable.js').clearCache();
+  require('./RoutesTable.js').clearCache();
+  require('./StopsTable.js').clearCache();
+  require('./StopTimesTable.js').clearCache();
+  require('./TripsTable.js').clearCache();
+}
+
+
 module.exports = {
 
   /**
@@ -54,5 +70,10 @@ module.exports = {
    * Query gtfs_trips table
    * @see module:query/trips
    */
-  trips: require('./TripsTable.js')
+  trips: require('./TripsTable.js'),
+
+  /**
+   * Clear the query caches
+   */
+  clearCache: clearCache
 };

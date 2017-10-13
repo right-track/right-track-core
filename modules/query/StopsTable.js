@@ -7,6 +7,7 @@
  * @module query/stops
  */
 
+const cache = require('memory-cache');
 const Stop = require('../gtfs/Stop.js');
 
 
@@ -54,6 +55,13 @@ function getStop(db, id, callback) {
       console.warn(err);
       stopIds = "('" + id + "')";
     }
+  }
+
+  // Check cache for stop
+  let cacheKey = stopIds;
+  let cache = cache_stopById.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
   }
 
 
@@ -116,9 +124,11 @@ function getStop(db, id, callback) {
 
     // Return Stop(s)
     else if ( rtn.length === 1 ) {
+      cache_stopById.put(cacheKey, rtn[0]);
       return callback(null, rtn[0]);
     }
     else {
+      cache_stopById.put(cacheKey, rtn);
       return callback(null, rtn);
     }
 
@@ -135,6 +145,13 @@ function getStop(db, id, callback) {
  * @param {function} callback {@link module:query/stops~getStopCallback|getStopCallback} callback function
  */
 function getStopByName(db, name, callback) {
+
+  // Check cache for Stop
+  let cacheKey = name;
+  let cache = cache_stopByName.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
 
   // Different queries to lookup stop by name
   let queries = [
@@ -154,6 +171,7 @@ function getStopByName(db, name, callback) {
       // Return the result: if not already found and the query was successful
       if ( !found && stop !== undefined ) {
         found = true;
+        cache_stopByName.put(cacheKey, stop);
         return callback(null, stop);
       }
 
@@ -211,6 +229,13 @@ function getStopByStatusId(db, statusId, callback) {
     );
   }
 
+  // Check cache for stop
+  let cacheKey = statusId;
+  let cache = cache_stopByStatusId.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
+
 
   // Build select statement
   let select = "SELECT gtfs_stops.stop_id, gtfs_stops.stop_name, gtfs_stops.stop_lat, " +
@@ -257,6 +282,9 @@ function getStopByStatusId(db, statusId, callback) {
       result.transfer_weight
     );
 
+    // Add Stop to cache
+    cache_stopByStatusId.put(cacheKey, stop);
+
     // return the Stop in the callback
     return callback(null, stop);
 
@@ -273,6 +301,13 @@ function getStopByStatusId(db, statusId, callback) {
  * @param {function} callback {@link module:query/stops~getStopsCallback|getStopsCallback} callback function
  */
 function getStops(db, callback) {
+
+  // Check cache for stops
+  let cacheKey = 'stops';
+  let cache = cache_stops.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
 
   // Build select statement
   let select = "SELECT gtfs_stops.stop_id, gtfs_stops.stop_name, gtfs_stops.stop_lat, " +
@@ -325,8 +360,13 @@ function getStops(db, callback) {
 
     }
 
-    // return the stops in the callback
+    // Sort Stops By Name
     stops.sort(Stop.sortByName);
+
+    // Add Stops to cache
+    cache_stops.put(cacheKey, stops);
+
+    // Return stops
     return callback(null, stops);
 
   });
@@ -344,6 +384,13 @@ function getStops(db, callback) {
  * @param {function} callback {@link module:query/stops~getStopsCallback|getStopsCallback} callback function
  */
 function getStopsByRoute(db, routeId, callback) {
+
+  // Check cache for Stops
+  let cacheKey = routeId;
+  let cache = cache_stopsByRoute.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
 
   // Build select statement
   // Get all Stop IDs that have a trip that uses the specified route
@@ -378,6 +425,10 @@ function getStopsByRoute(db, routeId, callback) {
       if ( stops !== undefined ) {
         stops.sort(Stop.sortByName);
       }
+
+      // Add Stops to Cache
+      cache_stopsByRoute.put(cacheKey, stops);
+
       return callback(null, stops);
 
     });
@@ -395,6 +446,13 @@ function getStopsByRoute(db, routeId, callback) {
  * @param {function} callback {@link module:query/stops~getStopsCallback|getStopsCallback} callback function
  */
 function getStopsWithStatus(db, callback) {
+
+  // Check cache for Stops
+  let cacheKey = 'stopsWithStatus';
+  let cache = cache_stopsWithStatus.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
 
   // Build select statement
   let select = "SELECT gtfs_stops.stop_id, gtfs_stops.stop_name, gtfs_stops.stop_lat, " +
@@ -448,8 +506,13 @@ function getStopsWithStatus(db, callback) {
 
     }
 
-    // return the stops in the callback
+    // Sort Stops By Name
     stops.sort(Stop.sortByName);
+
+    // Add Stops to Cache
+    cache_stopsWithStatus.put(cacheKey, stops);
+
+    // Return Stops
     return callback(null, stops);
 
   });
@@ -525,6 +588,28 @@ function getStopsByLocation(db, lat, lon, count, distance, callback) {
 }
 
 
+// ==== SETUP CACHES ==== //
+let cache_stopById = new cache.Cache();
+let cache_stopByName = new cache.Cache();
+let cache_stopByStatusId = new cache.Cache();
+let cache_stops = new cache.Cache();
+let cache_stopsByRoute = new cache.Cache();
+let cache_stopsWithStatus = new cache.Cache();
+
+/**
+ * Clear the LinksTable caches
+ * @private
+ */
+function clearCache() {
+  cache_stopById.clear();
+  cache_stopByName.clear();
+  cache_stopByStatusId.clear();
+  cache_stops.clear();
+  cache_stopsByRoute.clear();
+  cache_stopsWithStatus.clear();
+}
+
+
 // Export Functions
 module.exports = {
   getStop: getStop,
@@ -533,5 +618,6 @@ module.exports = {
   getStops: getStops,
   getStopsByRoute: getStopsByRoute,
   getStopsWithStatus: getStopsWithStatus,
-  getStopsByLocation: getStopsByLocation
+  getStopsByLocation: getStopsByLocation,
+  clearCache: clearCache
 };

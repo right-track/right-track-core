@@ -6,6 +6,7 @@
  * @module query/routes
  */
 
+const cache = require('memory-cache');
 const Agency = require('../gtfs/Agency.js');
 const Route = require('../gtfs/Route.js');
 
@@ -57,6 +58,13 @@ function getRoute(db, id, callback) {
       console.warn(err);
       routeIds = "('" + id + "')";
     }
+  }
+
+  // Check the cache for Route
+  let cacheKey = routeIds;
+  let cache = cache_route.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
   }
 
   // Build the select statement
@@ -115,9 +123,11 @@ function getRoute(db, id, callback) {
 
     // Return Route(s)
     else if ( rtn.length === 1 ) {
+      cache_route.put(cacheKey, rtn[0]);
       return callback(null, rtn[0]);
     }
     else {
+      cache_route.put(cacheKey, rtn);
       return callback(null, rtn);
     }
 
@@ -133,6 +143,13 @@ function getRoute(db, id, callback) {
  * @param {function} callback {@link module:query/routes~getRoutesCallback|getRoutesCallback} callback function
  */
 function getRoutes(db, callback) {
+
+  // Check cache for routes
+  let cacheKey = 'routes';
+  let cache = cache_routes.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
 
   // Build the select statement
   let select = "SELECT gtfs_routes.route_id, gtfs_routes.route_short_name, " +
@@ -181,8 +198,13 @@ function getRoutes(db, callback) {
       rtn.push(route);
     }
 
-    // Return the route list with the callback
+    // Sort the Routes by Name
     rtn.sort(Route.sortByName);
+
+    // Add the Routes to the cache
+    cache_routes.put(cacheKey, rtn);
+
+    // Return the Routes
     return callback(null, rtn);
 
   });
@@ -190,9 +212,24 @@ function getRoutes(db, callback) {
 }
 
 
+// ==== SETUP CACHES ==== //
+let cache_route = new cache.Cache();
+let cache_routes = new cache.Cache();
+
+/**
+ * Clear the LinksTable caches
+ * @private
+ */
+function clearCache() {
+  cache_route.clear();
+  cache_routes.clear();
+}
+
+
 
 // Export Functions
 module.exports = {
   getRoute : getRoute,
-  getRoutes: getRoutes
+  getRoutes: getRoutes,
+  clearCache: clearCache
 };

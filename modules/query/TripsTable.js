@@ -6,6 +6,7 @@
  * @module query/trips
  */
 
+const cache = require('memory-cache');
 const Agency = require('../gtfs/Agency.js');
 const Route = require('../gtfs/Route.js');
 const Stop = require('../gtfs/Stop.js');
@@ -49,6 +50,13 @@ const StopTimesTable = require('./StopTimesTable.js');
  * @param {function} callback {@link module:query/trips~getTripCallback|getTripCallback} callback function
  */
 let getTrip = function(db, id, date, callback) {
+
+  // Check cache for trip
+  let cacheKey = id;
+  let cache = cache_tripsById.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
 
   // Build the select statement
   let select = "SELECT " +
@@ -168,6 +176,9 @@ let getTrip = function(db, id, date, callback) {
         row.description
       );
 
+      // Add Trip to Cache
+      cache_tripsById.put(cacheKey, trip);
+
       // Return trip with callback
       return callback(null, trip);
 
@@ -178,7 +189,6 @@ let getTrip = function(db, id, date, callback) {
 };
 
 
-// TODO: getTripByShortName
 /**
  * Get the Trip specified by the Trip short name that operates on the specified date
  * @param {RightTrackDB} db The Right Track DB to query
@@ -187,6 +197,13 @@ let getTrip = function(db, id, date, callback) {
  * @param {function} callback {@link module:query/trips~getTripCallback|getTripCallback} callback function
  */
 function getTripByShortName(db, shortName, date, callback) {
+
+  // Check Cache for Trip
+  let cacheKey = shortName + "-" + date;
+  let cache = cache_tripsByShortName.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
 
   // Get effective service ids
   _buildEffectiveServiceIDString(db, date, function(err, serviceIdString) {
@@ -212,6 +229,9 @@ function getTripByShortName(db, shortName, date, callback) {
       // Get the Trip
       getTrip(db, result.trip_id, date, function(err, trip) {
 
+        // Add Trip to Cache
+        cache_tripsByShortName.put(cacheKey, trip);
+
         // Return Trip
         return callback(err, trip);
 
@@ -235,6 +255,13 @@ function getTripByShortName(db, shortName, date, callback) {
  */
 function getTripByDeparture(db, originId, destinationId, departure, callback) {
 
+  // Check cache for trip
+  let cacheKey = originId + "-" + destinationId + "-" + departure.getTimeSeconds() + "-" + departure.getDateInt();
+  let cache = cache_tripsByDeparture.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
+
   // Check to make sure both origin and destination have IDs set
   if ( originId === "" || originId === undefined ||
       destinationId === "" || destinationId === undefined ) {
@@ -252,6 +279,7 @@ function getTripByDeparture(db, originId, destinationId, departure, callback) {
 
     // Trip Found...
     if ( trip !== undefined ) {
+      cache_tripsByDeparture.put(cacheKey, trip);
       return callback(null, trip);
     }
 
@@ -265,6 +293,7 @@ function getTripByDeparture(db, originId, destinationId, departure, callback) {
     _getTripByDeparture(db, originId, destinationId, prev, function(err, trip) {
 
       // Return results
+      cache_tripsByDeparture.put(cacheKey, trip);
       return callback(err, trip);
 
     });
@@ -425,9 +454,27 @@ function _getMatchingTripId(db, originId, destinationId, departure, serviceIdStr
 
 
 
+// ==== SETUP CACHES ==== //
+let cache_tripsById = new cache.Cache();
+let cache_tripsByShortName = new cache.Cache();
+let cache_tripsByDeparture = new cache.Cache();
+
+/**
+ * Clear the LinksTable caches
+ * @private
+ */
+function clearCache() {
+  cache_tripsById.clear();
+  cache_tripsByShortName.clear();
+  cache_tripsByDeparture.clear();
+}
+
+
+
 // Export Functions
 module.exports = {
   getTrip: getTrip,
   getTripByShortName: getTripByShortName,
-  getTripByDeparture: getTripByDeparture
+  getTripByDeparture: getTripByDeparture,
+  clearCache: clearCache
 };

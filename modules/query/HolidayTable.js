@@ -6,6 +6,7 @@
  * @module query/holiday
  */
 
+const cache = require('memory-cache');
 const Holiday = require('../rt/Holiday.js');
 
 
@@ -47,6 +48,13 @@ const Holiday = require('../rt/Holiday.js');
  */
 function getHolidays(db, callback) {
 
+  // Check cache for holidays
+  let cacheKey = 'holidays';
+  let cache = cache_holidays.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
+
   // Build select statement
   let select = "SELECT date, holiday_name, peak, service_info FROM rt_holidays";
 
@@ -77,6 +85,9 @@ function getHolidays(db, callback) {
       rtn.push(holiday);
     }
 
+    // Add Holidays to cache
+    cache_holidays.put(cacheKey, rtn);
+
     // Return list of holidays with callback
     return callback(null, rtn);
 
@@ -95,6 +106,13 @@ function getHolidays(db, callback) {
  */
 function getHoliday(db, date, callback) {
 
+  // Check cache for Holiday
+  let cacheKey = date;
+  let cache = cache_holidayByDate.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
+
   // Build the select statement
   let select = "SELECT date, holiday_name, peak, service_info " +
     "FROM rt_holidays WHERE date=" + date;
@@ -109,26 +127,27 @@ function getHoliday(db, date, callback) {
       return callback(err);
     }
 
+    // Holiday to return
+    let holiday = undefined;
+
     // Holiday was found...
     if ( result !== undefined ) {
 
       // Build the Holiday
-      let holiday = new Holiday(
+      holiday = new Holiday(
         result.date,
         result.holiday_name,
         result.peak,
         result.service_info
       );
 
-      // Return the holiday with the specified callback
-      return callback(null, holiday);
-
     }
 
-    // No holiday found, return undefined with the specified callback
-    else {
-        return callback(null, undefined);
-    }
+    // Add holiday to cache
+    cache_holidayByDate.put(cacheKey, holiday);
+
+    // Return the holiday
+    return callback(null, holiday);
 
   })
 
@@ -144,6 +163,13 @@ function getHoliday(db, date, callback) {
  */
 function isHoliday(db, date, callback) {
 
+  // Check cache for is holiday
+  let cacheKey = date;
+  let cache = cache_isHolidayByDate.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
+
   // Get matching holiday
   let select = "SELECT date, holiday_name, peak, service_info " +
     "FROM rt_holidays WHERE date=" + date;
@@ -156,6 +182,9 @@ function isHoliday(db, date, callback) {
       return callback(err);
     }
 
+    // Add result to cache
+    cache_isHolidayByDate.put(cacheKey, result !== undefined);
+
     // Return if holiday is found with callback
     return callback(null, result !== undefined);
 
@@ -165,9 +194,26 @@ function isHoliday(db, date, callback) {
 
 
 
+// ==== SETUP CACHES ==== //
+let cache_holidays = new cache.Cache();
+let cache_holidayByDate = new cache.Cache();
+let cache_isHolidayByDate = new cache.Cache();
+
+/**
+ * Clear the HolidayTable caches
+ * @private
+ */
+function clearCache() {
+  cache_holidays.clear();
+  cache_holidayByDate.clear();
+  cache_isHolidayByDate.clear();
+}
+
+
 // Export the functions
 module.exports = {
   getHolidays: getHolidays,
   getHoliday: getHoliday,
-  isHoliday: isHoliday
+  isHoliday: isHoliday,
+  clearCache: clearCache,
 };

@@ -7,6 +7,7 @@
  */
 
 
+const cache = require('memory-cache');
 const About = require('../rt/About.js');
 
 
@@ -32,6 +33,13 @@ const About = require('../rt/About.js');
  * @param {function} callback {@link module:query/about~getAboutCallback|getAboutCallback} callback function
  */
 function getAbout(db, callback) {
+
+  // Check for cached item
+  let cacheKey = 'about';
+  let cache = cache_about.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
 
   // Build select statement
   let select = "SELECT compile_date, gtfs_publish_date, start_date, " +
@@ -61,7 +69,10 @@ function getAbout(db, callback) {
       result.version,
       result.notes
     );
-    
+
+    // Add about to cache
+    cache_about.put(cacheKey, about);
+
     return callback(null, about);
 
   });
@@ -69,7 +80,20 @@ function getAbout(db, callback) {
 }
 
 
+// ==== SETUP CACHE ==== //
+let cache_about = new cache.Cache();
+
+/**
+ * Clear the AboutTable cache
+ * @private
+ */
+function clearCache() {
+  cache_about.clear();
+}
+
+
 // Export Functions
 module.exports = {
-  getAbout: getAbout
+  getAbout: getAbout,
+  clearCache: clearCache
 };
