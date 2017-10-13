@@ -43,7 +43,6 @@ const StopTimesTable = require('./StopTimesTable.js');
 /**
  * Get the Trip (with Route, Service and StopTimes) specified by
  * the Trip ID from the passed database
- *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} id Trip ID
  * @param {int} date The date (yyyymmdd) that the Trip operates on
@@ -179,6 +178,51 @@ let getTrip = function(db, id, date, callback) {
 };
 
 
+// TODO: getTripByShortName
+/**
+ * Get the Trip specified by the Trip short name
+ * @param {RightTrackDB} db The Right Track DB to query
+ * @param {string} shortName Trip short name
+ * @param {int} date Date Integer (yyyymmdd)
+ * @param {function} callback {@link module:query/trips~getTripCallback|getTripCallback} callback function
+ */
+function getTripByShortName(db, shortName, date, callback) {
+
+  // Get effective service ids
+  _buildEffectiveServiceIDString(db, date, function(err, serviceIdString) {
+    if ( err ) {
+      return callback(err);
+    }
+
+    // Get Trip ID
+    let select = "SELECT trip_id FROM gtfs_trips WHERE trip_short_name = '" +
+      shortName + "' AND service_id IN " + serviceIdString + ";";
+
+    // Query database
+    db.get(select, function(err, result) {
+      if ( err ) {
+        return callback(err);
+      }
+
+      // No Trip Found
+      if ( result === undefined ) {
+        return callback(null, undefined);
+      }
+
+      // Get the Trip
+      getTrip(db, result.trip_id, date, function(err, trip) {
+
+        // Return Trip
+        return callback(err, trip);
+
+      });
+
+    });
+
+  });
+
+}
+
 
 /**
  * Find the Trip that leaves the specified origin Stop for the specified
@@ -283,7 +327,6 @@ function _getTripByDeparture(db, originId, destinationId, departure, callback) {
  * @private
  */
 function _buildEffectiveServiceIDString(db, date, callback) {
-  console.log("--> BUILDING EFFECTIVE SERVICE IDS FOR " + date);
 
   // Query the Calendar for effective services
   CalendarTable.getServicesEffective(db, date, function(err, services) {
@@ -318,7 +361,6 @@ function _buildEffectiveServiceIDString(db, date, callback) {
  * @private
  */
 function _getMatchingTripId(db, originId, destinationId, departure, serviceIdString, callback) {
-  console.log("--> FIND MATCHING TRIP: " + serviceIdString);
 
   // Find a matching trip in the gtfs_stop_times table
   let select = "SELECT trip_id FROM gtfs_trips " +
@@ -386,5 +428,6 @@ function _getMatchingTripId(db, originId, destinationId, departure, serviceIdStr
 // Export Functions
 module.exports = {
   getTrip: getTrip,
+  getTripByShortName: getTripByShortName,
   getTripByDeparture: getTripByDeparture
 };
