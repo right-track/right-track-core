@@ -180,7 +180,7 @@ let getTrip = function(db, id, date, callback) {
 
 // TODO: getTripByShortName
 /**
- * Get the Trip specified by the Trip short name
+ * Get the Trip specified by the Trip short name that operates on the specified date
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} shortName Trip short name
  * @param {int} date Date Integer (yyyymmdd)
