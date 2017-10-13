@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>gtfs/index.js - Documentation</title>
+    <title>utils/calc.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">gtfs/index.js</h1>
+    <h1 class="page-title">utils/calc.js</h1>
     
 
     
@@ -42,56 +42,41 @@
             <pre class="prettyprint source linenums"><code>'use strict';
 
 /**
- * ### GTFS Data Classes
- * These classes are used to represent GTFS data
- * @module gtfs
+ * Right Track calculation helper functions
+ * @module utils/calc
  */
 
+
+/**
+ * Calculate the (Great-Circle) Distance between two points
+ * @param {number} lat1 Latitude of Point 1
+ * @param {number} lon1 Longitude of Point 1
+ * @param {number} lat2 Latitude of Point 2
+ * @param {number} lon2 Longitude of Point 2
+ * @returns {number} distance between points in miles
+ */
+function distance(lat1, lon1, lat2, lon2) {
+  let R = 6371; // Radius of the earth in km
+  let dLat = _deg2rad(lat2-lat1);  // deg2rad below
+  let dLon = _deg2rad(lon2-lon1);
+  let a =
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(_deg2rad(lat1)) * Math.cos(_deg2rad(lat2)) *
+    Math.sin(dLon/2) * Math.sin(dLon/2)
+  ;
+  let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  let d = R * c; // Distance in km
+  return d * 0.621371; // Return distance in miles
+}
+
+function _deg2rad(deg) {
+  return deg * (Math.PI/180)
+}
+
+
 module.exports = {
-
-  /**
-   * GTFS Agency Class
-   * @see Agency
-   */
-  Agency: require('./Agency.js'),
-
-  /**
-   * GTFS Route Class
-   * @see Route
-   */
-  Route: require('./Route.js'),
-
-  /**
-   * GTFS Service Class
-   * @see Service
-   */
-  Service: require('./Service.js'),
-
-  /**
-   * GTFS ServiceException Class
-   * @see ServiceException
-   */
-  ServiceException: require('./ServiceException.js'),
-
-  /**
-   * GTFS Stop Class
-   * @see Stop
-   */
-  Stop: require('./Stop.js'),
-
-  /**
-   * GTFS StopTime Class
-   * @see StopTime
-   */
-  StopTime: require('./StopTime.js'),
-
-  /**
-   * GTFS Trip Class
-   * @see Trip
-   */
-  Trip: require('./Trip.js')
-};
-</code></pre>
+  distance: distance
+};</code></pre>
         </article>
     </section>
 

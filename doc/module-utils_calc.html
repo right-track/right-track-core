@@ -1,10 +1,9 @@
-
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>gtfs/index.js - Documentation</title>
+    <title>utils/calc - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,71 +28,357 @@
 
 <div id="main">
     
-    <h1 class="page-title">gtfs/index.js</h1>
+    <h1 class="page-title">utils/calc</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
+        
+            
+        
+    
+</header>
 
-/**
- * ### GTFS Data Classes
- * These classes are used to represent GTFS data
- * @module gtfs
- */
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Right Track calculation helper functions</p></div>
+        
 
-module.exports = {
+        
+            
 
-  /**
-   * GTFS Agency Class
-   * @see Agency
-   */
-  Agency: require('./Agency.js'),
 
-  /**
-   * GTFS Route Class
-   * @see Route
-   */
-  Route: require('./Route.js'),
 
-  /**
-   * GTFS Service Class
-   * @see Service
-   */
-  Service: require('./Service.js'),
 
-  /**
-   * GTFS ServiceException Class
-   * @see ServiceException
-   */
-  ServiceException: require('./ServiceException.js'),
+<dl class="details">
 
-  /**
-   * GTFS Stop Class
-   * @see Stop
-   */
-  Stop: require('./Stop.js'),
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utils_calc.js.html">utils/calc.js</a>, <a href="utils_calc.js.html#line3">line 3</a>
+    </li></ul></dd>
+    
 
-  /**
-   * GTFS StopTime Class
-   * @see StopTime
-   */
-  StopTime: require('./StopTime.js'),
+    
 
-  /**
-   * GTFS Trip Class
-   * @see Trip
-   */
-  Trip: require('./Trip.js')
-};
-</code></pre>
-        </article>
-    </section>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="~distance"><span class="type-signature">(inner) </span>distance<span class="signature">(lat1, lon1, lat2, lon2)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utils_calc.js.html">utils/calc.js</a>, <a href="utils_calc.js.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Calculate the (Great-Circle) Distance between two points</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>lat1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Latitude of Point 1</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lon1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Longitude of Point 1</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lat2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Latitude of Point 2</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lon2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Longitude of Point 2</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>distance between points in miles</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
