@@ -1,7 +1,8 @@
 Right Track Core Library
 ========================
 
-#### node module: [right-track-core](https://www.npmjs.com/package/right-track-core)
+**node module:** [right-track-core](https://www.npmjs.com/package/right-track-core)  
+**GitHub repo:** [right-track/right-track-core](https://github.com/right-track/right-track-core)
 
 --- 
 
