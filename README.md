@@ -136,13 +136,10 @@ Right Track Database for [Metro North Railroad](https://github.com/right-track/r
 ```javascript
 const core = require('right-track-core');
 const RightTrackDB = require('right-track-db-sqlite3');
-const mnr = require('right-track-agency-mnr');
+const MNR = require('right-track-agency-mnr');
 
-// Get the agency configuration properties
-let config = mnr.config.get();
-
-// Create the Right Track DB using the mnr config
-let db = new RightTrackDB(config.id, config.db.location);
+// Create the Right Track DB using the MNR Right Track Agency
+let db = new RightTrackDB(MNR);
 
 // Query the database for the stop with ID == '110'
 core.query.stops.getStop(db, '110', function(err, stop) {
