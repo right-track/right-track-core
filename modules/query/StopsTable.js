@@ -11,24 +11,6 @@ const cache = require('memory-cache');
 const Stop = require('../gtfs/Stop.js');
 
 
-// ==== CALLBACK FUNCTIONS ==== //
-
-/**
- * This callback is performed after a single Stop has been
- * selected from the database.
- * @callback module:query/stops~getStopCallback
- * @param {Error} error Database Query Error
- * @param {Stop} [stop] The selected Stop
- */
-
-/**
- * This callback is performed after multiple Stops have been
- * selected from the database.
- * @callback module:query/stops~getStopsCallback
- * @param {Error} error Database Query Error
- * @param {Stop[]} [stops] An array of the selected Stops
- */
-
 
 
 // ==== QUERY FUNCTIONS ==== //
@@ -38,7 +20,9 @@ const Stop = require('../gtfs/Stop.js');
  *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {string|string[]} id Stop ID(s)
- * @param {function} callback {@link module:query/stops~getStopCallback|getStopCallback} or {@link module:query/stops~getStopsCallback|getStopsCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Stop|Stop[]} [callback.stop] The selected Stop(s)
  */
 function getStop(db, id, callback) {
 
@@ -142,7 +126,9 @@ function getStop(db, id, callback) {
  *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {string} name Stop Name (found in either gtfs_stops, rt_alt_stop_names or rt_stops_extra tables)
- * @param {function} callback {@link module:query/stops~getStopCallback|getStopCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Stop} [callback.stop] The selected Stop
  */
 function getStopByName(db, name, callback) {
 
@@ -190,7 +176,7 @@ function getStopByName(db, name, callback) {
  * Perform a query searching for Stop by it's name
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {string} query The full SELECT query to perform
- * @param {function} callback Callback function accepting the Stop, if found
+ * @param {function} callback Callback function(Stop)
  * @private
  */
 function _queryForStopByName(db, query, callback) {
@@ -218,7 +204,9 @@ function _queryForStopByName(db, query, callback) {
  *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {string} statusId the status id of the Stop
- * @param {function} callback {@link module:query/stops~getStopCallback|getStopCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Stop} [callback.stop] The selected Stop
  */
 function getStopByStatusId(db, statusId, callback) {
 
@@ -298,7 +286,9 @@ function getStopByStatusId(db, statusId, callback) {
  * (sorted alphabetically)
  *
  * @param {RightTrackDB} db The Right Track Database to query
- * @param {function} callback {@link module:query/stops~getStopsCallback|getStopsCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Stop[]} [callback.stops] The selected Stops
  */
 function getStops(db, callback) {
 
@@ -381,7 +371,9 @@ function getStops(db, callback) {
  *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {string} routeId The Route ID
- * @param {function} callback {@link module:query/stops~getStopsCallback|getStopsCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Stop[]} [callback.stops] The selected Stops
  */
 function getStopsByRoute(db, routeId, callback) {
 
@@ -443,7 +435,9 @@ function getStopsByRoute(db, routeId, callback) {
  * in the passed database (sorted alphabetically)
  *
  * @param {RightTrackDB} db The Right Track Database to query
- * @param {function} callback {@link module:query/stops~getStopsCallback|getStopsCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Stop[]} [callback.stops] The selected Stops
  */
 function getStopsWithStatus(db, callback) {
 
@@ -527,9 +521,11 @@ function getStopsWithStatus(db, callback) {
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {number} lat Location latitude (decimal degrees)
  * @param {number} lon Location longitude (decimal degrees)
- * @param {int|undefined} count Max number of Stops to return
- * @param {number|undefined} distance Max distance (miles) Stops can be from location
- * @param {function} callback {@link module:query/stops~getStopsCallback|getStopsCallback} callback function
+ * @param {int|undefined} [count] Max number of Stops to return
+ * @param {number|undefined} [distance] Max distance (miles) Stops can be from location
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Stop[]} [callback.stops] The selected Stops
  */
 function getStopsByLocation(db, lat, lon, count, distance, callback) {
 

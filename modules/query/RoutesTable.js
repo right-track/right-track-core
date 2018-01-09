@@ -11,26 +11,6 @@ const Agency = require('../gtfs/Agency.js');
 const Route = require('../gtfs/Route.js');
 
 
-// ==== CALLBACK FUNCTIONS ==== //
-
-/**
- * This callback is performed after the Route has been
- * selected from the database
- * @callback module:query/routes~getRouteCallback
- * @param {Error} error Database Query Error
- * @param {Route} [route] The selected Route
- */
-
-/**
- * This callback is performed after the Routes have been
- * selected from the database
- * @callback module:query/routes~getRoutesCallback
- * @param {Error} error Database Query Error
- * @param {Route[]} [routes] The selected Routes
- */
-
-
-
 
 // ==== QUERY FUNCTIONS ==== //
 
@@ -41,7 +21,9 @@ const Route = require('../gtfs/Route.js');
  *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string|string[]} id Route ID(s)
- * @param {function} callback {@link module:query/routes~getRouteCallback|getRouteCallback} or {@link module:query/routes~getRoutesCallback|getRoutesCallback} callback functions
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Route|Route[]} [callback.route] The selected Route(s)
  */
 function getRoute(db, id, callback) {
 
@@ -140,7 +122,9 @@ function getRoute(db, id, callback) {
  * Get all of the Routes that are stored in the passed database
  *
  * @param {RightTrackDB} db The Right Track DB to query
- * @param {function} callback {@link module:query/routes~getRoutesCallback|getRoutesCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Route[]} [callback.routes] The selected Routes
  */
 function getRoutes(db, callback) {
 

@@ -10,27 +10,21 @@ const cache = require('memory-cache');
 const Stop = require('../gtfs/Stop.js');
 
 
-// ==== CALLBACK FUNCTIONS ==== //
-
-/**
- * This callback is performed after the next Stops have been
- * selected from the Route Graph
- * @callback module:query/routegraph~getNextStopsCallback
- * @param {Error} error Database Query Error
- * @param {Stop[]} [stops] List of possible next Stops
- */
-
-
-
 // ==== QUERY FUNCTIONS ==== //
 
 /**
- * Get the possible next stops from the Route Graph
+ * Get the possible next stops from the Route Graph.
+ *
+ * This will return a list of all Stops that directly proceed the specified
+ * Stop in the specified direction on at least 1 Trip in the GTFS schedule
+ * (regardless of the day/time).
  *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {string} id Stop ID
  * @param {int} direction Direction ID
- * @param {function} callback {@link module:query/routegraph~getNextStopsCallback|getNextStopsCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Stop[]} [callback.stops] List of possible next Stops
  */
 function getNextStops(db, id, direction, callback) {
 

@@ -53,18 +53,62 @@ class StopTime {
               arrivalTimeSeconds, departureTimeSeconds, pickupType=StopTime.PICKUP_TYPE_REGULAR,
               dropOffType=StopTime.DROP_OFF_TYPE_REGULAR, date=19700101) {
 
+    /**
+     * The Stop for this scheduled StopTime
+     * @type {Stop}
+     */
     this.stop = stop;
+
+    /**
+     * The trip's arrival time for this scheduled StopTime in HH:MM:SS format
+     * @type {string}
+     */
     this.arrivalTime = arrivalTime;
+
+    /**
+     * The trip's departure time for this scheduled StopTime in HH:MM:SS format
+     * @type {string}
+     */
     this.departureTime = departureTime;
+
+    /**
+     * The StopTime's sequence in the scheduled Trip
+     * @type {int}
+     */
     this.stopSequence = stopSequence;
+
+    /**
+     * The StopTime's arrival time in seconds since midnight
+     * @type {Number}
+     */
     this.arrivalTimeSeconds = (typeof arrivalTimeSeconds !== 'undefined')
       ? arrivalTimeSeconds
       : new DateTime(arrivalTime, date).getTimeSeconds();
+
+    /**
+     * The StopTime's departure time in seconds since midnight
+     * @type {Number}
+     */
     this.departureTimeSeconds = (typeof departureTimeSeconds !== 'undefined')
       ? departureTimeSeconds
       : new DateTime(departureTime, date).getTimeSeconds();
+
+    /**
+     * Value indicating whether passengers are picked up at the Stop
+     * @type {int}
+     */
     this.pickupType = pickupType;
+
+    /**
+     * Value indicating whether passengers are dropped off at the Stop
+     * @type {int}
+     */
     this.dropOffType = dropOffType;
+
+    /**
+     * The date of the Trip in YYYYMMDD format
+     * @type {Number}
+     */
     this.date = date;
 
   }

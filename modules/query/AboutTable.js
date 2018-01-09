@@ -11,17 +11,6 @@ const cache = require('memory-cache');
 const About = require('../rt/About.js');
 
 
-// ==== CALLBACK FUNCTIONS ==== //
-
-/**
- * This callback is performed after the database metadata
- * from the rt_about table has been queried from the database.
- * @callback module:query/about~getAboutCallback
- * @param {Error} error Database Query Error
- * @param {About} [about] The database About information
- */
-
-
 
 // ==== QUERY FUNCTIONS ==== //
 
@@ -30,7 +19,9 @@ const About = require('../rt/About.js');
  * passed database.
  *
  * @param {RightTrackDB} db The Right Track Database to query
- * @param {function} callback {@link module:query/about~getAboutCallback|getAboutCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {About} [callback.about] The database About information
  */
 function getAbout(db, callback) {
 

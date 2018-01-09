@@ -51,17 +51,74 @@ class Service {
    */
   constructor(serviceId, mon, tue, wed, thu, fri, sat, sun, startDate, endDate,
               exceptions=[]) {
+
+    /**
+     * A unique ID that identifies the service
+     * @type {string}
+     */
     this.id = serviceId;
+
+    /**
+     * A binary value indicating whether the service is valid for all Mondays
+     * @type {int}
+     */
     this.monday = mon;
+
+    /**
+     * A binary value indicating whether the service is valid for all Tuesdays
+     * @type {int}
+     */
     this.tuesday = tue;
+
+    /**
+     * A binary value indicating whether the service is valid for all Wednesdays
+     * @type {int}
+     */
     this.wednesday = wed;
+
+    /**
+     * A binary value indicating whether the service is valid for all Thursdays
+     * @type {int}
+     */
     this.thursday = thu;
+
+    /**
+     * A binary value indicating whether the service is valid for all Fridays
+     * @type {int}
+     */
     this.friday = fri;
+
+    /**
+     * A binary value indicating whether the service is valid for all Saturdays
+     * @type {int}
+     */
     this.saturday = sat;
+
+    /**
+     * A binary value indicating whether the service is valid for all Sundays
+     * @type {int}
+     */
     this.sunday = sun;
+
+    /**
+     * The start date for the service in YYYYMMDD format
+     * @type {Number}
+     */
     this.startDate = startDate;
+
+    /**
+     * The end date for the service in YYYYMMDD format
+     * @type {Number}
+     */
     this.endDate = endDate;
+
+    /**
+     * A list of Service Exceptions (additions and/or removals of regular service
+     * on specific dates) for the Service
+     * @type {ServiceException[]}
+     */
     this.serviceExceptions = exceptions;
+
   }
 
 }

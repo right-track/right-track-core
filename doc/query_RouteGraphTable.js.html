@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>query/RoutesTable.js - Documentation</title>
+    <title>query/RouteGraphTable.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">query/RoutesTable.js</h1>
+    <h1 class="page-title">query/RouteGraphTable.js</h1>
     
 
     
@@ -42,63 +42,50 @@
             <pre class="prettyprint source linenums"><code>'use strict';
 
 /**
- * ### Route Query Functions
- * These functions query the `gtfs_routes` table in the Right Track Database.
- * @module query/routes
+ * ### Route Graph Query Functions
+ * These functions query the `rt_route_graph` table in the Right Track Database.
+ * @module query/routegraph
  */
 
 const cache = require('memory-cache');
-const Agency = require('../gtfs/Agency.js');
-const Route = require('../gtfs/Route.js');
-
+const Stop = require('../gtfs/Stop.js');
 
 
 // ==== QUERY FUNCTIONS ==== //
 
-
 /**
- * Get the Route (with its Agency) specified by the Route ID
- * from the passed database
+ * Get the possible next stops from the Route Graph.
  *
- * @param {RightTrackDB} db The Right Track DB to query
- * @param {string|string[]} id Route ID(s)
+ * This will return a list of all Stops that directly proceed the specified
+ * Stop in the specified direction on at least 1 Trip in the GTFS schedule
+ * (regardless of the day/time).
+ *
+ * @param {RightTrackDB} db The Right Track Database to query
+ * @param {string} id Stop ID
+ * @param {int} direction Direction ID
  * @param {function} callback Callback function
  * @param {Error} callback.error Database Query Error
- * @param {Route|Route[]} [callback.route] The selected Route(s)
+ * @param {Stop[]} [callback.stops] List of possible next Stops
  */
-function getRoute(db, id, callback) {
+function getNextStops(db, id, direction, callback) {
 
-  // Build route id string
-  let routeIds = "";
-  if ( typeof id === 'string' || typeof id === 'number' ) {
-    routeIds = "('" + id + "')";
-  }
-  else {
-    try {
-      routeIds = "('" + id.join("', '") + "')";
-    }
-    catch(err) {
-      console.warn(err);
-      routeIds = "('" + id + "')";
-    }
-  }
-
-  // Check the cache for Route
-  let cacheKey = db.id + "-" + routeIds;
-  let cache = cache_route.get(cacheKey);
+  // Check cache for stops
+  let cacheKey = db.id + "-" + id + "-" + direction;
+  let cache = cache_nextStops.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
   }
 
-  // Build the select statement
-  let select = "SELECT gtfs_routes.route_id, gtfs_routes.route_short_name, " +
-    "gtfs_routes.route_long_name, gtfs_routes.route_type, gtfs_routes.route_color, " +
-    "gtfs_routes.route_text_color, " +
-    "gtfs_agency.agency_id, gtfs_agency.agency_name, gtfs_agency.agency_url, " +
-    "gtfs_agency.agency_timezone " +
-    "FROM gtfs_routes, gtfs_agency " +
-    "WHERE gtfs_routes.agency_id=gtfs_agency.agency_id AND " +
-    "gtfs_routes.route_id IN " + routeIds + ";";
+  // Build Select Statement
+  let select = "SELECT gtfs_stops.stop_id, gtfs_stops.stop_name, gtfs_stops.stop_lat, " +
+    "gtfs_stops.stop_lon, gtfs_stops.stop_url, gtfs_stops.wheelchair_boarding, " +
+    "rt_stops_extra.status_id, rt_stops_extra.display_name, rt_stops_extra.transfer_weight " +
+    "FROM gtfs_stops, rt_stops_extra " +
+    "WHERE gtfs_stops.stop_id=rt_stops_extra.stop_id AND " +
+    "gtfs_stops.stop_id IN (" +
+    "SELECT stop2_id FROM rt_route_graph " +
+    "WHERE stop1_id='" + id + "' AND direction_id=" + direction + "" +
+    ");";
 
   // Query the database
   db.select(select, function(err, results) {
@@ -108,128 +95,44 @@ function getRoute(db, id, callback) {
       return callback(err);
     }
 
-    // List of routes to return
+    // List of Stops to return
     let rtn = [];
 
-    // Parse each returned route...
-    for ( let i = 0; i &lt; results.length; i++ ) {
-      let result = results[i];
-
-      // Create Agency
-      let agency = new Agency(
-        result.agency_name,
-        result.agency_url,
-        result.agency_timezone,
-        result.agency_id
-      );
-
-      // Create Route
-      let route = new Route(
-        result.route_id,
-        result.route_short_name,
-        result.route_long_name,
-        result.route_type,
-        agency,
-        result.route_color,
-        result.route_text_color
-      );
-
-      // Add route to list
-      rtn.push(route);
-
-    }
-
-    // No Route(s) found, return undefined
-    if ( rtn.length === 0 ) {
-      return callback(null, undefined);
-    }
-
-    // Return Route(s)
-    else if ( rtn.length === 1 ) {
-      cache_route.put(cacheKey, rtn[0]);
-      return callback(null, rtn[0]);
-    }
-    else {
-      cache_route.put(cacheKey, rtn);
-      return callback(null, rtn);
-    }
-
-  });
-
-}
-
-
-/**
- * Get all of the Routes that are stored in the passed database
- *
- * @param {RightTrackDB} db The Right Track DB to query
- * @param {function} callback Callback function
- * @param {Error} callback.error Database Query Error
- * @param {Route[]} [callback.routes] The selected Routes
- */
-function getRoutes(db, callback) {
-
-  // Check cache for routes
-  let cacheKey = db.id + "-" + 'routes';
-  let cache = cache_routes.get(cacheKey);
-  if ( cache !== null ) {
-    return callback(null, cache);
-  }
-
-  // Build the select statement
-  let select = "SELECT gtfs_routes.route_id, gtfs_routes.route_short_name, " +
-    "gtfs_routes.route_long_name, gtfs_routes.route_type, gtfs_routes.route_color, " +
-    "gtfs_routes.route_text_color, " +
-    "gtfs_agency.agency_id, gtfs_agency.agency_name, gtfs_agency.agency_url, " +
-    "gtfs_agency.agency_timezone " +
-    "FROM gtfs_routes, gtfs_agency " +
-    "WHERE gtfs_routes.agency_id=gtfs_agency.agency_id";
-
-  // Query the database
-  db.select(select, function(err, results) {
-
-    // Database Query Error
-    if ( err ) {
-      return callback(err);
-    }
-
-    // List of routes to return
-    let rtn = [];
-
-    // Parse each row of the results...
+    // Parse each returned stop...
     for ( let i = 0; i &lt; results.length; i++ ) {
       let row = results[i];
 
-      // Create Agency
-      let agency = new Agency(
-        row.agency_name,
-        row.agency_url,
-        row.agency_timezone,
-        row.agency_id
+      // Use rt display_name if provided
+      let final_name = row.stop_name;
+      if (row.display_name !== undefined &amp;&amp; row.display_name !== "") {
+        final_name = row.display_name;
+      }
+
+      // Set wheelchair boarding to unknown if status not in database
+      let wheelchair_boarding = row.wheelchair_boarding;
+      if (row.wheelchair_boarding === null) {
+        wheelchair_boarding = Stop.WHEELCHAIR_BOARDING_UNKNOWN;
+      }
+
+      // build the Stop
+      let stop = new Stop(
+        row.stop_id,
+        final_name,
+        row.stop_lat,
+        row.stop_lon,
+        row.stop_url,
+        wheelchair_boarding,
+        row.status_id,
+        row.transfer_weight
       );
 
-      // Create Route
-      let route = new Route(
-        row.route_id,
-        row.route_short_name,
-        row.route_long_name,
-        row.route_type,
-        agency,
-        row.route_color,
-        row.route_text_color
-      );
+      // Add stop to list
+      rtn.push(stop);
 
-      // Add the route to the return list
-      rtn.push(route);
     }
 
-    // Sort the Routes by Name
-    rtn.sort(Route.sortByName);
-
-    // Add the Routes to the cache
-    cache_routes.put(cacheKey, rtn);
-
-    // Return the Routes
+    // Return Stop(s)
+    cache_nextStops.put(cacheKey, rtn);
     return callback(null, rtn);
 
   });
@@ -237,25 +140,23 @@ function getRoutes(db, callback) {
 }
 
 
+
 // ==== SETUP CACHES ==== //
-let cache_route = new cache.Cache();
-let cache_routes = new cache.Cache();
+let cache_nextStops = new cache.Cache();
+
 
 /**
- * Clear the RoutesTable caches
+ * Clear the RouteGraphTable caches
  * @private
  */
 function clearCache() {
-  cache_route.clear();
-  cache_routes.clear();
+  cache_nextStops.clear();
 }
-
 
 
 // Export Functions
 module.exports = {
-  getRoute : getRoute,
-  getRoutes: getRoutes,
+  getNextStops: getNextStops,
   clearCache: clearCache
 };</code></pre>
         </article>

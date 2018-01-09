@@ -1,10 +1,9 @@
-
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>query/RoutesTable.js - Documentation</title>
+    <title>query/routegraph - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,237 +28,430 @@
 
 <div id="main">
     
-    <h1 class="page-title">query/RoutesTable.js</h1>
+    <h1 class="page-title">query/routegraph</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
+        
+            
+        
+    
+</header>
 
-/**
- * ### Route Query Functions
- * These functions query the `gtfs_routes` table in the Right Track Database.
- * @module query/routes
- */
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><h3>Route Graph Query Functions</h3><p>These functions query the <code>rt_route_graph</code> table in the Right Track Database.</p></div>
+        
 
-const cache = require('memory-cache');
-const Agency = require('../gtfs/Agency.js');
-const Route = require('../gtfs/Route.js');
-
-
-
-// ==== QUERY FUNCTIONS ==== //
-
-
-/**
- * Get the Route (with its Agency) specified by the Route ID
- * from the passed database
- *
- * @param {RightTrackDB} db The Right Track DB to query
- * @param {string|string[]} id Route ID(s)
- * @param {function} callback Callback function
- * @param {Error} callback.error Database Query Error
- * @param {Route|Route[]} [callback.route] The selected Route(s)
- */
-function getRoute(db, id, callback) {
-
-  // Build route id string
-  let routeIds = "";
-  if ( typeof id === 'string' || typeof id === 'number' ) {
-    routeIds = "('" + id + "')";
-  }
-  else {
-    try {
-      routeIds = "('" + id.join("', '") + "')";
-    }
-    catch(err) {
-      console.warn(err);
-      routeIds = "('" + id + "')";
-    }
-  }
-
-  // Check the cache for Route
-  let cacheKey = db.id + "-" + routeIds;
-  let cache = cache_route.get(cacheKey);
-  if ( cache !== null ) {
-    return callback(null, cache);
-  }
-
-  // Build the select statement
-  let select = "SELECT gtfs_routes.route_id, gtfs_routes.route_short_name, " +
-    "gtfs_routes.route_long_name, gtfs_routes.route_type, gtfs_routes.route_color, " +
-    "gtfs_routes.route_text_color, " +
-    "gtfs_agency.agency_id, gtfs_agency.agency_name, gtfs_agency.agency_url, " +
-    "gtfs_agency.agency_timezone " +
-    "FROM gtfs_routes, gtfs_agency " +
-    "WHERE gtfs_routes.agency_id=gtfs_agency.agency_id AND " +
-    "gtfs_routes.route_id IN " + routeIds + ";";
-
-  // Query the database
-  db.select(select, function(err, results) {
-
-    // Database Query Error
-    if ( err ) {
-      return callback(err);
-    }
-
-    // List of routes to return
-    let rtn = [];
-
-    // Parse each returned route...
-    for ( let i = 0; i &lt; results.length; i++ ) {
-      let result = results[i];
-
-      // Create Agency
-      let agency = new Agency(
-        result.agency_name,
-        result.agency_url,
-        result.agency_timezone,
-        result.agency_id
-      );
-
-      // Create Route
-      let route = new Route(
-        result.route_id,
-        result.route_short_name,
-        result.route_long_name,
-        result.route_type,
-        agency,
-        result.route_color,
-        result.route_text_color
-      );
-
-      // Add route to list
-      rtn.push(route);
-
-    }
-
-    // No Route(s) found, return undefined
-    if ( rtn.length === 0 ) {
-      return callback(null, undefined);
-    }
-
-    // Return Route(s)
-    else if ( rtn.length === 1 ) {
-      cache_route.put(cacheKey, rtn[0]);
-      return callback(null, rtn[0]);
-    }
-    else {
-      cache_route.put(cacheKey, rtn);
-      return callback(null, rtn);
-    }
-
-  });
-
-}
-
-
-/**
- * Get all of the Routes that are stored in the passed database
- *
- * @param {RightTrackDB} db The Right Track DB to query
- * @param {function} callback Callback function
- * @param {Error} callback.error Database Query Error
- * @param {Route[]} [callback.routes] The selected Routes
- */
-function getRoutes(db, callback) {
-
-  // Check cache for routes
-  let cacheKey = db.id + "-" + 'routes';
-  let cache = cache_routes.get(cacheKey);
-  if ( cache !== null ) {
-    return callback(null, cache);
-  }
-
-  // Build the select statement
-  let select = "SELECT gtfs_routes.route_id, gtfs_routes.route_short_name, " +
-    "gtfs_routes.route_long_name, gtfs_routes.route_type, gtfs_routes.route_color, " +
-    "gtfs_routes.route_text_color, " +
-    "gtfs_agency.agency_id, gtfs_agency.agency_name, gtfs_agency.agency_url, " +
-    "gtfs_agency.agency_timezone " +
-    "FROM gtfs_routes, gtfs_agency " +
-    "WHERE gtfs_routes.agency_id=gtfs_agency.agency_id";
-
-  // Query the database
-  db.select(select, function(err, results) {
-
-    // Database Query Error
-    if ( err ) {
-      return callback(err);
-    }
-
-    // List of routes to return
-    let rtn = [];
-
-    // Parse each row of the results...
-    for ( let i = 0; i &lt; results.length; i++ ) {
-      let row = results[i];
-
-      // Create Agency
-      let agency = new Agency(
-        row.agency_name,
-        row.agency_url,
-        row.agency_timezone,
-        row.agency_id
-      );
-
-      // Create Route
-      let route = new Route(
-        row.route_id,
-        row.route_short_name,
-        row.route_long_name,
-        row.route_type,
-        agency,
-        row.route_color,
-        row.route_text_color
-      );
-
-      // Add the route to the return list
-      rtn.push(route);
-    }
-
-    // Sort the Routes by Name
-    rtn.sort(Route.sortByName);
-
-    // Add the Routes to the cache
-    cache_routes.put(cacheKey, rtn);
-
-    // Return the Routes
-    return callback(null, rtn);
-
-  });
-
-}
-
-
-// ==== SETUP CACHES ==== //
-let cache_route = new cache.Cache();
-let cache_routes = new cache.Cache();
-
-/**
- * Clear the RoutesTable caches
- * @private
- */
-function clearCache() {
-  cache_route.clear();
-  cache_routes.clear();
-}
+        
+            
 
 
 
-// Export Functions
-module.exports = {
-  getRoute : getRoute,
-  getRoutes: getRoutes,
-  clearCache: clearCache
-};</code></pre>
-        </article>
-    </section>
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="query_RouteGraphTable.js.html">query/RouteGraphTable.js</a>, <a href="query_RouteGraphTable.js.html#line3">line 3</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getNextStops"><span class="type-signature">(inner) </span>getNextStops<span class="signature">(db, id, direction, callback)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="query_RouteGraphTable.js.html">query/RouteGraphTable.js</a>, <a href="query_RouteGraphTable.js.html#line29">line 29</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Get the possible next stops from the Route Graph.</p>
+<p>This will return a list of all Stops that directly proceed the specified
+Stop in the specified direction on at least 1 Trip in the GTFS schedule
+(regardless of the day/time).</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>db</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RightTrackDB</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The Right Track Database to query</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Stop ID</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>direction</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Direction ID</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Callback function</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Error</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Database Query Error</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>stops</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Stop.html">Stop</a>></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>List of possible next Stops</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

@@ -11,26 +11,6 @@ const Stop = require('../gtfs/Stop.js');
 const StopTime = require('../gtfs/StopTime.js');
 
 
-// ==== CALLBACK FUNCTIONS ==== //
-
-/**
- * This callback is performed after the StopTimes has been
- * selected from the database
- * @callback module:query/stoptimes~getStopTimeCallback
- * @param {Error} error Database Query Error
- * @param {StopTime} [stopTime] The selected StopTime
- */
-
-/**
- * This callback is performed after the StopTimes have been
- * selected from the database
- * @callback module:query/stoptimes~getStopTimesCallback
- * @param {Error} error Database Query Error
- * @param {StopTime[]} [stopTimes] The selected StopTimes
- */
-
-
-
 
 // ==== QUERY FUNCTIONS ==== //
 
@@ -42,7 +22,9 @@ const StopTime = require('../gtfs/StopTime.js');
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} tripId Trip ID
  * @param {int} date The date (yyyymmdd) the trip operates on
- * @param {function} callback {@link module:query/stoptimes~getStopTimesCallback|getStopTimesCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {StopTime[]} [callback.stoptimes] The selected StopTimes
  */
 function getStopTimesByTrip(db, tripId, date, callback) {
 
@@ -133,7 +115,9 @@ function getStopTimesByTrip(db, tripId, date, callback) {
  * @param {string} tripId Trip ID
  * @param {string} stopId Stop ID
  * @param {int} date The date (yyyymmdd) the the Trip operates on
- * @param {function} callback {@link module:query/stoptimes~getStopTimeCallback|getStopTimeCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {StopTime} [callback.stoptime] The selected StopTime
  */
 function getStopTimeByTripStop(db, tripId, stopId, date, callback) {
 

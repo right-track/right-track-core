@@ -51,17 +51,59 @@ class Trip {
   constructor(id, route, service, stopTimes,
               shortName='', directionId=-1, wheelchairAccessible=Trip.WHEELCHAIR_ACCESSIBLE_UNKNOWN,
               directionDescription='') {
+
+    /**
+     * A unique ID representing the Trip
+     * @type {string}
+     */
     this.id = id;
+
+    /**
+     * The Trip's parent Route
+     * @type {Route}
+     */
     this.route = route;
+
+    /**
+     * The Service the Trip operates on
+     * @type {Service}
+     */
     this.service = service;
+
+    /**
+     * List of scheduled StopTimes for the Trip
+     * @type {StopTime[]}
+     */
     this.stopTimes = stopTimes;
+
+    /**
+     * Publicly-viewable Trip ID or name
+     * @type {string}
+     */
     this.shortName = shortName;
+
+    /**
+     * Direction of travel for the Trip
+     * @type {int}
+     */
     this.directionId = directionId;
+
+    /**
+     * Value indicating the wheelchair accessibility of the vehicle
+     * making the Trip
+     * @type {int}
+     */
     this.wheelchairAccessible = wheelchairAccessible;
+
+    /**
+     * A description of the Trip's direction
+     * @type {string}
+     */
     this.directionDescription = directionDescription;
 
     // Sort stoptimes by stop sequence
     this.stopTimes.sort(StopTime.sortByStopSequence);
+
   }
 
 

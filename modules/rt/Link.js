@@ -34,10 +34,31 @@ class Link {
    * @param {string} url Link URL
    */
   constructor(category, title, description, url) {
+
+    /**
+     * Link category name
+     * @type {string}
+     */
     this.category = category;
+
+    /**
+     * Link title
+     * @type {string}
+     */
     this.title = title;
+
+    /**
+     * Link description
+     * @type {string}
+     */
     this.description = description;
+
+    /**
+     * Fully-qualified and escaped Link URL
+     * @type {string}
+     */
     this.url = url;
+
   }
 
 }

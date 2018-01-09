@@ -75,10 +75,31 @@ class Favorite {
    * @param {Favorite~FavoriteStationOptions|Favorite~FavoriteTripOptions} [options={}] Favorite Options
    */
   constructor(type, sequence, parameters, options={}) {
+
+    /**
+     * Value indicating the Favorite type
+     * @type {int}
+     */
     this.type = type;
+
+    /**
+     * The sequence of the Favorite in the User's list
+     * @type {int}
+     */
     this.sequence = sequence;
+
+    /**
+     * The Favorite's Parameters
+     * @type {Favorite~FavoriteStationParameters|Favorite~FavoriteTripParameters}
+     */
     this.parameters = parameters;
+
+    /**
+     * The Favorite's Options
+     * @type {Favorite~FavoriteStationOptions|Favorite~FavoriteTripOptions}
+     */
     this.options = options;
+
   }
 
   /**

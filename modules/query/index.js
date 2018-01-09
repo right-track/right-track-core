@@ -9,6 +9,7 @@
 
 /**
  * Clear the query caches for each of the query modules
+ * @private
  */
 function clearCache() {
   require('./AboutTable.js').clearCache();
@@ -80,7 +81,9 @@ module.exports = {
   routegraph: require('./RouteGraphTable.js'),
 
   /**
-   * Clear the query caches
+   * Clear the query caches for each of the query modules
+   * @function
    */
   clearCache: clearCache
+
 };

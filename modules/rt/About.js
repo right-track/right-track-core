@@ -38,12 +38,43 @@ class About {
    * @param {string} notes the version notes of the Right Track DB
    */
   constructor(compile, publish, start, end, version, notes) {
+
+    /**
+     * The Right Track DB compile date in YYYYMMDD format
+     * @type {Number}
+     */
     this.compileDate = compile;
+
+    /**
+     * The GTFS publish date in YYYYMMDD format
+     * @type {Number}
+     */
     this.publishDate = publish;
+
+    /**
+     * The start date of the GTFS schedule data in YYYYMMDD format
+     * @type {Number}
+     */
     this.startDate = start;
+
+    /**
+     * The end date of the GTFS schedule data in YYYYMMDD format
+     * @type {Number}
+     */
     this.endDate = end;
+
+    /**
+     * The Right Track DB version
+     * @type {Number}
+     */
     this.version = version;
+
+    /**
+     * The Right Track DB version notes
+     * @type {string}
+     */
     this.notes = notes;
+
   }
 
 }

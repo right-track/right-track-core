@@ -13,34 +13,6 @@ const ServiceException = require('../gtfs/ServiceException.js');
 const DateTime = require('../utils/DateTime.js');
 
 
-// ==== CALLBACK FUNCTIONS ==== //
-
-/**
- * This callback if performed after a Service has been
- * selected from the database.
- * @callback module:query/calendar~getServiceCallback
- * @param {Error} error Database Query Error
- * @param {Service} [service] The selected Service
- */
-
-/**
- * This callback if performed after Services have been
- * selected from the database.
- * @callback module:query/calendar~getServicesCallback
- * @param {Error} error Database Query Error
- * @param {Service[]} [services] The selected Services
- */
-
-/**
- * This callback if performed after Service Excpetions have
- * been selected from the database.
- * @callback module:query/calendar~getServiceExceptionsCallback
- * @param {Error} error Database Query Error
- * @param {ServiceException[]} [exceptions] The selected Service Exceptions
- */
-
-
-
 // ==== QUERY FUNCTIONS ==== //
 
 /**
@@ -50,7 +22,9 @@ const DateTime = require('../utils/DateTime.js');
  *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {String|String[]} id Service ID or list of Service IDs
- * @param {function} callback {@link module:query/calendar~getServiceCallback|getServiceCallback} or {@link module:query/calendar~getServicesCallback|getServicesCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Service|Service[]} callback.service The selected Service(s)
  */
 function getService(db, id, callback) {
 
@@ -205,7 +179,9 @@ function getService(db, id, callback) {
  *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {int} date The date to query (yyyymmdd)
- * @param {function} callback {@link module:query/calendar~getServicesCallback|getServicesCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Service[]} callback.services The selected Services
  */
 function getServicesEffective(db, date, callback) {
 
@@ -328,7 +304,9 @@ function getServicesEffective(db, date, callback) {
  *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {int} date The date to query (yyyymmdd)
- * @param {function} callback {@link module:query/calendar~getServicesCallback|getServicesCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Service[]} callback.services The selected Services
  */
 let getServicesDefault = function(db, date, callback) {
 
@@ -394,11 +372,13 @@ let getServicesDefault = function(db, date, callback) {
 
 /**
  * Get the Service Exceptions in effect on the specified date.  This includes
- * Services that are either added or removed on the specified date
+ * Services that are either added or removed on the specified date.
  *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {int} date The date to query (yyyymmdd)
- * @param {function} callback {@link module:query/calendar~getServiceExceptionsCallback|getServiceExceptionsCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {ServiceException[]} callback.services The selected Service Exceptions
  */
 let getServiceExceptions = function(db, date, callback) {
 

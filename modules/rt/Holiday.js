@@ -34,10 +34,31 @@ class Holiday {
    * @param {string} serviceInformation Holiday Service Information
    */
   constructor(date, name, peak, serviceInformation) {
+
+    /**
+     * The date of the Holiday in YYYYMMDD format
+     * @type {Number}
+     */
     this.date = date;
+
+    /**
+     * The name of the Holiday
+     * @type {string}
+     */
     this.name = name;
+
+    /**
+     * Value indicating if Peak service is effective on the Holiday
+     * @type {boolean}
+     */
     this.peak = peak;
+
+    /**
+     * Descriptive information for the Holiday's service
+     * @type {string}
+     */
     this.serviceInformation = serviceInformation;
+
   }
 
 }

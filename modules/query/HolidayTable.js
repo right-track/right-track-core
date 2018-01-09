@@ -10,33 +10,6 @@ const cache = require('memory-cache');
 const Holiday = require('../rt/Holiday.js');
 
 
-// ==== CALLBACK FUNCTIONS ==== //
-
-/**
- * This callback is performed after a single Holiday has been
- * selected from the database.
- * @callback module:query/holiday~getHolidayCallback
- * @param {Error} error Database Query Error
- * @param {Holiday} [holiday] The selected Holiday
- */
-
-/**
- * This callback is performed after multiple Holidays have been
- * selected from the database.
- * @callback module:query/holiday~getHolidaysCallback
- * @param {Error} error Database Query Error
- * @param {Holiday[]} [holidays] The selected Holidays
- */
-
-/**
- * This callback is performed after checking to see if a
- * specified date is listed as a Holiday
- * @callback module:query/holiday~isHolidayCallback
- * @param {Error} error Database Query Error
- * @param {boolean} [isHoliday] true/false if date is Holiday
- */
-
-
 // ==== QUERY FUNCTIONS ==== //
 
 /**
@@ -44,7 +17,9 @@ const Holiday = require('../rt/Holiday.js');
  * database.
  *
  * @param {RightTrackDB} db The Right Track DB to query
- * @param {function} callback {@link module:query/holiday~getHolidaysCallback|getHolidaysCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Holiday[]} [callback.holidays] The selected Holidays
  */
 function getHolidays(db, callback) {
 
@@ -102,7 +77,9 @@ function getHolidays(db, callback) {
  *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {int} date the date (yyyymmdd)
- * @param {function} callback {@link module:query/holiday~getHolidayCallback|getHolidayCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Holiday} [callback.holiday] The selected Holiday
  */
 function getHoliday(db, date, callback) {
 
@@ -159,7 +136,9 @@ function getHoliday(db, date, callback) {
  *
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {int} date The date to check (yyyymmdd)
- * @param {function} callback {@link module:query/holiday~isHolidayCallback|isHolidayCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {boolean} [callback.isHoliday] True if the specified date is a Holiday
  */
 function isHoliday(db, date, callback) {
 

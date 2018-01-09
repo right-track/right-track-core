@@ -22,14 +22,30 @@ class StationFeed {
   /**
    * Station Feed Constructor
    * @constructor
-   * @param {Stop} stop Station Feed Origin Stop
-   * @param {DateTime} updated DateTime of when the data was last updated
-   * @param {StationFeedDeparture[]} departures List of Station Feed Departures
+   * @param {Stop} stop Origin Stop
+   * @param {DateTime} updated Last Updated
+   * @param {StationFeedDeparture[]} departures List of Departures
    */
   constructor(stop, updated, departures) {
+
+    /**
+     * The Origin Stop of the Station Feed
+     * @type {Stop}
+     */
     this.stop = stop;
+
+    /**
+     * The Date/Time of when the data was last updated
+     * @type {DateTime}
+     */
     this.updated = updated;
+
+    /**
+     * List of Station Feed Departures for this Station Feed
+     * @type {StationFeedDeparture[]}
+     */
     this.departures = departures;
+
   }
 
 }

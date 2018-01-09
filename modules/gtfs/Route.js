@@ -43,13 +43,51 @@ class Route {
    */
   constructor(id, shortName, longName, type,
               agency=undefined, color='#ffffff', textColor='#000000') {
+
+    /**
+     * Unique ID that identifies a route
+     * @type {String}
+     */
     this.id = id;
+
+    /**
+     * The short name of a route
+     * @type {string}
+     */
     this.shortName = shortName;
+
+    /**
+     * The full name of a route
+     * @type {string}
+     */
     this.longName = longName;
+
+    /**
+     * The type of transportation used on a route
+     * @type {Number}
+     */
     this.type = type;
+
+    /**
+     * The parent Agency of the route
+     * @type {Agency}
+     */
     this.agency = agency;
+
+    /**
+     * The color that corresponds to the route and represented as
+     * a six-figure hexadecimal number (without the leading '#')
+     * @type {string}
+     */
     this.color = color;
+
+    /**
+     * The text color that corresponds to the route's color as a
+     * six-figure hexadecimal number (without the leading '#')
+     * @type {string}
+     */
     this.textColor = textColor;
+
   }
 
 }

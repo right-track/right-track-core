@@ -10,25 +10,6 @@ const cache = require('memory-cache');
 const Link = require('../rt/Link.js');
 
 
-// ==== CALLBACK FUNCTIONS ==== //
-
-/**
- * This callback is performed after the Link Categories
- * have been selected from the database.
- * @callback module:query/links~getLinkCategoriesCallback
- * @param {Error} error Database Query Error
- * @param {string[]} [categories] The selected link categories
- */
-
-/**
- * This callback is performed after the Links have been
- * selected from the database.
- * @callback module:query/links~getLinksCallback
- * @param {Error} error Database Query Error
- * @param {Link[]} [links] The selected Links
- */
-
-
 
 // ==== QUERY FUNCTIONS ==== //
 
@@ -37,7 +18,9 @@ const Link = require('../rt/Link.js');
  * Get a list of all link category titles
  *
  * @param {RightTrackDB} db The Right Track DB to query
- * @param {function} callback {@link module:query/links~getLinkCategoriesCallback|getLinkCategoriesCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {string[]} [callback.categories] The selected Link categories
  */
 let getLinkCategories = function(db, callback) {
 
@@ -84,7 +67,9 @@ let getLinkCategories = function(db, callback) {
  * Get all of the Agency link information from the database
  *
  * @param {RightTrackDB} db The Right Track Database to query
- * @param {function} callback {@link module:query/links~getLinksCallback|getLinksCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Link[]} [callback.links] The selected Links
  */
 function getLinks(db, callback) {
 
@@ -142,7 +127,9 @@ function getLinks(db, callback) {
  *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {string} category Link category title
- * @param {function} callback {@link module:query/links~getLinksCallback|getLinksCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Link[]} [callback.links] The selected Links
  */
 function getLinksByCategory(db, category, callback) {
 

@@ -17,27 +17,6 @@ const CalendarTable = require('./CalendarTable.js');
 const StopTimesTable = require('./StopTimesTable.js');
 
 
-// ==== CALLBACK FUNCTIONS ==== //
-
-/**
- * This callback is performed after the Trip has been
- * selected from the database
- * @callback module:query/trips~getTripCallback
- * @param {Error} error Database Query Error
- * @param {Trip} [trip] The selected Trip
- */
-
-/**
- * This callback is performed after the Trips have been
- * selected from the database
- * @callback module:query/trips~getTripsCallback
- * @param {Error} error Database Query Error
- * @param {Trip[]} [trips] The selected Trips
- */
-
-
-
-
 // ==== QUERY FUNCTIONS ==== //
 
 
@@ -47,7 +26,9 @@ const StopTimesTable = require('./StopTimesTable.js');
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} id Trip ID
  * @param {int} date The date (yyyymmdd) that the Trip operates on
- * @param {function} callback {@link module:query/trips~getTripCallback|getTripCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Trip} [callback.trip] The selected Trip
  */
 let getTrip = function(db, id, date, callback) {
 
@@ -194,7 +175,9 @@ let getTrip = function(db, id, date, callback) {
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {string} shortName Trip short name
  * @param {int} date Date Integer (yyyymmdd)
- * @param {function} callback {@link module:query/trips~getTripCallback|getTripCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Trip} [callback.trip] The selected Trip
  */
 function getTripByShortName(db, shortName, date, callback) {
 
@@ -251,7 +234,9 @@ function getTripByShortName(db, shortName, date, callback) {
  * @param {string} originId Origin Stop ID
  * @param {string} destinationId Destination Stop ID
  * @param {DateTime} departure DateTime of trip departure
- * @param {function} callback {@link module:query/trips~getTripCallback|getTripCallback} callback function
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Trip} [callback.trip] The selected Trip
  */
 function getTripByDeparture(db, originId, destinationId, departure, callback) {
 
@@ -309,7 +294,7 @@ function getTripByDeparture(db, originId, destinationId, departure, callback) {
  * @param {string} originId Origin Stop ID
  * @param {string} destinationId Destination Stop ID
  * @param {DateTime} departure Departure DateTime
- * @param {function} callback getTrip callback function
+ * @param {function} callback getTrip callback function(err, trip)
  * @private
  */
 function _getTripByDeparture(db, originId, destinationId, departure, callback) {
@@ -352,7 +337,7 @@ function _getTripByDeparture(db, originId, destinationId, departure, callback) {
  * Build the Effective Service ID String for SELECT query
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {int} date Date Integer (yyyymmdd)
- * @param {function} callback Callback function accepting the Service ID string
+ * @param {function} callback Callback function(err, serviceIdString)
  * @private
  */
 function _buildEffectiveServiceIDString(db, date, callback) {
@@ -386,7 +371,7 @@ function _buildEffectiveServiceIDString(db, date, callback) {
  * @param {string} destinationId Destination Stop ID
  * @param {DateTime} departure DateTime of departure
  * @param {string} serviceIdString Effective Service ID string
- * @param {function} callback Callback function accepting trip id
+ * @param {function} callback Callback function(err, tripId)
  * @private
  */
 function _getMatchingTripId(db, originId, destinationId, departure, serviceIdString, callback) {

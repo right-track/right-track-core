@@ -49,14 +49,57 @@ class Stop {
    */
   constructor(id, name, lat, lon,
               url='', wheelchairBoarding=Stop.WHEELCHAIR_BOARDING_UNKNOWN, statusId='-1', transferWeight=1) {
+
+    /**
+     * The unique ID representing the Stop
+     * @type {string}
+     */
     this.id = id;
+
+    /**
+     * The name of the Stop
+     * @type {string}
+     */
     this.name = name;
+
+    /**
+     * The latitude of the Stop (WGS 84)
+     * @type {number}
+     */
     this.lat = lat;
+
+    /**
+     * The longitude of the Stop (WGS 84)
+     * @type {number}
+     */
     this.lon = lon;
+
+    /**
+     * The fully-qualified, escaped URL of the Stop's web page
+     * @type {string}
+     */
     this.url = url;
+
+    /**
+     * Value indicating whether wheelchair boardings are possible for the Stop
+     * @type {Number}
+     */
     this.wheelchairBoarding = wheelchairBoarding;
+
+    /**
+     * The Stop's ID used for real-time status information
+     * @type {string}
+     */
     this.statusId = statusId;
+
+    /**
+     * A value indicating the Stop's likely transfer-availability.  A Stop
+     * with a higher transfer weight will likely be more suitable as a transfer
+     * Stop than one with a lower transfer weight.
+     * @type {Number}
+     */
     this.transferWeight = transferWeight;
+
   }
 
   /**

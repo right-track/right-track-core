@@ -32,9 +32,28 @@ class ServiceException {
    * @param {int} exceptionType Service Exception Type
    */
   constructor(serviceId, date, exceptionType) {
+
+    /**
+     * A unique ID representing the Service
+     *
+     * NOTE: this ID should match the ID representing the regular service in
+     * the {@link Service} class
+     * @type {string}
+     */
     this.serviceId = serviceId;
+
+    /**
+     * The date of the service exception in YYYYMMDD format
+     * @type {Number}
+     */
     this.date = date;
+
+    /**
+     * The Service exception type (added or removed)
+     * @type {int}
+     */
     this.exceptionType = exceptionType;
+
   }
   
 }

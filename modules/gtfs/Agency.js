@@ -35,11 +35,31 @@ class Agency {
 	 * @param {string} timezone Agency Timezone
 	 * @param {string} [id] Agency ID
 	 */
-	constructor(name, url, timezone,
-				id='-1') {
+	constructor(name, url, timezone, id='-1') {
+
+    /**
+     * Full name of the transit agency
+     * @type {string}
+     */
 		this.name = name;
+
+    /**
+     * Fully qualified and escaped URL of the transit agency
+     * @type {string}
+     */
 		this.url = url;
+
+    /**
+     * Timezone code where the transit agency is located
+     * @type {string}
+     * @see  {@link http://en.wikipedia.org/wiki/List_of_tz_zones|List of valid timezone codes}
+     */
 		this.timezone = timezone;
+
+    /**
+     * Unique ID that identifies the transit agency
+     * @type {string}
+     */
 		this.id = id;
 	}
 
