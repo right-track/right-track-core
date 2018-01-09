@@ -460,7 +460,7 @@ let cache_tripsByShortName = new cache.Cache();
 let cache_tripsByDeparture = new cache.Cache();
 
 /**
- * Clear the LinksTable caches
+ * Clear the TripsTable caches
  * @private
  */
 function clearCache() {

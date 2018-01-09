@@ -217,7 +217,7 @@ let cache_route = new cache.Cache();
 let cache_routes = new cache.Cache();
 
 /**
- * Clear the LinksTable caches
+ * Clear the RoutesTable caches
  * @private
  */
 function clearCache() {

@@ -19,6 +19,7 @@ function clearCache() {
   require('./StopsTable.js').clearCache();
   require('./StopTimesTable.js').clearCache();
   require('./TripsTable.js').clearCache();
+  require('./RouteGraphTable.js').clearCache();
 }
 
 
@@ -71,6 +72,12 @@ module.exports = {
    * @see module:query/trips
    */
   trips: require('./TripsTable.js'),
+
+  /**
+   * Query rt_route_graph table
+   * @see module:query/routegraph
+   */
+  routegraph: require('./RouteGraphTable.js'),
 
   /**
    * Clear the query caches

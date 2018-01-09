@@ -597,7 +597,7 @@ let cache_stopsByRoute = new cache.Cache();
 let cache_stopsWithStatus = new cache.Cache();
 
 /**
- * Clear the LinksTable caches
+ * Clear the StopsTable caches
  * @private
  */
 function clearCache() {

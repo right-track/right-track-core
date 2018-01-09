@@ -217,7 +217,7 @@ let cache_stoptimesByTrip = new cache.Cache();
 let cache_stoptimesByTripStop = new cache.Cache();
 
 /**
- * Clear the LinksTable caches
+ * Clear the StopTimesTable caches
  * @private
  */
 function clearCache() {
