@@ -269,8 +269,13 @@ class DateTime {
    * @returns {DateTime} return the DateTime
    */
   deltaMins(delta) {
-    let hDelta = Math.floor(delta/60);
-    let mDelta = Math.floor(delta%60);
+    let hDelta = Math.floor(Math.abs(delta)/60);
+    let mDelta = Math.floor(Math.abs(delta)%60);
+
+    if ( delta < 0 ) {
+      hDelta = hDelta * -1;
+      mDelta = mDelta * -1;
+    }
 
     let h = this._getHours() + hDelta;
     let m = this._getMins() + mDelta;
