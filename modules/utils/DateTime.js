@@ -528,10 +528,40 @@ DateTime.createFromJSDate = function(jd) {
 /**
  * DateTime Factory: with time
  * @param {string} time Time
+ * @param {boolean=false} [guessDate] Set to true to guess the Date relative to today
  * @returns {DateTime} DateTime
  */
-DateTime.createFromTime = function(time) {
-  return new DateTime(time, 19700101);
+DateTime.createFromTime = function(time, guessDate) {
+  // Default Date = epoch
+  let date = 19700101;
+  let delta = 0;
+
+  // Try to guess the date based on the requested and current times
+  if ( guessDate ) {
+    date = DateTime.now().getDateInt();
+    let ts = DateTime.create(time, 19700101).getTimeSeconds();
+    let ns = DateTime.now().getTimeSeconds();
+
+    // AM: before 4 AM
+    if ( ns <= 14400 ) {
+      // Assume late night times (after 8 PM) are yesterday
+      if ( ts >= 72000 ) {
+        delta = -1;
+      }
+    }
+
+    // PM: after 8 PM
+    else if ( ns >= 72000 ) {
+      // Assume early morning times (before 4 AM) are next day
+      if ( ts <= 14400 ) {
+        delta = +1;
+      }
+    }
+
+  }
+
+  // Create the DateTime
+  return new DateTime(time, date).deltaDays(delta);
 };
 
 /**
