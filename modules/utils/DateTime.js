@@ -528,7 +528,7 @@ DateTime.createFromJSDate = function(jd) {
 /**
  * DateTime Factory: with time
  * @param {string} time Time
- * @param {boolean=false} [guessDate] Set to true to guess the Date relative to today
+ * @param {boolean} [guessDate=false] Set to true to guess the Date relative to today
  * @returns {DateTime} DateTime
  */
 DateTime.createFromTime = function(time, guessDate) {
