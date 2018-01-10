@@ -145,6 +145,11 @@ let getTrip = function(db, id, date, callback) {
         stopTimes.push(stopTime);
       }
 
+      // Parse null wheelchair_accessible values
+      if ( row.wheelchair_accessible === null ) {
+        row.wheelchair_accessible = Trip.WHEELCHAIR_ACCESSIBLE_UNKNOWN;
+      }
+
       // Build Trip
       let trip = new Trip(
         id,
