@@ -81,6 +81,12 @@ module.exports = {
   routegraph: require('./RouteGraphTable.js'),
 
   /**
+   * Query rt_line_graph table
+   * @see module:query/linegraph
+   */
+  linegraph: require('./LineGraphTable.js'),
+
+  /**
    * Clear the query caches for each of the query modules
    * @function
    */
