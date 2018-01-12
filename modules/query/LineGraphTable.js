@@ -24,9 +24,7 @@ const Stop = require('../gtfs/Stop.js');
  * @param {String} stopId Current Stop ID
  * @param {function} callback Callback function
  * @param {Error} callback.err Database Query Error
- * @param {Object[]} [callback.stops] List of following Stops
- * @param {String} callback.stops.id Stop ID
- * @param {int} callback.stops.weight Stop Transfer Weight
+ * @param {String[]} [callback.stops] List of following Stops, sorted by transfer weight
  */
 function getNextStops(db, originId, destinationId, stopId, callback) {
 
@@ -75,9 +73,17 @@ function getNextStops(db, originId, destinationId, stopId, callback) {
 
     }
 
-    // Return the Stops, sorted by transfer weight
+    // Sort the Stops by transfer weight
     rtn.sort(_sort);
-    return callback(null, rtn);
+
+    // Create an array of the IDs
+    let ids = [];
+    for ( let i = 0; i < rtn.length; i++ ) {
+      ids.push(rtn[i].id);
+    }
+
+    // Return the IDs
+    return callback(null, ids);
 
   });
 
