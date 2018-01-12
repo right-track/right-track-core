@@ -32,6 +32,12 @@ module.exports = {
   query: require('./query'),
 
   /**
+   * Trip Search Classes and Functions
+   * @see module:search
+   */
+  search: require('./search'),
+
+  /**
    * Right Track Utility Functions
    * @see module:utils
    */
