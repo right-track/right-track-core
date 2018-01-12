@@ -269,19 +269,18 @@ class DateTime {
    * @returns {DateTime} return the DateTime
    */
   deltaMins(delta) {
-    let hDelta = Math.floor(Math.abs(delta)/60);
-    let mDelta = Math.floor(Math.abs(delta)%60);
 
-    if ( delta < 0 ) {
-      hDelta = hDelta * -1;
-      mDelta = mDelta * -1;
-    }
+    // Create new JS Date with changed time
+    let date = this._getJSDate();
+    let time = date.getTime() + (delta * 60000);
+    date.setTime(time);
+    let js = DateTime.createFromJSDate(date);
 
-    let h = this._getHours() + hDelta;
-    let m = this._getMins() + mDelta;
+    // Set time and date properties
+    this.time = js.time;
+    this.date = js.date;
 
-    this.time = h*3600 + m*60 + this._getSecs();
-
+    // return a reference to this date
     return this;
   }
 
