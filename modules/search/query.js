@@ -60,6 +60,11 @@ function getTripsFromStop(db, stop, tripSearchDates, nextStops, callback) {
         );
       }
 
+      // No Results
+      if ( results.length === 0 ) {
+        return callback(null, rtn);
+      }
+
       // Set the counter
       count = count + results.length;
 
