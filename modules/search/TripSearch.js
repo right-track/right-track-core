@@ -128,11 +128,11 @@ class TripSearch {
       : 0;
 
     /**
-     * The maximum number of layovers for a single result
+     * The maximum number of transfers for a single result
      * @type {int}
      * @default 2
      */
-    this.maxLayovers = options.hasOwnProperty('maxLayovers') ? options.maxLayovers
+    this.maxTransfers = options.hasOwnProperty('maxTransfers') ? options.maxTransfers
       : 2;
 
   }
@@ -149,7 +149,7 @@ class TripSearch {
       postDateHours: this.postDateHours,
       maxLayoverMins: this.maxLayoverMins,
       minLayoverMins: this.minLayoverMins,
-      maxLayovers: this.maxLayovers
+      maxTrasnfers: this.maxTransfers
     }
   }
 
