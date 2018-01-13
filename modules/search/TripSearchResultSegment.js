@@ -32,8 +32,8 @@ class TripSearchResultSegment {
   /**
    * Create a new Trip Search Result Segment from the provided Trip
    * @param {Trip} trip The Trip that makes up this Segment
-   * @param {StopTime} enter The StopTime where the Segment starts
-   * @param {StopTime} exit The StopTime where the Segment ends
+   * @param {Stop} enter The Stop where the Segment starts
+   * @param {Stop} exit The Stop where the Segment ends
    */
   constructor(trip, enter, exit) {
 
@@ -47,13 +47,13 @@ class TripSearchResultSegment {
      * The StopTime where the Segment starts
      * @type {StopTime}
      */
-    this.enter = enter;
+    this.enter = trip.getStopTime(enter);
 
     /**
      * The StopTime where the Segment ends
      * @type {StopTime}
      */
-    this.exit = exit;
+    this.exit = trip.getStopTime(exit);
 
   }
 
