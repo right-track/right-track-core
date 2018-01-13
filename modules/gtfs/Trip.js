@@ -109,27 +109,32 @@ class Trip {
 
   /**
    * Get the StopTime associated with the specified Stop
-   * @param {Stop} stop Stop to find in Trip's list of StopTimes
+   * @param {Stop|String} stop Stop (or Stop ID) to find in Trip's list of StopTimes
    * @returns {StopTime} matching StopTime
    */
   getStopTime(stop) {
+    if ( typeof stop === 'object' ) {
+      stop = stop.id;
+    }
     for ( let i = 0; i < this.stopTimes.length; i++ ) {
       let stopTime = this.stopTimes[i];
-      if ( stopTime.stop.id === stop.id ) {
-        return stopTime;
+      if ( this.stopTimes[i].stop.id === stop ) {
+        return this.stopTimes[i];
       }
     }
   }
 
   /**
    * Check if the Trip's list of StopTimes includes the specified Stop
-   * @param {Stop} stop Stop to check for
+   * @param {Stop|String} stop Stop (or Stop ID) to check for
    * @returns {boolean} true if the Stop is found in list of StopTimes
    */
   hasStopTime(stop) {
+    if ( typeof stop === 'object' ) {
+      stop = stop.id;
+    }
     for ( let i = 0; i < this.stopTimes.length; i++ ) {
-      let stopTime = this.stopTimes[i];
-      if ( stopTime.stop.id === stop.id ) {
+      if ( this.stopTimes[i].stop.id === stop ) {
         return true;
       }
     }
