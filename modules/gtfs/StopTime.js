@@ -66,10 +66,22 @@ class StopTime {
     this.arrivalTime = arrivalTime;
 
     /**
+     * The trip's arrival Date/Time
+     * @type {DateTime}
+     */
+    this.arrival = new DateTime(arrivalTime, date);
+
+    /**
      * The trip's departure time for this scheduled StopTime in HH:MM:SS format
      * @type {string}
      */
     this.departureTime = departureTime;
+
+    /**
+     * The trip's departure Date/Time
+     * @type {DateTime}
+     */
+    this.departure = new DateTime(departureTime, date);
 
     /**
      * The StopTime's sequence in the scheduled Trip
@@ -83,7 +95,7 @@ class StopTime {
      */
     this.arrivalTimeSeconds = (typeof arrivalTimeSeconds !== 'undefined')
       ? arrivalTimeSeconds
-      : new DateTime(arrivalTime, date).getTimeSeconds();
+      : this.arrival.getTimeSeconds();
 
     /**
      * The StopTime's departure time in seconds since midnight
@@ -91,7 +103,7 @@ class StopTime {
      */
     this.departureTimeSeconds = (typeof departureTimeSeconds !== 'undefined')
       ? departureTimeSeconds
-      : new DateTime(departureTime, date).getTimeSeconds();
+      : this.departure.getTimeSeconds();
 
     /**
      * Value indicating whether passengers are picked up at the Stop

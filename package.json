@@ -9,6 +9,7 @@
     "docs": "jsdoc -c jsdoc.json --readme README.md --template $NODE_PATH/docdash"
   },
   "dependencies": {
+    "graph.js": "^1.21.1",
     "memory-cache": "^0.2.0",
     "right-track-db": "~1.2.0"
   },

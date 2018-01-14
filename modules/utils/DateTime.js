@@ -166,11 +166,13 @@ class DateTime {
    */
   _getJSDate() {
     let hours = this._getHours();
+    let deltaDays = 0;
     if ( hours >= 24 ) {
       hours = hours - 24;
+      deltaDays = 1;
     }
 
-    return new Date(
+    let date = new Date(
       this._getYear(),
       this._getMonth()-1,
       this._getDate(),
@@ -178,6 +180,9 @@ class DateTime {
       this._getMins(),
       this._getSecs()
     );
+    date.setDate(date.getDate()+deltaDays);
+
+    return date;
   }
 
   /**
@@ -269,19 +274,18 @@ class DateTime {
    * @returns {DateTime} return the DateTime
    */
   deltaMins(delta) {
-    let hDelta = Math.floor(Math.abs(delta)/60);
-    let mDelta = Math.floor(Math.abs(delta)%60);
 
-    if ( delta < 0 ) {
-      hDelta = hDelta * -1;
-      mDelta = mDelta * -1;
-    }
+    // Create new JS Date with changed time
+    let date = this._getJSDate();
+    let time = date.getTime() + (delta * 60000);
+    date.setTime(time);
+    let js = DateTime.createFromJSDate(date);
 
-    let h = this._getHours() + hDelta;
-    let m = this._getMins() + mDelta;
+    // Set time and date properties
+    this.time = js.time;
+    this.date = js.date;
 
-    this.time = h*3600 + m*60 + this._getSecs();
-
+    // return a reference to this date
     return this;
   }
 
@@ -410,6 +414,11 @@ class DateTime {
     return dow[this._getJSDate().getDay()];
   }
 
+
+
+
+  // ==== DATE/TIME FUNCTIONS ==== //
+
   /**
    * Get a String representation of the DateTime to be
    * used as a MySQL DateTime
@@ -436,6 +445,15 @@ class DateTime {
    */
   toHTTPString() {
     return this._getJSDate().toUTCString();
+  }
+
+
+  /**
+   * Get a timestamp (in ms) of the DateTime
+   * @returns {number} timestamp (ms) of DateTime
+   */
+  toTimestamp() {
+    return this._getJSDate().getTime();
   }
 
   /**
