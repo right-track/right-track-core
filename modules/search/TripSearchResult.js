@@ -74,4 +74,24 @@ class TripSearchResult {
 }
 
 
+/**
+ * Sort Trip Search Results by their departure from the Origin
+ * @param {TripSearchResult} a first TripSearchResult
+ * @param {TripSearchResult} b second TripSearchResult
+ * @return {number} compare integer
+ */
+TripSearchResult.sortByDeparture = function(a, b) {
+  if ( a.origin.departure.toTimestamp() < b.origin.departure.toTimestamp() ) {
+    return -1;
+  }
+  else if ( a.origin.departure.toTimestamp() > b.origin.departure.toTimestamp() ) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+};
+
+
+
 module.exports = TripSearchResult;
