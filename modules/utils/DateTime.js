@@ -166,11 +166,13 @@ class DateTime {
    */
   _getJSDate() {
     let hours = this._getHours();
+    let deltaDays = 0;
     if ( hours >= 24 ) {
       hours = hours - 24;
+      deltaDays = 1;
     }
 
-    return new Date(
+    let date = new Date(
       this._getYear(),
       this._getMonth()-1,
       this._getDate(),
@@ -178,6 +180,9 @@ class DateTime {
       this._getMins(),
       this._getSecs()
     );
+    date.setDate(date.getDate()+deltaDays);
+
+    return date;
   }
 
   /**
