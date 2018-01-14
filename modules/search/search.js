@@ -16,7 +16,7 @@ const CalendarTable = require('../query/CalendarTable.js');
 const LineGraphTable = require('../query/LineGraphTable.js');
 
 
-const LOG = true;
+const LOG = false;
 
 
 
@@ -32,7 +32,6 @@ const LOG = true;
  * @private
  */
 function search(db, origin, destination, datetime, options, callback) {
-
   _log("====== STARTING SEARCH ======");
   _log("ORIGIN: " + origin.name);
   _log("DESTINATION: " + destination.name);
@@ -145,13 +144,116 @@ function search(db, origin, destination, datetime, options, callback) {
  */
 function _cleanResults(results) {
 
-  // Sort by Departure Times
+  // Clean up departures
+  results = _cleanDepartures(results);
+
+  // Clean up arrivals
+  results = _cleanArrivals(results);
+
+  // Sort By Departure Time
   results.sort(TripSearchResult.sortByDeparture);
 
+  // Return results
   return results;
 
-}
 
+  /**
+   * Pick best Trip with equal departures
+   * @param results
+   * @returns {Array}
+   * @private
+   */
+  function _cleanDepartures(results) {
+    // List of Departures to Keep
+    let departures = [];
+
+    // Get unique departures
+    let departureTimes = [];
+    for ( let i = 0; i < results.length; i++ ) {
+      if ( departureTimes.indexOf(results[i].origin.departure.toTimestamp()) === -1 ) {
+        departureTimes.push(results[i].origin.departure.toTimestamp());
+      }
+    }
+
+    // Pick best Trip for each departure
+    for ( let i = 0; i < departureTimes.length; i++ ) {
+      let departureTime = departureTimes[i];
+      let departure = undefined;
+
+      // Get Trips with departure time
+      for ( let j = 0; j < results.length; j++ ) {
+        let result = results[j];
+        if ( result.origin.departure.toTimestamp() === departureTime ) {
+          if ( departure === undefined )  {
+            departure = result;
+          }
+          else if ( result.destination.arrival.toTimestamp() < departure.destination.arrival.toTimestamp() ) {
+            departure = result;
+          }
+          else if ( result.destination.arrival.toTimestamp() === departure.destination.arrival.toTimestamp() && result.length < departure.length ) {
+            departure = result;
+          }
+        }
+      }
+
+      // Add departure to list
+      departures.push(departure);
+    }
+
+    // Return departures
+    return departures;
+  }
+
+
+  /**
+   * Pick best Trip with equal arrivals
+   * @param results
+   * @returns {Array}
+   * @private
+   */
+  function _cleanArrivals(results) {
+    // List of Arrivals to Keep
+    let arrivals = [];
+
+    // Get unique arrivals
+    let arrivalTimes = [];
+    for ( let i = 0; i < results.length; i++ ) {
+      if ( arrivalTimes.indexOf(results[i].destination.arrival.toTimestamp()) === -1 ) {
+        arrivalTimes.push(results[i].destination.arrival.toTimestamp());
+      }
+    }
+
+    // Pick best Trip for each arrival
+    for ( let i = 0; i < arrivalTimes.length; i++ ) {
+      let arrivalTime = arrivalTimes[i];
+      let arrival = undefined;
+
+      // Get Trips with arrival time
+      for ( let j = 0; j < results.length; j++ ) {
+        let result = results[j];
+        if ( result.destination.arrival.toTimestamp() === arrivalTime ) {
+          if ( arrival === undefined )  {
+            arrival = result;
+          }
+          else if ( result.origin.departure.toTimestamp() > arrival.origin.departure.toTimestamp() ) {
+            arrival = result;
+          }
+          else if ( result.origin.departure.toTimestamp() === arrival.origin.departure.toTimestamp() && result.length < arrival.length ) {
+            arrival = result;
+          }
+        }
+      }
+
+      // Add arrival to list
+      arrivals.push(arrival);
+
+    }
+
+    // Return arrivals
+    return arrivals;
+  }
+
+}
 
 
 
@@ -175,53 +277,46 @@ function _processTrips(db, options, origin, destination, enter, trips, segments,
   // Results to Return
   let RESULTS = [];
 
+
+  // Set up counters
+  let done = 0;
+  let count = trips.length;
+
+
   // Finish when there are no trips to process
   if ( trips.length === 0 ) {
+    count = 1;
     _finish();
   }
 
-  // Start Processing the Trips
-  else {
-    _start();
-  }
+  // Process each of the Trips
+  for ( let i = 0; i < trips.length; i++ ) {
+    _processTrip(db, options, origin, destination, enter, trips[i], segments, function(err, results) {
 
+      // Database Query Error
+      if ( err ) {
+        return callback(err);
+      }
 
-  /**
-   * Start Processing a Trip
-   * @param index=0 Trip Index to Process
-   * @private
-   */
-  function _start(index=0) {
-    if ( index < trips.length ) {
-      //console.warn("PROCESSING TRIP " + parseInt(index+1) + " / " + trips.length);
+      // Add Results to final list
+      RESULTS = RESULTS.concat(results);
 
-      _processTrip(db, options, origin, destination, enter, trips[index], segments, function(err, results) {
-
-        // Database Query Error
-        if ( err ) {
-          return callback(err);
-        }
-
-        // Add results to final list
-        RESULTS = RESULTS.concat(results);
-
-        // Next step
-        index = index+1;
-        _start(index);
-
-      });
-    }
-    else {
+      // Finish
       _finish();
-    }
+
+    })
   }
+
 
   /**
    * Finished Processing the Trips
    * @private
    */
   function _finish() {
-    return callback(null, RESULTS);
+    done++;
+    if ( done === count ) {
+      return callback(null, RESULTS);
+    }
   }
 
   /**
@@ -336,45 +431,32 @@ function _processStops(db, options, origin, destination, enter, transfers, trip,
   // Results to Return
   let RESULTS = [];
 
+  // Set up counters
+  let done = 0;
+  let count = transfers.length;
+
   // No transfers, finish
   if ( transfers.length === 0 ) {
+    count = 1;
     _finish();
   }
 
-  // Start processing the Stops
-  else {
-    _start();
-  }
+  // Process each Stop
+  for ( let i = 0; i < transfers.length; i++ ) {
+    _processStop(db, options, origin, destination, enter, transfers[i], trip, segments, function(err, results) {
 
+      // Database Query Error
+      if ( err ) {
+        return callback(err);
+      }
 
-  /**
-   * Start processing the Stop referenced by the index
-   * @param index=0 Stop Index
-   * @private
-   */
-  function _start(index=0) {
-    if ( index < transfers.length ) {
-      //console.warn("PROCESSING STOP " + parseInt(index+1) + " / " + transfers.length);
+      // Add results to final list
+      RESULTS = RESULTS.concat(results);
 
-      _processStop(db, options, origin, destination, enter, transfers[index], trip, segments, function(err, results) {
-
-        // Database Query Error
-        if ( err ) {
-          return callback(err);
-        }
-
-        // Add results to final list
-        RESULTS = RESULTS.concat(results);
-
-        // Start next Stop
-        index = index + 1;
-        _start(index);
-
-      })
-    }
-    else {
+      // Finish
       _finish();
-    }
+
+    });
   }
 
 
@@ -383,7 +465,10 @@ function _processStops(db, options, origin, destination, enter, transfers, trip,
    * @private
    */
   function _finish() {
-    return callback(null, RESULTS);
+    done++;
+    if ( done === count ) {
+      return callback(null, RESULTS);
+    }
   }
 
 
@@ -461,14 +546,11 @@ function _processStop(db, options, origin, destination, enter, transfer, trip, s
 
       }
 
-      // TODO: Only process indirect trips if there are no direct trips?
       // Process Indirect Trips
-      if ( indirect.length > 0 && options.allowTransfers && segments.length < options.maxTransfers ) {
+      if ( direct.length === 0 && indirect.length > 0 && options.allowTransfers && segments.length < options.maxTransfers ) {
 
         // Process the Indirect Trips
-        console.log("STARTING PROCESS TRIPS FROM TRANSFER LOOP");
         _processTrips(db, options, origin, destination, transfer, indirect, segments, function(err, results) {
-          console.log("RETURNING PROCESS TRIPS FROM TRANSFER LOOP");
 
           // Add results to final list
           RESULTS = RESULTS.concat(results);
@@ -561,6 +643,11 @@ function _getTransferStops(db, origin, destination, stop, trip, callback) {
           trip.getStopTime(nextStops[i]).stop
         );
       }
+    }
+
+    // TODO: Return only the top 3 transfer Stops
+    if ( rtn.length > 3 ) {
+      rtn = [rtn[0], rtn[1], rtn[2]];
     }
 
     return callback(null, rtn);
