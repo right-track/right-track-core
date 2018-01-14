@@ -414,6 +414,11 @@ class DateTime {
     return dow[this._getJSDate().getDay()];
   }
 
+
+
+
+  // ==== DATE/TIME FUNCTIONS ==== //
+
   /**
    * Get a String representation of the DateTime to be
    * used as a MySQL DateTime
@@ -440,6 +445,15 @@ class DateTime {
    */
   toHTTPString() {
     return this._getJSDate().toUTCString();
+  }
+
+
+  /**
+   * Get a timestamp (in ms) of the DateTime
+   * @returns {number} timestamp (ms) of DateTime
+   */
+  toTimestamp() {
+    return this._getJSDate().getTime();
   }
 
   /**
