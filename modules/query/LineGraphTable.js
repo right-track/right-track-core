@@ -7,7 +7,7 @@
  */
 
 const cache = require('memory-cache');
-const Graph = require('graph.js/dist/graph.full.js');
+const Graph = require('../../lib/graph.js');
 const StopsTable = require('./StopsTable.js');
 const Stop = require('../gtfs/Stop.js');
 
