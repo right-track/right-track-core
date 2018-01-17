@@ -69,6 +69,14 @@ class TripSearchResult {
     return this.segments[this.length-1].exit;
   }
 
+  /**
+   * Total Travel Time (in minutes) - includes all segments and layovers
+   * @returns {int}
+   */
+  get travelTime() {
+    return (this.destination.arrival.toTimestamp() - this.origin.departure.toTimestamp())/60000;
+  }
+
 
 
 }

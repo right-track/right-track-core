@@ -73,6 +73,14 @@ class TripSearchResultSegment {
     return this.trip.stopTimes[this.trip.stopTimes.length-1];
   }
 
+  /**
+   * Travel Time (in minutes) on this Segment
+   * @returns {int}
+   */
+  get travelTime() {
+    return (this.exit.arrival.toTimestamp() - this.enter.departure.toTimestamp())/60000;
+  }
+
 }
 
 
