@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>rt/About.js - Documentation</title>
+    <title>search/TripSearchDate.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">rt/About.js</h1>
+    <h1 class="page-title">search/TripSearchDate.js</h1>
     
 
     
@@ -42,86 +42,66 @@
             <pre class="prettyprint source linenums"><code>'use strict';
 
 /**
- * Right Track About Class
- * @see {@link About}
- * @module rt/About
+ * Trip Search Date Class
+ * @see {@link TripSearchDate}
+ * @module search/TripSearchDate
+ * @private
  */
+
 
 /**
- * RT About
+ * Trip Search Date
  * --------
- * Representation of the data in the rt_about table, which holds the
- * information about the Right Track Database.
- *
- * Right Track Fields:
- * - Compile Date
- * - Publish Date
- * - Start Date
- * - End Date
- * - Version
- * - Version Notes
- *
- * **Module:** {@link module:rt/About|rt/About}
- *
+ * This Class is used to provide the Trip Search date, time, and
+ * effective services within the requested date/time range.
  * @class
- * @alias About
+ * @alias TripSearchDate
+ * @private
  */
-class About {
+class TripSearchDate {
 
   /**
-   * Right Track About Constructor
-   * @constructor
-   * @param {int} compile the compile date of the Right Track DB (yyyymmdd)
-   * @param {int} publish the publish date of the Right Track DB (yyyymmdd)
-   * @param {int} start the start date the Right Track DB schedule (yyyymmdd)
-   * @param {int} end the end date of the Right Track DB schedule (yyyymmdd)
-   * @param {int} version the version number of the Right Track DB (usually yyyymmddHH)
-   * @param {string} notes the version notes of the Right Track DB
+   * Create a new Trip Search Date
+   * @param {int} date The Date in YYYYMMDD format
+   * @param {int} preSeconds The search start time in seconds since midnight
+   * @param {int} postSeconds The search end time in seconds since midnight
+   * @param {Service[]} services Effective Services on this date
    */
-  constructor(compile, publish, start, end, version, notes) {
+  constructor(date, preSeconds, postSeconds, services) {
 
     /**
-     * The Right Track DB compile date in YYYYMMDD format
-     * @type {Number}
+     * The Date in YYYYMMDD format
+     * @type {int}
      */
-    this.compileDate = compile;
+    this.date = date;
 
     /**
-     * The GTFS publish date in YYYYMMDD format
-     * @type {Number}
+     * The search start time in seconds since midnight
+     * @type {int}
      */
-    this.publishDate = publish;
+    this.preSeconds = preSeconds;
 
     /**
-     * The start date of the GTFS schedule data in YYYYMMDD format
-     * @type {Number}
+     * The search end time in seconds since midnight
+     * @type {int}
      */
-    this.startDate = start;
+    this.postSeconds = postSeconds;
 
     /**
-     * The end date of the GTFS schedule data in YYYYMMDD format
-     * @type {Number}
+     * List of effective Service IDs
+     * @type {String[]}
      */
-    this.endDate = end;
-
-    /**
-     * The Right Track DB version
-     * @type {Number}
-     */
-    this.version = version;
-
-    /**
-     * The Right Track DB version notes
-     * @type {string}
-     */
-    this.notes = notes;
+    this.serviceIds = [];
+    for ( let i = 0; i &lt; services.length; i++ ) {
+      this.serviceIds.push(services[i].id);
+    }
 
   }
 
 }
 
 
-module.exports = About;</code></pre>
+module.exports = TripSearchDate;</code></pre>
         </article>
     </section>
 

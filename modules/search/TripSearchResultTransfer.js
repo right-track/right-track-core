@@ -11,10 +11,10 @@
 /**
  * Trip Search Result Transfer
  * --------
- * This Class represents a Transfer between two {@link TripSearchResultSegment}s
- * in a Trip Search Result.  The Transfer Class contains information on the
- * Transfer Stop, the arrival and departure times to/from the Transfer Stop and
- * the layover time spent at the Transfer Stop.
+ * This Class represents a Transfer between two {@link TripSearchResultSegment|Trip Search Result Segments}
+ * in a {@link TripSearchResult|Trip Search Result}.  The Transfer Class contains
+ * information on the Transfer Stop, the arrival and departure times to/from the
+ * Transfer Stop and the layover time spent at the Transfer Stop.
  *
  * **Module:** {@link module:search/TripSearchResultTransfer|search/TripSearchResultTransfer}
  *

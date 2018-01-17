@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>rt/About.js - Documentation</title>
+    <title>search/TripSearchResultTransfer.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">rt/About.js</h1>
+    <h1 class="page-title">search/TripSearchResultTransfer.js</h1>
     
 
     
@@ -42,86 +42,67 @@
             <pre class="prettyprint source linenums"><code>'use strict';
 
 /**
- * Right Track About Class
- * @see {@link About}
- * @module rt/About
+ * Trip Search Result Transfer Class
+ * @see {@link TripSearchResultTransfer}
+ * @module search/TripSearchResultTransfer
  */
+
+
 
 /**
- * RT About
+ * Trip Search Result Transfer
  * --------
- * Representation of the data in the rt_about table, which holds the
- * information about the Right Track Database.
+ * This Class represents a Transfer between two {@link TripSearchResultSegment|Trip Search Result Segments}
+ * in a {@link TripSearchResult|Trip Search Result}.  The Transfer Class contains
+ * information on the Transfer Stop, the arrival and departure times to/from the
+ * Transfer Stop and the layover time spent at the Transfer Stop.
  *
- * Right Track Fields:
- * - Compile Date
- * - Publish Date
- * - Start Date
- * - End Date
- * - Version
- * - Version Notes
- *
- * **Module:** {@link module:rt/About|rt/About}
+ * **Module:** {@link module:search/TripSearchResultTransfer|search/TripSearchResultTransfer}
  *
  * @class
- * @alias About
+ * @alias TripSearchResultTransfer
  */
-class About {
+class TripSearchResultTransfer {
 
   /**
-   * Right Track About Constructor
-   * @constructor
-   * @param {int} compile the compile date of the Right Track DB (yyyymmdd)
-   * @param {int} publish the publish date of the Right Track DB (yyyymmdd)
-   * @param {int} start the start date the Right Track DB schedule (yyyymmdd)
-   * @param {int} end the end date of the Right Track DB schedule (yyyymmdd)
-   * @param {int} version the version number of the Right Track DB (usually yyyymmddHH)
-   * @param {string} notes the version notes of the Right Track DB
+   * Create a new Trip Search Result Transfer at the specified
+   * Transfer Stop with the provided arrival and departure times.
+   * @param {Stop} stop Transfer Stop
+   * @param {DateTime} arrival Arrival Date/Time
+   * @param {DateTime} departure Departure Date/Time
    */
-  constructor(compile, publish, start, end, version, notes) {
+  constructor(stop, arrival, departure) {
 
     /**
-     * The Right Track DB compile date in YYYYMMDD format
-     * @type {Number}
+     * The Transfer Stop
+     * @type {Stop}
      */
-    this.compileDate = compile;
+    this.stop = stop;
 
     /**
-     * The GTFS publish date in YYYYMMDD format
-     * @type {Number}
+     * The Arrival Date/Time to the Transfer Stop
+     * @type {DateTime}
      */
-    this.publishDate = publish;
+    this.arrival = arrival;
 
     /**
-     * The start date of the GTFS schedule data in YYYYMMDD format
-     * @type {Number}
+     * The Departure Date/Time from the Transfer Stop
+     * @type {DateTime}
      */
-    this.startDate = start;
+    this.departure = departure;
 
     /**
-     * The end date of the GTFS schedule data in YYYYMMDD format
-     * @type {Number}
+     * The Layover Time (minutes) spent at the Transfer Stop
+     * @type {number}
      */
-    this.endDate = end;
-
-    /**
-     * The Right Track DB version
-     * @type {Number}
-     */
-    this.version = version;
-
-    /**
-     * The Right Track DB version notes
-     * @type {string}
-     */
-    this.notes = notes;
+    this.layoverTime = (this.departure.toTimestamp() - this.arrival.toTimestamp())/60000;
 
   }
 
 }
 
 
-module.exports = About;</code></pre>
+module.exports = TripSearchResultTransfer;</code></pre>
         </article>
     </section>
 
