@@ -285,7 +285,6 @@ function _processTrips(db, options, origin, destination, enter, trips, segments,
 
   // Finish when there are no trips to process
   if ( trips.length === 0 ) {
-    count = 1;
     _finish();
   }
 
@@ -314,7 +313,7 @@ function _processTrips(db, options, origin, destination, enter, trips, segments,
    */
   function _finish() {
     done++;
-    if ( done === count ) {
+    if ( count === 0 || done === count ) {
       return callback(null, RESULTS);
     }
   }
@@ -437,7 +436,6 @@ function _processStops(db, options, origin, destination, enter, transfers, trip,
 
   // No transfers, finish
   if ( transfers.length === 0 ) {
-    count = 1;
     _finish();
   }
 
@@ -466,7 +464,7 @@ function _processStops(db, options, origin, destination, enter, transfers, trip,
    */
   function _finish() {
     done++;
-    if ( done === count ) {
+    if ( count === 0 || done === count ) {
       return callback(null, RESULTS);
     }
   }
@@ -551,6 +549,11 @@ function _processStop(db, options, origin, destination, enter, transfer, trip, s
 
         // Process the Indirect Trips
         _processTrips(db, options, origin, destination, transfer, indirect, segments, function(err, results) {
+
+          // Database Query Error
+          if ( err ) {
+            return callback(err);
+          }
 
           // Add results to final list
           RESULTS = RESULTS.concat(results);
