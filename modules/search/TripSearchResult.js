@@ -8,6 +8,7 @@
 
 
 const TripSearchResultSegment = require('./TripSearchResultSegment.js');
+const TripSearchResultTransfer = require('./TripSearchResultTransfer.js');
 
 
 /**
@@ -42,41 +43,68 @@ class TripSearchResult {
      */
     this.segments = segments;
 
+    /**
+     * The number of Trip Search Result Segments in this Result
+     * @type {int}
+     */
+    this.length = this.segments.length;
+
+    /**
+     * The StopTime of the Trip Search's Origin Stop
+     * @type {StopTime}
+     */
+    this.origin = this.segments[0].enter;
+
+    /**
+     * The StopTime of the Trip Search's Destination Stop
+     * @type {StopTime}
+     */
+    this.destination = this.segments[this.length-1].exit;
+
+    /**
+     * Total Travel Time (in minutes) - includes all segments and layovers
+     * @type {int}
+     */
+    this.travelTime = (this.destination.arrival.toTimestamp() - this.origin.departure.toTimestamp())/60000;
+
+    /**
+     * List of Transfers
+     * @type {TripSearchResultTransfer[]}
+     */
+    this.transfers = this._buildTransfers();
+
   }
 
 
   /**
-   * The number of Trip Search Result Segments in this Result
-   * @returns {int}
+   * Build the List of Transfers
+   * @returns {TripSearchResultTransfer[]}
+   * @private
    */
-  get length() {
-    return this.segments.length;
-  }
+  _buildTransfers() {
 
-  /**
-   * The StopTime of the Trip Search's Origin Stop
-   * @returns {StopTime}
-   */
-  get origin() {
-    return this.segments[0].enter;
-  }
+    // List of transfers
+    let rtn = [];
 
-  /**
-   * The StopTime of the Trip Search's Destination Stop
-   * @returns {StopTime}
-   */
-  get destination() {
-    return this.segments[this.length-1].exit;
-  }
+    // Build Each Transfer
+    for ( let i = 0; i < this.length-1; i++ ) {
 
-  /**
-   * Total Travel Time (in minutes) - includes all segments and layovers
-   * @returns {int}
-   */
-  get travelTime() {
-    return (this.destination.arrival.toTimestamp() - this.origin.departure.toTimestamp())/60000;
-  }
+      // Build the Transfer Stop
+      let transfer = new TripSearchResultTransfer(
+        this.segments[i].exit.stop,
+        this.segments[i].exit.arrival,
+        this.segments[i+1].enter.departure
+      );
 
+      // Add to List
+      rtn.push(transfer);
+
+    }
+
+    // Return list of transfers
+    return rtn;
+
+  }
 
 
 }
