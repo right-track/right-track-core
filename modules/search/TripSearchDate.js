@@ -27,13 +27,34 @@ class TripSearchDate {
    * @param {Service[]} services Effective Services on this date
    */
   constructor(date, preSeconds, postSeconds, services) {
+
+    /**
+     * The Date in YYYYMMDD format
+     * @type {int}
+     */
     this.date = date;
+
+    /**
+     * The search start time in seconds since midnight
+     * @type {int}
+     */
     this.preSeconds = preSeconds;
+
+    /**
+     * The search end time in seconds since midnight
+     * @type {int}
+     */
     this.postSeconds = postSeconds;
+
+    /**
+     * List of effective Service IDs
+     * @type {String[]}
+     */
     this.serviceIds = [];
     for ( let i = 0; i < services.length; i++ ) {
       this.serviceIds.push(services[i].id);
     }
+
   }
 
 }

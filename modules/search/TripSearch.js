@@ -172,6 +172,7 @@ class TripSearch {
       console.log("ORIGIN: " + _this.origin.name);
       console.log("DESTINATION: " + _this.destination.name);
       console.log("DEPARTURE: " + _this.datetime.toString());
+      console.log("RESULTS: " + results.length);
       console.log("=============================");
 
       // Parse each Result
