@@ -45,6 +45,10 @@ Currently, the module supports the following features:
     - Station Feed Departure
     - Station Feed Departure Status
 - Right Track Database queries
+- Trip Search Classes and Query Functions
+  - Trip Search
+  - Trip Search Result
+  - GTFS schedule search functions (including transfers)
 - General purpose utility functions
 
 ### Documentation
@@ -158,3 +162,132 @@ core.query.stops.getStop(db, '110', function(err, stop) {
 //   transferWeight: 1171 
 // }
 ```
+
+#### Schedule Trip Search
+
+The _search_ functions of this module can query the GTFS schedule to build a set
+of Trip Search Results that connect the Origin and Destination Stops together with
+either a direct Trip or one that includes one or more transfers.
+
+The Search parameters can be customized with the following options:
+
+| Option Name | Default Value | Description |
+| ----------- | ------------- | ----------- |
+| `allowTransfers` | `true` | Enable to allow a Trip Search Result to include one or more transfers to a different Trip at a Transfer Stop.
+| `allowChangeInDirection` | `true` | Enable to allow transfers to a Trip running in the opposite direction.
+| `preDateHours` | `3` | The number of hours **before** the specified departure date/time to include in the results.
+| `postDateHours` | `6` | The number of hours **after** the specified departure date/time to include in the results.
+| `maxLayoverMins` | `30` | The maximum number of minutes to layover at a transfer Stop.
+| `minLayoverMins` | `0` | The minimum number of minutes to layover at a transfer Stop.
+| `maxTransfers` | `2` | The maximum number of transfers allowed per Trip Search Result.
+
+
+##### Trip Search Example
+
+ The following example searches the GTFS schedule for Long Island Rail Road between
+ the Patchogue and Atlantic Terminal Stops with a desired departure of 1:30 PM on Jan 16, 2018.
+
+ The default options were changed to allow search results up to 8 hours after the desired
+ departure.
+
+ ```javascript
+ const core = require('right-track-core');
+ const RightTrackDB = require('right-track-db-sqlite3');
+ const LIRR = require('right-track-agency-lirr');
+
+ const DateTime = core.utils.DateTime;
+ const TripSearch = core.search.TripSearch;
+
+ // Set up a Right Track DB for LIRR
+ let db = new RightTrackDB(LIRR);
+
+ // Get the Origin and Destination Stops by their IDs
+ core.query.stops.getStop(db, '124', function(err, origin) {
+   core.query.stops.getStop(db, '12', function(err, destination) {
+
+     // Set Search Paramters
+     let dt = DateTime.create("1:30 PM", 20180116);
+     let options = {
+       postDateHours: 8
+     };
+
+     // Set up the Trip Search
+     let search = new TripSearch(origin, destination, dt, options);
+
+     // Perform the Trip Search
+     search.search(db, function(err, results) {
+
+       // Print the Results
+       console.log("==== TRIP SEARCH RESULTS: ===");
+       console.log("ORIGIN: " + origin.name);
+       console.log("DESTINATION: " + destination.name);
+       console.log("DEPARTURE: " + dt.toString());
+       console.log("RESULTS: " + results.length);
+       console.log("=============================");
+
+       // Parse each Result
+       for ( let i = 0; i < results.length; i++ ) {
+         let result = results[i];
+
+         console.log(result.origin.stop.name + " @ " + result.origin.departure.getTimeReadable() + " --> " + result.destination.stop.name + " @ " + result.destination.arrival.getTimeReadable());
+
+         // Parse segments when a transfer is required
+         if ( result.length > 1 ) {
+           let segments = result.segments;
+           for ( let j = 0; j < segments.length; j++ ) {
+             let segment = segments[j];
+             console.log("  " + segment.enter.stop.name + " @ " + segment.enter.departure.getTimeReadable() + " --> " + segment.exit.stop.name + " @ " + segment.exit.arrival.getTimeReadable());
+           }
+         }
+
+       }
+
+     });
+
+   });
+ });
+```
+
+The resulting output, which prints the Trip Search Results to the console:
+
+```
+==== TRIP SEARCH RESULTS: ===
+ORIGIN: Patchogue
+DESTINATION: Atlantic Terminal
+DEPARTURE: 2018-01-16 @ 13:30:00
+RESULTS: 9
+=============================
+Patchogue @ 11:25 AM --> Atlantic Terminal @ 1:33 PM
+  Patchogue @ 11:25 AM --> Babylon @ 11:55 AM
+  Babylon @ 12:00 PM --> Jamaica @ 12:48 PM
+  Jamaica @ 1:13 PM --> Atlantic Terminal @ 1:33 PM
+Patchogue @ 1:07 PM --> Atlantic Terminal @ 2:33 PM
+  Patchogue @ 1:07 PM --> Jamaica @ 2:12 PM
+  Jamaica @ 2:13 PM --> Atlantic Terminal @ 2:33 PM
+Patchogue @ 1:25 PM --> Atlantic Terminal @ 3:33 PM
+  Patchogue @ 1:25 PM --> Babylon @ 1:55 PM
+  Babylon @ 2:00 PM --> Jamaica @ 2:48 PM
+  Jamaica @ 3:13 PM --> Atlantic Terminal @ 3:33 PM
+Patchogue @ 2:30 PM --> Atlantic Terminal @ 4:03 PM
+  Patchogue @ 2:30 PM --> Jamaica @ 3:36 PM
+  Jamaica @ 3:43 PM --> Atlantic Terminal @ 4:03 PM
+Patchogue @ 3:32 PM --> Atlantic Terminal @ 5:10 PM
+  Patchogue @ 3:32 PM --> Babylon @ 4:02 PM
+  Babylon @ 4:06 PM --> Jamaica @ 4:44 PM
+  Jamaica @ 4:52 PM --> Atlantic Terminal @ 5:10 PM
+Patchogue @ 4:43 PM --> Atlantic Terminal @ 6:23 PM
+  Patchogue @ 4:43 PM --> Jamaica @ 5:50 PM
+  Jamaica @ 6:05 PM --> Atlantic Terminal @ 6:23 PM
+Patchogue @ 5:26 PM --> Atlantic Terminal @ 7:10 PM
+  Patchogue @ 5:26 PM --> Babylon @ 5:58 PM
+  Babylon @ 6:03 PM --> Jamaica @ 6:40 PM
+  Jamaica @ 6:52 PM --> Atlantic Terminal @ 7:10 PM
+Patchogue @ 6:30 PM --> Atlantic Terminal @ 8:21 PM
+  Patchogue @ 6:30 PM --> Babylon @ 7:03 PM
+  Babylon @ 7:09 PM --> Jamaica @ 8:01 PM
+  Jamaica @ 8:03 PM --> Atlantic Terminal @ 8:21 PM
+Patchogue @ 7:39 PM --> Atlantic Terminal @ 9:53 PM
+  Patchogue @ 7:39 PM --> Babylon @ 8:09 PM
+  Babylon @ 8:13 PM --> Jamaica @ 9:04 PM
+  Jamaica @ 9:33 PM --> Atlantic Terminal @ 9:53 PM
+ ```
