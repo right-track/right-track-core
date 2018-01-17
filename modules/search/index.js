@@ -25,6 +25,12 @@ module.exports = {
    * Trip Search Result Segment Class
    * @see TripSearchResultSegment
    */
-  TripSearchResultSegment: require('./TripSearchResultSegment.js')
+  TripSearchResultSegment: require('./TripSearchResultSegment.js'),
+
+  /**
+   * Trip Search Result Transfer Class
+   * @see TripSearchResultTransfer
+   */
+  TripSearchResultTransfer: require('./TripSearchResultTransfer')
 
 };
