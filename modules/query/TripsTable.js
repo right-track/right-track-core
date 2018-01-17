@@ -33,7 +33,7 @@ const StopTimesTable = require('./StopTimesTable.js');
 let getTrip = function(db, id, date, callback) {
 
   // Check cache for trip
-  let cacheKey = db.id + "-" + id;
+  let cacheKey = db.id + "-" + id + "-" + date;
   let cache = cache_tripsById.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
