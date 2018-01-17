@@ -1,10 +1,9 @@
-
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>rt/About.js - Documentation</title>
+    <title>TripSearchResultTransfer - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,101 +28,534 @@
 
 <div id="main">
     
-    <h1 class="page-title">rt/About.js</h1>
+    <h1 class="page-title">TripSearchResultTransfer</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
+        <h2>
+        TripSearchResultTransfer
+        </h2>
+        
+            <div class="class-description"><h2>Trip Search Result Transfer</h2><p>This Class represents a Transfer between two <a href="TripSearchResultSegment.html">Trip Search Result Segments</a>
+in a <a href="TripSearchResult.html">Trip Search Result</a>.  The Transfer Class contains
+information on the Transfer Stop, the arrival and departure times to/from the
+Transfer Stop and the layover time spent at the Transfer Stop.</p>
+<p><strong>Module:</strong> <a href="module-search_TripSearchResultTransfer.html">search/TripSearchResultTransfer</a></p></div>
+        
+    
+</header>
 
-/**
- * Right Track About Class
- * @see {@link About}
- * @module rt/About
- */
+<article>
+    <div class="container-overview">
+    
+        
 
-/**
- * RT About
- * --------
- * Representation of the data in the rt_about table, which holds the
- * information about the Right Track Database.
- *
- * Right Track Fields:
- * - Compile Date
- * - Publish Date
- * - Start Date
- * - End Date
- * - Version
- * - Version Notes
- *
- * **Module:** {@link module:rt/About|rt/About}
- *
- * @class
- * @alias About
- */
-class About {
+    
+    <h2>Constructor</h2>
+    
 
-  /**
-   * Right Track About Constructor
-   * @constructor
-   * @param {int} compile the compile date of the Right Track DB (yyyymmdd)
-   * @param {int} publish the publish date of the Right Track DB (yyyymmdd)
-   * @param {int} start the start date the Right Track DB schedule (yyyymmdd)
-   * @param {int} end the end date of the Right Track DB schedule (yyyymmdd)
-   * @param {int} version the version number of the Right Track DB (usually yyyymmddHH)
-   * @param {string} notes the version notes of the Right Track DB
-   */
-  constructor(compile, publish, start, end, version, notes) {
+    <h4 class="name" id="TripSearchResultTransfer"><span class="type-signature"></span>new TripSearchResultTransfer<span class="signature">(stop, arrival, departure)</span><span class="type-signature"></span></h4>
 
-    /**
-     * The Right Track DB compile date in YYYYMMDD format
-     * @type {Number}
-     */
-    this.compileDate = compile;
-
-    /**
-     * The GTFS publish date in YYYYMMDD format
-     * @type {Number}
-     */
-    this.publishDate = publish;
-
-    /**
-     * The start date of the GTFS schedule data in YYYYMMDD format
-     * @type {Number}
-     */
-    this.startDate = start;
-
-    /**
-     * The end date of the GTFS schedule data in YYYYMMDD format
-     * @type {Number}
-     */
-    this.endDate = end;
-
-    /**
-     * The Right Track DB version
-     * @type {Number}
-     */
-    this.version = version;
-
-    /**
-     * The Right Track DB version notes
-     * @type {string}
-     */
-    this.notes = notes;
-
-  }
-
-}
+    
 
 
-module.exports = About;</code></pre>
-        </article>
-    </section>
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="search_TripSearchResultTransfer.js.html">search/TripSearchResultTransfer.js</a>, <a href="search_TripSearchResultTransfer.js.html#line24">line 24</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Create a new Trip Search Result Transfer at the specified
+Transfer Stop with the provided arrival and departure times.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>stop</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Stop.html">Stop</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Transfer Stop</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>arrival</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="DateTime.html">DateTime</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Arrival Date/Time</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>departure</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="DateTime.html">DateTime</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Departure Date/Time</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="arrival"><span class="type-signature"></span>arrival<span class="type-signature"> :<a href="DateTime.html">DateTime</a></span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="search_TripSearchResultTransfer.js.html">search/TripSearchResultTransfer.js</a>, <a href="search_TripSearchResultTransfer.js.html#line45">line 45</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>The Arrival Date/Time to the Transfer Stop</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="DateTime.html">DateTime</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="departure"><span class="type-signature"></span>departure<span class="type-signature"> :<a href="DateTime.html">DateTime</a></span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="search_TripSearchResultTransfer.js.html">search/TripSearchResultTransfer.js</a>, <a href="search_TripSearchResultTransfer.js.html#line51">line 51</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>The Departure Date/Time from the Transfer Stop</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="DateTime.html">DateTime</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="layoverTime"><span class="type-signature"></span>layoverTime<span class="type-signature"> :number</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="search_TripSearchResultTransfer.js.html">search/TripSearchResultTransfer.js</a>, <a href="search_TripSearchResultTransfer.js.html#line57">line 57</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>The Layover Time (minutes) spent at the Transfer Stop</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="stop"><span class="type-signature"></span>stop<span class="type-signature"> :<a href="Stop.html">Stop</a></span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="search_TripSearchResultTransfer.js.html">search/TripSearchResultTransfer.js</a>, <a href="search_TripSearchResultTransfer.js.html#line39">line 39</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>The Transfer Stop</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Stop.html">Stop</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
@@ -133,7 +565,7 @@ module.exports = About;</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Jan 17 2018 18:23:06 GMT-0500 (EST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Jan 17 2018 18:23:07 GMT-0500 (EST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

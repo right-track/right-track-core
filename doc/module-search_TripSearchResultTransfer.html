@@ -1,10 +1,9 @@
-
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>rt/About.js - Documentation</title>
+    <title>search/TripSearchResultTransfer - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,101 +28,136 @@
 
 <div id="main">
     
-    <h1 class="page-title">rt/About.js</h1>
+    <h1 class="page-title">search/TripSearchResultTransfer</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
+        
+            
+        
+    
+</header>
 
-/**
- * Right Track About Class
- * @see {@link About}
- * @module rt/About
- */
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Trip Search Result Transfer Class</p></div>
+        
 
-/**
- * RT About
- * --------
- * Representation of the data in the rt_about table, which holds the
- * information about the Right Track Database.
- *
- * Right Track Fields:
- * - Compile Date
- * - Publish Date
- * - Start Date
- * - End Date
- * - Version
- * - Version Notes
- *
- * **Module:** {@link module:rt/About|rt/About}
- *
- * @class
- * @alias About
- */
-class About {
-
-  /**
-   * Right Track About Constructor
-   * @constructor
-   * @param {int} compile the compile date of the Right Track DB (yyyymmdd)
-   * @param {int} publish the publish date of the Right Track DB (yyyymmdd)
-   * @param {int} start the start date the Right Track DB schedule (yyyymmdd)
-   * @param {int} end the end date of the Right Track DB schedule (yyyymmdd)
-   * @param {int} version the version number of the Right Track DB (usually yyyymmddHH)
-   * @param {string} notes the version notes of the Right Track DB
-   */
-  constructor(compile, publish, start, end, version, notes) {
-
-    /**
-     * The Right Track DB compile date in YYYYMMDD format
-     * @type {Number}
-     */
-    this.compileDate = compile;
-
-    /**
-     * The GTFS publish date in YYYYMMDD format
-     * @type {Number}
-     */
-    this.publishDate = publish;
-
-    /**
-     * The start date of the GTFS schedule data in YYYYMMDD format
-     * @type {Number}
-     */
-    this.startDate = start;
-
-    /**
-     * The end date of the GTFS schedule data in YYYYMMDD format
-     * @type {Number}
-     */
-    this.endDate = end;
-
-    /**
-     * The Right Track DB version
-     * @type {Number}
-     */
-    this.version = version;
-
-    /**
-     * The Right Track DB version notes
-     * @type {string}
-     */
-    this.notes = notes;
-
-  }
-
-}
+        
+            
 
 
-module.exports = About;</code></pre>
-        </article>
-    </section>
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="search_TripSearchResultTransfer.js.html">search/TripSearchResultTransfer.js</a>, <a href="search_TripSearchResultTransfer.js.html#line3">line 3</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="TripSearchResultTransfer.html">TripSearchResultTransfer</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

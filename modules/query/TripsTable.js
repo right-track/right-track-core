@@ -33,7 +33,7 @@ const StopTimesTable = require('./StopTimesTable.js');
 let getTrip = function(db, id, date, callback) {
 
   // Check cache for trip
-  let cacheKey = db.id + "-" + id;
+  let cacheKey = db.id + "-" + id + "-" + date;
   let cache = cache_tripsById.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -128,6 +128,12 @@ let getTrip = function(db, id, date, callback) {
           row.transfer_weight
         );
 
+        // Add day to date for 24+ hr time
+        let stopTimeDate = date;
+        if ( row.arrival_time_seconds >= 86400 ) {
+          stopTimeDate = DateTime.createFromDate(date).deltaDays(1).getDateInt();
+        }
+
         // Build StopTime
         let stopTime = new StopTime(
           stop,
@@ -138,7 +144,7 @@ let getTrip = function(db, id, date, callback) {
           row.departure_time_seconds,
           row.pickup_type,
           row.drop_off_type,
-          date
+          stopTimeDate
         );
 
         // Add stop time to list

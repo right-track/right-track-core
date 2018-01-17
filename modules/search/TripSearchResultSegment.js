@@ -55,22 +55,24 @@ class TripSearchResultSegment {
      */
     this.exit = trip.getStopTime(exit);
 
-  }
+    /**
+     * The Trip Origin StopTime
+     * @type {StopTime}
+     */
+    this.origin = this.trip.stopTimes[0];
 
-  /**
-   * The Trip Origin StopTime
-   * @returns {StopTime}
-   */
-  get origin() {
-    return this.trip.stopTimes[0];
-  }
+    /**
+     * The Trip Destination StopTime
+     * @type {StopTime}
+     */
+    this.destination = this.trip.stopTimes[this.trip.stopTimes.length-1];
 
-  /**
-   * The Trip Destination StopTime
-   * @returns {StopTime}
-   */
-  get destination() {
-    return this.trip.stopTimes[this.trip.stopTimes.length-1];
+    /**
+     * Travel Time (in minutes) on this Segment
+     * @type {number}
+     */
+    this.travelTime = (this.exit.arrival.toTimestamp() - this.enter.departure.toTimestamp())/60000;
+
   }
 
 }

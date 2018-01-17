@@ -162,39 +162,7 @@ class TripSearch {
    * @param {TripSearchResult[]} [callback.results] Trip Search Results
    */
   search(db, callback) {
-    let _this = this;
-
-    // Perform the Search
-    search(db, this.origin, this.destination, this.datetime, this.options, function(err, results) {
-
-      // Print Results
-      console.log("==== TRIP SEARCH RESULTS: ===");
-      console.log("ORIGIN: " + _this.origin.name);
-      console.log("DESTINATION: " + _this.destination.name);
-      console.log("DEPARTURE: " + _this.datetime.toString());
-      console.log("=============================");
-
-      // Parse each Result
-      for ( let i = 0; i < results.length; i++ ) {
-        let result = results[i];
-
-        console.log(result.origin.stop.name + " @ " + result.origin.departure.getTimeReadable() + " --> " + result.destination.stop.name + " @ " + result.destination.arrival.getTimeReadable());
-
-        // Parse segments when a transfer is required
-        if ( result.length > 1 ) {
-          let segments = result.segments;
-          for ( let j = 0; j < segments.length; j++ ) {
-            let segment = segments[j];
-            console.log("  " + segment.enter.stop.name + " @ " + segment.enter.departure.getTimeReadable() + " --> " + segment.exit.stop.name + " @ " + segment.exit.arrival.getTimeReadable());
-          }
-        }
-
-      }
-
-      // Return Results
-      return callback(err, results);
-
-    });
+    search(db, this.origin, this.destination, this.datetime, this.options, callback);
   }
 
 }
