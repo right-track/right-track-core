@@ -282,18 +282,26 @@ function getStopByStatusId(db, statusId, callback) {
 
 
 /**
- * Get all of the Stops that are stored in the passed database
- * (sorted alphabetically)
+ * Get all of the Stops that are stored in the passed database (sorted alphabetically),
+ * optionally filtered to only include Stops that support real-time Station Feeds.
  *
  * @param {RightTrackDB} db The Right Track Database to query
+ * @param {boolean} [hasFeed=false] When true, only return Stops that support real-time Station Feeds.
+ * When false, include all Stops.
  * @param {function} callback Callback function
  * @param {Error} callback.error Database Query Error
  * @param {Stop[]} [callback.stops] The selected Stops
  */
-function getStops(db, callback) {
+function getStops(db, hasFeed, callback) {
+
+  // Process args
+  if ( callback === undefined && typeof hasFeed === 'function' ) {
+    callback = hasFeed;
+    hasFeed = false;
+  }
 
   // Check cache for stops
-  let cacheKey = db.id + "-" + 'stops';
+  let cacheKey = db.id + "-stops-" + hasFeed;
   let cache = cache_stops.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -305,6 +313,11 @@ function getStops(db, callback) {
     "rt_stops_extra.status_id, rt_stops_extra.display_name, rt_stops_extra.transfer_weight " +
     "FROM gtfs_stops, rt_stops_extra " +
     "WHERE gtfs_stops.stop_id=rt_stops_extra.stop_id";
+
+  // Filter Stops by status id
+  if ( hasFeed ) {
+    select = select + " AND rt_stops_extra.status_id <> '-1'";
+  }
 
   // Query the database
   db.select(select, function(err, results) {
@@ -366,19 +379,27 @@ function getStops(db, callback) {
 
 
 /**
- * Get all of the Stops that are associated with the
- * specified route (sorted alphabetically)
+ * Get all of the Stops that are associated with the specified route (sorted alphabetically),
+ * optionally filtered to only include Stops that support real-time Station Feeds.
  *
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {string} routeId The Route ID
+ * @param {boolean} [hasFeed=false] When true, only return Stops on Route that support
+ * real-time Station Feeds. When false, include all Stops on Route.
  * @param {function} callback Callback function
  * @param {Error} callback.error Database Query Error
  * @param {Stop[]} [callback.stops] The selected Stops
  */
-function getStopsByRoute(db, routeId, callback) {
+function getStopsByRoute(db, routeId, hasFeed, callback) {
+
+  // Parse Args
+  if ( callback === undefined && typeof hasFeed === 'function' ) {
+    callback = hasFeed;
+    hasFeed = false;
+  }
 
   // Check cache for Stops
-  let cacheKey = db.id + "-" + routeId;
+  let cacheKey = db.id + "-" + routeId + "-" + hasFeed;
   let cache = cache_stopsByRoute.get(cacheKey);
   if ( cache !== null ) {
     return callback(null, cache);
@@ -386,8 +407,13 @@ function getStopsByRoute(db, routeId, callback) {
 
   // Build select statement
   // Get all Stop IDs that have a trip that uses the specified route
-  let select = "SELECT DISTINCT stop_id FROM gtfs_stop_times WHERE trip_id IN " +
-    "(SELECT DISTINCT trip_id FROM gtfs_trips WHERE route_id='" + routeId + "');";
+  let select = "SELECT DISTINCT gtfs_stop_times.stop_id FROM gtfs_stop_times, rt_stops_extra " +
+    "WHERE trip_id IN (SELECT DISTINCT trip_id FROM gtfs_trips WHERE route_id='" + routeId + "')";
+
+  // Filter by Status ID
+  if ( hasFeed ) {
+    select = select + " AND gtfs_stop_times.stop_id=rt_stops_extra.stop_id AND rt_stops_extra.status_id <> '-1';"
+  }
 
   // Query the database
   db.select(select, function(err, results) {
@@ -430,158 +456,133 @@ function getStopsByRoute(db, routeId, callback) {
 }
 
 
-/**
- * Get all of the Stops with a valid (!= -1) Status ID that are stored
- * in the passed database (sorted alphabetically)
- *
- * @param {RightTrackDB} db The Right Track Database to query
- * @param {function} callback Callback function
- * @param {Error} callback.error Database Query Error
- * @param {Stop[]} [callback.stops] The selected Stops
- */
-function getStopsWithStatus(db, callback) {
-
-  // Check cache for Stops
-  let cacheKey = db.id + "-" + 'stopsWithStatus';
-  let cache = cache_stopsWithStatus.get(cacheKey);
-  if ( cache !== null ) {
-    return callback(null, cache);
-  }
-
-  // Build select statement
-  let select = "SELECT gtfs_stops.stop_id, gtfs_stops.stop_name, gtfs_stops.stop_lat, " +
-    "gtfs_stops.stop_lon, gtfs_stops.stop_url, gtfs_stops.wheelchair_boarding, " +
-    "rt_stops_extra.status_id, rt_stops_extra.display_name, rt_stops_extra.transfer_weight " +
-    "FROM gtfs_stops, rt_stops_extra " +
-    "WHERE gtfs_stops.stop_id=rt_stops_extra.stop_id AND " +
-    "rt_stops_extra.status_id <> '-1';";
-
-  // Query the database
-  db.select(select, function(err, results) {
-
-    // Database query error
-    if ( err ) {
-      return callback(err);
-    }
-
-    // Array to hold stops to return
-    let stops = [];
-
-    // Parse each row
-    for ( let i = 0; i < results.length; i++ ) {
-      let row = results[i];
-
-      // Use rt display_name if provided
-      let final_name = row.stop_name;
-      if ( row.display_name !== undefined && row.display_name !== "" ) {
-        final_name = row.display_name;
-      }
-
-      // Set wheelchair boarding to unknown if status not in database
-      let wheelchair_boarding = row.wheelchair_boarding;
-      if ( row.wheelchair_boarding === null ) {
-        wheelchair_boarding = Stop.WHEELCHAIR_BOARDING_UNKNOWN;
-      }
-
-      // build the Stop
-      let stop = new Stop(
-        row.stop_id,
-        final_name,
-        row.stop_lat,
-        row.stop_lon,
-        row.stop_url,
-        wheelchair_boarding,
-        row.status_id,
-        row.transfer_weight
-      );
-
-      // Add stop to return array
-      stops.push(stop);
-
-    }
-
-    // Sort Stops By Name
-    stops.sort(Stop.sortByName);
-
-    // Add Stops to Cache
-    cache_stopsWithStatus.put(cacheKey, stops);
-
-    // Return Stops
-    return callback(null, stops);
-
-  });
-
-}
-
 
 /**
- * Get Stops sorted by distance from the specified location. Optionally filter
+ * Get Stops sorted by distance from the specified location. The Location filters will
  * the returned stops to include up to `count` results and/or within `distance`
- * miles from the location.
+ * miles from the location. Optionally, the returned Stops can be filtered to include
+ * only Stops that support real-time Station Feeds and/or are associated with a specific Route.
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {number} lat Location latitude (decimal degrees)
  * @param {number} lon Location longitude (decimal degrees)
- * @param {int|undefined} [count] Max number of Stops to return
- * @param {number|undefined} [distance] Max distance (miles) Stops can be from location
+ * @param {int} count Max number of Stops to return (-1 for no limit)
+ * @param {number} distance Max distance (miles) Stops can be from location (-1 for no limit)
+ * @param {boolean} [hasFeed=false] When true, only return Stops that support
+ * real-time Station Feeds. When false, include all matching Stops.
+ * @param {string} [routeId] When provided with a GTFS Route ID, return only Stops
+ * associated with the Route
  * @param {function} callback Callback function
  * @param {Error} callback.error Database Query Error
  * @param {Stop[]} [callback.stops] The selected Stops
  */
-function getStopsByLocation(db, lat, lon, count, distance, callback) {
+function getStopsByLocation(db, lat, lon, count, distance, hasFeed, routeId, callback) {
+
+  // Parse Args
+  if ( callback === undefined && routeId === undefined ) {
+    callback = hasFeed;
+    hasFeed = false;
+    routeId = undefined;
+  }
+  else if ( callback === undefined && typeof hasFeed === 'boolean' ) {
+    callback = routeId;
+    routeId = undefined;
+  }
+  else if ( callback === undefined && typeof hasFeed === 'string' ) {
+    callback = routeId;
+    routeId = hasFeed;
+    hasFeed = false;
+  }
+
+  // Get Stops By Route
+  if ( routeId !== undefined ) {
+    getStopsByRoute(db, routeId, hasFeed, function(err, stops) {
+
+      // Query Error
+      if ( err ) {
+        return callback(err);
+      }
+
+      // Parse Stops
+      _parseStopsByLocation(stops, lat, lon, count, distance, callback);
+
+    });
+  }
 
   // Get all of the Stops
-  getStops(db, function(err, stops) {
-    if ( err || stops === undefined ) {
-      return callback(err);
-    }
+  else {
+    getStops(db, hasFeed, function (err, stops) {
 
-
-    // Calc distance to/from each stop
-    for ( let i = 0; i < stops.length; i++ ) {
-      stops[i].setDistance(lat, lon);
-    }
-
-    // Sort by distance
-    stops.sort(Stop.sortByDistance);
-
-
-
-    // Filter the stops to return
-    let rtn = [];
-
-
-    // Return 'count' stops
-    if ( count !== undefined ) {
-      for ( let i = 0; i < count; i++ ) {
-        if ( stops.length > i ) {
-          rtn.push(stops[i]);
-        }
+      // Query Error
+      if ( err ) {
+        return callback(err);
       }
-    }
 
-    // No 'count' specified, add all stops
-    else {
-      rtn = stops;
-    }
+      // Parse Stops
+      _parseStopsByLocation(stops, lat, lon, count, distance, callback);
 
+    });
+  }
 
-    // Filter by distance
-    if ( distance !== undefined ) {
-      let temp = [];
-      for ( let i = 0; i < rtn.length; i++ ) {
-        if ( rtn[i].distance <= distance ) {
-          temp.push(rtn[i]);
-        }
-      }
-      rtn = temp;
-    }
-
-
-    // Return the Stops
-    return callback(null, rtn);
-
-  });
 }
+
+
+/**
+ * Parse the Stops by the Location Information
+ * @param {Stop[]} stops List of Stops to parse
+ * @param {number} lat Location Latitude
+ * @param {number} lon Location Longitude
+ * @param {int} count Max number of stops to return (-1 for unlimited)
+ * @param {number} distance Max distance from location (-1 for no limit)
+ * @param {function} callback Callback function(err, stops)
+ * @private
+ */
+function _parseStopsByLocation(stops, lat, lon, count, distance, callback) {
+
+  // Calc distance to/from each stop
+  for ( let i = 0; i < stops.length; i++ ) {
+    stops[i].setDistance(lat, lon);
+  }
+
+  // Sort by distance
+  stops.sort(Stop.sortByDistance);
+
+
+  // Filter the stops to return
+  let rtn = [];
+
+
+  // Return 'count' stops
+  if ( count !== -1 ) {
+    for ( let i = 0; i < count; i++ ) {
+      if ( stops.length > i ) {
+        rtn.push(stops[i]);
+      }
+    }
+  }
+
+  // No 'count' specified, add all stops
+  else {
+    rtn = stops;
+  }
+
+
+  // Filter by distance
+  if ( distance !== -1 ) {
+    let temp = [];
+    for ( let i = 0; i < rtn.length; i++ ) {
+      if ( rtn[i].distance <= distance ) {
+        temp.push(rtn[i]);
+      }
+    }
+    rtn = temp;
+  }
+
+
+  // Return the Stops
+  return callback(null, rtn);
+
+}
+
 
 
 // ==== SETUP CACHES ==== //
@@ -590,7 +591,6 @@ let cache_stopByName = new cache.Cache();
 let cache_stopByStatusId = new cache.Cache();
 let cache_stops = new cache.Cache();
 let cache_stopsByRoute = new cache.Cache();
-let cache_stopsWithStatus = new cache.Cache();
 
 /**
  * Clear the StopsTable caches
@@ -602,7 +602,6 @@ function clearCache() {
   cache_stopByStatusId.clear();
   cache_stops.clear();
   cache_stopsByRoute.clear();
-  cache_stopsWithStatus.clear();
 }
 
 
@@ -613,7 +612,6 @@ module.exports = {
   getStopByStatusId: getStopByStatusId,
   getStops: getStops,
   getStopsByRoute: getStopsByRoute,
-  getStopsWithStatus: getStopsWithStatus,
   getStopsByLocation: getStopsByLocation,
   clearCache: clearCache
 };
