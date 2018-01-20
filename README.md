@@ -175,8 +175,8 @@ The Search parameters can be customized with the following options:
 | ----------- | ------------- | ----------- |
 | `allowTransfers` | `true` | Enable to allow a Trip Search Result to include one or more transfers to a different Trip at a Transfer Stop.
 | `allowChangeInDirection` | `true` | Enable to allow transfers to a Trip running in the opposite direction.
-| `preDateHours` | `3` | The number of hours **before** the specified departure date/time to include in the results.
-| `postDateHours` | `6` | The number of hours **after** the specified departure date/time to include in the results.
+| `preDepartureHours` | `3` | The number of hours **before** the specified departure date/time to include in the results.
+| `postDepartureHours` | `6` | The number of hours **after** the specified departure date/time to include in the results.
 | `maxLayoverMins` | `30` | The maximum number of minutes to layover at a transfer Stop.
 | `minLayoverMins` | `0` | The minimum number of minutes to layover at a transfer Stop.
 | `maxTransfers` | `2` | The maximum number of transfers allowed per Trip Search Result.
@@ -208,7 +208,7 @@ The Search parameters can be customized with the following options:
      // Set Search Paramters
      let dt = DateTime.create("1:30 PM", 20180116);
      let options = {
-       postDateHours: 8
+       postDepartureHours: 8
      };
 
      // Set up the Trip Search
