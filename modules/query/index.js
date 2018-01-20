@@ -15,12 +15,13 @@ function clearCache() {
   require('./AboutTable.js').clearCache();
   require('./CalendarTable.js').clearCache();
   require('./HolidayTable.js').clearCache();
+  require('./LineGraphTable.js').clearCache();
   require('./LinksTable.js').clearCache();
+  require('./RouteGraphTable.js').clearCache();
   require('./RoutesTable.js').clearCache();
   require('./StopsTable.js').clearCache();
   require('./StopTimesTable.js').clearCache();
   require('./TripsTable.js').clearCache();
-  require('./RouteGraphTable.js').clearCache();
 }
 
 
