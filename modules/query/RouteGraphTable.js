@@ -25,6 +25,8 @@ const Stop = require('../gtfs/Stop.js');
  * @param {function} callback Callback function
  * @param {Error} callback.error Database Query Error
  * @param {Stop[]} [callback.stops] List of possible next Stops
+ *
+ * @deprecated The rt_route_graph table is likely to be removed in the future
  */
 function getNextStops(db, id, direction, callback) {
 

@@ -304,6 +304,7 @@ function getStops(db, hasFeed, callback) {
   let cacheKey = db.id + "-stops-" + hasFeed;
   let cache = cache_stops.get(cacheKey);
   if ( cache !== null ) {
+    cache.sort(Stop.sortByName);
     return callback(null, cache);
   }
 
@@ -402,6 +403,7 @@ function getStopsByRoute(db, routeId, hasFeed, callback) {
   let cacheKey = db.id + "-" + routeId + "-" + hasFeed;
   let cache = cache_stopsByRoute.get(cacheKey);
   if ( cache !== null ) {
+    cache.sort(Stop.sortByName);
     return callback(null, cache);
   }
 

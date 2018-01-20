@@ -449,11 +449,133 @@ function _getMatchingTripId(db, originId, destinationId, departure, serviceIdStr
 }
 
 
+/**
+ * Get all Trips effectively running on the specified date
+ * @param {RightTrackDB} db The Right Track DB to query
+ * @param {int} date Date in YYYYMMDD format
+ * @param {Object} [opts] Query Options
+ * @param {string} [opts.routeId] GTFS Route ID - get Trips that run on this Route
+ * @param {string} [opts.stopId] GTFS Stop ID - get Trips that stop at this Stop
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Trip[]} [callback.trips] List of Trips
+ */
+function getTripsByDate(db, date, opts, callback) {
+
+  // Parse Args
+  if ( callback === undefined && typeof opts === 'function' ) {
+    callback = opts;
+    opts = {}
+  }
+
+  // Check cache for trips
+  let cacheKey = db.id + "-" + date + "-" + opts.routeId + "-" + opts.stopId;
+  let cache = cache_tripsByDate.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
+
+  // List of Trips to return
+  let rtn = [];
+
+  // Counters
+  let done = 0;
+  let count = 0;
+
+  // Get the Effective Service IDs
+  _buildEffectiveServiceIDString(db, date, function(err, serviceIdString) {
+
+    // Database Query Error
+    if ( err ) {
+      return callback(err);
+    }
+
+    // Build Select Statement
+    let select = "";
+
+    // Get Trips By Stop
+    if ( opts.stopId !== undefined ) {
+      select = select + "SELECT trip_id FROM gtfs_stop_times WHERE stop_id='" + opts.stopId + "' AND trip_id IN (";
+    }
+
+    // Get Trips By Date
+    select = select + "SELECT DISTINCT trip_id FROM gtfs_trips WHERE service_id IN " + serviceIdString;
+
+    // Filter By Route, if provided
+    if ( opts.routeId !== undefined ) {
+      select = select + " AND route_id='" + opts.routeId + "'";
+    }
+
+    // Close Outer Select
+    if ( opts.stopId !== undefined ) {
+      select = select + ")";
+    }
+
+    // Query the DB
+    db.select(select, function(err, results) {
+
+      // Database Query Error
+      if ( err ) {
+        return callback(err);
+      }
+
+      // Set the counter
+      count = results.length;
+
+      // No Stops Found
+      if ( results.length === 0 ) {
+        _finish();
+      }
+
+      // Build the Trips
+      for ( let i = 0; i < results.length; i++ ) {
+        getTrip(db, results[i].trip_id, date, function(err, trip) {
+
+          // Database Query Error
+          if ( err ) {
+            return callback(err);
+          }
+
+          // Add reference stop, if provided
+          if ( opts.stopId ) {
+            trip._referenceStopId = opts.stopId;
+          }
+
+          // Add Trip to Result
+          rtn.push(trip);
+
+          // Finish
+          _finish();
+
+        });
+      }
+
+    });
+
+  });
+
+
+  /**
+   * Finish Parsing Trip
+   * @private
+   */
+  function _finish() {
+    done++;
+    if ( count === 0 || done === count ) {
+      rtn.sort(Trip.sortByDepartureTime);
+      return callback(null, rtn);
+    }
+  }
+
+}
+
+
 
 // ==== SETUP CACHES ==== //
 let cache_tripsById = new cache.Cache();
 let cache_tripsByShortName = new cache.Cache();
 let cache_tripsByDeparture = new cache.Cache();
+let cache_tripsByDate = new cache.Cache();
 
 /**
  * Clear the TripsTable caches
@@ -463,6 +585,7 @@ function clearCache() {
   cache_tripsById.clear();
   cache_tripsByShortName.clear();
   cache_tripsByDeparture.clear();
+  cache_tripsByDate.clear();;
 }
 
 
@@ -472,5 +595,6 @@ module.exports = {
   getTrip: getTrip,
   getTripByShortName: getTripByShortName,
   getTripByDeparture: getTripByDeparture,
+  getTripsByDate: getTripsByDate,
   clearCache: clearCache
 };
