@@ -648,7 +648,7 @@ function _getTransferStops(db, origin, destination, stop, trip, callback) {
       }
     }
 
-    // TODO: Return only the top 3 transfer Stops
+    // Return only the top 3 transfer Stops
     if ( rtn.length > 3 ) {
       rtn = [rtn[0], rtn[1], rtn[2]];
     }

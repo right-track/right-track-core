@@ -168,4 +168,39 @@ Trip.WHEELCHAIR_ACCESSIBLE_YES = 1;
 Trip.WHEELCHAIR_ACCESSIBLE_N0 = 2;
 
 
+// ==== SORT METHODS ==== //
+
+/**
+ * Sort Trips by departure time of the first Stop (or reference Stop, if defined)
+ * @param {Trip} a first Trip
+ * @param {Trip} b second Trip
+ * @returns {number} compare integer
+ */
+Trip.sortByDepartureTime = function(a, b) {
+  if ( a._referenceStopId && b._referenceStopId && a._referenceStopId === b._referenceStopId ) {
+    let stopId = a._referenceStopId;
+    if ( a.getStopTime(stopId).departure.toTimestamp() < b.getStopTime(stopId).departure.toTimestamp() ) {
+      return -1;
+    }
+    else if ( a.getStopTime(stopId).departure.toTimestamp() > b.getStopTime(stopId).departure.toTimestamp() ) {
+      return 1;
+    }
+    else {
+      return 0;
+    }
+  }
+  else {
+    if ( a.stopTimes[0].departure.toTimestamp() < b.stopTimes[0].departure.toTimestamp() ) {
+      return -1;
+    }
+    else if ( a.stopTimes[0].departure.toTimestamp() > b.stopTimes[0].departure.toTimestamp() ) {
+      return 1;
+    }
+    else {
+      return 0;
+    }
+  }
+};
+
+
 module.exports = Trip;

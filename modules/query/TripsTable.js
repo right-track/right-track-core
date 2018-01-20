@@ -536,6 +536,11 @@ function getTripsByDate(db, date, opts, callback) {
             return callback(err);
           }
 
+          // Add reference stop, if provided
+          if ( opts.stopId ) {
+            trip._referenceStopId = opts.stopId;
+          }
+
           // Add Trip to Result
           rtn.push(trip);
 
@@ -557,9 +562,7 @@ function getTripsByDate(db, date, opts, callback) {
   function _finish() {
     done++;
     if ( count === 0 || done === count ) {
-
-      // TODO: Sort the Trips by Departure Time, from Stop if provided
-
+      rtn.sort(Trip.sortByDepartureTime);
       return callback(null, rtn);
     }
   }
