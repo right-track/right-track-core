@@ -26,16 +26,16 @@ const LOG = false;
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {Stop} origin Origin Stop
  * @param {Stop} destination Destination Stop
- * @param {DateTime} datetime Requested Departure Date/Time
+ * @param {DateTime} departure Requested Departure Date/Time
  * @param {Object} options Trip Search Options
  * @param {function} callback Callback Function
  * @private
  */
-function search(db, origin, destination, datetime, options, callback) {
+function search(db, origin, destination, departure, options, callback) {
   _log("====== STARTING SEARCH ======");
   _log("ORIGIN: " + origin.name);
   _log("DESTINATION: " + destination.name);
-  _log("DATE/TIME: " + datetime.toString());
+  _log("DATE/TIME: " + departure.toString());
   _log("OPTIONS: " + JSON.stringify(options, null, 2));
 
 
@@ -44,7 +44,7 @@ function search(db, origin, destination, datetime, options, callback) {
 
 
   // Get the initial Trip Search Dates
-  _getTripSearchDates(db, datetime, options.preDateHours*60, options.postDateHours*60, function(err, tripSearchDates) {
+  _getTripSearchDates(db, departure, options.preDepartureHours*60, options.postDepartureHours*60, function(err, tripSearchDates) {
     _log("===== SEARCH TIME RANGE =====");
     for ( let i = 0; i < tripSearchDates.length; i++ ) {
       _log(JSON.stringify(tripSearchDates[i], null, 2));

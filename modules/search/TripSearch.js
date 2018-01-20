@@ -30,33 +30,33 @@ class TripSearch {
    * Set the parameters of a new Trip Search
    * @param {Stop} origin Origin Stop
    * @param {Stop} destination Destination Stop
-   * @param {DateTime} [datetime=now] The Date/Time of the Trip Search
+   * @param {DateTime} [departure=now] The Departure Date/Time of the Trip Search
    * @param {Object} [options] Trip Search Options
    * @param {boolean} [options.allowTransfers=true] Allow transfers between trains
    * @param {boolean} [options.allowChangeInDirection=true] Allow transfers that change direction of travel
-   * @param {int} [options.preDateHours=3] The number of hours before `datetime` to include in results
-   * @param {int} [options.postDateHours=6] The number of hours after `datetime` to include in results
+   * @param {int} [options.preDepartureHours=3] The number of hours before the requested departure to include in results
+   * @param {int} [options.postDepartureHours=6] The number of hours after the requested departure to include in results
    * @param {int} [options.maxLayoverMins=30] The maximum number of minutes to layover at a transfer Stop
    * @param {int} [options.minLayoverMins=0] The minimum number of minutes to layover at a transfer Stop
    * @param {int} [options.maxTransfers=2] The maximum number of transfers
    */
-  constructor(origin, destination, datetime, options) {
+  constructor(origin, destination, departure, options) {
 
     // Datetime and Options not provided
-    if ( datetime === undefined && options === undefined ) {
-      datetime = DateTime.now();
+    if ( departure === undefined && options === undefined ) {
+      departure = DateTime.now();
       options = {};
     }
 
     // Options Not Provided
-    else if ( options === undefined && datetime instanceof DateTime ) {
+    else if ( options === undefined && departure instanceof DateTime ) {
       options = {};
     }
 
     // DateTime Not Provided
-    else if ( options === undefined && !(datetime instanceof DateTime) ) {
-      options = datetime;
-      datetime = DateTime.now();
+    else if ( options === undefined && !(departure instanceof DateTime) ) {
+      options = departure;
+      departure = DateTime.now();
     }
 
     /**
@@ -76,7 +76,7 @@ class TripSearch {
      * @type {DateTime}
      * @default now
      */
-    this.datetime = datetime !== undefined ? datetime
+    this.departure = departure !== undefined ? departure
       : DateTime.now();
 
     /**
@@ -100,7 +100,7 @@ class TripSearch {
      * @type {int}
      * @default 3
      */
-    this.preDateHours = options.hasOwnProperty('preDateHours') ? options.preDateHours
+    this.preDepartureHours = options.hasOwnProperty('preDepartureHours') ? options.preDepartureHours
       : 3;
 
     /**
@@ -108,7 +108,7 @@ class TripSearch {
      * @type {int}
      * @default 6
      */
-    this.postDateHours = options.hasOwnProperty('postDateHours') ? options.postDateHours
+    this.postDepartureHours = options.hasOwnProperty('postDepartureHours') ? options.postDepartureHours
       : 6;
 
     /**
@@ -139,14 +139,14 @@ class TripSearch {
 
   /**
    * All of the Trip Search options
-   * @returns {{allowTransfers: boolean, allowChangeInDirection: boolean, preDateHours: int, postDateHours: int, maxLayoverMins: int, minLayoverMins: int, maxLayovers: int}}
+   * @returns {{allowTransfers: boolean, allowChangeInDirection: boolean, preDepartureHours: int, postDepartureHours: int, maxLayoverMins: int, minLayoverMins: int, maxLayovers: int}}
    */
   get options() {
     return {
       allowTransfers: this.allowTransfers,
       allowChangeInDirection: this.allowChangeInDirection,
-      preDateHours: this.preDateHours,
-      postDateHours: this.postDateHours,
+      preDepartureHours: this.preDepartureHours,
+      postDepartureHours: this.postDepartureHours,
       maxLayoverMins: this.maxLayoverMins,
       minLayoverMins: this.minLayoverMins,
       maxTransfers: this.maxTransfers
@@ -162,7 +162,7 @@ class TripSearch {
    * @param {TripSearchResult[]} [callback.results] Trip Search Results
    */
   search(db, callback) {
-    search(db, this.origin, this.destination, this.datetime, this.options, callback);
+    search(db, this.origin, this.destination, this.departure, this.options, callback);
   }
 
 }
