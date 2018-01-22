@@ -32,8 +32,8 @@ class TripSearchResultSegment {
   /**
    * Create a new Trip Search Result Segment from the provided Trip
    * @param {Trip} trip The Trip that makes up this Segment
-   * @param {Stop} enter The Stop where the Segment starts
-   * @param {Stop} exit The Stop where the Segment ends
+   * @param {Stop|string} enter The Stop or Stop ID where the Segment starts
+   * @param {Stop|string} exit The Stop or Stop ID where the Segment ends
    */
   constructor(trip, enter, exit) {
 

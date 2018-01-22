@@ -6,6 +6,7 @@
  * @module gtfs/StopTime
  */
 
+const provided = require('../utils/provided.js');
 const DateTime = require('../utils/DateTime.js');
 
 /**
@@ -20,10 +21,11 @@ const DateTime = require('../utils/DateTime.js');
  * - Stop Sequence (integer, 1-->...)
  *
  * GTFS Optional Fields:
- * - Arrival Time Seconds (integer, seconds since midnight)
- * - Departure Time Seconds (integer, seconds since midnight)
+ * - Stop Headsign
  * - Pickup Type
  * - Drop Off Type
+ * - Shape Distance Traveled
+ * - Timepoint
  *
  * Right Track Fields:
  * - Date (yyyymmdd)
@@ -43,21 +45,28 @@ class StopTime {
    * @param {string} arrivalTime StopTime Arrival Time (GTFS Time String)
    * @param {string} departureTime StopTime Departure Time (GTFS Time String)
    * @param {int} stopSequence StopTime Stop Sequence
-   * @param {int} [arrivalTimeSeconds] StopTime Arrival Time (Time Seconds)
-   * @param {int} [departureTimeSeconds] StopTime Departure Time (Time Seconds)
-   * @param {int} [pickupType] StopTime Pickup Type
-   * @param {int} [dropOffType] StopTime Drop Off Type
-   * @param {int} [date] StopTime date (yyyymmdd)
+   * @param {Object} [optional] Optional Arguments
+   * @param {string} [optional.headsign] The Trip headsign at this Stop
+   * @param {int} [optional.pickupType=0] Stop Pickup Type
+   * @param {int} [optional.dropOffType=0] Stop Drop Off Type
+   * @param {number} [optional.shapeDistanceTraveled] The distance traveled from the first shape point
+   * @param {int} [optional.timepoint=1] Indicate if the arrival and departure times are exact or approximate
+   * @param {int} [optional.date=19700101] StopTime date (yyyymmdd)
    */
-  constructor(stop, arrivalTime, departureTime, stopSequence,
-              arrivalTimeSeconds, departureTimeSeconds, pickupType=StopTime.PICKUP_TYPE_REGULAR,
-              dropOffType=StopTime.DROP_OFF_TYPE_REGULAR, date=19700101) {
+  constructor(stop, arrivalTime, departureTime, stopSequence, optional={}) {
 
     /**
      * The Stop for this scheduled StopTime
      * @type {Stop}
      */
     this.stop = stop;
+
+    /**
+     * The date of the Trip in YYYYMMDD format
+     * @type {Number}
+     * @default 1970101
+     */
+    this.date = provided(optional.date, 19700101);
 
     /**
      * The trip's arrival time for this scheduled StopTime in HH:MM:SS format
@@ -69,7 +78,7 @@ class StopTime {
      * The trip's arrival Date/Time
      * @type {DateTime}
      */
-    this.arrival = new DateTime(arrivalTime, date);
+    this.arrival = new DateTime(arrivalTime, this.date);
 
     /**
      * The trip's departure time for this scheduled StopTime in HH:MM:SS format
@@ -81,7 +90,7 @@ class StopTime {
      * The trip's departure Date/Time
      * @type {DateTime}
      */
-    this.departure = new DateTime(departureTime, date);
+    this.departure = new DateTime(departureTime, this.date);
 
     /**
      * The StopTime's sequence in the scheduled Trip
@@ -90,38 +99,39 @@ class StopTime {
     this.stopSequence = stopSequence;
 
     /**
-     * The StopTime's arrival time in seconds since midnight
-     * @type {Number}
-     */
-    this.arrivalTimeSeconds = (typeof arrivalTimeSeconds !== 'undefined')
-      ? arrivalTimeSeconds
-      : this.arrival.getTimeSeconds();
-
-    /**
-     * The StopTime's departure time in seconds since midnight
-     * @type {Number}
-     */
-    this.departureTimeSeconds = (typeof departureTimeSeconds !== 'undefined')
-      ? departureTimeSeconds
-      : this.departure.getTimeSeconds();
-
-    /**
      * Value indicating whether passengers are picked up at the Stop
      * @type {int}
+     * @default 0
      */
-    this.pickupType = pickupType;
+    this.pickupType = provided(optional.pickupType, StopTime.PICKUP_TYPE_REGULAR);
 
     /**
      * Value indicating whether passengers are dropped off at the Stop
      * @type {int}
+     * @default 0
      */
-    this.dropOffType = dropOffType;
+    this.dropOffType = provided(optional.dropOffType, StopTime.DROP_OFF_TYPE_REGULAR);
 
     /**
-     * The date of the Trip in YYYYMMDD format
-     * @type {Number}
+     * If the Trip Headsign changes along the Trip, this is the Trip Headsign
+     * displayed at this Stop
+     * @type {string}
      */
-    this.date = date;
+    this.headsign = provided(optional.headsign);
+
+    /**
+     * The actual distance traveled from the first shape point
+     * @type {number}
+     */
+    this.shapeDistanceTraveled = provided(optional.shapeDistanceTraveled);
+
+    /**
+     * Indicates whether the arrival and departure times should be considered
+     * approximate or exact
+     * @type {int}
+     * @default 1
+     */
+    this.timepoint = provided(optional.timepoint, StopTime.TIMEPOINT_EXACT);
 
   }
 
@@ -189,6 +199,24 @@ StopTime.DROP_OFF_TYPE_PHONE_AGENCY = 2;
  * @default
  */
 StopTime.DROP_OFF_TYPE_DRIVER_COORDINATION = 3;
+
+
+
+// ==== STOP TIME TIMEPOINTS ==== //
+
+/**
+ * Timepoint: Times are considered approximate
+ * @const {number}
+ * @default 0
+ */
+StopTime.TIMEPOINT_APPROXIMATE = 0;
+
+/**
+ * Timepoint: Times are considered exact
+ * @const {number}
+ * @default
+ */
+StopTime.TIMEPOINT_EXACT = 1;
 
 
 

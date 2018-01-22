@@ -50,11 +50,9 @@ function getRoute(db, id, callback) {
   }
 
   // Build the select statement
-  let select = "SELECT gtfs_routes.route_id, gtfs_routes.route_short_name, " +
-    "gtfs_routes.route_long_name, gtfs_routes.route_type, gtfs_routes.route_color, " +
-    "gtfs_routes.route_text_color, " +
-    "gtfs_agency.agency_id, gtfs_agency.agency_name, gtfs_agency.agency_url, " +
-    "gtfs_agency.agency_timezone " +
+  let select = "SELECT " +
+    "gtfs_routes.route_id, route_short_name, route_long_name, route_desc, route_type, route_url, route_color, route_text_color, " +
+    "gtfs_agency.agency_id, agency_name, agency_url, agency_timezone, agency_lang, agency_phone, agency_fare_url " +
     "FROM gtfs_routes, gtfs_agency " +
     "WHERE gtfs_routes.agency_id=gtfs_agency.agency_id AND " +
     "gtfs_routes.route_id IN " + routeIds + ";";
@@ -79,7 +77,12 @@ function getRoute(db, id, callback) {
         result.agency_name,
         result.agency_url,
         result.agency_timezone,
-        result.agency_id
+        {
+          id: result.agency_id,
+          lang: result.agency_lang,
+          phone: result.agency_phone,
+          fare_url: result.agency_fare_url
+        }
       );
 
       // Create Route
@@ -88,9 +91,13 @@ function getRoute(db, id, callback) {
         result.route_short_name,
         result.route_long_name,
         result.route_type,
-        agency,
-        result.route_color,
-        result.route_text_color
+        {
+          agency: agency,
+          description: result.route_desc,
+          url: result.route_url,
+          color: result.route_color,
+          textColor: result.route_text_color
+        }
       );
 
       // Add route to list
@@ -136,11 +143,9 @@ function getRoutes(db, callback) {
   }
 
   // Build the select statement
-  let select = "SELECT gtfs_routes.route_id, gtfs_routes.route_short_name, " +
-    "gtfs_routes.route_long_name, gtfs_routes.route_type, gtfs_routes.route_color, " +
-    "gtfs_routes.route_text_color, " +
-    "gtfs_agency.agency_id, gtfs_agency.agency_name, gtfs_agency.agency_url, " +
-    "gtfs_agency.agency_timezone " +
+  let select = "SELECT " +
+    "gtfs_routes.route_id, route_short_name, route_long_name, route_desc, route_type, route_url, route_color, route_text_color, " +
+    "gtfs_agency.agency_id, agency_name, agency_url, agency_timezone, agency_lang, agency_phone, agency_fare_url " +
     "FROM gtfs_routes, gtfs_agency " +
     "WHERE gtfs_routes.agency_id=gtfs_agency.agency_id";
 
@@ -164,7 +169,12 @@ function getRoutes(db, callback) {
         row.agency_name,
         row.agency_url,
         row.agency_timezone,
-        row.agency_id
+        {
+          id: row.agency_id,
+          lang: row.agency_lang,
+          phone: row.agency_phone,
+          fare_url: row.agency_fare_url
+        }
       );
 
       // Create Route
@@ -173,9 +183,13 @@ function getRoutes(db, callback) {
         row.route_short_name,
         row.route_long_name,
         row.route_type,
-        agency,
-        row.route_color,
-        row.route_text_color
+        {
+          agency: agency,
+          description: row.route_desc,
+          url: row.route_url,
+          color: row.route_color,
+          textColor: row.route_text_color
+        }
       );
 
       // Add the route to the return list

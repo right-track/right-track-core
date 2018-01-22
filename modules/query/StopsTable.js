@@ -7,9 +7,10 @@
  * @module query/stops
  */
 
-const cache = require('memory-cache');
-const Stop = require('../gtfs/Stop.js');
 
+const cache = require('memory-cache');
+const provided = require('../utils/provided.js');
+const Stop = require('../gtfs/Stop.js');
 
 
 
@@ -50,9 +51,9 @@ function getStop(db, id, callback) {
 
 
   // Build Select Statement
-  let select = "SELECT gtfs_stops.stop_id, gtfs_stops.stop_name, gtfs_stops.stop_lat, " +
-    "gtfs_stops.stop_lon, gtfs_stops.stop_url, gtfs_stops.wheelchair_boarding, " +
-    "rt_stops_extra.status_id, rt_stops_extra.display_name, rt_stops_extra.transfer_weight " +
+  let select = "SELECT gtfs_stops.stop_id, stop_name, stop_desc, stop_lat, stop_lon, stop_url, " +
+    "gtfs_stops.zone_id AS gtfs_zone_id, stop_code, wheelchair_boarding, location_type, parent_station, stop_timezone, " +
+    "rt_stops_extra.status_id, display_name, transfer_weight, rt_stops_extra.zone_id AS rt_zone_id " +
     "FROM gtfs_stops, rt_stops_extra " +
     "WHERE gtfs_stops.stop_id=rt_stops_extra.stop_id AND " +
     "gtfs_stops.stop_id IN " + stopIds + ";";
@@ -78,10 +79,10 @@ function getStop(db, id, callback) {
         final_name = row.display_name;
       }
 
-      // Set wheelchair boarding to unknown if status not in database
-      let wheelchair_boarding = row.wheelchair_boarding;
-      if (row.wheelchair_boarding === null) {
-        wheelchair_boarding = Stop.WHEELCHAIR_BOARDING_UNKNOWN;
+      // Get zone_id from rt_stops_extra if not defined if gtfs_stops
+      let zone_id = row.gtfs_zone_id;
+      if ( zone_id === null || zone_id === undefined ) {
+        zone_id = row.rt_zone_id;
       }
 
       // build the Stop
@@ -90,10 +91,18 @@ function getStop(db, id, callback) {
         final_name,
         row.stop_lat,
         row.stop_lon,
-        row.stop_url,
-        wheelchair_boarding,
-        row.status_id,
-        row.transfer_weight
+        {
+          code: row.stop_code,
+          description: row.stop_desc,
+          zoneId: zone_id,
+          url: row.stop_url,
+          locationType: row.location_type,
+          parentStation: row.parent_station,
+          timezone: row.stop_timezone,
+          wheelchairBoarding: row.wheelchair_boarding,
+          statusId: row.status_id,
+          transferWeight: row.transfer_weight
+        }
       );
 
       // Add stop to list
@@ -226,9 +235,9 @@ function getStopByStatusId(db, statusId, callback) {
 
 
   // Build select statement
-  let select = "SELECT gtfs_stops.stop_id, gtfs_stops.stop_name, gtfs_stops.stop_lat, " +
-    "gtfs_stops.stop_lon, gtfs_stops.stop_url, gtfs_stops.wheelchair_boarding, " +
-    "rt_stops_extra.status_id, rt_stops_extra.display_name, rt_stops_extra.transfer_weight " +
+  let select = "SELECT gtfs_stops.stop_id, stop_name, stop_desc, stop_lat, stop_lon, stop_url, " +
+    "gtfs_stops.zone_id AS gtfs_zone_id, stop_code, wheelchair_boarding, location_type, parent_station, stop_timezone, " +
+    "rt_stops_extra.status_id, display_name, transfer_weight, rt_stops_extra.zone_id AS rt_zone_id " +
     "FROM gtfs_stops, rt_stops_extra " +
     "WHERE gtfs_stops.stop_id=rt_stops_extra.stop_id AND " +
     "rt_stops_extra.status_id='" + statusId + "';";
@@ -252,10 +261,10 @@ function getStopByStatusId(db, statusId, callback) {
       final_name = result.display_name;
     }
 
-    // Set wheelchair boarding to unknown if status not in database
-    let wheelchair_boarding = result.wheelchair_boarding;
-    if ( result.wheelchair_boarding === null ) {
-      wheelchair_boarding = Stop.WHEELCHAIR_BOARDING_UNKNOWN;
+    // Get zone_id from rt_stops_extra if not defined in gtfs_stops
+    let zone_id = result.gtfs_zone_id;
+    if ( zone_id === null || zone_id === undefined ) {
+      zone_id = result.rt_zone_id;
     }
 
     // build the Stop
@@ -264,10 +273,18 @@ function getStopByStatusId(db, statusId, callback) {
       final_name,
       result.stop_lat,
       result.stop_lon,
-      result.stop_url,
-      wheelchair_boarding,
-      result.status_id,
-      result.transfer_weight
+      {
+        code: result.stop_code,
+        description: result.stop_desc,
+        zoneId: zone_id,
+        url: result.stop_url,
+        locationType: result.location_type,
+        parentStation: result.parent_station,
+        timezone: result.stop_timezone,
+        wheelchairBoarding: result.wheelchair_boarding,
+        statusId: result.status_id,
+        transferWeight: result.transfer_weight
+      }
     );
 
     // Add Stop to cache
@@ -309,9 +326,9 @@ function getStops(db, hasFeed, callback) {
   }
 
   // Build select statement
-  let select = "SELECT gtfs_stops.stop_id, gtfs_stops.stop_name, gtfs_stops.stop_lat, " +
-    "gtfs_stops.stop_lon, gtfs_stops.stop_url, gtfs_stops.wheelchair_boarding, " +
-    "rt_stops_extra.status_id, rt_stops_extra.display_name, rt_stops_extra.transfer_weight " +
+  let select = "SELECT gtfs_stops.stop_id, stop_name, stop_desc, stop_lat, stop_lon, stop_url, " +
+    "gtfs_stops.zone_id AS gtfs_zone_id, stop_code, wheelchair_boarding, location_type, parent_station, stop_timezone, " +
+    "rt_stops_extra.status_id, display_name, transfer_weight, rt_stops_extra.zone_id AS rt_zone_id " +
     "FROM gtfs_stops, rt_stops_extra " +
     "WHERE gtfs_stops.stop_id=rt_stops_extra.stop_id";
 
@@ -341,10 +358,10 @@ function getStops(db, hasFeed, callback) {
         final_name = row.display_name;
       }
 
-      // Set wheelchair boarding to unknown if status not in database
-      let wheelchair_boarding = row.wheelchair_boarding;
-      if ( row.wheelchair_boarding === null ) {
-        wheelchair_boarding = Stop.WHEELCHAIR_BOARDING_UNKNOWN;
+      // Get zone_id from rt_stops_extra if not defined if gtfs_stops
+      let zone_id = row.gtfs_zone_id;
+      if ( zone_id === null || zone_id === undefined ) {
+        zone_id = row.rt_zone_id;
       }
 
       // build the Stop
@@ -353,10 +370,18 @@ function getStops(db, hasFeed, callback) {
         final_name,
         row.stop_lat,
         row.stop_lon,
-        row.stop_url,
-        wheelchair_boarding,
-        row.status_id,
-        row.transfer_weight
+        {
+          code: row.stop_code,
+          description: row.stop_desc,
+          zoneId: zone_id,
+          url: row.stop_url,
+          locationType: row.location_type,
+          parentStation: row.parent_station,
+          timezone: row.stop_timezone,
+          wheelchairBoarding: row.wheelchair_boarding,
+          statusId: row.status_id,
+          transferWeight: row.transfer_weight
+        }
       );
 
       // Add stop to return array
@@ -460,40 +485,38 @@ function getStopsByRoute(db, routeId, hasFeed, callback) {
 
 
 /**
- * Get Stops sorted by distance from the specified location. The Location filters will
+ * Get Stops sorted by distance from the specified location. Optionally, filter
  * the returned stops to include up to `count` results and/or within `distance`
- * miles from the location. Optionally, the returned Stops can be filtered to include
- * only Stops that support real-time Station Feeds and/or are associated with a specific Route.
+ * miles from the location. Also, the returned Stops can be filtered to include
+ * only Stops that support real-time Station Feeds and/or are associated with a
+ * specific Route.
  * @param {RightTrackDB} db The Right Track Database to query
  * @param {number} lat Location latitude (decimal degrees)
  * @param {number} lon Location longitude (decimal degrees)
- * @param {int} count Max number of Stops to return (-1 for no limit)
- * @param {number} distance Max distance (miles) Stops can be from location (-1 for no limit)
- * @param {boolean} [hasFeed=false] When true, only return Stops that support
- * real-time Station Feeds. When false, include all matching Stops.
- * @param {string} [routeId] When provided with a GTFS Route ID, return only Stops
+ * @param {Object} [options] Filter Options
+ * @param {int} [options.count] Max number of Stops to return
+ * @param {number} [options.distance] Max distance (miles) Stops can be from location
+ * @param {boolean} [options.hasFeed] When true, only return Stops that support
+ * real-time Station Feeds. Otherwise include all matching Stops.
+ * @param {string} [options.routeId] When provided with a GTFS Route ID, return only Stops
  * associated with the Route
  * @param {function} callback Callback function
  * @param {Error} callback.error Database Query Error
  * @param {Stop[]} [callback.stops] The selected Stops
  */
-function getStopsByLocation(db, lat, lon, count, distance, hasFeed, routeId, callback) {
+function getStopsByLocation(db, lat, lon, options, callback) {
 
   // Parse Args
-  if ( callback === undefined && routeId === undefined ) {
-    callback = hasFeed;
-    hasFeed = false;
-    routeId = undefined;
+  if ( callback === undefined && typeof options === 'function' ) {
+    callback = options;
+    options = {};
   }
-  else if ( callback === undefined && typeof hasFeed === 'boolean' ) {
-    callback = routeId;
-    routeId = undefined;
-  }
-  else if ( callback === undefined && typeof hasFeed === 'string' ) {
-    callback = routeId;
-    routeId = hasFeed;
-    hasFeed = false;
-  }
+
+  // Get options
+  let hasFeed = provided(options.hasFeed, false);
+  let routeId = provided(options.routeId);
+  let count = provided(options.count, -1);
+  let distance = provided(options.distance, -1);
 
   // Get Stops By Route
   if ( routeId !== undefined ) {
