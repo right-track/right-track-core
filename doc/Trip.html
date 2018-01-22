@@ -54,9 +54,13 @@
 </ul>
 <p>GTFS Optional Fields:</p>
 <ul>
+<li>Trip Headsign</li>
 <li>Trip Short Name</li>
 <li>Trip Direction ID</li>
+<li>Trip Block ID</li>
+<li>Trip Shape ID</li>
 <li>Trip Wheelchair Accessibility</li>
+<li>Trip Bikes Allowed</li>
 </ul>
 <p>Right Track Fields:</p>
 <ul>
@@ -77,7 +81,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="Trip"><span class="type-signature"></span>new Trip<span class="signature">(id, route, service, stopTimes, shortName<span class="signature-attributes">opt</span>, directionId<span class="signature-attributes">opt</span>, wheelchairAccessible<span class="signature-attributes">opt</span>, directionDescription<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Trip"><span class="type-signature"></span>new Trip<span class="signature">(id, route, service, stopTimes, optional<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -89,7 +93,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line37">line 37</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line42">line 42</a>
     </li></ul></dd>
     
 
@@ -300,6 +304,99 @@
 
         <tr>
             
+                <td class="name"><code>optional</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Optional Arguments</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>headsign</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Trip Headsign</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>shortName</code></td>
             
 
@@ -324,6 +421,10 @@
                 </td>
             
 
+            
+                <td class="default">
+                
+                </td>
             
 
             <td class="description last"><p>Trip Short Name</p></td>
@@ -358,41 +459,14 @@
             
 
             
-
-            <td class="description last"><p>Trip Direction ID</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>wheelchairAccessible</code></td>
-            
-
-            <td class="type">
-            
+                <td class="default">
                 
-<span class="param-type">int</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
+                    <code>-1</code>
                 
                 </td>
             
 
-            
-
-            <td class="description last"><p>Trip Wheelchair Accessibility code</p></td>
+            <td class="description last"><p>Trip Direction ID</p></td>
         </tr>
 
     
@@ -424,8 +498,171 @@
             
 
             
+                <td class="default">
+                
+                </td>
+            
 
             <td class="description last"><p>Trip Direction Description</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>blockId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Trip Block ID</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>shapeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Trip Shape ID</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>wheelchairAccessible</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>0</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Trip Wheelchair Accessibility code</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>bikesAllowed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>0</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Trip Bikes Allowed code</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -465,6 +702,240 @@
 
         
             
+<h4 class="name" id=".BIKES_ALLOWED_NO"><span class="type-signature">(static, constant) </span>BIKES_ALLOWED_NO<span class="type-signature"> :number</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line228">line 228</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>2</li>
+        </ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Trip Bikes Allowed: No bikes allowed</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".BIKES_ALLOWED_UNKNOWN"><span class="type-signature">(static, constant) </span>BIKES_ALLOWED_UNKNOWN<span class="type-signature"> :number</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line214">line 214</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>0</li>
+        </ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Trip Bikes Allowed: Unknown</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".BIKES_ALLOWED_YES"><span class="type-signature">(static, constant) </span>BIKES_ALLOWED_YES<span class="type-signature"> :number</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line221">line 221</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>1</li>
+        </ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Trip Bikes Allowed: At least one allowed</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id=".WHEELCHAIR_ACCESSIBLE_N0"><span class="type-signature">(static, constant) </span>WHEELCHAIR_ACCESSIBLE_N0<span class="type-signature"> :number</span></h4>
 
 
@@ -476,7 +947,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line168">line 168</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line203">line 203</a>
     </li></ul></dd>
     
 
@@ -554,7 +1025,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line154">line 154</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line189">line 189</a>
     </li></ul></dd>
     
 
@@ -632,7 +1103,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line161">line 161</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line196">line 196</a>
     </li></ul></dd>
     
 
@@ -699,6 +1170,157 @@
 
         
             
+<h4 class="name" id="bikesAllowed"><span class="type-signature"></span>bikesAllowed<span class="type-signature"> :int</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line137">line 137</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>0</li>
+        </ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Value indicating whether bikes are allowed on the vehicle making the Trip</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">int</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="blockId"><span class="type-signature"></span>blockId<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line116">line 116</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>The ID of the block the Trip belongs to</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="directionDescription"><span class="type-signature"></span>directionDescription<span class="type-signature"> :string</span></h4>
 
 
@@ -710,7 +1332,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line102">line 102</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line110">line 110</a>
     </li></ul></dd>
     
 
@@ -783,7 +1405,85 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line89">line 89</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line104">line 104</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>-1</li>
+        </ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Direction of travel for the Trip</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">int</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="headsign"><span class="type-signature"></span>headsign<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line91">line 91</a>
     </li></ul></dd>
     
 
@@ -823,7 +1523,7 @@
 
 
 <div class="description">
-    <p>Direction of travel for the Trip</p>
+    <p>Trip Headsign - text displayed to passengers indicating the Trip's destination</p>
 </div>
 
 
@@ -832,7 +1532,7 @@
     <ul>
         <li>
             
-<span class="param-type">int</span>
+<span class="param-type">string</span>
 
 
         </li>
@@ -856,7 +1556,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line59">line 59</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line67">line 67</a>
     </li></ul></dd>
     
 
@@ -929,7 +1629,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line65">line 65</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line73">line 73</a>
     </li></ul></dd>
     
 
@@ -1002,7 +1702,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line71">line 71</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line79">line 79</a>
     </li></ul></dd>
     
 
@@ -1064,6 +1764,79 @@
 
         
             
+<h4 class="name" id="shapeId"><span class="type-signature"></span>shapeId<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line122">line 122</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>The ID of the shape the Trip belongs to</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="shortName"><span class="type-signature"></span>shortName<span class="type-signature"> :string</span></h4>
 
 
@@ -1075,7 +1848,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line83">line 83</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line97">line 97</a>
     </li></ul></dd>
     
 
@@ -1148,7 +1921,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line77">line 77</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line85">line 85</a>
     </li></ul></dd>
     
 
@@ -1221,7 +1994,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line96">line 96</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line130">line 130</a>
     </li></ul></dd>
     
 
@@ -1247,6 +2020,11 @@
 
     
 
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>0</li>
+        </ul></dd>
     
 
     
@@ -1305,7 +2083,7 @@ making the Trip</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line179">line 179</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line241">line 241</a>
     </li></ul></dd>
     
 
@@ -1483,7 +2261,7 @@ making the Trip</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line115">line 115</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line150">line 150</a>
     </li></ul></dd>
     
 
@@ -1641,7 +2419,7 @@ making the Trip</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line132">line 132</a>
+        <a href="gtfs_Trip.js.html">gtfs/Trip.js</a>, <a href="gtfs_Trip.js.html#line167">line 167</a>
     </li></ul></dd>
     
 
@@ -1800,7 +2578,7 @@ making the Trip</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Jan 20 2018 10:50:19 GMT-0500 (EST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jan 21 2018 18:55:18 GMT-0500 (EST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

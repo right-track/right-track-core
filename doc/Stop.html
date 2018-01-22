@@ -54,7 +54,13 @@
 </ul>
 <p>GTFS Optional Fields:</p>
 <ul>
+<li>GTFS Stop Code</li>
+<li>GTFS Stop Description</li>
+<li>GTFS Zone ID</li>
 <li>GTFS Stop URL</li>
+<li>GTFS Location Type</li>
+<li>GTFS Parent Station</li>
+<li>GTFS Stop Timezone</li>
 <li>GTFS Wheelchair Boarding</li>
 </ul>
 <p>Right Track Fields:</p>
@@ -76,7 +82,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="Stop"><span class="type-signature"></span>new Stop<span class="signature">(id, name, lat, lon, url<span class="signature-attributes">opt</span>, wheelchairBoarding<span class="signature-attributes">opt</span>, statusId<span class="signature-attributes">opt</span>, transferWeight<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Stop"><span class="type-signature"></span>new Stop<span class="signature">(id, name, lat, lon, optional<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -88,7 +94,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line36">line 36</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line43">line 43</a>
     </li></ul></dd>
     
 
@@ -165,8 +171,6 @@
         
 
         
-        <th>Default</th>
-        
 
         <th class="last">Description</th>
     </tr>
@@ -200,10 +204,6 @@
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
             <td class="description last"><p>Stop ID</p></td>
         </tr>
@@ -234,10 +234,6 @@
                 </td>
             
 
-            
-                <td class="default">
-                
-                </td>
             
 
             <td class="description last"><p>Stop Name</p></td>
@@ -270,10 +266,6 @@
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
             <td class="description last"><p>Stop Latitude</p></td>
         </tr>
@@ -305,12 +297,175 @@
             
 
             
+
+            <td class="description last"><p>Stop Longitude</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>optional</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Optional Arguments</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
                 <td class="default">
                 
                 </td>
             
 
-            <td class="description last"><p>Stop Longitude</p></td>
+            <td class="description last"><p>Stop Code</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>description</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Stop Description</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>zoneId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Stop Zone ID</p></td>
         </tr>
 
     
@@ -347,7 +502,120 @@
                 </td>
             
 
-            <td class="description last"><p>Stop URL</p></td>
+            <td class="description last"><p>Stop Website URL</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>locationType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>0</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Stop Location Type</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>parentStation</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Stop Parent Station</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timezone</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Stop Timezone Code</p></td>
         </tr>
 
     
@@ -380,6 +648,8 @@
 
             
                 <td class="default">
+                
+                    <code>0</code>
                 
                 </td>
             
@@ -418,7 +688,7 @@
             
                 <td class="default">
                 
-                    <code>-1</code>
+                    <code>'-1'</code>
                 
                 </td>
             
@@ -469,6 +739,13 @@
     </tbody>
 </table>
 
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
 
 
 
@@ -502,6 +779,240 @@
 
         
             
+<h4 class="name" id=".LOCATION_TYPE_ENTRANCE_EXIT"><span class="type-signature">(static, constant) </span>LOCATION_TYPE_ENTRANCE_EXIT<span class="type-signature"> :number</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line199">line 199</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>2</li>
+        </ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Location Type: Station Entrance/Exit - location where passengers enter or exit a Station</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".LOCATION_TYPE_STATION"><span class="type-signature">(static, constant) </span>LOCATION_TYPE_STATION<span class="type-signature"> :number</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line192">line 192</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>1</li>
+        </ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Location Type: Station - physical structure or area that contains one or more Stops</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".LOCATION_TYPE_STOP"><span class="type-signature">(static, constant) </span>LOCATION_TYPE_STOP<span class="type-signature"> :number</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line185">line 185</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>0</li>
+        </ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Location Type: Stop - passengers board or disembark from a transit vehicle</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id=".WHEELCHAIR_BOARDING_NO"><span class="type-signature">(static, constant) </span>WHEELCHAIR_BOARDING_NO<span class="type-signature"> :number</span></h4>
 
 
@@ -513,7 +1024,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line140">line 140</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line224">line 224</a>
     </li></ul></dd>
     
 
@@ -591,7 +1102,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line126">line 126</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line210">line 210</a>
     </li></ul></dd>
     
 
@@ -669,7 +1180,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line133">line 133</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line217">line 217</a>
     </li></ul></dd>
     
 
@@ -736,6 +1247,229 @@
 
         
             
+<h4 class="name" id="code"><span class="type-signature"></span>code<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line95">line 95</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Stop Code - short text or number that can publicly be used to
+identify the Stop</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="description"><span class="type-signature"></span>description<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line101">line 101</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>A description of the Stop</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="distance"><span class="type-signature"></span>distance<span class="type-signature"> :undefined|number</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line161">line 161</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>The distance (in miles) from the location set by setDistance()</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">undefined</span>
+|
+
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="id"><span class="type-signature"></span>id<span class="type-signature"> :string</span></h4>
 
 
@@ -747,7 +1481,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line57">line 57</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line70">line 70</a>
     </li></ul></dd>
     
 
@@ -820,7 +1554,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line69">line 69</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line82">line 82</a>
     </li></ul></dd>
     
 
@@ -882,6 +1616,84 @@
 
         
             
+<h4 class="name" id="locationType"><span class="type-signature"></span>locationType<span class="type-signature"> :int</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line120">line 120</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>0</li>
+        </ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Stop location type (stop, station, or station entrance/exit)</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">int</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="lon"><span class="type-signature"></span>lon<span class="type-signature"> :number</span></h4>
 
 
@@ -893,7 +1705,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line75">line 75</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line88">line 88</a>
     </li></ul></dd>
     
 
@@ -966,7 +1778,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line63">line 63</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line76">line 76</a>
     </li></ul></dd>
     
 
@@ -1028,7 +1840,7 @@
 
         
             
-<h4 class="name" id="statusId"><span class="type-signature"></span>statusId<span class="type-signature"> :string</span></h4>
+<h4 class="name" id="parentStation"><span class="type-signature"></span>parentStation<span class="type-signature"> :string</span></h4>
 
 
 
@@ -1039,7 +1851,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line93">line 93</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line126">line 126</a>
     </li></ul></dd>
     
 
@@ -1079,7 +1891,158 @@
 
 
 <div class="description">
+    <p>Stop ID of Parent Station</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="statusId"><span class="type-signature"></span>statusId<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line146">line 146</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>-1</li>
+        </ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
     <p>The Stop's ID used for real-time status information</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="timezone"><span class="type-signature"></span>timezone<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line132">line 132</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>The timezone code for the Stop</p>
 </div>
 
 
@@ -1112,7 +2075,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line101">line 101</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line155">line 155</a>
     </li></ul></dd>
     
 
@@ -1138,6 +2101,11 @@
 
     
 
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>1</li>
+        </ul></dd>
     
 
     
@@ -1187,7 +2155,7 @@ Stop than one with a lower transfer weight.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line81">line 81</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line113">line 113</a>
     </li></ul></dd>
     
 
@@ -1260,7 +2228,85 @@ Stop than one with a lower transfer weight.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line87">line 87</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line139">line 139</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>0</li>
+        </ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Value indicating whether wheelchair boardings are possible for the Stop</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="zoneId"><span class="type-signature"></span>zoneId<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line107">line 107</a>
     </li></ul></dd>
     
 
@@ -1300,7 +2346,7 @@ Stop than one with a lower transfer weight.</p>
 
 
 <div class="description">
-    <p>Value indicating whether wheelchair boardings are possible for the Stop</p>
+    <p>The fare zone of the Stop (used by the fare rules table)</p>
 </div>
 
 
@@ -1309,7 +2355,7 @@ Stop than one with a lower transfer weight.</p>
     <ul>
         <li>
             
-<span class="param-type">Number</span>
+<span class="param-type">string</span>
 
 
         </li>
@@ -1343,7 +2389,7 @@ Stop than one with a lower transfer weight.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line207">line 207</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line291">line 291</a>
     </li></ul></dd>
     
 
@@ -1521,7 +2567,7 @@ Stop than one with a lower transfer weight.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line152">line 152</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line236">line 236</a>
     </li></ul></dd>
     
 
@@ -1699,7 +2745,7 @@ Stop than one with a lower transfer weight.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line170">line 170</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line254">line 254</a>
     </li></ul></dd>
     
 
@@ -1877,7 +2923,7 @@ Stop than one with a lower transfer weight.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line188">line 188</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line272">line 272</a>
     </li></ul></dd>
     
 
@@ -2055,7 +3101,7 @@ Stop than one with a lower transfer weight.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line111">line 111</a>
+        <a href="gtfs_Stop.js.html">gtfs/Stop.js</a>, <a href="gtfs_Stop.js.html#line171">line 171</a>
     </li></ul></dd>
     
 
@@ -2213,7 +3259,7 @@ location.</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Jan 20 2018 10:50:19 GMT-0500 (EST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jan 21 2018 18:55:18 GMT-0500 (EST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
