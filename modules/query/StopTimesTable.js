@@ -37,9 +37,10 @@ function getStopTimesByTrip(db, tripId, date, callback) {
 
   // Build the select statement
   let select = "SELECT " +
-    "gtfs_stop_times.arrival_time, arrival_time_seconds, departure_time, departure_time_seconds, stop_sequence, pickup_type, drop_off_type, " +
-    "gtfs_stops.stop_id, stop_name, stop_lat, stop_lon, stop_url, wheelchair_boarding, " +
-    "rt_stops_extra.display_name, status_id, transfer_weight " +
+    "gtfs_stop_times.arrival_time, departure_time, stop_sequence, pickup_type, drop_off_type, stop_headsign, shape_dist_traveled, timepoint, " +
+    "gtfs_stops.stop_id, stop_name, stop_desc, stop_lat, stop_lon, stop_url, " +
+    "gtfs_stops.zone_id AS gtfs_zone_id, stop_code, wheelchair_boarding, location_type, parent_station, stop_timezone, " +
+    "rt_stops_extra.status_id, display_name, transfer_weight, rt_stops_extra.zone_id AS rt_zone_id " +
     "FROM gtfs_stop_times " +
     "INNER JOIN gtfs_stops ON gtfs_stop_times.stop_id=gtfs_stops.stop_id " +
     "INNER JOIN rt_stops_extra ON gtfs_stops.stop_id=rt_stops_extra.stop_id " +
@@ -67,16 +68,30 @@ function getStopTimesByTrip(db, tripId, date, callback) {
         stop_name = row.display_name;
       }
 
+      // Get zone_id from rt_stops_extra if not defined if gtfs_stops
+      let zone_id = row.gtfs_zone_id;
+      if ( zone_id === null || zone_id === undefined ) {
+        zone_id = row.rt_zone_id;
+      }
+
       // Build Stop
       let stop = new Stop(
         row.stop_id,
         stop_name,
         row.stop_lat,
         row.stop_lon,
-        row.stop_url,
-        row.wheelchair_boarding,
-        row.status_id,
-        row.transfer_weight
+        {
+          code: row.stop_code,
+          description: row.stop_desc,
+          zoneId: zone_id,
+          url: row.stop_url,
+          locationType: row.location_type,
+          parentStation: row.parent_station,
+          timezone: row.stop_timezone,
+          wheelchairBoarding: row.wheelchair_boarding,
+          statusId: row.status_id,
+          transferWeight: row.transfer_weight
+        }
       );
 
       // Build StopTime
@@ -85,11 +100,14 @@ function getStopTimesByTrip(db, tripId, date, callback) {
         row.arrival_time,
         row.departure_time,
         row.stop_sequence,
-        row.arrival_time_seconds,
-        row.departure_time_seconds,
-        row.pickup_type,
-        row.drop_off_type,
-        date
+        {
+          headsign: row.stop_headsign,
+          pickupType: row.pickup_type,
+          dropOffType: row.drop_off_type,
+          shapeDistanceTraveled: row.shape_dist_traveled,
+          timepoint: row.timepoint,
+          date: date
+        }
       );
 
       // Add stoptime to list
@@ -130,9 +148,10 @@ function getStopTimeByTripStop(db, tripId, stopId, date, callback) {
 
   // Build the select statement
   let select = "SELECT " +
-    "gtfs_stop_times.arrival_time, arrival_time_seconds, departure_time, departure_time_seconds, stop_sequence, pickup_type, drop_off_type, " +
-    "gtfs_stops.stop_id, stop_name, stop_lat, stop_lon, stop_url, wheelchair_boarding, " +
-    "rt_stops_extra.display_name, status_id, transfer_weight " +
+    "gtfs_stop_times.arrival_time, departure_time, stop_sequence, pickup_type, drop_off_type, stop_headsign, shape_dist_traveled, timepoint, " +
+    "gtfs_stops.stop_id, stop_name, stop_desc, stop_lat, stop_lon, stop_url, " +
+    "gtfs_stops.zone_id AS gtfs_zone_id, stop_code, wheelchair_boarding, location_type, parent_station, stop_timezone, " +
+    "rt_stops_extra.status_id, display_name, transfer_weight, rt_stops_extra.zone_id AS rt_zone_id " +
     "FROM gtfs_stop_times " +
     "INNER JOIN gtfs_stops ON gtfs_stop_times.stop_id=gtfs_stops.stop_id " +
     "INNER JOIN rt_stops_extra ON gtfs_stops.stop_id=rt_stops_extra.stop_id " +
@@ -158,16 +177,30 @@ function getStopTimeByTripStop(db, tripId, stopId, date, callback) {
       stop_name = result.display_name;
     }
 
+    // Get zone_id from rt_stops_extra if not defined if gtfs_stops
+    let zone_id = result.gtfs_zone_id;
+    if ( zone_id === null || zone_id === undefined ) {
+      zone_id = result.rt_zone_id;
+    }
+
     // Build Stop
     let stop = new Stop(
       result.stop_id,
       stop_name,
       result.stop_lat,
       result.stop_lon,
-      result.stop_url,
-      result.wheelchair_boarding,
-      result.status_id,
-      result.transfer_weight
+      {
+        code: result.stop_code,
+        description: result.stop_desc,
+        zoneId: zone_id,
+        url: result.stop_url,
+        locationType: result.location_type,
+        parentStation: result.parent_station,
+        timezone: result.stop_timezone,
+        wheelchairBoarding: result.wheelchair_boarding,
+        statusId: result.status_id,
+        transferWeight: result.transfer_weight
+      }
     );
 
     // Build StopTime
@@ -176,11 +209,14 @@ function getStopTimeByTripStop(db, tripId, stopId, date, callback) {
       result.arrival_time,
       result.departure_time,
       result.stop_sequence,
-      result.arrival_time_seconds,
-      result.departure_time_seconds,
-      result.pickup_type,
-      result.drop_off_type,
-      date
+      {
+        headsign: result.stop_headsign,
+        pickupType: result.pickup_type,
+        dropOffType: result.drop_off_type,
+        shapeDistanceTraveled: result.shape_dist_traveled,
+        timepoint: result.timepoint,
+        date: date
+      }
     );
 
     // Add StopTimes to Cache

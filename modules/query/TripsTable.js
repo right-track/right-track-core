@@ -41,11 +41,11 @@ let getTrip = function(db, id, date, callback) {
 
   // Build the select statement
   let select = "SELECT " +
-    "gtfs_trips.trip_id, trip_short_name, wheelchair_accessible, service_id, " +
+    "gtfs_trips.trip_id, trip_short_name, wheelchair_accessible, service_id, trip_headsign, block_id, shape_id, " +
     "gtfs_directions.direction_id, description, " +
-    "gtfs_routes.route_id, route_short_name, route_long_name, route_type, route_color, route_text_color, " +
-    "gtfs_agency.agency_id, agency_name, agency_url, agency_timezone, " +
-    "gtfs_stop_times.arrival_time, arrival_time_seconds, departure_time, departure_time_seconds, stop_sequence, pickup_type, drop_off_type, " +
+    "gtfs_routes.route_id, route_short_name, route_long_name, route_desc, route_type, route_url, route_color, route_text_color, " +
+    "gtfs_agency.agency_id, agency_name, agency_url, agency_timezone, agency_lang, agency_phone, agency_fare_url, " +
+    "gtfs_stop_times.arrival_time, arrival_time_seconds, departure_time, departure_time_seconds, stop_sequence, pickup_type, drop_off_type, stop_headsign, shape_dist_traveled, timepoint, " +
     "gtfs_stops.stop_id, stop_name, stop_lat, stop_lon, stop_url, wheelchair_boarding, " +
     "rt_stops_extra.display_name, status_id, transfer_weight " +
     "FROM gtfs_trips " +
@@ -80,7 +80,12 @@ let getTrip = function(db, id, date, callback) {
       row.agency_name,
       row.agency_url,
       row.agency_timezone,
-      row.agency_id
+      {
+        id: row.agency_id,
+        lang: row.agency_lang,
+        phone: row.agency_phone,
+        fare_url: row.agency_fare_url
+      }
     );
 
     // Build Route
@@ -89,9 +94,13 @@ let getTrip = function(db, id, date, callback) {
       row.route_short_name,
       row.route_long_name,
       row.route_type,
-      agency,
-      row.route_color,
-      row.route_text_color
+      {
+        agency: agency,
+        description: row.route_desc,
+        url: row.route_url,
+        color: row.route_color,
+        textColor: row.route_text_color
+      }
     );
 
 
@@ -116,16 +125,30 @@ let getTrip = function(db, id, date, callback) {
           stop_name = row.display_name;
         }
 
+        // Get zone_id from rt_stops_extra if not defined if gtfs_stops
+        let zone_id = row.gtfs_zone_id;
+        if ( zone_id === null || zone_id === undefined ) {
+          zone_id = row.rt_zone_id;
+        }
+
         // Build Stop
         let stop = new Stop(
           row.stop_id,
           stop_name,
           row.stop_lat,
           row.stop_lon,
-          row.stop_url,
-          row.wheelchair_boarding,
-          row.status_id,
-          row.transfer_weight
+          {
+            code: row.stop_code,
+            description: row.stop_desc,
+            zoneId: zone_id,
+            url: row.stop_url,
+            locationType: row.location_type,
+            parentStation: row.parent_station,
+            timezone: row.stop_timezone,
+            wheelchairBoarding: row.wheelchair_boarding,
+            statusId: row.status_id,
+            transferWeight: row.transfer_weight
+          }
         );
 
         // Add day to date for 24+ hr time
@@ -140,11 +163,14 @@ let getTrip = function(db, id, date, callback) {
           row.arrival_time,
           row.departure_time,
           row.stop_sequence,
-          row.arrival_time_seconds,
-          row.departure_time_seconds,
-          row.pickup_type,
-          row.drop_off_type,
-          stopTimeDate
+          {
+            headsign: row.stop_headsign,
+            pickupType: row.pickup_type,
+            dropOffType: row.drop_off_type,
+            shapeDistanceTraveled: row.shape_dist_traveled,
+            timepoint: row.timepoint,
+            date: date
+          }
         );
 
         // Add stop time to list
@@ -162,10 +188,15 @@ let getTrip = function(db, id, date, callback) {
         route,
         service,
         stopTimes,
-        row.trip_short_name,
-        row.direction_id,
-        row.wheelchair_accessible,
-        row.description
+        {
+          headsign: row.trip_headsign,
+          shortName: row.trip_short_name,
+          directionId: row.direction_id,
+          directionDescription: row.description,
+          blockId: row.block_id,
+          shapeId: row.shape_id,
+          wheelchairAccessible: row.wheelchair_accessible
+        }
       );
 
       // Add Trip to Cache

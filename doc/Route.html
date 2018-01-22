@@ -54,9 +54,12 @@
 </ul>
 <p>GTFS Optional Fields:</p>
 <ul>
-<li>GTFS Agency</li>
+<li>Route Agency</li>
+<li>Route Description</li>
+<li>Route URL</li>
 <li>Route Color</li>
 <li>Route Text Color</li>
+<li>Route Sort Order</li>
 </ul>
 <p><strong>Module:</strong> <a href="module-gtfs_Route.html">gtfs/Route</a></p></div>
         
@@ -72,7 +75,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="Route"><span class="type-signature"></span>new Route<span class="signature">(id, shortName, longName, type, agency<span class="signature-attributes">opt</span>, color<span class="signature-attributes">opt</span>, textColor<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Route"><span class="type-signature"></span>new Route<span class="signature">(id, shortName, longName, type, optional<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -84,7 +87,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line31">line 31</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line36">line 36</a>
     </li></ul></dd>
     
 
@@ -161,8 +164,6 @@
         
 
         
-        <th>Default</th>
-        
 
         <th class="last">Description</th>
     </tr>
@@ -196,10 +197,6 @@
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
             <td class="description last"><p>Route ID</p></td>
         </tr>
@@ -230,10 +227,6 @@
                 </td>
             
 
-            
-                <td class="default">
-                
-                </td>
             
 
             <td class="description last"><p>Route Short Name</p></td>
@@ -266,10 +259,6 @@
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
             <td class="description last"><p>Route Long Name</p></td>
         </tr>
@@ -301,14 +290,66 @@
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
             <td class="description last"><p>Route Type</p></td>
         </tr>
 
+    
+
+        <tr>
+            
+                <td class="name"><code>optional</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Optional Arguments</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
     
 
         <tr>
@@ -343,7 +384,81 @@
                 </td>
             
 
-            <td class="description last"><p>Route Parent Agency</p></td>
+            <td class="description last"><p>Route Agency</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>description</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Route Description</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Route Website URL</p></td>
         </tr>
 
     
@@ -377,7 +492,7 @@
             
                 <td class="default">
                 
-                    <code>#ffffff</code>
+                    <code>ffffff</code>
                 
                 </td>
             
@@ -416,12 +531,56 @@
             
                 <td class="default">
                 
-                    <code>#000000</code>
+                    <code>000000</code>
                 
                 </td>
             
 
             <td class="description last"><p>Route Text Color</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sortOrder</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Route Sort Order</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -472,7 +631,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line125">line 125</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line153">line 153</a>
     </li></ul></dd>
     
 
@@ -550,7 +709,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line139">line 139</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line167">line 167</a>
     </li></ul></dd>
     
 
@@ -628,7 +787,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line132">line 132</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line160">line 160</a>
     </li></ul></dd>
     
 
@@ -706,7 +865,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line153">line 153</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line181">line 181</a>
     </li></ul></dd>
     
 
@@ -784,7 +943,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line146">line 146</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line174">line 174</a>
     </li></ul></dd>
     
 
@@ -862,7 +1021,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line104">line 104</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line132">line 132</a>
     </li></ul></dd>
     
 
@@ -940,7 +1099,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line118">line 118</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line146">line 146</a>
     </li></ul></dd>
     
 
@@ -1018,7 +1177,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line111">line 111</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line139">line 139</a>
     </li></ul></dd>
     
 
@@ -1096,7 +1255,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line75">line 75</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line83">line 83</a>
     </li></ul></dd>
     
 
@@ -1169,7 +1328,86 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line82">line 82</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line103">line 103</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>ffffff</li>
+        </ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>The color that corresponds to the route and represented as
+a six-figure hexadecimal number (without the leading '#')</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="description"><span class="type-signature"></span>description<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line89">line 89</a>
     </li></ul></dd>
     
 
@@ -1209,8 +1447,7 @@
 
 
 <div class="description">
-    <p>The color that corresponds to the route and represented as
-a six-figure hexadecimal number (without the leading '#')</p>
+    <p>Description of the Route</p>
 </div>
 
 
@@ -1243,7 +1480,7 @@ a six-figure hexadecimal number (without the leading '#')</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line51">line 51</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line59">line 59</a>
     </li></ul></dd>
     
 
@@ -1316,7 +1553,7 @@ a six-figure hexadecimal number (without the leading '#')</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line63">line 63</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line71">line 71</a>
     </li></ul></dd>
     
 
@@ -1389,7 +1626,7 @@ a six-figure hexadecimal number (without the leading '#')</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line57">line 57</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line65">line 65</a>
     </li></ul></dd>
     
 
@@ -1451,7 +1688,7 @@ a six-figure hexadecimal number (without the leading '#')</p>
 
         
             
-<h4 class="name" id="textColor"><span class="type-signature"></span>textColor<span class="type-signature"> :string</span></h4>
+<h4 class="name" id="sortOrder"><span class="type-signature"></span>sortOrder<span class="type-signature"> :int</span></h4>
 
 
 
@@ -1462,7 +1699,7 @@ a six-figure hexadecimal number (without the leading '#')</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line89">line 89</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line117">line 117</a>
     </li></ul></dd>
     
 
@@ -1502,6 +1739,84 @@ a six-figure hexadecimal number (without the leading '#')</p>
 
 
 <div class="description">
+    <p>Field used for sorting the display of Routes</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">int</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="textColor"><span class="type-signature"></span>textColor<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line111">line 111</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>000000</li>
+        </ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
     <p>The text color that corresponds to the route's color as a
 six-figure hexadecimal number (without the leading '#')</p>
 </div>
@@ -1525,7 +1840,7 @@ six-figure hexadecimal number (without the leading '#')</p>
 
         
             
-<h4 class="name" id="type"><span class="type-signature"></span>type<span class="type-signature"> :Number</span></h4>
+<h4 class="name" id="type"><span class="type-signature"></span>type<span class="type-signature"> :int</span></h4>
 
 
 
@@ -1536,7 +1851,7 @@ six-figure hexadecimal number (without the leading '#')</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line69">line 69</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line77">line 77</a>
     </li></ul></dd>
     
 
@@ -1585,7 +1900,80 @@ six-figure hexadecimal number (without the leading '#')</p>
     <ul>
         <li>
             
-<span class="param-type">Number</span>
+<span class="param-type">int</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="url"><span class="type-signature"></span>url<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line95">line 95</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Route website URL</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
 
 
         </li>
@@ -1619,7 +2007,7 @@ six-figure hexadecimal number (without the leading '#')</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line165">line 165</a>
+        <a href="gtfs_Route.js.html">gtfs/Route.js</a>, <a href="gtfs_Route.js.html#line193">line 193</a>
     </li></ul></dd>
     
 
@@ -1798,7 +2186,7 @@ six-figure hexadecimal number (without the leading '#')</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Jan 20 2018 10:50:19 GMT-0500 (EST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jan 21 2018 18:55:18 GMT-0500 (EST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

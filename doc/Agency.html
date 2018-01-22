@@ -54,6 +54,10 @@
 <p>GTFS Optional Fields:</p>
 <ul>
 <li>Agency ID</li>
+<li>Agency Language Code</li>
+<li>Agency Phone Number</li>
+<li>Agency Fare URL</li>
+<li>Agency Email</li>
 </ul>
 <p><strong>Module:</strong> <a href="module-gtfs_Agency.html">gtfs/Agency</a></p></div>
         
@@ -69,7 +73,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="Agency"><span class="type-signature"></span>new Agency<span class="signature">(name, url, timezone, id<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Agency"><span class="type-signature"></span>new Agency<span class="signature">(name, url, timezone, optional<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -81,7 +85,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Agency.js.html">gtfs/Agency.js</a>, <a href="gtfs_Agency.js.html#line28">line 28</a>
+        <a href="gtfs_Agency.js.html">gtfs/Agency.js</a>, <a href="gtfs_Agency.js.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -158,8 +162,6 @@
         
 
         
-        <th>Default</th>
-        
 
         <th class="last">Description</th>
     </tr>
@@ -193,10 +195,6 @@
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
             <td class="description last"><p>Agency Name</p></td>
         </tr>
@@ -227,10 +225,6 @@
                 </td>
             
 
-            
-                <td class="default">
-                
-                </td>
             
 
             <td class="description last"><p>Agency URL</p></td>
@@ -263,14 +257,64 @@
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
             <td class="description last"><p>Agency Timezone</p></td>
         </tr>
 
+    
+
+        <tr>
+            
+                <td class="name"><code>optional</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Optional Arguments</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
     
 
         <tr>
@@ -300,14 +344,147 @@
             
 
             
-                <td class="default">
+
+            <td class="description last"><p>Agency ID</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lang</code></td>
+            
+
+            <td class="type">
+            
                 
-                    <code>-1</code>
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
                 
                 </td>
             
 
-            <td class="description last"><p>Agency ID</p></td>
+            
+
+            <td class="description last"><p>Agency Language Code (two-letter ISO 639-1 code)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>phone</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Agency Phone Number</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fareUrl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Agency fare website URL</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>email</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Agency contact email</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -347,6 +524,153 @@
 
         
             
+<h4 class="name" id="email"><span class="type-signature"></span>email<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Agency.js.html">gtfs/Agency.js</a>, <a href="gtfs_Agency.js.html#line101">line 101</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>A single valid email address for contacting the transit agency</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="fareUrl"><span class="type-signature"></span>fareUrl<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Agency.js.html">gtfs/Agency.js</a>, <a href="gtfs_Agency.js.html#line95">line 95</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>The URL of a web page that can be used to purchase tickets
+for the transit agency</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="id"><span class="type-signature"></span>id<span class="type-signature"> :string</span></h4>
 
 
@@ -358,7 +682,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Agency.js.html">gtfs/Agency.js</a>, <a href="gtfs_Agency.js.html#line63">line 63</a>
+        <a href="gtfs_Agency.js.html">gtfs/Agency.js</a>, <a href="gtfs_Agency.js.html#line75">line 75</a>
     </li></ul></dd>
     
 
@@ -420,6 +744,80 @@
 
         
             
+<h4 class="name" id="lang"><span class="type-signature"></span>lang<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Agency.js.html">gtfs/Agency.js</a>, <a href="gtfs_Agency.js.html#line82">line 82</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>The two-letter (ISO 639-1) language code for the primary language
+used by the transit agency</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="name"><span class="type-signature"></span>name<span class="type-signature"> :string</span></h4>
 
 
@@ -431,7 +829,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Agency.js.html">gtfs/Agency.js</a>, <a href="gtfs_Agency.js.html#line44">line 44</a>
+        <a href="gtfs_Agency.js.html">gtfs/Agency.js</a>, <a href="gtfs_Agency.js.html#line56">line 56</a>
     </li></ul></dd>
     
 
@@ -493,6 +891,79 @@
 
         
             
+<h4 class="name" id="phone"><span class="type-signature"></span>phone<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="gtfs_Agency.js.html">gtfs/Agency.js</a>, <a href="gtfs_Agency.js.html#line88">line 88</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>A single voice telephone number for the transit agency</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="timezone"><span class="type-signature"></span>timezone<span class="type-signature"> :string</span></h4>
 
 
@@ -504,7 +975,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Agency.js.html">gtfs/Agency.js</a>, <a href="gtfs_Agency.js.html#line57">line 57</a>
+        <a href="gtfs_Agency.js.html">gtfs/Agency.js</a>, <a href="gtfs_Agency.js.html#line69">line 69</a>
     </li></ul></dd>
     
 
@@ -584,7 +1055,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gtfs_Agency.js.html">gtfs/Agency.js</a>, <a href="gtfs_Agency.js.html#line50">line 50</a>
+        <a href="gtfs_Agency.js.html">gtfs/Agency.js</a>, <a href="gtfs_Agency.js.html#line62">line 62</a>
     </li></ul></dd>
     
 
@@ -664,7 +1135,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Jan 20 2018 10:50:19 GMT-0500 (EST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jan 21 2018 18:55:18 GMT-0500 (EST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

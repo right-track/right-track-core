@@ -1,5 +1,7 @@
 'use strict';
 
+const provided = require('../utils/provided.js');
+
 /**
  * GTFS Route Class
  * @see {@link Route}
@@ -18,9 +20,12 @@
  * - Route Type
  *
  * GTFS Optional Fields:
- * - GTFS Agency
+ * - Route Agency
+ * - Route Description
+ * - Route URL
  * - Route Color
  * - Route Text Color
+ * - Route Sort Order
  *
  * **Module:** {@link module:gtfs/Route|gtfs/Route}
  *
@@ -37,12 +42,15 @@ class Route {
    * @param {string} shortName Route Short Name
    * @param {string} longName Route Long Name
    * @param {int} type Route Type
-   * @param {Agency} [agency] Route Parent Agency
-   * @param {string} [color] Route Color
-   * @param {string} [textColor] Route Text Color
+   * @param {Object} [optional] Optional Arguments
+   * @param {Agency} [optional.agency] Route Agency
+   * @param {string} [optional.description] Route Description
+   * @param {string} [optional.url] Route Website URL
+   * @param {string} [optional.color=ffffff] Route Color
+   * @param {string} [optional.textColor=000000] Route Text Color
+   * @param {int} [optional.sortOrder] Route Sort Order
    */
-  constructor(id, shortName, longName, type,
-              agency=undefined, color='#ffffff', textColor='#000000') {
+  constructor(id, shortName, longName, type, optional={}) {
 
     /**
      * Unique ID that identifies a route
@@ -64,7 +72,7 @@ class Route {
 
     /**
      * The type of transportation used on a route
-     * @type {Number}
+     * @type {int}
      */
     this.type = type;
 
@@ -72,21 +80,41 @@ class Route {
      * The parent Agency of the route
      * @type {Agency}
      */
-    this.agency = agency;
+    this.agency = provided(optional.agency);
+
+    /**
+     * Description of the Route
+     * @type {string}
+     */
+    this.description = provided(optional.description);
+
+    /**
+     * Route website URL
+     * @type {string}
+     */
+    this.url = provided(optional.url);
 
     /**
      * The color that corresponds to the route and represented as
      * a six-figure hexadecimal number (without the leading '#')
      * @type {string}
+     * @default ffffff
      */
-    this.color = color;
+    this.color = provided(optional.color, 'ffffff');
 
     /**
      * The text color that corresponds to the route's color as a
      * six-figure hexadecimal number (without the leading '#')
      * @type {string}
+     * @default 000000
      */
-    this.textColor = textColor;
+    this.textColor = provided(optional.textColor, '000000');
+
+    /**
+     * Field used for sorting the display of Routes
+     * @type {int}
+     */
+    this.sortOrder = provided(optional.sortOrder);
 
   }
 

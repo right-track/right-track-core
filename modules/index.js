@@ -10,7 +10,9 @@
  * @module /
  */
 
-
+/**
+ * @type {{gtfs, rt, query, search, utils}}
+ */
 module.exports = {
 
   /**

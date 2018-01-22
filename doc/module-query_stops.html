@@ -164,7 +164,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line27">line 27</a>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line28">line 28</a>
     </li></ul></dd>
     
 
@@ -441,7 +441,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line133">line 133</a>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line142">line 142</a>
     </li></ul></dd>
     
 
@@ -712,7 +712,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line211">line 211</a>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line220">line 220</a>
     </li></ul></dd>
     
 
@@ -983,7 +983,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line295">line 295</a>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line312">line 312</a>
     </li></ul></dd>
     
 
@@ -1288,7 +1288,7 @@ When false, include all Stops.</p></td>
 
     
 
-    <h4 class="name" id="~getStopsByLocation"><span class="type-signature">(inner) </span>getStopsByLocation<span class="signature">(db, lat, lon, count, distance, hasFeed<span class="signature-attributes">opt</span>, routeId<span class="signature-attributes">opt</span>, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~getStopsByLocation"><span class="type-signature">(inner) </span>getStopsByLocation<span class="signature">(db, lat, lon, options<span class="signature-attributes">opt</span>, callback)</span><span class="type-signature"></span></h4>
 
     
 
@@ -1300,7 +1300,7 @@ When false, include all Stops.</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line480">line 480</a>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line507">line 507</a>
     </li></ul></dd>
     
 
@@ -1340,10 +1340,11 @@ When false, include all Stops.</p></td>
 
 
 <div class="description">
-    <p>Get Stops sorted by distance from the specified location. The Location filters will
+    <p>Get Stops sorted by distance from the specified location. Optionally, filter
 the returned stops to include up to <code>count</code> results and/or within <code>distance</code>
-miles from the location. Optionally, the returned Stops can be filtered to include
-only Stops that support real-time Station Feeds and/or are associated with a specific Route.</p>
+miles from the location. Also, the returned Stops can be filtered to include
+only Stops that support real-time Station Feeds and/or are associated with a
+specific Route.</p>
 </div>
 
 
@@ -1372,8 +1373,6 @@ only Stops that support real-time Station Feeds and/or are associated with a spe
         <th>Attributes</th>
         
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -1408,10 +1407,6 @@ only Stops that support real-time Station Feeds and/or are associated with a spe
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
             <td class="description last"><p>The Right Track Database to query</p></td>
         </tr>
@@ -1442,10 +1437,6 @@ only Stops that support real-time Station Feeds and/or are associated with a spe
                 </td>
             
 
-            
-                <td class="default">
-                
-                </td>
             
 
             <td class="description last"><p>Location latitude (decimal degrees)</p></td>
@@ -1478,14 +1469,64 @@ only Stops that support real-time Station Feeds and/or are associated with a spe
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
             <td class="description last"><p>Location longitude (decimal degrees)</p></td>
         </tr>
 
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Filter Options</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
     
 
         <tr>
@@ -1505,20 +1546,18 @@ only Stops that support real-time Station Feeds and/or are associated with a spe
             
                 <td class="attributes">
                 
-
+                    &lt;optional><br>
                 
 
                 
-                </td>
-            
 
-            
-                <td class="default">
                 
                 </td>
             
 
-            <td class="description last"><p>Max number of Stops to return (-1 for no limit)</p></td>
+            
+
+            <td class="description last"><p>Max number of Stops to return</p></td>
         </tr>
 
     
@@ -1540,20 +1579,18 @@ only Stops that support real-time Station Feeds and/or are associated with a spe
             
                 <td class="attributes">
                 
-
+                    &lt;optional><br>
                 
 
                 
-                </td>
-            
 
-            
-                <td class="default">
                 
                 </td>
             
 
-            <td class="description last"><p>Max distance (miles) Stops can be from location (-1 for no limit)</p></td>
+            
+
+            <td class="description last"><p>Max distance (miles) Stops can be from location</p></td>
         </tr>
 
     
@@ -1585,15 +1622,9 @@ only Stops that support real-time Station Feeds and/or are associated with a spe
             
 
             
-                <td class="default">
-                
-                    <code>false</code>
-                
-                </td>
-            
 
             <td class="description last"><p>When true, only return Stops that support
-real-time Station Feeds. When false, include all matching Stops.</p></td>
+real-time Station Feeds. Otherwise include all matching Stops.</p></td>
         </tr>
 
     
@@ -1625,13 +1656,16 @@ real-time Station Feeds. When false, include all matching Stops.</p></td>
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
             <td class="description last"><p>When provided with a GTFS Route ID, return only Stops
 associated with the Route</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -1660,10 +1694,6 @@ associated with the Route</p></td>
                 </td>
             
 
-            
-                <td class="default">
-                
-                </td>
             
 
             <td class="description last"><p>Callback function</p>
@@ -1797,7 +1827,7 @@ associated with the Route</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line394">line 394</a>
+        <a href="query_StopsTable.js.html">query/StopsTable.js</a>, <a href="query_StopsTable.js.html#line419">line 419</a>
     </li></ul></dd>
     
 
@@ -2150,7 +2180,7 @@ real-time Station Feeds. When false, include all Stops on Route.</p></td>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Jan 20 2018 10:50:19 GMT-0500 (EST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jan 21 2018 18:55:18 GMT-0500 (EST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
