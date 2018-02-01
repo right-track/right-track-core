@@ -45,7 +45,7 @@
         </h2>
         
             <div class="class-description"><h2>RT Favorite</h2><p>Representation of a Right Track User Favorite.  This can be a
-saved Station or Trip with the associated parameters and
+saved Station, Trip or Train with the associated parameters and
 optional options.</p>
 <p>The following describes the format for the Favorite parameters
 and options.</p>
@@ -53,7 +53,6 @@ and options.</p>
 <pre class="prettyprint source"><code> {
    stop: {
      id: 'Stop ID',
-     statusId: 'Stop Status ID',
      name: 'Stop Name'
    }
  }</code></pre><p> <strong>Options:</strong></p>
@@ -62,12 +61,10 @@ and options.</p>
 <pre class="prettyprint source"><code> {
    origin: {
      id: 'Stop ID'
-     statusId: 'Stop Status ID',
      name: 'Stop Name'
    },
    destination: {
      id 'Stop ID'
-     statusId: 'Stop Status ID',
      name: 'Stop Name'
    }
  }</code></pre><p> <strong>Options:</strong></p>
@@ -99,7 +96,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line68">line 68</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line65">line 65</a>
     </li></ul></dd>
     
 
@@ -257,10 +254,7 @@ and options.</p>
             <td class="type">
             
                 
-<span class="param-type"><a href="Favorite.html#~FavoriteStationParameters">Favorite~FavoriteStationParameters</a></span>
-|
-
-<span class="param-type"><a href="Favorite.html#~FavoriteTripParameters">Favorite~FavoriteTripParameters</a></span>
+<span class="param-type">Object</span>
 
 
             
@@ -282,7 +276,7 @@ and options.</p>
                 </td>
             
 
-            <td class="description last"><p>Favorite Parameters</p></td>
+            <td class="description last"><p>Favorite <a href="Favorite.html#~FavoriteStationParameters">Station</a> or <a href="Favorite.html#~FavoriteTripParameters">Trip</a> Parameters</p></td>
         </tr>
 
     
@@ -295,10 +289,7 @@ and options.</p>
             <td class="type">
             
                 
-<span class="param-type"><a href="Favorite.html#~FavoriteStationOptions">Favorite~FavoriteStationOptions</a></span>
-|
-
-<span class="param-type"><a href="Favorite.html#~FavoriteTripOptions">Favorite~FavoriteTripOptions</a></span>
+<span class="param-type">Object</span>
 
 
             
@@ -324,7 +315,7 @@ and options.</p>
                 </td>
             
 
-            <td class="description last"><p>Favorite Options</p></td>
+            <td class="description last"><p>Favorite <a href="Favorite.html#~FavoriteStationOptions">Station</a> or <a href="Favorite.html#~FavoriteTripOptions">Trip</a> Options</p></td>
         </tr>
 
     
@@ -375,7 +366,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line132">line 132</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line129">line 129</a>
     </li></ul></dd>
     
 
@@ -453,7 +444,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line139">line 139</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line136">line 136</a>
     </li></ul></dd>
     
 
@@ -520,7 +511,7 @@ and options.</p>
 
         
             
-<h4 class="name" id="options"><span class="type-signature"></span>options<span class="type-signature"> :<a href="Favorite.html#~FavoriteStationOptions">Favorite~FavoriteStationOptions</a>|<a href="Favorite.html#~FavoriteTripOptions">Favorite~FavoriteTripOptions</a></span></h4>
+<h4 class="name" id="options"><span class="type-signature"></span>options<span class="type-signature"> :Object</span></h4>
 
 
 
@@ -531,7 +522,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line101">line 101</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line98">line 98</a>
     </li></ul></dd>
     
 
@@ -580,10 +571,7 @@ and options.</p>
     <ul>
         <li>
             
-<span class="param-type"><a href="Favorite.html#~FavoriteStationOptions">Favorite~FavoriteStationOptions</a></span>
-|
-
-<span class="param-type"><a href="Favorite.html#~FavoriteTripOptions">Favorite~FavoriteTripOptions</a></span>
+<span class="param-type">Object</span>
 
 
         </li>
@@ -596,7 +584,7 @@ and options.</p>
 
         
             
-<h4 class="name" id="parameters"><span class="type-signature"></span>parameters<span class="type-signature"> :<a href="Favorite.html#~FavoriteStationParameters">Favorite~FavoriteStationParameters</a>|<a href="Favorite.html#~FavoriteTripParameters">Favorite~FavoriteTripParameters</a></span></h4>
+<h4 class="name" id="parameters"><span class="type-signature"></span>parameters<span class="type-signature"> :Object</span></h4>
 
 
 
@@ -607,7 +595,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line95">line 95</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line92">line 92</a>
     </li></ul></dd>
     
 
@@ -656,10 +644,7 @@ and options.</p>
     <ul>
         <li>
             
-<span class="param-type"><a href="Favorite.html#~FavoriteStationParameters">Favorite~FavoriteStationParameters</a></span>
-|
-
-<span class="param-type"><a href="Favorite.html#~FavoriteTripParameters">Favorite~FavoriteTripParameters</a></span>
+<span class="param-type">Object</span>
 
 
         </li>
@@ -683,7 +668,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line89">line 89</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line86">line 86</a>
     </li></ul></dd>
     
 
@@ -756,7 +741,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line83">line 83</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line80">line 80</a>
     </li></ul></dd>
     
 
@@ -839,7 +824,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line152">line 152</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line149">line 149</a>
     </li></ul></dd>
     
 
@@ -997,7 +982,7 @@ and options.</p>
             <td class="type">
             
                 
-<span class="param-type"><a href="Favorite.html#~FavoriteStationOptions">Favorite~FavoriteStationOptions</a></span>
+<span class="param-type">Object</span>
 
 
             
@@ -1023,7 +1008,7 @@ and options.</p>
                 </td>
             
 
-            <td class="description last"><p>Station Options</p></td>
+            <td class="description last"><p><a href="Favorite.html#~FavoriteStationOptions">Station Options</a></p></td>
         </tr>
 
     
@@ -1084,7 +1069,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line175">line 175</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line171">line 171</a>
     </li></ul></dd>
     
 
@@ -1277,7 +1262,7 @@ and options.</p>
             <td class="type">
             
                 
-<span class="param-type"><a href="Favorite.html#~FavoriteTripOptions">Favorite~FavoriteTripOptions</a></span>
+<span class="param-type">Object</span>
 
 
             
@@ -1303,7 +1288,7 @@ and options.</p>
                 </td>
             
 
-            <td class="description last"><p>Trip Options</p></td>
+            <td class="description last"><p><a href="Favorite.html#~FavoriteTripOptions">Trip Options</a></p></td>
         </tr>
 
     
@@ -1364,7 +1349,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line205">line 205</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line199">line 199</a>
     </li></ul></dd>
     
 
@@ -1542,7 +1527,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line109">line 109</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line106">line 106</a>
     </li></ul></dd>
     
 
@@ -1648,7 +1633,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line117">line 117</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line114">line 114</a>
     </li></ul></dd>
     
 
@@ -1756,7 +1741,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line230">line 230</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line223">line 223</a>
     </li></ul></dd>
     
 
@@ -1829,7 +1814,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line221">line 221</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line215">line 215</a>
     </li></ul></dd>
     
 
@@ -1946,24 +1931,6 @@ and options.</p>
 
         <tr>
             
-                <td class="name"><code>statusId</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Stop Status Id</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>name</code></td>
             
 
@@ -2028,7 +1995,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line248">line 248</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line239">line 239</a>
     </li></ul></dd>
     
 
@@ -2153,7 +2120,7 @@ and options.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line235">line 235</a>
+        <a href="rt_Favorite.js.html">rt/Favorite.js</a>, <a href="rt_Favorite.js.html#line228">line 228</a>
     </li></ul></dd>
     
 
@@ -2270,24 +2237,6 @@ and options.</p>
 
         <tr>
             
-                <td class="name"><code>statusId</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Origin Status Id</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>name</code></td>
             
 
@@ -2367,24 +2316,6 @@ and options.</p>
 
         <tr>
             
-                <td class="name"><code>statusId</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Destination Status Id</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>name</code></td>
             
 
@@ -2452,7 +2383,7 @@ and options.</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jan 21 2018 18:55:18 GMT-0500 (EST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Feb 01 2018 17:15:11 GMT-0500 (EST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
