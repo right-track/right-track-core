@@ -461,15 +461,17 @@ function getStopsByRoute(db, routeId, hasFeed, callback) {
 
     // Build stops from the stop ids
     getStop(db, stopIds, function(err, stops) {
-
       if ( err ) {
         return callback(err);
       }
 
-      // Return sorted stops with callback
-      if ( stops !== undefined ) {
-        stops.sort(Stop.sortByName);
+      // Make sure stops is an array
+      if ( stops === undefined ) {
+        stops = [];
       }
+
+      // Return sorted stops with callback
+      stops.sort(Stop.sortByName);
 
       // Add Stops to Cache
       cache_stopsByRoute.put(cacheKey, stops);

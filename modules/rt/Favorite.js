@@ -10,7 +10,7 @@
  * RT Favorite
  * -----------
  * Representation of a Right Track User Favorite.  This can be a
- * saved Station or Trip with the associated parameters and
+ * saved Station, Trip or Train with the associated parameters and
  * optional options.
  *
  * The following describes the format for the Favorite parameters
@@ -24,7 +24,6 @@
  *  {
  *    stop: {
  *      id: 'Stop ID',
- *      statusId: 'Stop Status ID',
  *      name: 'Stop Name'
  *    }
  *  }
@@ -42,12 +41,10 @@
  *  {
  *    origin: {
  *      id: 'Stop ID'
- *      statusId: 'Stop Status ID',
  *      name: 'Stop Name'
  *    },
  *    destination: {
  *      id 'Stop ID'
- *      statusId: 'Stop Status ID',
  *      name: 'Stop Name'
  *    }
  *  }
@@ -71,8 +68,8 @@ class Favorite {
    * Create a new Favorite with the specified information
    * @param {int} type Favorite Type
    * @param {int} sequence Favorite Sequence (1, 2, etc...)
-   * @param {Favorite~FavoriteStationParameters|Favorite~FavoriteTripParameters} parameters Favorite Parameters
-   * @param {Favorite~FavoriteStationOptions|Favorite~FavoriteTripOptions} [options={}] Favorite Options
+   * @param {Object} parameters Favorite {@link Favorite~FavoriteStationParameters|Station} or {@link Favorite~FavoriteTripParameters|Trip} Parameters
+   * @param {Object} [options={}] Favorite {@link Favorite~FavoriteStationOptions|Station} or {@link Favorite~FavoriteTripOptions|Trip} Options
    */
   constructor(type, sequence, parameters, options={}) {
 
@@ -90,13 +87,13 @@ class Favorite {
 
     /**
      * The Favorite's Parameters
-     * @type {Favorite~FavoriteStationParameters|Favorite~FavoriteTripParameters}
+     * @type {Object}
      */
     this.parameters = parameters;
 
     /**
      * The Favorite's Options
-     * @type {Favorite~FavoriteStationOptions|Favorite~FavoriteTripOptions}
+     * @type {Object}
      */
     this.options = options;
 
@@ -146,7 +143,7 @@ Favorite.FAVORITE_TYPE_TRIP = 2;
  * Favorite Factory: create a Favorite Station
  * @param {Stop} stop The Stop to save as a Favorite Station
  * @param {int} sequence The Favorite sequence
- * @param {Favorite~FavoriteStationOptions} [opts={}] Station Options
+ * @param {Object} [opts={}] {@link Favorite~FavoriteStationOptions|Station Options}
  * @returns {Favorite} Favorite Station
  */
 Favorite.createStation = function(stop, sequence, opts={}) {
@@ -156,7 +153,6 @@ Favorite.createStation = function(stop, sequence, opts={}) {
     {
       stop: {
         id: stop.id,
-        statusId: stop.statusId,
         name: stop.name
       }
     },
@@ -169,7 +165,7 @@ Favorite.createStation = function(stop, sequence, opts={}) {
  * @param {Stop} origin The origin of the Favorite Trip
  * @param {Stop} destination The destination of the Favorite Trip
  * @param {int} sequence The Favorite sequence
- * @param {Favorite~FavoriteTripOptions} [opts={}] Trip Options
+ * @param {Object} [opts={}] {@link Favorite~FavoriteTripOptions|Trip Options}
  * @returns {Favorite} Favorite Trip
  */
 Favorite.createTrip = function(origin, destination, sequence, opts={}) {
@@ -179,12 +175,10 @@ Favorite.createTrip = function(origin, destination, sequence, opts={}) {
     {
       origin: {
         id: origin.id,
-        statusId: origin.statusId,
         name: origin.name
       },
       destination: {
         id: destination.id,
-        statusId: destination.statusId,
         name: destination.name
       }
     },
@@ -223,7 +217,6 @@ Favorite.sortBySequence = function(a, b) {
  * @typedef {Object} Favorite~FavoriteStationParameters
  * @property stop The Favorite Station
  * @property stop.id Stop Id
- * @property stop.statusId Stop Status Id
  * @property stop.name Stop Name
  */
 
@@ -237,11 +230,9 @@ Favorite.sortBySequence = function(a, b) {
  * @typedef {Object} Favorite~FavoriteTripParameters
  * @property origin The Origin Stop
  * @property origin.id Origin Id
- * @property origin.statusId Origin Status Id
  * @property origin.name Origin Name
  * @property destination The Destination Stop
  * @property destination.id Destination Id
- * @property destination.statusId Destination Status Id
  * @property destination.name Destination Name
  */
 
