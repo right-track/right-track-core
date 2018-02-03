@@ -81,10 +81,12 @@ function getNextStops(db, id, direction, callback) {
         final_name,
         row.stop_lat,
         row.stop_lon,
-        row.stop_url,
-        wheelchair_boarding,
-        row.status_id,
-        row.transfer_weight
+        {
+          url: row.stop_url,
+          wheelchairBoarding: wheelchair_boarding,
+          statusId: row.status_id,
+          transferWeight: row.transfer_weight
+        }
       );
 
       // Add stop to list
