@@ -73,7 +73,15 @@ StationFeedDeparture.sort = function(a, b) {
     return 1;
   }
   else {
-    return 0;
+    if ( a.destination.name < b.destination.name ) {
+      return -1;
+    }
+    else if ( a.destination.name > b.destination.name ) {
+      return 1;
+    }
+    else {
+      return 0;
+    }
   }
 };
 
