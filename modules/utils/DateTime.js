@@ -568,14 +568,13 @@ DateTime.createFromTime = function(time, guessDate) {
       }
     }
 
-    // PM: after 12 PM
-    else if ( ns >= 43200 ) {
-      // Assume early morning times (before 4 AM) are next day
-      if ( ts <= 14400 ) {
+    // PM: after 4 PM
+    else if ( ns >= 57600 ) {
+      // Assume early morning times (before 8 AM) are next day
+      if ( ts <= 28800 ) {
         delta = +1;
       }
     }
-
   }
 
   // Create the DateTime
