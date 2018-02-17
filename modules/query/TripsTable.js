@@ -15,6 +15,7 @@ const Trip = require('../gtfs/Trip.js');
 const DateTime = require('../utils/DateTime.js');
 const CalendarTable = require('./CalendarTable.js');
 const StopTimesTable = require('./StopTimesTable.js');
+const HolidayTable = require('./HolidayTable.js');
 
 
 // ==== QUERY FUNCTIONS ==== //
@@ -41,7 +42,7 @@ let getTrip = function(db, id, date, callback) {
 
   // Build the select statement
   let select = "SELECT " +
-    "gtfs_trips.trip_id, trip_short_name, wheelchair_accessible, service_id, trip_headsign, block_id, shape_id, " +
+    "gtfs_trips.trip_id, trip_short_name, wheelchair_accessible, service_id, trip_headsign, block_id, shape_id, peak, " +
     "gtfs_directions.direction_id, description, " +
     "gtfs_routes.route_id, route_short_name, route_long_name, route_desc, route_type, route_url, route_color, route_text_color, " +
     "gtfs_agency.agency_id, agency_name, agency_url, agency_timezone, agency_lang, agency_phone, agency_fare_url, " +
@@ -182,28 +183,38 @@ let getTrip = function(db, id, date, callback) {
         row.wheelchair_accessible = Trip.WHEELCHAIR_ACCESSIBLE_UNKNOWN;
       }
 
-      // Build Trip
-      let trip = new Trip(
-        id,
-        route,
-        service,
-        stopTimes,
-        {
-          headsign: row.trip_headsign,
-          shortName: row.trip_short_name,
-          directionId: row.direction_id,
-          directionDescription: row.description,
-          blockId: row.block_id,
-          shapeId: row.shape_id,
-          wheelchairAccessible: row.wheelchair_accessible
+      // Get Holiday For Date
+      HolidayTable.getHoliday(db, date, function(err, holiday) {
+        let holidayNoPeak = false;
+        if ( !err && holiday && !holiday.peak ) {
+          holidayNoPeak = true;
         }
-      );
 
-      // Add Trip to Cache
-      cache_tripsById.put(cacheKey, trip);
+        // Build Trip
+        let trip = new Trip(
+          id,
+          route,
+          service,
+          stopTimes,
+          {
+            headsign: row.trip_headsign,
+            shortName: row.trip_short_name,
+            directionId: row.direction_id,
+            directionDescription: row.description,
+            blockId: row.block_id,
+            shapeId: row.shape_id,
+            wheelchairAccessible: row.wheelchair_accessible,
+            peak: row.peak === 1 && !holidayNoPeak
+          }
+        );
 
-      // Return trip with callback
-      return callback(null, trip);
+        // Add Trip to Cache
+        cache_tripsById.put(cacheKey, trip);
+
+        // Return trip with callback
+        return callback(null, trip);
+
+      });
 
     });
 
