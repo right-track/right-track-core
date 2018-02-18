@@ -32,9 +32,4 @@ module.exports = {
    */
   Link: require('./Link.js'),
 
-  /**
-   * Right Track Station Feed Classes
-   * @see module:rt/StationFeed
-   */
-  StationFeed: require('./StationFeed/')
 };

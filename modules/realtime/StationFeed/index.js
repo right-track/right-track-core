@@ -4,7 +4,7 @@
  * ### Right Track Station Feed Classes
  * These classes are used to represent the different components of a Right
  * Track Station Feed
- * @module rt/StationFeed
+ * @module realtime/StationFeed
  */
 
 
@@ -27,4 +27,5 @@ module.exports = {
    * @see StationFeedDepartureStatus
    */
   StationFeedDepartureStatus: require('./StationFeedDepartureStatus.js')
+
 };

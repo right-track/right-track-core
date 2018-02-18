@@ -3,7 +3,7 @@
 /**
  * Right Track StationFeed Class
  * @see {@link StationFeed}
- * @module rt/StationFeed/StationFeed
+ * @module realtime/StationFeed/StationFeed
  */
 
 /**
@@ -12,7 +12,7 @@
  * A real-time feed of status information of departures
  * from a single Stop.
  *
- * **Module:** {@link module:rt/StationFeed/StationFeed|rt/StationFeed/StationFeed}
+ * **Module:** {@link module:realtime/StationFeed/StationFeed|realtime/StationFeed/StationFeed}
  *
  * @class
  * @alias StationFeed

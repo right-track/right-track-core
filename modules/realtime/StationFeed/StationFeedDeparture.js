@@ -3,7 +3,7 @@
 /**
  * Right Track StationFeedDeparture Class
  * @see {@link StationFeedDeparture}
- * @module rt/StationFeed/StationFeedDeparture
+ * @module realtime/StationFeed/StationFeedDeparture
  */
 
 
@@ -13,7 +13,7 @@
  * Real-time and departure information about the departure of
  * a single Trip from a Stop.  Used by the StationFeed Class.
  *
- * **Module:** {@link module:rt/StationFeed/StationFeedDeparture|rt/StationFeed/StationFeedDeparture}
+ * **Module:** {@link module:realtime/StationFeed/StationFeedDeparture|realtime/StationFeed/StationFeedDeparture}
  *
  * @class
  * @alias StationFeedDeparture
