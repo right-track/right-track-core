@@ -190,6 +190,18 @@ let getTrip = function(db, id, date, callback) {
           holidayNoPeak = true;
         }
 
+        // Determine Peak
+        let peak = false;
+        if ( row.peak === 1 ) {
+          peak = true;
+        }
+        else if ( row.peak === 2 ) {
+          let dow = DateTime.createFromDate(date).getDateDOW();
+          if ( dow !== "saturday" && dow !== "sunday" ) {
+            peak = true;
+          }
+        }
+
         // Build Trip
         let trip = new Trip(
           id,
@@ -204,7 +216,7 @@ let getTrip = function(db, id, date, callback) {
             blockId: row.block_id,
             shapeId: row.shape_id,
             wheelchairAccessible: row.wheelchair_accessible,
-            peak: row.peak === 1 && !holidayNoPeak
+            peak: peak && !holidayNoPeak
           }
         );
 
