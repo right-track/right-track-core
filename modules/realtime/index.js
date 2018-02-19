@@ -10,12 +10,6 @@
 module.exports = {
 
   /**
-   * Right Track Station Feed Classes
-   * @see module:realtime/StationFeed
-   */
-  StationFeed: require('./StationFeed/'),
-
-  /**
    * Right Track Transit Feed Classes
    * @see module:realtime/TransitFeed
    */
