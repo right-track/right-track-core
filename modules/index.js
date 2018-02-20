@@ -28,12 +28,6 @@ module.exports = {
   rt: require('./rt'),
 
   /**
-   * Right Track Real-Time Information Classes
-   * @see module:realtime
-   */
-  realtime: require('./realtime'),
-
-  /**
    * Right Track Database Query Functions
    * @see module:query
    */
