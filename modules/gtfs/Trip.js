@@ -57,6 +57,7 @@ class Trip {
    * @param {int} [optional.shapeId] Trip Shape ID
    * @param {int} [optional.wheelchairAccessible=0] Trip Wheelchair Accessibility code
    * @param {int} [optional.bikesAllowed=0] Trip Bikes Allowed code
+   * @param {boolean} [optional.peak] Trip Peak Status
    */
   constructor(id, route, service, stopTimes, optional={}) {
 
@@ -135,6 +136,13 @@ class Trip {
      * @default 0
      */
     this.bikesAllowed = provided(optional.bikesAllowed, Trip.BIKES_ALLOWED_UNKNOWN);
+
+    /**
+     * Value indicating the peak status of the Trip.
+     * @type {boolean}
+     * @default false
+     */
+    this.peak = provided(optional.peak, false);
 
     // Sort stoptimes by stop sequence
     this.stopTimes.sort(StopTime.sortByStopSequence);

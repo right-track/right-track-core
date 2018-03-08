@@ -94,8 +94,6 @@ function getHoliday(db, date, callback) {
   let select = "SELECT date, holiday_name, peak, service_info " +
     "FROM rt_holidays WHERE date=" + date;
 
-  console.log(select);
-
   // Query the database
   db.get(select, function(err, result) {
 
@@ -114,7 +112,7 @@ function getHoliday(db, date, callback) {
       holiday = new Holiday(
         result.date,
         result.holiday_name,
-        result.peak,
+        result.peak === 1,
         result.service_info
       );
 
