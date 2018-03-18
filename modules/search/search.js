@@ -16,7 +16,7 @@ const CalendarTable = require('../query/CalendarTable.js');
 const LineGraphTable = require('../query/LineGraphTable.js');
 
 
-const LOG = false;
+const LOG = true;
 
 
 
@@ -56,60 +56,94 @@ function search(db, origin, destination, departure, options, callback) {
     }
 
 
-    // Get the Initial Trips
-    _getTripsFromStop(db, origin, destination, origin, tripSearchDates, [], function(err, direct, indirect) {
-      _log("======= INITIAL TRIPS =======");
-      _log("DIRECT TRIPS: " + direct.length);
-      _log("INDIRECT TRIPS: " + indirect.length);
+    // GET ORIGIN TRIPS
+    _getTripsFromStop(db, origin, destination, origin, tripSearchDates, [], false, function(err, originDirect, originIndirect) {
 
       // Database Query Error
       if ( err ) {
         return callback(err);
       }
 
+      // GET DESTINATION TRIPS
+      _getTripsFromStop(db, destination, origin, destination, tripSearchDates, [], true, function(err, destinationDirect, destinationIndirect) {
 
-      // Process Direct Trips
-      for ( let i = 0; i < direct.length; i++ ) {
-        let trip = direct[i];
-
-        // Create a new Trip Search Result Segment
-        let segment = new TripSearchResultSegment(trip, origin, destination);
-
-        // Create new Trip Search Result
-        let result = new TripSearchResult(segment);
-
-        // Add Result to List
-        RESULTS.push(result);
-      }
+        // Database Query Error
+        if ( err ) {
+          return callback(err);
+        }
 
 
-      // Process Indirect Trips, if transfers are allowed
-      if ( indirect.length > 0 && options.allowTransfers ) {
-        _log("====== TRANSFER SEARCH ======");
+        // SET REVERSE FLAG
+        let reverse = false;
+        if ( destinationDirect.length + destinationIndirect.length < originDirect.length + originIndirect.length ) {
+          reverse = true;
+        }
 
-        // Process the Indirect Trips
-        _processTrips(db, options, origin, destination, origin, indirect, [], function(err, results) {
-          _log("=== TRANSFER SEARCH RETURN ==");
 
-          // Add results to final list
-          RESULTS = RESULTS.concat(results);
 
-          // Finish
+        _log("======= INITIAL TRIPS =======");
+        _log("ORIGIN DIRECT TRIPS: " + originDirect.length);
+        _log("ORIGIN INDIRECT TRIPS: " + originIndirect.length);
+        _log("DESTINATION DIRECT TRIPS: " + destinationDirect.length);
+        _log("DESTINATION INDIRECT TRIPS: " + destinationIndirect.length);
+        _log("REVERSE SEARCH: " + reverse);
+
+
+
+
+        // Set direct and indirect trips based on reverse flag
+        let direct = reverse ? destinationDirect : originDirect;
+        let indirect = reverse ? destinationIndirect : originIndirect;
+
+
+        // Process Direct Trips
+        _log("======== DIRECT TRIPS =======");
+        for ( let i = 0; i < direct.length; i++ ) {
+          let trip = direct[i];
+
+          _log("   Trip ID: " + trip.id);
+
+          // Create a new Trip Search Result Segment
+          let segment = new TripSearchResultSegment(trip, origin, destination);
+
+          // Create new Trip Search Result
+          let result = new TripSearchResult(segment);
+
+          // Add Result to List
+          RESULTS.push(result);
+        }
+
+
+        // Process Indirect Trips, if transfers are allowed
+        if ( indirect.length > 0 && options.allowTransfers ) {
+          _log("====== TRANSFER SEARCH ======");
+
+          // Process the Indirect Trips
+          let start = reverse ? destination : origin;
+          let end = reverse ? origin : destination;
+          _processTrips(db, options, start, end, start, indirect, [], reverse, function(err, results) {
+            _log("=== TRANSFER SEARCH RETURN ==");
+
+            // Add results to final list
+            RESULTS = RESULTS.concat(results);
+
+            // Finish
+            _finish();
+
+          });
+
+        }
+
+
+        // No transfers required or disabled, finish
+        else {
           _finish();
-
-        });
-
-      }
+        }
 
 
-      // No transfers required or disabled, finish
-      else {
-        _finish();
-      }
-
+      });
 
     });
-
 
   });
 
@@ -266,10 +300,11 @@ function _cleanResults(results) {
  * @param {Stop} enter Reference/Entry Stop
  * @param {Trip[]} trips List of Trips to process
  * @param {TripSearchResultSegment[]} segments Previously added Trip Search Result Segments
+ * @param {boolean} reverse Reverse Search flag
  * @param {function} callback Callback function(err, results)
  * @private
  */
-function _processTrips(db, options, origin, destination, enter, trips, segments, callback) {
+function _processTrips(db, options, origin, destination, enter, trips, segments, reverse, callback) {
 
   // Display function logs
   _info();
@@ -290,7 +325,7 @@ function _processTrips(db, options, origin, destination, enter, trips, segments,
 
   // Process each of the Trips
   for ( let i = 0; i < trips.length; i++ ) {
-    _processTrip(db, options, origin, destination, enter, trips[i], segments, function(err, results) {
+    _processTrip(db, options, origin, destination, enter, trips[i], segments, reverse, function(err, results) {
 
       // Database Query Error
       if ( err ) {
@@ -352,10 +387,11 @@ function _processTrips(db, options, origin, destination, enter, trips, segments,
  * @param {Stop} enter Trip Entry Stop
  * @param {Trip} trip Trip to process
  * @param {TripSearchResultSegment[]} segments List of previously added Trip Search Result Segments
+ * @param {boolean} reverse Reverse Search flag
  * @param {function} callback Callback function(err, results)
  * @private
  */
-function _processTrip(db, options, origin, destination, enter, trip, segments, callback) {
+function _processTrip(db, options, origin, destination, enter, trip, segments, reverse, callback) {
 
   // Get Transfer Stops for this Trip
   _getTransferStops(db, origin, destination, enter, trip, function(err, transfers) {
@@ -369,7 +405,7 @@ function _processTrip(db, options, origin, destination, enter, trip, segments, c
     }
 
     // Process the Transfers
-    _processStops(db, options, origin, destination, enter, transfers, trip, segments, function(err, results) {
+    _processStops(db, options, origin, destination, enter, transfers, trip, segments, reverse, function(err, results) {
 
       // Database Query Error
       if ( err ) {
@@ -422,10 +458,11 @@ function _processTrip(db, options, origin, destination, enter, trip, segments, c
  * @param {Stop[]} transfers List of possible Transfer/Exit Stops
  * @param {Trip} trip Trip being processed
  * @param {TripSearchResultSegment[]} segments List of previously added Trip Search Result Segments
+ * @param {boolean} reverse Reverse Search flag
  * @param {function} callback Callback function(err, results)
  * @private
  */
-function _processStops(db, options, origin, destination, enter, transfers, trip, segments, callback) {
+function _processStops(db, options, origin, destination, enter, transfers, trip, segments, reverse, callback) {
 
   // Results to Return
   let RESULTS = [];
@@ -441,7 +478,7 @@ function _processStops(db, options, origin, destination, enter, transfers, trip,
 
   // Process each Stop
   for ( let i = 0; i < transfers.length; i++ ) {
-    _processStop(db, options, origin, destination, enter, transfers[i], trip, segments, function(err, results) {
+    _processStop(db, options, origin, destination, enter, transfers[i], trip, segments, reverse, function(err, results) {
 
       // Database Query Error
       if ( err ) {
@@ -483,10 +520,11 @@ function _processStops(db, options, origin, destination, enter, transfers, trip,
  * @param {Stop} transfer Trip Transfer/Exit Stop
  * @param {Trip} trip Trip being processed
  * @param {TripSearchResultSegment[]} segments List of previously added Trip Search Result Segments
+ * @param {boolean} reverse Reverse Search flag
  * @param {function} callback Callback function(err, results)
  * @private
  */
-function _processStop(db, options, origin, destination, enter, transfer, trip, segments, callback) {
+function _processStop(db, options, origin, destination, enter, transfer, trip, segments, reverse, callback) {
 
   // Add first segment to list
   let firstSegment = new TripSearchResultSegment(trip, enter, transfer);
@@ -514,7 +552,7 @@ function _processStop(db, options, origin, destination, enter, transfer, trip, s
     }
 
     // Get Trips From Transfer
-    _getTripsFromStop(db, origin, destination, transfer, tripSearchDates, excludeTrips, function(err, direct, indirect) {
+    _getTripsFromStop(db, origin, destination, transfer, tripSearchDates, excludeTrips, reverse, function(err, direct, indirect) {
 
       // Print Stop Info
       _info(direct, indirect);
@@ -548,7 +586,7 @@ function _processStop(db, options, origin, destination, enter, transfer, trip, s
       if ( direct.length === 0 && indirect.length > 0 && options.allowTransfers && segments.length < options.maxTransfers ) {
 
         // Process the Indirect Trips
-        _processTrips(db, options, origin, destination, transfer, indirect, segments, function(err, results) {
+        _processTrips(db, options, origin, destination, transfer, indirect, segments, reverse, function(err, results) {
 
           // Database Query Error
           if ( err ) {
@@ -666,18 +704,21 @@ function _getTransferStops(db, origin, destination, stop, trip, callback) {
  * TripSearchDates and along the Line Graph paths between the origin
  * and destination Stops
  * @param {RightTrackDB} db The Right Track DB to query
- * @param {Stop} origin Trip Origin Stop
- * @param {Stop} destination Trip Destination Stop
+ * @param {Stop} start Trip Start Stop
+ * @param {Stop} end Trip End Stop
  * @param {Stop} stop Reference Stop
  * @param {TripSearchDate[]} tripSearchDates Trip Search Dates
  * @param {String[]} excludeTrips List of Trip IDs to exclude
+ * @param {boolean} reverse Reverse Search flag
  * @param {function} callback Callback function(err, direct, indirect)
  * @private
  */
-function _getTripsFromStop(db, origin, destination, stop, tripSearchDates, excludeTrips, callback) {
+function _getTripsFromStop(db, start, end, stop, tripSearchDates, excludeTrips, reverse, callback) {
+
+  console.log("Getting Trips from: " + start.name + " --> " + end.name + " (@" + stop.name + ") reverse: " + reverse);
 
   // Get all possible following stops
-  LineGraphTable.getNextStops(db, origin.id, destination.id, stop.id, function(err, nextStops) {
+  LineGraphTable.getNextStops(db, start.id, end.id, stop.id, function(err, nextStops) {
 
     // Database Query Error
     if ( err ) {
@@ -685,7 +726,7 @@ function _getTripsFromStop(db, origin, destination, stop, tripSearchDates, exclu
     }
 
     // Get Trips from Stop
-    query.getTripsFromStop(db, stop, tripSearchDates, nextStops, function(err, trips) {
+    query.getTripsFromStop(db, stop, tripSearchDates, nextStops, reverse, function(err, trips) {
 
       // Database Query Error
       if ( err ) {
@@ -699,7 +740,7 @@ function _getTripsFromStop(db, origin, destination, stop, tripSearchDates, exclu
       // Sort Trips
       for ( let i = 0; i < trips.length; i++ ) {
         if ( excludeTrips.indexOf(trips[i].id) === -1 ) {
-          if ( _tripGoesTo(trips[i], stop, destination) ) {
+          if ( _tripGoesTo(trips[i], reverse ? end : start, reverse ? start : end, reverse) ) {
             direct.push(trips[i]);
           }
           else {
@@ -847,24 +888,42 @@ function _getTripSearchDates(db, datetime, preMins, postMins, callback) {
 /**
  * Check if the Trip goes from Origin --> Destination
  * @param {Trip} trip The Trip to check
- * @param {Stop} origin Origin Stop
- * @param {Stop} destination Destination Stop
+ * @param {Stop} start Start Stop
+ * @param {Stop} end End Stop
+ * @param {boolean} reverse Reverse Search flag
  * @returns {boolean}
  * @private
  */
-function _tripGoesTo(trip, origin, destination) {
-  let originFound = false;
-  for ( let i = 0; i < trip.stopTimes.length; i++ ) {
-    if ( !originFound && trip.stopTimes[i].stop.id === origin.id ) {
-      originFound = true;
-    }
-    else if ( originFound ) {
-      if ( trip.stopTimes[i].stop.id === destination.id ) {
-        return true;
+function _tripGoesTo(trip, start, end, reverse) {
+  console.log("TRIP: " + trip.id + " goes to " + start.name + " --> " + end.name + "(" + reverse + ")");
+
+  let startFound = false;
+  if ( !reverse ) {
+    for ( let i = 0; i < trip.stopTimes.length; i++ ) {
+      if ( !startFound && trip.stopTimes[i].stop.id === start.id ) {
+        startFound = true;
+      }
+      else if ( startFound ) {
+        if ( trip.stopTimes[i].stop.id === end.id ) {
+          return true;
+        }
       }
     }
+    return false;
   }
-  return false;
+  else {
+    for ( let i = trip.stopTimes.length-1; i >= 0; i-- ) {
+      if ( !startFound && trip.stopTimes[i].stop.id === start.id ) {
+        startFound = true;
+      }
+      else if ( startFound ) {
+        if ( trip.stopTimes[i].stop.id === end.id ) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }
 
 

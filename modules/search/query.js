@@ -20,12 +20,13 @@ const TripsTable = require('../query/TripsTable.js');
  * @param {Stop} stop The reference Stop
  * @param {TripSearchDate[]} tripSearchDates List of Trip Search Dates
  * @param {String[]} nextStops List of following Stops (Stop IDs)
+ * @param {boolean} reverse Reverse Search flag
  * @param {function} callback Callback function
  * @param {Error} callback.err Database Query Error
  * @param {Trip[]} [callback.trips] List of matching Trips
  * @private
  */
-function getTripsFromStop(db, stop, tripSearchDates, nextStops, callback) {
+function getTripsFromStop(db, stop, tripSearchDates, nextStops, reverse, callback) {
 
   // List of Trips to Return
   let rtn = [];
@@ -36,7 +37,7 @@ function getTripsFromStop(db, stop, tripSearchDates, nextStops, callback) {
 
   // Parse each TripSearchDate separately
   for ( let i = 0; i < tripSearchDates.length; i++ ) {
-    _getTripsFromStop(db, stop, tripSearchDates[i], function(err, trips) {
+    _getTripsFromStop(db, stop, tripSearchDates[i], reverse, function(err, trips) {
 
       // Database Query Error
       if ( err ) {
@@ -119,10 +120,11 @@ function getTripsFromStop(db, stop, tripSearchDates, nextStops, callback) {
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {Stop} stop The reference Stop
  * @param {TripSearchDate} tripSearchDate The Trip Search Date
+ * @param {boolean} reverse Reverse Search flag
  * @param {function} callback Callback function(err, trips)
  * @private
  */
-function _getTripsFromStop(db, stop, tripSearchDate, callback) {
+function _getTripsFromStop(db, stop, tripSearchDate, reverse, callback) {
 
   // List of trips to return
   let rtn = [];
@@ -139,9 +141,14 @@ function _getTripsFromStop(db, stop, tripSearchDate, callback) {
     "FROM gtfs_stop_times " +
     "INNER JOIN gtfs_trips ON gtfs_stop_times.trip_id=gtfs_trips.trip_id " +
     "WHERE stop_id='" + stop.id + "' AND " +
-    "departure_time_seconds >= " + tripSearchDate.preSeconds + " AND departure_time_seconds <= " + tripSearchDate.postSeconds + " AND " +
-    "pickup_type <> " + StopTime.PICKUP_TYPE_NONE + " AND " +
-    "gtfs_trips.service_id IN (" + serviceIdString + ")";
+    "departure_time_seconds >= " + tripSearchDate.preSeconds + " AND departure_time_seconds <= " + tripSearchDate.postSeconds + " AND ";
+  if ( reverse ){
+    select += "drop_off_type <> " + StopTime.DROP_OFF_TYPE_NONE + " AND ";
+  }
+  else {
+    select += "pickup_type <> " + StopTime.PICKUP_TYPE_NONE + " AND ";
+  }
+  select += "gtfs_trips.service_id IN (" + serviceIdString + ")";
 
   // Select the Trip IDs
   db.select(select, function(err, results) {
