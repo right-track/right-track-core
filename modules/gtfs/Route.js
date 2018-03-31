@@ -100,7 +100,7 @@ class Route {
      * @type {string}
      * @default ffffff
      */
-    this.color = provided(optional.color, 'ffffff');
+    this.color = provided(optional.color, 'a9a9a9');
 
     /**
      * The text color that corresponds to the route's color as a
