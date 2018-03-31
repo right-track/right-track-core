@@ -145,7 +145,9 @@ class Trip {
     this.peak = provided(optional.peak, false);
 
     // Sort stoptimes by stop sequence
-    this.stopTimes.sort(StopTime.sortByStopSequence);
+    if ( this.stopTimes ) {
+      this.stopTimes.sort(StopTime.sortByStopSequence);
+    }
 
   }
 
