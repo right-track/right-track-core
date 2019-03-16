@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "memory-cache": "^0.2.0",
-    "right-track-db": "^1.2.0"
+    "right-track-db": "^1.2.5"
   },
   "devDependencies": {
     "jsdoc": "^3.5.5",
