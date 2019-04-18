@@ -414,6 +414,24 @@ class DateTime {
     return dow[this._getJSDate().getDay()];
   }
 
+  /**
+   * Get the human readable date ([Thu, ]Apr 18, 2019)
+   * @param  {boolean} dow When true, include the day of the week
+   * @return {string} human readable date
+   */
+  getDateReadable(dow) {
+    let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    let rtn = "";
+    if ( dow ) {
+      rtn += days[this._getJSDate().getDay()] + ", ";
+    }
+    rtn += months[this._getJSDate().getMonth()] + " " + this._getJSDate().getDate() + ", " + this._getJSDate().getFullYear();
+
+    return rtn;
+  }
+
 
 
 
