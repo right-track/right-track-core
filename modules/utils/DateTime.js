@@ -303,6 +303,25 @@ class DateTime {
   }
 
   /**
+   * Get the Time in HHmm format
+   * @return {string} HHmm
+   */
+  getTimeInt() {
+    let h = this._getHours();
+    let m = this._getMins();
+
+    // Pad with leading 0s
+    if ( h < 10 ) {
+      h = '0' + h;
+    }
+    if ( m < 10 ) {
+      m = '0' + m;
+    }
+
+    return h + '' + m;
+  }
+
+  /**
    * Get the GTFS Spec time representation (HH:mm:ss)
    * @returns {string} GTFS Time (HH:mm:ss)
    */
