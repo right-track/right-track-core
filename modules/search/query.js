@@ -171,7 +171,9 @@ function _getTripsFromStop(db, stop, tripSearchDate, callback) {
         }
 
         // Add trip to list
-        rtn.push(trip);
+        if ( trip ) {
+          rtn.push(trip);
+        }
 
         // Finish Process the Trip
         _finish();
