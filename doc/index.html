@@ -47,24 +47,28 @@
 
 
     <section class="readme">
-        <article><h1>Right Track Core Library</h1><p><strong>node module:</strong> <a href="https://www.npmjs.com/package/right-track-core">right-track-core</a><br><strong>GitHub repo:</strong> <a href="https://github.com/right-track/right-track-core">right-track/right-track-core</a></p>
+        <article><h1>Right Track Core Library</h1>
+<p><strong>node module:</strong> <a href="https://www.npmjs.com/package/right-track-core">right-track-core</a><br>
+<strong>GitHub repo:</strong> <a href="https://github.com/right-track/right-track-core">right-track/right-track-core</a></p>
 <hr>
 <p>This Node module contains the core data classes and functionality of the
-<a href="https://github.com/right-track/">Right Track Library</a>. It can query a 
-<em>Right Track Database</em> (a combination of GTFS data and additional custom data) 
-that is built using the <a href="https://github.com/right-track/right-track-db-build">right-track-db-build</a> 
+<a href="https://github.com/right-track/">Right Track Library</a>. It can query a
+<em>Right Track Database</em> (a combination of GTFS data and additional custom data)
+that is built using the <a href="https://github.com/right-track/right-track-db-build">right-track-db-build</a>
 module and create data classes representing the queried data.</p>
-<p>This module is a requirement for the <a href="https://github.com/right-track/right-track-server">right-track-server</a>, 
-the <a href="https://github.com/right-track/right-track-online">right-track-online</a> website 
+<p>This module is a requirement for the <a href="https://github.com/right-track/right-track-server">right-track-server</a>,
+the <a href="https://github.com/right-track/right-track-online">right-track-online</a> website
 and the planned upcoming right track mobile apps.</p>
-<p>Agency specific functionality (such as real-time feed information) is 
-added through the various <a href="https://github.com/right-track/right-track-agency">right-track-agency-{id}</a> 
+<p>Agency specific functionality (such as real-time feed information) is
+added through the various <a href="https://github.com/right-track/right-track-agency">right-track-agency-{id}</a>
 modules.</p>
-<h3>Features and Functionality</h3><p>This project is still very much a work in progress and is being actively 
+<h3>Features and Functionality</h3>
+<p>This project is still very much a work in progress and is being actively
 developed.  Functionality may be added and/or removed without notice.</p>
 <p>Currently, the module supports the following features:</p>
 <ul>
-<li>GTFS Data Models:<ul>
+<li>GTFS Data Models:
+<ul>
 <li>Agency</li>
 <li>Route</li>
 <li>Service (from gtfs calendar.txt)</li>
@@ -74,7 +78,8 @@ developed.  Functionality may be added and/or removed without notice.</p>
 <li>Trip</li>
 </ul>
 </li>
-<li>Right Track Data Models:<ul>
+<li>Right Track Data Models:
+<ul>
 <li>About (database metadata)</li>
 <li>Favorite (Class for User favorites - station and trips)</li>
 <li>Holiday (service information for holidays)</li>
@@ -82,7 +87,8 @@ developed.  Functionality may be added and/or removed without notice.</p>
 </ul>
 </li>
 <li>Right Track Database queries</li>
-<li>Trip Search Classes and Query Functions<ul>
+<li>Trip Search Classes and Query Functions
+<ul>
 <li>Trip Search</li>
 <li>Trip Search Result</li>
 <li>GTFS schedule search functions (including transfers)</li>
@@ -90,17 +96,25 @@ developed.  Functionality may be added and/or removed without notice.</p>
 </li>
 <li>General purpose utility functions</li>
 </ul>
-<h3>Documentation</h3><p>Full documentation can be found in the <strong>/doc/</strong> directory in this 
+<h3>Documentation</h3>
+<p>Full documentation can be found in the <strong>/doc/</strong> directory in this
 repository or online at <a href="https://docs.righttrack.io/right-track-core">https://docs.righttrack.io/right-track-core</a></p>
-<h3>Module Structure</h3><p>This module is essentially a bundled group of sub-modules representing each of 
-the supported data types.  To import the entire collection, <code>require</code> the 
-<code>right-track-core</code> module.  The returned Object will be a collection of all of 
+<h3>Module Structure</h3>
+<p>This module is essentially a bundled group of sub-modules representing each of
+the supported data types.  To import the entire collection, <code>require</code> the
+<code>right-track-core</code> module.  The returned Object will be a collection of all of
 the sub-modules that follows a package-like structure mirroring the module paths.</p>
 <p>For example, to get the GTFS <code>Agency</code> class from the collection:</p>
 <pre class="prettyprint source lang-jacascript"><code>const core = require('right-track-core');
-const Agency = core.gtfs.Agency;</code></pre><p>Sub-modules can also be loaded individually by requiring the specific module:</p>
-<pre class="prettyprint source lang-javascript"><code>const Agency = require('right-track-core/modules/gtfs/Agency');</code></pre><p>Refer to the <strong>Documentation</strong> for the complete module structure.</p>
-<h3>Usage</h3><h4>Create a GTFS data class</h4><pre class="prettyprint source lang-javascript"><code>const core = require('right-track-core');
+const Agency = core.gtfs.Agency;
+</code></pre>
+<p>Sub-modules can also be loaded individually by requiring the specific module:</p>
+<pre class="prettyprint source lang-javascript"><code>const Agency = require('right-track-core/modules/gtfs/Agency');
+</code></pre>
+<p>Refer to the <strong>Documentation</strong> for the complete module structure.</p>
+<h3>Usage</h3>
+<h4>Create a GTFS data class</h4>
+<pre class="prettyprint source lang-javascript"><code>const core = require('right-track-core');
 const Agency = core.gtfs.Agency;
 const Route = core.gtfs.Route;
 
@@ -132,23 +146,28 @@ console.log(newHavenLine);
 //     },
 //   color: 'ff0000',
 //   textColor: '000000' 
-// }</code></pre><h4>Query a Right Track Database</h4><p>The <em>query</em> functions of this module query a specific type of SQLite database 
-(<a href="https://github.com/right-track/right-track-db-build">Right Track Database</a>) that 
-contains the GTFS data and additional Right Track data. In order to make a query, 
+// }
+</code></pre>
+<h4>Query a Right Track Database</h4>
+<p>The <em>query</em> functions of this module query a specific type of SQLite database
+(<a href="https://github.com/right-track/right-track-db-build">Right Track Database</a>) that
+contains the GTFS data and additional Right Track data. In order to make a query,
 there are two additional dependencies:</p>
 <ul>
-<li><p>A <strong>RightTrackDB</strong> Class Object. This acts as a SQLite wrapper that provides 
-the actual SQLite functionality.  The <a href="https://github.com/right-track/right-track-db-sqlite3">right-track-db-sqlite3</a> 
-module provides this functionality using the <a href="https://github.com/mapbox/node-sqlite3">node-sqlite3</a> 
+<li>
+<p>A <strong>RightTrackDB</strong> Class Object. This acts as a SQLite wrapper that provides
+the actual SQLite functionality.  The <a href="https://github.com/right-track/right-track-db-sqlite3">right-track-db-sqlite3</a>
+module provides this functionality using the <a href="https://github.com/mapbox/node-sqlite3">node-sqlite3</a>
 module and should work in any environment supported by node-sqlite3.</p>
 </li>
-<li><p>A <strong>Right Track Agency</strong> implementation.  This provides the agency-specific 
-configuration properties as well as the agency's Right Track Database (or the 
+<li>
+<p>A <strong>Right Track Agency</strong> implementation.  This provides the agency-specific
+configuration properties as well as the agency's Right Track Database (or the
 location of the database).</p>
 </li>
 </ul>
-<p>The following example queries the information for a <code>Stop</code> with id <code>110</code> from a 
-Right Track Database for <a href="https://github.com/right-track/right-track-agency-mnr">Metro North Railroad</a>. </p>
+<p>The following example queries the information for a <code>Stop</code> with id <code>110</code> from a
+Right Track Database for <a href="https://github.com/right-track/right-track-agency-mnr">Metro North Railroad</a>.</p>
 <pre class="prettyprint source lang-javascript"><code>const core = require('right-track-core');
 const RightTrackDB = require('right-track-db-sqlite3');
 const MNR = require('right-track-agency-mnr');
@@ -171,7 +190,10 @@ core.query.stops.getStop(db, '110', function(err, stop) {
 //   wheelchairBoarding: 1,
 //   statusID: '110',
 //   transferWeight: 1171 
-// }</code></pre><h4>Schedule Trip Search</h4><p>The <em>search</em> functions of this module can query the GTFS schedule to build a set
+// }
+</code></pre>
+<h4>Schedule Trip Search</h4>
+<p>The <em>search</em> functions of this module can query the GTFS schedule to build a set
 of Trip Search Results that connect the Origin and Destination Stops together with
 either a direct Trip or one that includes one or more transfers.</p>
 <p>The Search parameters can be customized with the following options:</p>
@@ -221,65 +243,68 @@ either a direct Trip or one that includes one or more transfers.</p>
 </tr>
 </tbody>
 </table>
-<h5>Trip Search Example</h5><p> The following example searches the GTFS schedule for Long Island Rail Road between
- the Patchogue and Atlantic Terminal Stops with a desired departure of 1:30 PM on Jan 16, 2018.</p>
-<p> The default options were changed to allow search results up to 8 hours after the desired
- departure.</p>
-<pre class="prettyprint source lang-javascript"><code> const core = require('right-track-core');
- const RightTrackDB = require('right-track-db-sqlite3');
- const LIRR = require('right-track-agency-lirr');
+<h5>Trip Search Example</h5>
+<p>The following example searches the GTFS schedule for Long Island Rail Road between
+the Patchogue and Atlantic Terminal Stops with a desired departure of 1:30 PM on Jan 16, 2018.</p>
+<p>The default options were changed to allow search results up to 8 hours after the desired
+departure.</p>
+<pre class="prettyprint source lang-javascript"><code>const core = require('right-track-core');
+const RightTrackDB = require('right-track-db-sqlite3');
+const LIRR = require('right-track-agency-lirr');
 
- const DateTime = core.utils.DateTime;
- const TripSearch = core.search.TripSearch;
+const DateTime = core.utils.DateTime;
+const TripSearch = core.search.TripSearch;
 
- // Set up a Right Track DB for LIRR
- let db = new RightTrackDB(LIRR);
+// Set up a Right Track DB for LIRR
+let db = new RightTrackDB(LIRR);
 
- // Get the Origin and Destination Stops by their IDs
- core.query.stops.getStop(db, '124', function(err, origin) {
-   core.query.stops.getStop(db, '12', function(err, destination) {
+// Get the Origin and Destination Stops by their IDs
+core.query.stops.getStop(db, '124', function(err, origin) {
+  core.query.stops.getStop(db, '12', function(err, destination) {
 
-     // Set Search Paramters
-     let dt = DateTime.create(&quot;1:30 PM&quot;, 20180116);
-     let options = {
-       postDepartureHours: 8
-     };
+    // Set Search Paramters
+    let dt = DateTime.create(&quot;1:30 PM&quot;, 20180116);
+    let options = {
+      postDepartureHours: 8
+    };
 
-     // Set up the Trip Search
-     let search = new TripSearch(origin, destination, dt, options);
+    // Set up the Trip Search
+    let search = new TripSearch(origin, destination, dt, options);
 
-     // Perform the Trip Search
-     search.search(db, function(err, results) {
+    // Perform the Trip Search
+    search.search(db, function(err, results) {
 
-       // Print the Results
-       console.log(&quot;==== TRIP SEARCH RESULTS: ===&quot;);
-       console.log(&quot;ORIGIN: &quot; + origin.name);
-       console.log(&quot;DESTINATION: &quot; + destination.name);
-       console.log(&quot;DEPARTURE: &quot; + dt.toString());
-       console.log(&quot;RESULTS: &quot; + results.length);
-       console.log(&quot;=============================&quot;);
+      // Print the Results
+      console.log(&quot;==== TRIP SEARCH RESULTS: ===&quot;);
+      console.log(&quot;ORIGIN: &quot; + origin.name);
+      console.log(&quot;DESTINATION: &quot; + destination.name);
+      console.log(&quot;DEPARTURE: &quot; + dt.toString());
+      console.log(&quot;RESULTS: &quot; + results.length);
+      console.log(&quot;=============================&quot;);
 
-       // Parse each Result
-       for ( let i = 0; i &lt; results.length; i++ ) {
-         let result = results[i];
+      // Parse each Result
+      for ( let i = 0; i &lt; results.length; i++ ) {
+        let result = results[i];
 
-         console.log(result.origin.stop.name + &quot; @ &quot; + result.origin.departure.getTimeReadable() + &quot; --> &quot; + result.destination.stop.name + &quot; @ &quot; + result.destination.arrival.getTimeReadable());
+        console.log(result.origin.stop.name + &quot; @ &quot; + result.origin.departure.getTimeReadable() + &quot; --> &quot; + result.destination.stop.name + &quot; @ &quot; + result.destination.arrival.getTimeReadable());
 
-         // Parse segments when a transfer is required
-         if ( result.length > 1 ) {
-           let segments = result.segments;
-           for ( let j = 0; j &lt; segments.length; j++ ) {
-             let segment = segments[j];
-             console.log(&quot;  &quot; + segment.enter.stop.name + &quot; @ &quot; + segment.enter.departure.getTimeReadable() + &quot; --> &quot; + segment.exit.stop.name + &quot; @ &quot; + segment.exit.arrival.getTimeReadable());
-           }
-         }
+        // Parse segments when a transfer is required
+        if ( result.length > 1 ) {
+          let segments = result.segments;
+          for ( let j = 0; j &lt; segments.length; j++ ) {
+            let segment = segments[j];
+            console.log(&quot;  &quot; + segment.enter.stop.name + &quot; @ &quot; + segment.enter.departure.getTimeReadable() + &quot; --> &quot; + segment.exit.stop.name + &quot; @ &quot; + segment.exit.arrival.getTimeReadable());
+          }
+        }
 
-       }
+      }
 
-     });
+    });
 
-   });
- });</code></pre><p>The resulting output, which prints the Trip Search Results to the console:</p>
+  });
+});
+</code></pre>
+<p>The resulting output, which prints the Trip Search Results to the console:</p>
 <pre class="prettyprint source"><code>==== TRIP SEARCH RESULTS: ===
 ORIGIN: Patchogue
 DESTINATION: Atlantic Terminal
@@ -318,7 +343,8 @@ Patchogue @ 6:30 PM --> Atlantic Terminal @ 8:21 PM
 Patchogue @ 7:39 PM --> Atlantic Terminal @ 9:53 PM
   Patchogue @ 7:39 PM --> Babylon @ 8:09 PM
   Babylon @ 8:13 PM --> Jamaica @ 9:04 PM
-  Jamaica @ 9:33 PM --> Atlantic Terminal @ 9:53 PM</code></pre></article>
+  Jamaica @ 9:33 PM --> Atlantic Terminal @ 9:53 PM
+</code></pre></article>
     </section>
 
 
@@ -331,7 +357,7 @@ Patchogue @ 7:39 PM --> Atlantic Terminal @ 9:53 PM
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri May 17 2019 09:26:30 GMT-0400 (Eastern Daylight Time) using the <a href="https://github.com/dwaring87/docdash">@dwaring87/docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sat Jan 11 2020 18:21:59 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/dwaring87/docdash">@dwaring87/docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
