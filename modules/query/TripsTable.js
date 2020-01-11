@@ -441,6 +441,11 @@ function _buildEffectiveServiceIDString(db, date, callback) {
  */
 function _getMatchingTripId(db, originId, destinationId, departure, serviceIdString, callback) {
 
+  // Set counters and return trip id
+  let count = 0;
+  let done = 1;
+  let rtn = undefined;
+
   // Find a matching trip in the gtfs_stop_times table
   let select = "SELECT trip_id FROM gtfs_trips " +
     "WHERE service_id IN " + serviceIdString + " " +
@@ -465,32 +470,23 @@ function _getMatchingTripId(db, originId, destinationId, departure, serviceIdStr
     }
 
     // Find the best match
-    let found = false;
-    let count = 0;
+    done = results.length;
     for ( let j = 0; j < results.length; j++ ) {
       let row = results[j];
 
       // Get StopTimes for origin and destination
       StopTimesTable.getStopTimeByTripStop(db, row.trip_id, originId, departure.getDateInt(), function(orErr, originStopTime) {
         StopTimesTable.getStopTimeByTripStop(db, row.trip_id, destinationId, departure.getDateInt(), function(deErr, destinationStopTime) {
-          if ( orErr ) {
-            return callback(orErr);
-          }
-          if ( deErr ) {
-            return callback(deErr);
-          }
 
           // Check stop sequence
           // If origin comes before destination, use that trip
-          if ( originStopTime.stopSequence <= destinationStopTime.stopSequence ) {
-            found = true;
-            return callback(null, row.trip_id);
+          if ( !orErr && !deErr && originStopTime.stopSequence <= destinationStopTime.stopSequence ) {
+            _finish(row.trip_id);
           }
 
           // No match found
-          count ++;
-          if ( !found && count === results.length ) {
-            return callback(null, undefined);
+          else {
+            _finish();
           }
 
         });
@@ -499,6 +495,19 @@ function _getMatchingTripId(db, originId, destinationId, departure, serviceIdStr
     }
 
   });
+
+
+  // Return to the main callback once all queries are done
+  // Use the first matching trip id to return
+  function _finish(trip_id) {
+    count++;
+    if ( !rtn && trip_id ) {
+      rtn = trip_id;
+    }
+    if ( count >= done ) {
+      return callback(null, rtn);
+    }
+  }
 
 }
 
