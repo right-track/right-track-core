@@ -233,10 +233,11 @@ Favorite.createTrip = function(origin, destination, sequence, opts={}) {
  * @param {TransitAgency} agency The Transit Agency of the Favorite Transit
  * @param {TransitDivision|undefined} division The Transit Division of the Favorite Transit 
  * @param {TransitLine|undefined} line The Transit Line of the Favorite Transit
+ * @param {int} sequence The Favorite sequence
  * @param {Object} [opts={}] {@link Favorite~FavoriteTransitOptions|Transit Options}
  * @returns {Favorite} Favorite Transit 
  */
-Favorite.createTransit = function(agency, division, line, opts={}) {
+Favorite.createTransit = function(agency, division, line, sequence, opts={}) {
   return new Favorite(
     Favorite.FAVORITE_TYPE_TRANSIT,
     sequence,
