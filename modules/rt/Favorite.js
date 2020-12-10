@@ -1,5 +1,9 @@
 'use strict';
 
+const TransitAgency = require('right-track-transit');
+const TransitDivision = require('right-track-transit/src/TransitFeed/TransitDivision');
+const TransitLine = require('right-track-transit/src/TransitFeed/TransitLine');
+
 /**
  * Right Track Favorite Class
  * @see {@link Favorite}
@@ -56,6 +60,30 @@
  *    allowTransfers: true
  *  }
  *  ```
+ * 
+ * ### Transit
+ *
+ * **Parameters:**
+ * ```
+ *  {
+ *    agency: {
+ *      id: 'Transit Agency ID',
+ *      name: 'Transit Name'
+ *    },
+ *    division: {
+ *      code: 'Transit Division Code',
+ *      name: 'Transit Division Name'
+ *    },
+ *    line: {
+ *      code: 'Transit Line Code'
+ *      name: 'Transit Line Name'
+ *    }
+ *  }
+ *  ```
+ *
+ *  **Options:**
+ *
+ *  Currently, there are no options for a Favorite Transit.
  *
  * **Module:** {@link module:rt/Favorite|rt/Favorite}
  *
@@ -68,8 +96,8 @@ class Favorite {
    * Create a new Favorite with the specified information
    * @param {int} type Favorite Type
    * @param {int} sequence Favorite Sequence (1, 2, etc...)
-   * @param {Object} parameters Favorite {@link Favorite~FavoriteStationParameters|Station} or {@link Favorite~FavoriteTripParameters|Trip} Parameters
-   * @param {Object} [options={}] Favorite {@link Favorite~FavoriteStationOptions|Station} or {@link Favorite~FavoriteTripOptions|Trip} Options
+   * @param {Object} parameters Favorite {@link Favorite~FavoriteStationParameters|Station} or {@link Favorite~FavoriteTripParameters|Trip} or {@link Favorite~FavoriteTransitParameters|Transit} Parameters
+   * @param {Object} [options={}] Favorite {@link Favorite~FavoriteStationOptions|Station} or {@link Favorite~FavoriteTripOptions|Trip} or {@link Favorite~FavoriteTransitOptions|Transit} Options
    */
   constructor(type, sequence, parameters, options={}) {
 
@@ -115,6 +143,14 @@ class Favorite {
     return this.type === Favorite.FAVORITE_TYPE_TRIP;
   }
 
+  /**
+   * Check if the Favorite is a Favorite Transit
+   * @returns {boolean} true if Transit
+   */
+  isTransit() {
+    return this.type === Favorite.FAVORITE_TYPE_TRANSIT;
+  }
+
 }
 
 
@@ -135,6 +171,12 @@ Favorite.FAVORITE_TYPE_STATION = 1;
  */
 Favorite.FAVORITE_TYPE_TRIP = 2;
 
+/**
+ * Favorite Type: Transit
+ * @const {number}
+ * @default
+ */
+Favorite.FAVORITE_TYPE_TRANSIT = 3;
 
 
 // ==== FACTORY METHODS ==== //
@@ -186,6 +228,35 @@ Favorite.createTrip = function(origin, destination, sequence, opts={}) {
   )
 };
 
+/**
+ * Favorite Factory: create a Favorite Transit Agency/Division/Line 
+ * @param {TransitAgency} agency The Transit Agency of the Favorite Transit
+ * @param {TransitDivision|undefined} division The Transit Division of the Favorite Transit 
+ * @param {TransitLine|undefined} line The Transit Line of the Favorite Transit
+ * @param {Object} [opts={}] {@link Favorite~FavoriteTransitOptions|Transit Options}
+ * @returns {Favorite} Favorite Transit 
+ */
+Favorite.createTransit = function(agency, division, line, opts={}) {
+  return new Favorite(
+    Favorite.FAVORITE_TYPE_TRANSIT,
+    sequence,
+    {
+      agency: {
+        id: agency.id,
+        name: agency.name
+      },
+      division: {
+        code: division.code,
+        name: division.name
+      },
+      line: {
+        code: line.code,
+        name: line.name
+      }
+    },
+    opts
+  )
+};
 
 
 // ==== SORT FUNCTIONS ==== //
@@ -215,9 +286,9 @@ Favorite.sortBySequence = function(a, b) {
 /**
  * The Parameters for a Favorite Station
  * @typedef {Object} Favorite~FavoriteStationParameters
- * @property stop The Favorite Station
- * @property stop.id Stop Id
- * @property stop.name Stop Name
+ * @property {Stop} stop The Favorite Station
+ * @property {String} stop.id Stop Id
+ * @property {String} stop.name Stop Name
  */
 
 /**
@@ -228,12 +299,12 @@ Favorite.sortBySequence = function(a, b) {
 /**
  * The Parameters for a Favorite Trip
  * @typedef {Object} Favorite~FavoriteTripParameters
- * @property origin The Origin Stop
- * @property origin.id Origin Id
- * @property origin.name Origin Name
- * @property destination The Destination Stop
- * @property destination.id Destination Id
- * @property destination.name Destination Name
+ * @property {Stop} origin The Origin Stop
+ * @property {String} origin.id Origin Id
+ * @property {String} origin.name Origin Name
+ * @property {Stop} destination The Destination Stop
+ * @property {String} destination.id Destination Id
+ * @property {String} destination.name Destination Name
  */
 
 /**
@@ -242,6 +313,24 @@ Favorite.sortBySequence = function(a, b) {
  * @property {boolean} allowTransfers Allow the Trip Result to include transfers
  */
 
+ /**
+  * The Parameters for a Favorite Transit
+  * @typedef {Object} Favorite~FavoriteTransitParameters
+  * @property {TransitAgency} agency The Transit Agency
+  * @property {String} agency.code The Transit Agency code
+  * @property {String} agency.name The Transit Agency name
+  * @property {TransitDivision} division The Transit Division
+  * @property {String} division.code The Transit Division code
+  * @property {String} division.name The Transit Division name
+  * @property {TransitLine} line The Transit Line
+  * @property {String} line.code The Transit Line code
+  * @property {String} line.name The Transit Line name
+  */
+
+/**
+ * The Options for a Favorite Transit
+ * @typedef {Object} Favorite~FavoriteTransitOptions
+ */
 
 
 module.exports = Favorite;
