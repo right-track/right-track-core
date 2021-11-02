@@ -7,8 +7,6 @@
  */
 
 
-const Agency = require('../gtfs/Agency.js');
-const Route = require('../gtfs/Route.js');
 const StopTime = require('../gtfs/StopTime.js');
 const TripsTable = require('../query/TripsTable.js');
 
@@ -115,6 +113,23 @@ function getTripsFromStop(db, stop, tripSearchDates, nextStops, callback) {
 
 
 /**
+ * Get the number of Trips that leave from the specified Stop during the specified time
+ * @param {RightTrackDB} db The Right Track Database to query
+ * @param {Stop} stop The origin Stop
+ * @param {TripSearchDate} tripSearchDates The TripSearchDate departure time window
+ * @param {Function} callback Callback function(err, count)
+ */
+function getTripCountFromStop(db, stop, tripSearchDates, callback) { 
+  TripsTable.getTripIDsByTripSearchDate(db, stop, tripSearchDates, function(err, tripIDs) {
+    if ( err ) {
+      return callback(err)
+    }
+    return callback(null, tripIDs ? tripIDs.length : 0);
+  });
+}
+
+
+/**
  * Get the Trips within the TripSearchDate range from the specified Stop
  * @param {RightTrackDB} db The Right Track DB to query
  * @param {Stop} stop The reference Stop
@@ -131,20 +146,8 @@ function _getTripsFromStop(db, stop, tripSearchDate, callback) {
   let done = 0;
   let count = 0;
 
-  // Build Service ID String
-  let serviceIdString = "'" + tripSearchDate.serviceIds.join("', '") + "'";
-
-  // Get Trip IDs
-  let select = "SELECT gtfs_stop_times.trip_id " +
-    "FROM gtfs_stop_times " +
-    "INNER JOIN gtfs_trips ON gtfs_stop_times.trip_id=gtfs_trips.trip_id " +
-    "WHERE stop_id='" + stop.id + "' AND " +
-    "departure_time_seconds >= " + tripSearchDate.preSeconds + " AND departure_time_seconds <= " + tripSearchDate.postSeconds + " AND " +
-    "pickup_type <> " + StopTime.PICKUP_TYPE_NONE + " AND " +
-    "gtfs_trips.service_id IN (" + serviceIdString + ")";
-
-  // Select the Trip IDs
-  db.select(select, function(err, results) {
+  // Get the Trip IDs of matching Trips
+  TripsTable.getTripIDsByTripSearchDate(db, stop, tripSearchDate, function(err, results) {
 
     // Database Query Error
     if ( err ) {
@@ -163,7 +166,7 @@ function _getTripsFromStop(db, stop, tripSearchDate, callback) {
 
     // Build the Trips
     for ( let i = 0; i < results.length; i++ ) {
-      TripsTable.getTrip(db, results[i].trip_id, tripSearchDate.date, function(err, trip) {
+      TripsTable.getTrip(db, results[i], tripSearchDate.date, function(err, trip) {
 
         // Database Query Error
         if ( err ) {
@@ -200,5 +203,6 @@ function _getTripsFromStop(db, stop, tripSearchDate, callback) {
 
 
 module.exports = {
-  getTripsFromStop: getTripsFromStop
+  getTripsFromStop: getTripsFromStop,
+  getTripCountFromStop: getTripCountFromStop
 };

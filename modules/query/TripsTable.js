@@ -31,7 +31,7 @@ const HolidayTable = require('./HolidayTable.js');
  * @param {Error} callback.error Database Query Error
  * @param {Trip} [callback.trip] The selected Trip
  */
-let getTrip = function(db, id, date, callback) {
+function getTrip(db, id, date, callback) {
 
   // Check cache for trip
   let cacheKey = db.id + "-" + id + "-" + date;
@@ -633,6 +633,44 @@ function getTripsByDate(db, date, opts, callback) {
 }
 
 
+/**
+ * Get the Trip IDs of the Trips that leave the origin Stop in the specified TripSearchDate departure time window
+ * @param {RightTrackDb} db The Right Track DB to query
+ * @param {Stop} stop The origin Stop
+ * @param {TripSearchDate} tripSearchDate The Trip Search Date containing the search time window
+ * @param {Function} callback Callback function(err, tripIDs)
+ */
+function getTripIDsByTripSearchDate(db, stop, tripSearchDate, callback) {
+
+  // Build Service ID String
+  let serviceIdString = "'" + tripSearchDate.serviceIds.join("', '") + "'";
+
+  // Get Trip IDs
+  let select = "SELECT gtfs_stop_times.trip_id " +
+    "FROM gtfs_stop_times " +
+    "INNER JOIN gtfs_trips ON gtfs_stop_times.trip_id=gtfs_trips.trip_id " +
+    "WHERE stop_id='" + stop.id + "' AND " +
+    "departure_time_seconds >= " + tripSearchDate.preSeconds + " AND departure_time_seconds <= " + tripSearchDate.postSeconds + " AND " +
+    "pickup_type <> " + StopTime.PICKUP_TYPE_NONE + " AND " +
+    "gtfs_trips.service_id IN (" + serviceIdString + ")";
+  
+  // Perform the query
+  db.select(select, function(err, results) {
+    if ( err ) {
+      return callback(err);
+    }
+    let rtn = [];
+    if ( results ) {
+      for ( let i = 0; i < results.length; i++ ) {
+        rtn.push(results[i].trip_id);
+      }
+    }
+    return callback(null, rtn);
+  });
+
+}
+
+
 
 // ==== SETUP CACHES ==== //
 let cache_tripsById = new cache.Cache();
@@ -659,5 +697,6 @@ module.exports = {
   getTripByShortName: getTripByShortName,
   getTripByDeparture: getTripByDeparture,
   getTripsByDate: getTripsByDate,
+  getTripIDsByTripSearchDate: getTripIDsByTripSearchDate,
   clearCache: clearCache
 };

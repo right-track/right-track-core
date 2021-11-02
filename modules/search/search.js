@@ -16,7 +16,7 @@ const CalendarTable = require('../query/CalendarTable.js');
 const LineGraphTable = require('../query/LineGraphTable.js');
 
 
-const LOG = false;
+const LOG = true;
 
 
 
@@ -28,7 +28,7 @@ const LOG = false;
  * @param {Stop} destination Destination Stop
  * @param {DateTime} departure Requested Departure Date/Time
  * @param {Object} options Trip Search Options
- * @param {function} callback Callback Function
+ * @param {function} callback Callback function(err, results)
  * @private
  */
 function search(db, origin, destination, departure, options, callback) {
@@ -45,22 +45,21 @@ function search(db, origin, destination, departure, options, callback) {
 
   // Get the initial Trip Search Dates
   _getTripSearchDates(db, departure, options.preDepartureHours*60, options.postDepartureHours*60, function(err, tripSearchDates) {
-    _log("===== SEARCH TIME RANGE =====");
-    for ( let i = 0; i < tripSearchDates.length; i++ ) {
-      _log(JSON.stringify(tripSearchDates[i], null, 2));
+    if ( LOG ) {
+      _log("===== SEARCH TIME RANGE =====");
+      for ( let i = 0; i < tripSearchDates.length; i++ ) {
+        _log(JSON.stringify(tripSearchDates[i], null, 2));
+      }
     }
 
-    // Database Query Error
-    if ( err ) {
-      return callback(err);
-    }
+    // Determine the direction of the trip search
+    _determineTripSearchDirection(db, origin, destination, tripSearchDates, function(err, reverse) {
+      if ( err ) {
+        return callback(err);
+      }
 
 
-    // Get the Initial Trips
-    _getTripsFromStop(db, origin, destination, origin, tripSearchDates, [], function(err, direct, indirect) {
-      _log("======= INITIAL TRIPS =======");
-      _log("DIRECT TRIPS: " + direct.length);
-      _log("INDIRECT TRIPS: " + indirect.length);
+      process.exit(0);
 
       // Database Query Error
       if ( err ) {
@@ -68,49 +67,63 @@ function search(db, origin, destination, departure, options, callback) {
       }
 
 
-      // Process Direct Trips
-      for ( let i = 0; i < direct.length; i++ ) {
-        let trip = direct[i];
+      // Get the Initial Trips
+      _getTripsFromStop(db, origin, destination, origin, tripSearchDates, [], function(err, direct, indirect) {
+        _log("======= INITIAL TRIPS =======");
+        _log("DIRECT TRIPS: " + direct.length);
+        _log("INDIRECT TRIPS: " + indirect.length);
 
-        // Create a new Trip Search Result Segment
-        let segment = new TripSearchResultSegment(trip, origin, destination);
-
-        // Create new Trip Search Result
-        let result = new TripSearchResult(segment);
-
-        // Add Result to List
-        RESULTS.push(result);
-      }
+        // Database Query Error
+        if ( err ) {
+          return callback(err);
+        }
 
 
-      // Process Indirect Trips, if transfers are allowed
-      if ( indirect.length > 0 && options.allowTransfers ) {
-        _log("====== TRANSFER SEARCH ======");
+        // Process Direct Trips
+        for ( let i = 0; i < direct.length; i++ ) {
+          let trip = direct[i];
 
-        // Process the Indirect Trips
-        _processTrips(db, options, origin, destination, origin, indirect, [], function(err, results) {
-          _log("=== TRANSFER SEARCH RETURN ==");
+          // Create a new Trip Search Result Segment
+          let segment = new TripSearchResultSegment(trip, origin, destination);
 
-          // Add results to final list
-          RESULTS = RESULTS.concat(results);
+          // Create new Trip Search Result
+          let result = new TripSearchResult(segment);
 
-          // Finish
+          // Add Result to List
+          RESULTS.push(result);
+        }
+
+
+        // Process Indirect Trips, if transfers are allowed
+        if ( indirect.length > 0 && options.allowTransfers ) {
+          _log("====== TRANSFER SEARCH ======");
+
+          // Process the Indirect Trips
+          _processTrips(db, options, origin, destination, origin, indirect, [], function(err, results) {
+            _log("=== TRANSFER SEARCH RETURN ==");
+
+            // Add results to final list
+            RESULTS = RESULTS.concat(results);
+
+            // Finish
+            _finish();
+
+          });
+
+        }
+
+
+        // No transfers required or disabled, finish
+        else {
           _finish();
-
-        });
-
-      }
+        }
 
 
-      // No transfers required or disabled, finish
-      else {
-        _finish();
-      }
+      });
 
 
     });
-
-
+  
   });
 
 
@@ -868,6 +881,50 @@ function _tripGoesTo(trip, origin, destination) {
 }
 
 
+/**
+ * Determine if the Trip Search should be performed in reverse
+ * @param {RightTrackDB} db The DB to query
+ * @param {Stop} origin The origin Stop
+ * @param {Stop} destination The destination Stop
+ * @param {TripSearchDate[]} tripSearchDates The TripSearchDates covering the requested departure window
+ * @param {Function} callback Callback function(err, reverse)
+ */
+function _determineTripSearchDirection(db, origin, destination, tripSearchDates, callback) {
+  _log("===== TRIP SEARCH DIRECTION =====");
+  let rtn = {};
+  rtn[origin.id] = 0;
+  rtn[destination.id] = 0;
+  let total = tripSearchDates.length*2;
+  let finished = 0;
+
+  // Get Trip Counts from each Stop
+  for ( let i = 0; i < tripSearchDates.length; i++ ) {
+    query.getTripCountFromStop(db, origin, tripSearchDates[i], function(err, count) {
+      if ( err ) {
+        return callback(err);
+      }
+      _finish(origin, count);
+    });
+    query.getTripCountFromStop(db, destination, tripSearchDates[i], function(err, count) {
+      if ( err ) {
+        return callback(err);
+      }
+      _finish(destination, count);
+    });
+  }
+  
+  function _finish(stop, count) {
+    rtn[stop.id] = rtn[stop.id] + count;
+    finished++;
+    if ( finished >= total ) {
+      let reverse = rtn[destination.id] < rtn[origin.id]
+      _log("Trips from Origin: " + rtn[origin.id]);
+      _log("Trips from Destination: " + rtn[destination.id]);
+      _log("Reverse Search: " + reverse);  
+      return callback(null, reverse);
+    }
+  }
+}
 
 
 
