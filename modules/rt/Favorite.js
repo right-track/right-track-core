@@ -2,7 +2,6 @@
 
 const TransitAgency = require('right-track-transit');
 const TransitDivision = require('right-track-transit/src/TransitFeed/TransitDivision');
-const TransitLine = require('right-track-transit/src/TransitFeed/TransitLine');
 
 /**
  * Right Track Favorite Class
@@ -231,13 +230,19 @@ Favorite.createTrip = function(origin, destination, sequence, opts={}) {
 /**
  * Favorite Factory: create a Favorite Transit Agency/Division/Line 
  * @param {TransitAgency} agency The Transit Agency of the Favorite Transit
- * @param {TransitDivision|undefined} division The Transit Division of the Favorite Transit 
- * @param {TransitLine|undefined} line The Transit Line of the Favorite Transit
+ * @param {TransitDivision[]} divisions The Transit Divisions of the Favorite Transit 
  * @param {int} sequence The Favorite sequence
  * @param {Object} [opts={}] {@link Favorite~FavoriteTransitOptions|Transit Options}
  * @returns {Favorite} Favorite Transit 
  */
-Favorite.createTransit = function(agency, division, line, sequence, opts={}) {
+Favorite.createTransit = function(agency, divisions, sequence, opts={}) {
+  let divisions_info = [];
+  for ( let i = 0; i < divisions.length; i++ ) {
+    divisions_info.push({
+      code: divisions[i].code,
+      name: divisions[i].name
+    });
+  }
   return new Favorite(
     Favorite.FAVORITE_TYPE_TRANSIT,
     sequence,
@@ -246,14 +251,7 @@ Favorite.createTransit = function(agency, division, line, sequence, opts={}) {
         id: agency.id,
         name: agency.name
       },
-      division: {
-        code: division.code,
-        name: division.name
-      },
-      line: {
-        code: line.code,
-        name: line.name
-      }
+      divisions: divisions_info
     },
     opts
   )
