@@ -73,10 +73,7 @@ const TransitDivision = require('right-track-transit/src/TransitFeed/TransitDivi
  *      code: 'Transit Division Code',
  *      name: 'Transit Division Name'
  *    },
- *    line: {
- *      code: 'Transit Line Code'
- *      name: 'Transit Line Name'
- *    }
+ *    divisionCodes: ['subway', 'A']
  *  }
  *  ```
  *
@@ -171,11 +168,20 @@ Favorite.FAVORITE_TYPE_STATION = 1;
 Favorite.FAVORITE_TYPE_TRIP = 2;
 
 /**
+ * Favorite Type: Transit (old)
+ * The old transit favorite type (divided into agency / division / line)
+ * @const {number}
+ * @deprecated
+ */
+Favorite.FAVORITE_TYPE_TRANSIT_OLD = 3;
+
+/**
  * Favorite Type: Transit
+ * The new transit favorite type (divided into agency / divisions...)
  * @const {number}
  * @default
  */
-Favorite.FAVORITE_TYPE_TRANSIT = 3;
+Favorite.FAVORITE_TYPE_TRANSIT = 4;
 
 
 // ==== FACTORY METHODS ==== //
@@ -228,21 +234,15 @@ Favorite.createTrip = function(origin, destination, sequence, opts={}) {
 };
 
 /**
- * Favorite Factory: create a Favorite Transit Agency/Division/Line 
+ * Favorite Factory: create a Favorite Transit Agency/Division... 
  * @param {TransitAgency} agency The Transit Agency of the Favorite Transit
- * @param {TransitDivision[]} divisions The Transit Divisions of the Favorite Transit 
+ * @param {TransitDivision} division The Transit Division of the Favorite Transit 
+ * @param {String[]} divisionCodes The Transit Division codes (codes of parent(s) and favorite)
  * @param {int} sequence The Favorite sequence
  * @param {Object} [opts={}] {@link Favorite~FavoriteTransitOptions|Transit Options}
  * @returns {Favorite} Favorite Transit 
  */
-Favorite.createTransit = function(agency, divisions, sequence, opts={}) {
-  let divisions_info = [];
-  for ( let i = 0; i < divisions.length; i++ ) {
-    divisions_info.push({
-      code: divisions[i].code,
-      name: divisions[i].name
-    });
-  }
+Favorite.createTransit = function(agency, division, divisionCodes, sequence, opts={}) {
   return new Favorite(
     Favorite.FAVORITE_TYPE_TRANSIT,
     sequence,
@@ -251,7 +251,11 @@ Favorite.createTransit = function(agency, divisions, sequence, opts={}) {
         id: agency.id,
         name: agency.name
       },
-      divisions: divisions_info
+      division: {
+        code: division.code,
+        name: division.name
+      },
+      divisionCodes: divisionCodes
     },
     opts
   )
@@ -321,9 +325,7 @@ Favorite.sortBySequence = function(a, b) {
   * @property {TransitDivision} division The Transit Division
   * @property {String} division.code The Transit Division code
   * @property {String} division.name The Transit Division name
-  * @property {TransitLine} line The Transit Line
-  * @property {String} line.code The Transit Line code
-  * @property {String} line.name The Transit Line name
+  * @property {String[]} divisionCodes The array of Division codes (includes parent(s) and favorite)
   */
 
 /**
