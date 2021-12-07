@@ -9,9 +9,8 @@
     "docs": "jsdoc -c jsdoc.json --readme README.md --template $NODE_PATH/@dwaring87/docdash"
   },
   "dependencies": {
-    "memory-cache": "^0.2.0",
-    "right-track-db": "^1.2.5",
-    "right-track-transit": "^1.1.2"
+    "@dwaring87/config": "^1.3.1",
+    "memory-cache": "^0.2.0"
   },
   "devDependencies": {
     "docdash": "^1.2.0",

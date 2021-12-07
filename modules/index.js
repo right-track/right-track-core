@@ -11,7 +11,7 @@
  */
 
 /**
- * @type {{gtfs, rt, query, search, utils}}
+ * @type {{gtfs, rt, query, search, utils, RightTrackTransitAgency}}
  */
 module.exports = {
 
@@ -43,6 +43,12 @@ module.exports = {
    * Right Track Utility Functions
    * @see module:utils
    */
-  utils: require('./utils')
+  utils: require('./utils'),
+
+  /**
+   * RightTrackTransitAgency Class
+   * @see RightTrackTransit
+   */
+  RightTrackTransitAgency: require('./classes/transit')
 
 };
