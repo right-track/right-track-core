@@ -1,24 +1,22 @@
 Right Track Core Library
 ========================
-
-**node module:** [right-track-core](https://www.npmjs.com/package/right-track-core)  
+ 
 **GitHub repo:** [right-track/right-track-core](https://github.com/right-track/right-track-core)
 
 --- 
 
 This Node module contains the core data classes and functionality of the
 [Right Track Library](https://github.com/right-track/). It can query a 
-_Right Track Database_ (a combination of GTFS data and additional custom data) 
+_RightTrackDB_ (a SQLite database that combines GTFS data with additional data) 
 that is built using the [right-track-db-build](https://github.com/right-track/right-track-db-build) 
 module and create data classes representing the queried data.
 
-This module is a requirement for the [right-track-server](https://github.com/right-track/right-track-server), 
-the [right-track-online](https://github.com/right-track/right-track-online) website 
-and the planned upcoming right track mobile apps.
+This module is a requirement for the [right-track-server](https://github.com/right-track/right-track-server) 
+and the [right-track-pwa](https://github.com/right-track/right-track-pwa) website.
 
 Agency specific functionality (such as real-time feed information) is 
-added through the various [right-track-agency-{id}](https://github.com/right-track/right-track-agency) 
-modules.
+added through the various implementation of the _RightTrackAgency_ classes, such as 
+[Metro North](https://github.com/right-track/right-track-agency-mnr) or [LIRR](https://github.com/right-track/right-track-agency-lirr).
 
 ### Features and Functionality
 
@@ -46,6 +44,10 @@ Currently, the module supports the following features:
   - Trip Search Result
   - GTFS schedule search functions (including transfers)
 - General purpose utility functions
+- Abstract Right Track Classes:
+  - RightTrackDB (Class for managing the SQLite database)
+  - RightTrackAgency (Class containing agency-specific information and the function for building Station Feeds)
+  - RightTrackTransitAgency (Class containing transit agency-specific information and the function for building Transit Feeds)
 
 ### Documentation
 

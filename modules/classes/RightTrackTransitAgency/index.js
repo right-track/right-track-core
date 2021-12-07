@@ -3,11 +3,25 @@
 const config = require('@dwaring87/config');
 const path = require('path');
 
+/**
+ * Right Track Transit Agency Abstract Class
+ * @see {@link RightTrackTransitAgency}
+ * @module classes/RightTrackTransitAgency
+ */
+
 
 /**
  * ### `RightTrackTransitAgency` Abstract Class
+ * 
+ * This module provides the abstract class for all implementing 
+ * Transit Agencies.  It provides methods for managing the Transit Agency 
+ * configuration, getting the required configuration properties, and loading
+ * a Transit Feed for the Transit Agency. 
+ * 
+ * **Module:** {@link module:classes/RightTrackTransitAgency|classes/RightTrackTransitAgency}
  *
  * @class
+ * @alias RightTrackTransitAgency
  * @abstract
  */
 class RightTrackTransitAgency {

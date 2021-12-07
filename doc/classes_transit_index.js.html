@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>classes/transit/index.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Agency.html">Agency</a></li><li><a href="DateTime.html">DateTime</a><ul class='methods'><li data-type='method'><a href="DateTime.html#.create">create</a></li><li data-type='method'><a href="DateTime.html#.createFromDate">createFromDate</a></li><li data-type='method'><a href="DateTime.html#.createFromJSDate">createFromJSDate</a></li><li data-type='method'><a href="DateTime.html#.createFromTime">createFromTime</a></li><li data-type='method'><a href="DateTime.html#.now">now</a></li><li data-type='method'><a href="DateTime.html#clone">clone</a></li><li data-type='method'><a href="DateTime.html#deltaDays">deltaDays</a></li><li data-type='method'><a href="DateTime.html#deltaMins">deltaMins</a></li><li data-type='method'><a href="DateTime.html#getDateDOW">getDateDOW</a></li><li data-type='method'><a href="DateTime.html#getDateInt">getDateInt</a></li><li data-type='method'><a href="DateTime.html#getDateReadable">getDateReadable</a></li><li data-type='method'><a href="DateTime.html#getTimeGTFS">getTimeGTFS</a></li><li data-type='method'><a href="DateTime.html#getTimeInt">getTimeInt</a></li><li data-type='method'><a href="DateTime.html#getTimeReadable">getTimeReadable</a></li><li data-type='method'><a href="DateTime.html#getTimeSeconds">getTimeSeconds</a></li><li data-type='method'><a href="DateTime.html#isDateSet">isDateSet</a></li><li data-type='method'><a href="DateTime.html#toHTTPString">toHTTPString</a></li><li data-type='method'><a href="DateTime.html#toMySQLString">toMySQLString</a></li><li data-type='method'><a href="DateTime.html#toString">toString</a></li><li data-type='method'><a href="DateTime.html#toTimestamp">toTimestamp</a></li></ul></li><li><a href="Favorite.html">Favorite</a><ul class='methods'><li data-type='method'><a href="Favorite.html#.createStation">createStation</a></li><li data-type='method'><a href="Favorite.html#.createTransit">createTransit</a></li><li data-type='method'><a href="Favorite.html#.createTrip">createTrip</a></li><li data-type='method'><a href="Favorite.html#.sortBySequence">sortBySequence</a></li><li data-type='method'><a href="Favorite.html#isStation">isStation</a></li><li data-type='method'><a href="Favorite.html#isTransit">isTransit</a></li><li data-type='method'><a href="Favorite.html#isTrip">isTrip</a></li></ul></li><li><a href="Holiday.html">Holiday</a></li><li><a href="Link.html">Link</a></li><li><a href="RightTrackTransitAgency.html">RightTrackTransitAgency</a><ul class='methods'><li data-type='method'><a href="RightTrackTransitAgency.html#getConfig">getConfig</a></li><li data-type='method'><a href="RightTrackTransitAgency.html#getDivision">getDivision</a></li><li data-type='method'><a href="RightTrackTransitAgency.html#loadFeed">loadFeed</a></li><li data-type='method'><a href="RightTrackTransitAgency.html#readConfig">readConfig</a></li><li data-type='method'><a href="RightTrackTransitAgency.html#resetConfig">resetConfig</a></li></ul></li><li><a href="Route.html">Route</a><ul class='methods'><li data-type='method'><a href="Route.html#.sortByName">sortByName</a></li></ul></li><li><a href="Service.html">Service</a></li><li><a href="ServiceException.html">ServiceException</a></li><li><a href="Stop.html">Stop</a><ul class='methods'><li data-type='method'><a href="Stop.html#.sortByDistance">sortByDistance</a></li><li data-type='method'><a href="Stop.html#.sortById">sortById</a></li><li data-type='method'><a href="Stop.html#.sortByName">sortByName</a></li><li data-type='method'><a href="Stop.html#.sortByTransferWeight">sortByTransferWeight</a></li><li data-type='method'><a href="Stop.html#setDistance">setDistance</a></li></ul></li><li><a href="StopTime.html">StopTime</a><ul class='methods'><li data-type='method'><a href="StopTime.html#.sortByStopSequence">sortByStopSequence</a></li><li data-type='method'><a href="StopTime.html#.sortByStopTransferWeight">sortByStopTransferWeight</a></li></ul></li><li><a href="TransitDivision.html">TransitDivision</a><ul class='methods'><li data-type='method'><a href="TransitDivision.html#getEventCount">getEventCount</a></li></ul></li><li><a href="TransitEvent.html">TransitEvent</a></li><li><a href="TransitFeed.html">TransitFeed</a><ul class='methods'><li data-type='method'><a href="TransitFeed.html#getEventCount">getEventCount</a></li></ul></li><li><a href="Trip.html">Trip</a><ul class='methods'><li data-type='method'><a href="Trip.html#.sortByDepartureTime">sortByDepartureTime</a></li><li data-type='method'><a href="Trip.html#getStopTime">getStopTime</a></li><li data-type='method'><a href="Trip.html#hasStopTime">hasStopTime</a></li></ul></li><li><a href="TripSearch.html">TripSearch</a><ul class='methods'><li data-type='method'><a href="TripSearch.html#search">search</a></li></ul></li><li><a href="TripSearchResult.html">TripSearchResult</a><ul class='methods'><li data-type='method'><a href="TripSearchResult.html#.sortByDeparture">sortByDeparture</a></li></ul></li><li><a href="TripSearchResultSegment.html">TripSearchResultSegment</a></li><li><a href="TripSearchResultTransfer.html">TripSearchResultTransfer</a></li></ul><h3>Modules</h3><ul><li><a href="module-_.html">/</a></li><li><a href="module-classes_transit.html">classes/transit</a></li><li><a href="module-gtfs.html">gtfs</a></li><li><a href="module-gtfs_Agency.html">gtfs/Agency</a></li><li><a href="module-gtfs_Route.html">gtfs/Route</a></li><li><a href="module-gtfs_Service.html">gtfs/Service</a></li><li><a href="module-gtfs_ServiceException.html">gtfs/ServiceException</a></li><li><a href="module-gtfs_Stop.html">gtfs/Stop</a></li><li><a href="module-gtfs_StopTime.html">gtfs/StopTime</a></li><li><a href="module-gtfs_Trip.html">gtfs/Trip</a></li><li><a href="module-query.html">query</a><ul class='methods'><li data-type='method'><a href="module-query.html#.clearCache">clearCache</a></li></ul></li><li><a href="module-query_about.html">query/about</a><ul class='methods'><li data-type='method'><a href="module-query_about.html#~getAbout">getAbout</a></li></ul></li><li><a href="module-query_calendar.html">query/calendar</a><ul class='methods'><li data-type='method'><a href="module-query_calendar.html#~getService">getService</a></li><li data-type='method'><a href="module-query_calendar.html#~getServiceExceptions">getServiceExceptions</a></li><li data-type='method'><a href="module-query_calendar.html#~getServicesDefault">getServicesDefault</a></li><li data-type='method'><a href="module-query_calendar.html#~getServicesEffective">getServicesEffective</a></li></ul></li><li><a href="module-query_holiday.html">query/holiday</a><ul class='methods'><li data-type='method'><a href="module-query_holiday.html#~getHoliday">getHoliday</a></li><li data-type='method'><a href="module-query_holiday.html#~getHolidays">getHolidays</a></li><li data-type='method'><a href="module-query_holiday.html#~isHoliday">isHoliday</a></li></ul></li><li><a href="module-query_linegraph.html">query/linegraph</a><ul class='methods'><li data-type='method'><a href="module-query_linegraph.html#~buildGraph">buildGraph</a></li><li data-type='method'><a href="module-query_linegraph.html#~getNextStops">getNextStops</a></li><li data-type='method'><a href="module-query_linegraph.html#~getPaths">getPaths</a></li></ul></li><li><a href="module-query_links.html">query/links</a><ul class='methods'><li data-type='method'><a href="module-query_links.html#~getLinkCategories">getLinkCategories</a></li><li data-type='method'><a href="module-query_links.html#~getLinks">getLinks</a></li><li data-type='method'><a href="module-query_links.html#~getLinksByCategory">getLinksByCategory</a></li></ul></li><li><a href="module-query_routegraph.html">query/routegraph</a><ul class='methods'><li data-type='method'><a href="module-query_routegraph.html#~getNextStops">getNextStops</a></li></ul></li><li><a href="module-query_routes.html">query/routes</a><ul class='methods'><li data-type='method'><a href="module-query_routes.html#~getRoute">getRoute</a></li><li data-type='method'><a href="module-query_routes.html#~getRoutes">getRoutes</a></li></ul></li><li><a href="module-query_stops.html">query/stops</a><ul class='methods'><li data-type='method'><a href="module-query_stops.html#~getStop">getStop</a></li><li data-type='method'><a href="module-query_stops.html#~getStopByName">getStopByName</a></li><li data-type='method'><a href="module-query_stops.html#~getStopByStatusId">getStopByStatusId</a></li><li data-type='method'><a href="module-query_stops.html#~getStops">getStops</a></li><li data-type='method'><a href="module-query_stops.html#~getStopsByLocation">getStopsByLocation</a></li><li data-type='method'><a href="module-query_stops.html#~getStopsByRoute">getStopsByRoute</a></li></ul></li><li><a href="module-query_stoptimes.html">query/stoptimes</a><ul class='methods'><li data-type='method'><a href="module-query_stoptimes.html#~getStopTimeByTripStop">getStopTimeByTripStop</a></li><li data-type='method'><a href="module-query_stoptimes.html#~getStopTimesByTrip">getStopTimesByTrip</a></li></ul></li><li><a href="module-query_trips.html">query/trips</a><ul class='methods'><li data-type='method'><a href="module-query_trips.html#~getTrip">getTrip</a></li><li data-type='method'><a href="module-query_trips.html#~getTripByDeparture">getTripByDeparture</a></li><li data-type='method'><a href="module-query_trips.html#~getTripByShortName">getTripByShortName</a></li><li data-type='method'><a href="module-query_trips.html#~getTripsByDate">getTripsByDate</a></li></ul></li><li><a href="module-rt.html">rt</a></li><li><a href="module-rt_About.html">rt/About</a></li><li><a href="module-rt_Favorite.html">rt/Favorite</a></li><li><a href="module-rt_Holiday.html">rt/Holiday</a></li><li><a href="module-rt_Link.html">rt/Link</a></li><li><a href="module-search.html">search</a></li><li><a href="module-search_TripSearch.html">search/TripSearch</a></li><li><a href="module-search_TripSearchResult.html">search/TripSearchResult</a></li><li><a href="module-search_TripSearchResultSegment.html">search/TripSearchResultSegment</a></li><li><a href="module-search_TripSearchResultTransfer.html">search/TripSearchResultTransfer</a></li><li><a href="module-utils.html">utils</a></li><li><a href="module-utils_calc.html">utils/calc</a><ul class='methods'><li data-type='method'><a href="module-utils_calc.html#~distance">distance</a></li></ul></li><li><a href="module-utils_DateTime.html">utils/DateTime</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">classes/transit/index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+const config = require('@dwaring87/config');
+const path = require('path');
+
+/**
+ * Right Track Transit Agency Abstract Class
+ * @see {@link About}
+ * @module classes/transit
+ */
+
+
+/**
+ * ### `RightTrackTransitAgency` Abstract Class
+ * 
+ * This module provides the abstract class for all implementing 
+ * Transit Agencies.  It provides methods for managing the Transit Agency 
+ * configuration, getting the required configuration properties, and loading
+ * a Transit Feed for the Transit Agency. 
+ * 
+ * **Module:** {@link module:rt/About|rt/About}
+ *
+ * @class
+ * @alias RightTrackTransitAgency
+ * @abstract
+ */
+class TransitAgency {
+
+  /**
+   * Abstract Transit Agency class constructor.  The implementing transit agency 
+   * should call this constructor with the path to its own module directory:
+   * `super(moduleDirectory)` in order to read the default agency configuration 
+   * and set the intial configuration properties.
+   * 
+   * Each implementing Transit Agency should include (at least) the following 
+   * properties in its agency config file:
+   * - id: Transit Agency ID Code
+   * - name: Transit Agency Display Name
+   * - description: Transit Agency Description
+   * - iconPath: Local file path to the Transit Agency icon
+   * - maintainer: Transit Agency maintainer information:
+   *    - name: Maintainer name
+   *    - email: Maintainer email address
+   *    - source: Maintainer's project source address
+   * The Transit Agency config file may contain any additional properties that it 
+   * may need (ie for the Transit Feed, etc).
+   * 
+   * @param {string} moduleDirectory The full path to the root of the transit 
+   * agency's module directory.  This is where any relative paths to configuration 
+   * files will be relative to.
+   */
+  constructor(moduleDirectory) {
+
+    // Set Transit Agency Moduel Directory
+    this._moduleDirectory = moduleDirectory;
+
+    // Setup Config
+    this._config = new config(path.normalize(this._moduleDirectory + '/agency.json'));
+
+  }
+
+
+  // ==== CLASS MEMBERS ==== //
+
+  /**
+   * The Transit Agency's module directory
+   * @returns {string}
+   */
+  get moduleDirectory() {
+    return path.normalize(this._moduleDirectory);
+  }
+
+  /**
+   * The Transit Agency's configuration properties
+   * @returns {Object}
+   */
+  get config() {
+    return this._config.get();
+  }
+
+  /**
+   * Transit Agency's id code
+   * @returns {string}
+   */
+  get id() {
+    return this.config.id;
+  }
+
+  /**
+   * The Transit Agency's full name
+   * @returns {string}
+   */
+  get name() {
+    return this.config.name;
+  }
+
+  /**
+   * The Transit Agency's description
+   * @returns {string}
+   */
+  get description() {
+    return this.config.description;
+  }
+
+  /**
+   * The Transit Agency's maintainer information
+   * @returns {Object}
+   */
+  get maintainer() {
+    return this.config.maintainer;
+  }
+
+
+  // ==== CONFIGURATION ==== //
+
+  /**
+   * Reset the transit agency configuration to the default values
+   */
+  resetConfig() {
+    this._config.reset();
+  }
+
+  /**
+   * Read an additional transit agency configuration file
+   * @param {string} configFile Path to transit agency configuration file.
+   * Relative paths will be relative to the root of the transit agency's module directory.
+   */
+  readConfig(configFile) {
+    if ( !path.isAbsolute(configFile) ) {
+      configFile = path.normalize(this.moduleDirectory + '/' + configFile);
+    }
+    this._config.read(configFile);
+  }
+
+  /**
+   * Get the transit agency configuration
+   * @returns {object} Transit Agency configuration
+   */
+  getConfig() {
+    return this.config;
+  }
+
+ 
+  // ==== TRANSIT FEED ==== //
+
+  /**
+   * Load the Transit Feed for this Transit Agency
+   * @param {function} callback Callback function
+   * @param {Error} callback.error Transit Feed Error.  The Error's message will be
+   * a pipe (`|`) separated string in the format of: `Error Code|Error Type|Error Message`
+   * that will be parsed out by the **Right Track API Server** into a more specific
+   * error Response.
+   * @param {TransitFeed} [callback.feed] The built `TransitFeed` for the Transit Agency
+   * @abstract
+   */
+  loadFeed(callback) {
+    return callback(new Error("4052|Transit Feed Not Supported|This transit agency (" + this.name + ") does not support real-time Transit Feeds"));
+  }
+
+  /**
+   * Get the matching Transit Division from the Agency's Transit Feed
+   * @param {String[]} divisionCodes List of Transit Division codes (in hierarchical order)
+   * @param {function} callback Callback function
+   * @param {Error} callback.error Transit Feed Error
+   * @param {TransitDivision} [callback.division] The matching `TransitDivision`
+   */
+  getDivision(divisionCodes, callback) {
+    this.loadFeed(function(err, feed) {
+      if ( err ) {
+        return callback(err);
+      }
+      let division = undefined;
+      let divs = feed.divisions;
+      for ( let i = 0; i &lt; divisionCodes.length; i++ ) {
+        for ( let j = 0; j &lt; divs.length; j++ ) {
+          if ( divs[j].code === divisionCodes[i] ) {
+            if ( i === divisionCodes.length-1 ) division = divs[j];
+            divs = divs[j].divisions;
+            break;
+          }
+        }
+      }
+      return callback(null, division);
+    });
+  }
+  
+}
+
+module.exports = RightTrackTransitAgency;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Tue Dec 07 2021 16:45:22 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/dwaring87/docdash">@dwaring87/docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

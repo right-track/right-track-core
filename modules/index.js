@@ -46,9 +46,9 @@ module.exports = {
   utils: require('./utils'),
 
   /**
-   * RightTrackTransitAgency Class
-   * @see RightTrackTransit
+   * Right Track Abstract Classes
+   * @see module:classes
    */
-  RightTrackTransitAgency: require('./classes/transit')
+  classes: require('./classes')
 
 };
