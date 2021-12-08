@@ -349,6 +349,209 @@ Patchogue @ 7:39 PM --> Atlantic Terminal @ 9:53 PM
   Patchogue @ 7:39 PM --> Babylon @ 8:09 PM
   Babylon @ 8:13 PM --> Jamaica @ 9:04 PM
   Jamaica @ 9:33 PM --> Atlantic Terminal @ 9:53 PM
+</code></pre>
+<h3>Abstract Classes</h3>
+<p>The <code>core</code> module now includes the abstract Right Track Classes that are used by
+the implementing database, agency, and transit agency classes.</p>
+<h4>Right Track Database</h4>
+<p>This is the abstract <code>RightTrackDB</code> Class that is used by various <a href="https://github.com/right-track">Right Track projects</a>
+to query the SQLite <a href="https://github.com/right-track/right-track-db-build">Right Track Database</a>.</p>
+<p>An implementation of this Class, such as <a href="https://github.com/right-track/right-track-db-sqlite3">right-track-db-sqlite3</a>,
+which uses the node <code>sqlite3</code> module, is what will actually be used in the projects.</p>
+<p>An implementation of this Class must have the following functions:</p>
+<ul>
+<li>
+<p><code>constructor({RightTrackAgency} agency)</code>:</p>
+<ul>
+<li>this is used to initialize the SQLite database</li>
+<li><code>agency</code>: The <code>RightTrackAgency</code> this DB will be used to query.  The
+agency must have the configuration properties set to the agency's id
+as well as the database location.</li>
+</ul>
+</li>
+<li>
+<p><code>select({string} statement, {function} callback)</code>:</p>
+<ul>
+<li>this is used to SELECT multiple rows from the SQLite database using
+the passed statement.  It will return the rows using the passed callback
+function.</li>
+<li><code>statement</code>: the full SQLite SELECT statement</li>
+<li><code>callback</code>: the selectCallback function</li>
+</ul>
+</li>
+<li>
+<p><code>get({string} statement, {function} callback)</code>:</p>
+<ul>
+<li>this is used to SELECT a single row from the SQLite database using the
+passed statement.  It will return the result using the passed callback
+function.
+<ul>
+<li>If no rows are selected, it will return <code>undefined</code></li>
+<li>If one row is selected, it will return the single row</li>
+<li>If more than one row is selected, it will return the first row</li>
+</ul>
+</li>
+<li><code>statement</code>: the full SQLite SELECT statement</li>
+<li><code>callback</code>: the getCallback function</li>
+</ul>
+</li>
+</ul>
+<h4>Right Track Agency</h4>
+<p>This module provides the abstract RightTrackAgency class which is extended by an implementing
+Right Track Agency.</p>
+<p>The abstract class provides the functionality for reading agency configuration files and
+setting the configuration properties.</p>
+<p>This module also includes the Station Feed Classes: StationFeed, StationFeedDeparture, and
+StationFeedDepartureStatus, which are all required when an Agency implements the real-time
+Station Feed functionality.</p>
+<h5>Supported Agencies</h5>
+<p>The following are Right Track Agencies that implement this abstract class:</p>
+<ul>
+<li><a href="https://github.com/right-track/right-track-agency-mnr">Metro North Railroad &amp; SLE (mnr)</a></li>
+<li><a href="https://github.com/right-track/right-track-agency-lirr">Long Island Rail Road (lirr)</a></li>
+</ul>
+<h5>Configuration</h5>
+<p>When a <code>RightTrackAgency</code> class is instantiated it will read the agency's default
+configuration file (<code>agency.json</code> located in the root of the agency's module
+directory).</p>
+<h5>Get Agency Configuration</h5>
+<p>To get the agency configuration use the <code>getConifg()</code> function.  The configuration
+will have a structure similar to:</p>
+<pre class="prettyprint source"><code>{
+  &quot;name&quot;: &quot;Long Island Rail Road&quot;,
+  &quot;id&quot;: &quot;lirr&quot;,
+  &quot;maintainer&quot;: {
+    &quot;name&quot;: &quot;David Waring&quot;,
+    &quot;email&quot;: &quot;dev@davidwaring.net&quot;,
+    &quot;website&quot;: &quot;https://www.davidwaring.net/&quot;
+  },
+  &quot;db&quot;: {
+    &quot;location&quot;: &quot;./static/db/latest/database.db&quot;,
+    &quot;archiveDir&quot;: &quot;./static/db/archive/&quot;
+  },
+  &quot;stationFeed&quot;: {
+    &quot;stationURL&quot;: &quot;http://traintime.lirr.org/traintime.php?startsta={{ORIGIN_ID}}&endsta={{DESTINATION_ID}}&quot;,
+    &quot;gtfsrt&quot;: {
+      &quot;url&quot;: &quot;https://mnorth.prod.acquia-sites.com/wse/LIRR/gtfsrt/realtime/{{GTFS_RT_API_KEY}}/json&quot;,
+      &quot;apiKey&quot;: &quot;&quot;
+    }
+  },
+  &quot;static&quot;: {
+    &quot;img&quot;: {
+      &quot;icon&quot;: &quot;./static/img/icon.png&quot;
+    }
+  },
+  &quot;build&quot;: {
+    &quot;updateURL&quot;: &quot;http://web.mta.info/developers/data/lirr/google_transit.zip&quot;
+  },
+  &quot;colors&quot;: {
+    &quot;primary&quot;: &quot;#0f47a1&quot;,
+    &quot;primaryText&quot;: &quot;#dddddd&quot;,
+    &quot;secondary&quot;: &quot;#ffd54f&quot;,
+    &quot;secondaryText&quot;: &quot;#263238&quot;
+  }
+}
+</code></pre>
+<h5>Additional Configuration</h5>
+<p>To provide additional configuration variables, or to override the default ones,
+create a new configuration file with the variables to add:</p>
+<pre class="prettyprint source lang-json"><code>{
+    &quot;db&quot;: {
+        &quot;location&quot;: &quot;/new/path/to/database.db&quot;
+    },
+    &quot;stationFeed&quot;: {
+        &quot;gtfsrt&quot;: {
+            &quot;apiKey&quot;: &quot;your-mta-api-key&quot;
+        }
+    }
+}
+</code></pre>
+<p>Then, use the <code>readConfig(configFile)</code> to parse the configuration file and
+merge its properties with those already loaded.</p>
+<p>The <code>configFile</code> path can be an absolute or relative path, with relative
+paths loaded relative to the root of the agency's module directory.</p>
+<p>Any relative paths in the configuration file will be loaded relative to the
+directory the new configuration file is located in.</p>
+<h5>Station Feed</h5>
+<p>A <strong>Station Feed</strong> provides a list of scheduled departures from a single Stop
+combined with agency-specific real-time information, such as departure
+status and/or track numbers.</p>
+<p>To load an agency-specific <code>StationFeed</code>, use the <code>loadFeed(db, origin, callback)</code>
+function where:</p>
+<ul>
+<li><code>db</code> is the agency's RightTrackDB</li>
+<li><code>origin</code> is the origin Stop</li>
+<li><code>callback</code> is a callback function: <code>function(err, feed)</code>
+<ul>
+<li>accepting an <code>Error</code> and <code>StationFeed</code> as arguments.</li>
+</ul>
+</li>
+</ul>
+<p>See the Documentation for more information on the structure of a <code>StationFeed</code>.</p>
+<h5>Example</h5>
+<p>The following example uses the <a href="https://github.com/right-track/right-track-agency-mnr">right-track-agency-mnr</a>
+module, which is the Metro North Railroad implementation of a <code>RightTrackAgency</code>.</p>
+<pre class="prettyprint source lang-javascript"><code>const MNR = require('right-track-agency-mnr');
+const RightTrackDB = require('right-track-db-sqlite3');
+const core = require('right-track-core');
+
+// Load an additional configuration file
+// This path is relative to the agency's module directory
+MNR.readConfig('./path/to/config.json');
+
+// Create a RightTrackDB for this Agency
+let db = new RightTrackDB(MNR);
+
+// Query the Database for Stop with id = '1'
+core.query.stops.getStop(db, '1', function(err, stop) {
+  
+  // Load the agency's StationFeed for this Stop
+  MNR.loadFeed(db, stop, function(err, feed) {
+    
+    // Do something with the station feed
+    console.log(feed);
+    
+  });
+  
+});
+</code></pre>
+<h4>Right Track Transit Agency</h4>
+<p>This module provides the abstract <code>RightTrackTransitAgency</code> class which is extended by
+an implementing Right Track Transit Agency.</p>
+<p>This module also includes the <strong>Transit Feed</strong> Classes: <code>TransitFeed</code>, <code>TransitDivision</code>,
+and <code>TransitEvent</code>, which are all required when a Transit Agency implements the real-time
+Transit Feed functionality.</p>
+<h5>Supported Agencies</h5>
+<p>The following are Right Track Transit Agencies that implement this abstract class:</p>
+<ul>
+<li><a href="https://github.com/right-track/right-track-transit-mta">Metropolitan Transportation Authority (mta)</a></li>
+<li><a href="https://github.com/right-track/right-track-transit-nysta">NYS Thruway Authority (nysta)</a></li>
+</ul>
+<h5>Transit Feed</h5>
+<p>A <strong>Transit Feed</strong> provides a list of real-time transit events.  A Transit Feed
+is broken down into a hierarchical system where a single <strong>Transit Feed</strong> includes
+one or more <strong>Divisions</strong>, which in turn includes either one or more child Divisions
+or a list of <strong>Events</strong> (which contain the real-time transit status information).</p>
+<p>To load an agency-specific <code>TransitFeed</code>, use the <code>loadFeed(callback)</code>
+function where:</p>
+<ul>
+<li><code>callback</code> is a callback function: <code>function(err, feed)</code>
+<ul>
+<li>accepting an <code>Error</code> and <code>TransitFeed</code> as arguments.</li>
+</ul>
+</li>
+</ul>
+<p>See the Documentation for more information on the structure of a <code>TransitFeed</code>.</p>
+<h5>Example</h5>
+<p>The following example uses the <a href="https://github.com/right-track/right-track-transit-mta">right-track-transit-mta</a>
+module to build a <strong>Transit Feed</strong> for the Metropolitan Transportation Authority.</p>
+<pre class="prettyprint source lang-javascript"><code>const mta = require('right-track-transit-mta');
+
+mta.loadFeed(function(err, feed) {
+  if ( !err ) {
+    console.log(JSON.stringify(feed, null, 2));
+  }
+});
 </code></pre></article>
     </section>
 
@@ -362,7 +565,7 @@ Patchogue @ 7:39 PM --> Atlantic Terminal @ 9:53 PM
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Wed Dec 08 2021 10:22:51 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/dwaring87/docdash">@dwaring87/docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Wed Dec 08 2021 11:17:17 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/dwaring87/docdash">@dwaring87/docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
