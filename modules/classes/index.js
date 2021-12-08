@@ -16,6 +16,12 @@
   RightTrackDB: require('./RightTrackDB'),
 
   /**
+   * Right Track Agency Abstract Class
+   * @see RightTrackAgency
+   */
+  RightTrackAgency: require('./RightTrackAgency'),
+
+  /**
    * Right Track Transit Agency Abstract Class
    * @see RightTrackTransitAgency
    */
