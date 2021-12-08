@@ -6,14 +6,14 @@
   "license": "MIT",
   "main": "modules/index.js",
   "scripts": {
-    "docs": "jsdoc -c jsdoc.json --readme README.md --template $NODE_PATH/@dwaring87/docdash"
+    "docs": "jsdoc -c jsdoc.json"
   },
   "dependencies": {
     "@dwaring87/config": "^1.3.1",
     "memory-cache": "^0.2.0"
   },
   "devDependencies": {
-    "docdash": "^1.2.0",
+    "foodoc": "^0.0.9",
     "jsdoc": "^3.5.5"
   },
   "homepage": "https://righttrack.io",
