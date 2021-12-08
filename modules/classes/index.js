@@ -22,6 +22,14 @@
   RightTrackAgency: require('./RightTrackAgency'),
 
   /**
+   * Right Track Agency Station Feed Classes
+   * @see StationFeed
+   * @see StationFeedDeparture
+   * @see StationFeedDepartureStatus
+   */
+  StationFeed: require('./RightTrackAgency/StationFeed'),
+
+  /**
    * Right Track Transit Agency Abstract Class
    * @see RightTrackTransitAgency
    */
