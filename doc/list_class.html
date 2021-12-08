@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>Classes</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+			<style>
+				.page-header,
+				pre.code-toolbar > .toolbar:hover {
+					background-color: #00897B;
+				}
+				.callout-primary,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus,
+				pre.code-toolbar > .toolbar:hover {
+					border-left-color: #00897B;
+				}
+				pre.code-toolbar > .toolbar:hover {
+					border-bottom-color: #00897B;
+				}
+				.callout-primary h5,
+				.symbol-title.collapsible-symbol .toggle-icon,
+				.breadcrumb li a,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus {
+					color: #00897B;
+				}
+			</style>
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"YYYY-MM-DD","systemName":"Right Track Core","systemSummary":"The core library for the Right Track projects","systemLogo":"","systemColor":"#00897B","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"Source Code for Right Track available at <a href='https://github.com/right-track'>GitHub/right-track</a>","copyright":"Copyright &copy; 2021 David Waring and Right Track Contributors","linenums":true,"collapseSymbols":false,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false};
+			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Right Track Core
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Globals<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-_.html">/</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="About.html">About</a></li>
+											<li><a href="Agency.html">Agency</a></li>
+											<li><a href="DateTime.html">DateTime</a></li>
+											<li><a href="Favorite.html">Favorite</a></li>
+											<li><a href="Holiday.html">Holiday</a></li>
+											<li><a href="Link.html">Link</a></li>
+											<li><a href="RightTrackAgency.html">RightTrackAgency</a></li>
+											<li><a href="RightTrackDB.html">RightTrackDB</a></li>
+											<li><a href="RightTrackTransitAgency.html">RightTrackTransitAgency</a></li>
+											<li><a href="Route.html">Route</a></li>
+											<li><a href="Service.html">Service</a></li>
+											<li><a href="ServiceException.html">ServiceException</a></li>
+											<li><a href="StationFeed.html">StationFeed</a></li>
+											<li><a href="StationFeedDeparture.html">StationFeedDeparture</a></li>
+											<li><a href="StationFeedDepartureStatus.html">StationFeedDepartureStatus</a></li>
+											<li><a href="Stop.html">Stop</a></li>
+											<li><a href="StopTime.html">StopTime</a></li>
+											<li><a href="TransitDivision.html">TransitDivision</a></li>
+											<li><a href="TransitEvent.html">TransitEvent</a></li>
+											<li><a href="TransitFeed.html">TransitFeed</a></li>
+											<li><a href="Trip.html">Trip</a></li>
+											<li><a href="TripSearch.html">TripSearch</a></li>
+											<li><a href="TripSearchResult.html">TripSearchResult</a></li>
+											<li><a href="TripSearchResultSegment.html">TripSearchResultSegment</a></li>
+											<li><a href="TripSearchResultTransfer.html">TripSearchResultTransfer</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-_.html">/</a></li>
+											<li><a href="module-classes.html">classes</a></li>
+											<li><a href="module-classes_RightTrackAgency.html">classes/RightTrackAgency</a></li>
+											<li><a href="module-classes_RightTrackDB.html">classes/RightTrackDB</a></li>
+											<li><a href="module-classes_RightTrackTransitAgency.html">classes/RightTrackTransitAgency</a></li>
+											<li><a href="module-gtfs.html">gtfs</a></li>
+											<li><a href="module-gtfs_Agency.html">gtfs/Agency</a></li>
+											<li><a href="module-gtfs_Route.html">gtfs/Route</a></li>
+											<li><a href="module-gtfs_Service.html">gtfs/Service</a></li>
+											<li><a href="module-gtfs_ServiceException.html">gtfs/ServiceException</a></li>
+											<li><a href="module-gtfs_Stop.html">gtfs/Stop</a></li>
+											<li><a href="module-gtfs_StopTime.html">gtfs/StopTime</a></li>
+											<li><a href="module-gtfs_Trip.html">gtfs/Trip</a></li>
+											<li><a href="module-query.html">query</a></li>
+											<li><a href="module-query_about.html">query/about</a></li>
+											<li><a href="module-query_calendar.html">query/calendar</a></li>
+											<li><a href="module-query_holiday.html">query/holiday</a></li>
+											<li><a href="module-query_linegraph.html">query/linegraph</a></li>
+											<li><a href="module-query_links.html">query/links</a></li>
+											<li><a href="module-query_routegraph.html">query/routegraph</a></li>
+											<li><a href="module-query_routes.html">query/routes</a></li>
+											<li><a href="module-query_stops.html">query/stops</a></li>
+											<li><a href="module-query_stoptimes.html">query/stoptimes</a></li>
+											<li><a href="module-query_trips.html">query/trips</a></li>
+											<li><a href="module-rt.html">rt</a></li>
+											<li><a href="module-rt_About.html">rt/About</a></li>
+											<li><a href="module-rt_Favorite.html">rt/Favorite</a></li>
+											<li><a href="module-rt_Holiday.html">rt/Holiday</a></li>
+											<li><a href="module-rt_Link.html">rt/Link</a></li>
+											<li><a href="module-search.html">search</a></li>
+											<li><a href="module-search_TripSearch.html">search/TripSearch</a></li>
+											<li><a href="module-search_TripSearchResult.html">search/TripSearchResult</a></li>
+											<li><a href="module-search_TripSearchResultSegment.html">search/TripSearchResultSegment</a></li>
+											<li><a href="module-search_TripSearchResultTransfer.html">search/TripSearchResultTransfer</a></li>
+											<li><a href="module-utils.html">utils</a></li>
+											<li><a href="module-utils_calc.html">utils/calc</a></li>
+											<li><a href="module-utils_DateTime.html">utils/DateTime</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">list</span>
+				<h1><span class="name">Classes</span></h1>
+				<div class="summary"><p>All documented classes.</p></div>			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-9 main-content">
+						<ol class="breadcrumb">
+							<li><a href="index.html">Home</a></li>
+							<li class="active">Classes</li>
+						</ol>
+					<section>
+		<h2><span class="name">Classes</span></h2>
+		<article class="secondary">
+				<dl class="symbol">
+						
+						<dt class="symbol-title class public">
+			<h4 id="About" class="class public"><a href="About.html"><span class="signature-new">new&nbsp;</span><span class="name">About</span><span class="signature-params">( <span class="signature-param">compile</span>, <span class="signature-param">publish</span>, <span class="signature-param">start</span>, <span class="signature-param">end</span>, <span class="signature-param">version</span>, <span class="signature-param">notes</span>&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="Agency" class="class public"><a href="Agency.html"><span class="signature-new">new&nbsp;</span><span class="name">Agency</span><span class="signature-params">( <span class="signature-param">name</span>, <span class="signature-param">url</span>, <span class="signature-param">timezone</span> [,&nbsp;<span class="signature-param">optional</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="DateTime" class="class public"><a href="DateTime.html"><span class="signature-new">new&nbsp;</span><span class="name">DateTime</span><span class="signature-params">( <span class="signature-param">time</span>, <span class="signature-param">date</span>&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="Favorite" class="class public"><a href="Favorite.html"><span class="signature-new">new&nbsp;</span><span class="name">Favorite</span><span class="signature-params">( <span class="signature-param">type</span>, <span class="signature-param">sequence</span>, <span class="signature-param">parameters</span> [,&nbsp;<span class="signature-param">options</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="Holiday" class="class public"><a href="Holiday.html"><span class="signature-new">new&nbsp;</span><span class="name">Holiday</span><span class="signature-params">( <span class="signature-param">date</span>, <span class="signature-param">name</span>, <span class="signature-param">peak</span>, <span class="signature-param">serviceInformation</span>&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="Link" class="class public"><a href="Link.html"><span class="signature-new">new&nbsp;</span><span class="name">Link</span><span class="signature-params">( <span class="signature-param">category</span>, <span class="signature-param">title</span>, <span class="signature-param">description</span>, <span class="signature-param">url</span>&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="RightTrackAgency" class="class public"><a href="RightTrackAgency.html"><span class="signature-new">new&nbsp;</span><span class="signature-attribs">&lt;abstract> </span><span class="name">RightTrackAgency</span><span class="signature-params">( [&nbsp;<span class="signature-param">moduleDirectory</span> [,&nbsp;<span class="signature-param">configuration</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="RightTrackDB" class="class public"><a href="RightTrackDB.html"><span class="signature-new">new&nbsp;</span><span class="signature-attribs">&lt;abstract> </span><span class="name">RightTrackDB</span><span class="signature-params">( <span class="signature-param">agency</span>&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="RightTrackTransitAgency" class="class public"><a href="RightTrackTransitAgency.html"><span class="signature-new">new&nbsp;</span><span class="signature-attribs">&lt;abstract> </span><span class="name">RightTrackTransitAgency</span><span class="signature-params">( <span class="signature-param">moduleDirectory</span>&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="Route" class="class public"><a href="Route.html"><span class="signature-new">new&nbsp;</span><span class="name">Route</span><span class="signature-params">( <span class="signature-param">id</span>, <span class="signature-param">shortName</span>, <span class="signature-param">longName</span>, <span class="signature-param">type</span> [,&nbsp;<span class="signature-param">optional</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="Service" class="class public"><a href="Service.html"><span class="signature-new">new&nbsp;</span><span class="name">Service</span><span class="signature-params">( <span class="signature-param">serviceId</span>, <span class="signature-param">mon</span>, <span class="signature-param">tue</span>, <span class="signature-param">wed</span>, <span class="signature-param">thu</span>, <span class="signature-param">fri</span>, <span class="signature-param">sat</span>, <span class="signature-param">sun</span>, <span class="signature-param">startDate</span>, <span class="signature-param">endDate</span> [,&nbsp;<span class="signature-param">exceptions</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="ServiceException" class="class public"><a href="ServiceException.html"><span class="signature-new">new&nbsp;</span><span class="name">ServiceException</span><span class="signature-params">( <span class="signature-param">serviceId</span>, <span class="signature-param">date</span>, <span class="signature-param">exceptionType</span>&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="StationFeed" class="class public"><a href="StationFeed.html"><span class="signature-new">new&nbsp;</span><span class="name">StationFeed</span><span class="signature-params">( <span class="signature-param">stop</span>, <span class="signature-param">updated</span>, <span class="signature-param">departures</span>&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="StationFeedDeparture" class="class public"><a href="StationFeedDeparture.html"><span class="signature-new">new&nbsp;</span><span class="name">StationFeedDeparture</span><span class="signature-params">( <span class="signature-param">departure</span>, <span class="signature-param">destination</span>, <span class="signature-param">trip</span>, <span class="signature-param">status</span>&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="StationFeedDepartureStatus" class="class public"><a href="StationFeedDepartureStatus.html"><span class="signature-new">new&nbsp;</span><span class="name">StationFeedDepartureStatus</span><span class="signature-params">( <span class="signature-param">status</span>, <span class="signature-param">delay</span>, <span class="signature-param">estDeparture</span>, <span class="signature-param">track</span> [,&nbsp;<span class="signature-param">remarks</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="Stop" class="class public"><a href="Stop.html"><span class="signature-new">new&nbsp;</span><span class="name">Stop</span><span class="signature-params">( <span class="signature-param">id</span>, <span class="signature-param">name</span>, <span class="signature-param">lat</span>, <span class="signature-param">lon</span> [,&nbsp;<span class="signature-param">optional</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="StopTime" class="class public"><a href="StopTime.html"><span class="signature-new">new&nbsp;</span><span class="name">StopTime</span><span class="signature-params">( <span class="signature-param">stop</span>, <span class="signature-param">arrivalTime</span>, <span class="signature-param">departureTime</span>, <span class="signature-param">stopSequence</span> [,&nbsp;<span class="signature-param">optional</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="TransitDivision" class="class public"><a href="TransitDivision.html"><span class="signature-new">new&nbsp;</span><span class="name">TransitDivision</span><span class="signature-params">( <span class="signature-param">code</span>, <span class="signature-param">name</span> [,&nbsp;<span class="signature-param">iconPath</span> [,&nbsp;<span class="signature-param">backgroudColor</span> [,&nbsp;<span class="signature-param">textColor</span>&nbsp;]&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="TransitEvent" class="class public"><a href="TransitEvent.html"><span class="signature-new">new&nbsp;</span><span class="name">TransitEvent</span><span class="signature-params">( <span class="signature-param">status</span>, <span class="signature-param">details</span>&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="TransitFeed" class="class public"><a href="TransitFeed.html"><span class="signature-new">new&nbsp;</span><span class="name">TransitFeed</span><span class="signature-params">( [&nbsp;<span class="signature-param">updated</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="Trip" class="class public"><a href="Trip.html"><span class="signature-new">new&nbsp;</span><span class="name">Trip</span><span class="signature-params">( <span class="signature-param">id</span>, <span class="signature-param">route</span>, <span class="signature-param">service</span>, <span class="signature-param">stopTimes</span> [,&nbsp;<span class="signature-param">optional</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="TripSearch" class="class public"><a href="TripSearch.html"><span class="signature-new">new&nbsp;</span><span class="name">TripSearch</span><span class="signature-params">( <span class="signature-param">origin</span>, <span class="signature-param">destination</span> [,&nbsp;<span class="signature-param">departure</span> [,&nbsp;<span class="signature-param">options</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="TripSearchResult" class="class public"><a href="TripSearchResult.html"><span class="signature-new">new&nbsp;</span><span class="name">TripSearchResult</span><span class="signature-params">( <span class="signature-param">segments</span>&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="TripSearchResultSegment" class="class public"><a href="TripSearchResultSegment.html"><span class="signature-new">new&nbsp;</span><span class="name">TripSearchResultSegment</span><span class="signature-params">( <span class="signature-param">trip</span>, <span class="signature-param">enter</span>, <span class="signature-param">exit</span>&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+						<hr/>
+						<dt class="symbol-title class public">
+			<h4 id="TripSearchResultTransfer" class="class public"><a href="TripSearchResultTransfer.html"><span class="signature-new">new&nbsp;</span><span class="name">TripSearchResultTransfer</span><span class="signature-params">( <span class="signature-param">stop</span>, <span class="signature-param">arrival</span>, <span class="signature-param">departure</span>&nbsp;)</span><span class="signature-type"></span></a></h4>
+</dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+				</dl>
+		</article>
+					</section>
+			</div>
+				<div class="col-md-3 side-content">
+					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+				</div>
+		</div>
+	</div>
+	<footer>
+				<div class="footer-option">Source Code for Right Track available at <a href='https://github.com/right-track'>GitHub/right-track</a></div>
+				<div class="copyright">Copyright &copy; 2021 David Waring and Right Track Contributors</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on 2021-12-08 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+	
+</body>
+</html>

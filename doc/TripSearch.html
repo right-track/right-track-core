@@ -1,1751 +1,1022 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>TripSearch - Documentation</title>
-
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>TripSearch</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+			<style>
+				.page-header,
+				pre.code-toolbar > .toolbar:hover {
+					background-color: #00897B;
+				}
+				.callout-primary,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus,
+				pre.code-toolbar > .toolbar:hover {
+					border-left-color: #00897B;
+				}
+				pre.code-toolbar > .toolbar:hover {
+					border-bottom-color: #00897B;
+				}
+				.callout-primary h5,
+				.symbol-title.collapsible-symbol .toggle-icon,
+				.breadcrumb li a,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus {
+					color: #00897B;
+				}
+			</style>
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"YYYY-MM-DD","systemName":"Right Track Core","systemSummary":"The core library for the Right Track projects","systemLogo":"","systemColor":"#00897B","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"Source Code for Right Track available at <a href='https://github.com/right-track'>GitHub/right-track</a>","copyright":"Copyright &copy; 2021 David Waring and Right Track Contributors","linenums":true,"collapseSymbols":false,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false};
+			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
 </head>
 <body>
-
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Agency.html">Agency</a></li><li><a href="DateTime.html">DateTime</a><ul class='methods'><li data-type='method'><a href="DateTime.html#.create">create</a></li><li data-type='method'><a href="DateTime.html#.createFromDate">createFromDate</a></li><li data-type='method'><a href="DateTime.html#.createFromJSDate">createFromJSDate</a></li><li data-type='method'><a href="DateTime.html#.createFromTime">createFromTime</a></li><li data-type='method'><a href="DateTime.html#.now">now</a></li><li data-type='method'><a href="DateTime.html#clone">clone</a></li><li data-type='method'><a href="DateTime.html#deltaDays">deltaDays</a></li><li data-type='method'><a href="DateTime.html#deltaMins">deltaMins</a></li><li data-type='method'><a href="DateTime.html#getDateDOW">getDateDOW</a></li><li data-type='method'><a href="DateTime.html#getDateInt">getDateInt</a></li><li data-type='method'><a href="DateTime.html#getDateReadable">getDateReadable</a></li><li data-type='method'><a href="DateTime.html#getTimeGTFS">getTimeGTFS</a></li><li data-type='method'><a href="DateTime.html#getTimeInt">getTimeInt</a></li><li data-type='method'><a href="DateTime.html#getTimeReadable">getTimeReadable</a></li><li data-type='method'><a href="DateTime.html#getTimeSeconds">getTimeSeconds</a></li><li data-type='method'><a href="DateTime.html#isDateSet">isDateSet</a></li><li data-type='method'><a href="DateTime.html#toHTTPString">toHTTPString</a></li><li data-type='method'><a href="DateTime.html#toMySQLString">toMySQLString</a></li><li data-type='method'><a href="DateTime.html#toString">toString</a></li><li data-type='method'><a href="DateTime.html#toTimestamp">toTimestamp</a></li></ul></li><li><a href="Favorite.html">Favorite</a><ul class='methods'><li data-type='method'><a href="Favorite.html#.createStation">createStation</a></li><li data-type='method'><a href="Favorite.html#.createTransit">createTransit</a></li><li data-type='method'><a href="Favorite.html#.createTrip">createTrip</a></li><li data-type='method'><a href="Favorite.html#.sortBySequence">sortBySequence</a></li><li data-type='method'><a href="Favorite.html#isStation">isStation</a></li><li data-type='method'><a href="Favorite.html#isTransit">isTransit</a></li><li data-type='method'><a href="Favorite.html#isTrip">isTrip</a></li></ul></li><li><a href="Holiday.html">Holiday</a></li><li><a href="Link.html">Link</a></li><li><a href="RightTrackAgency.html">RightTrackAgency</a><ul class='methods'><li data-type='method'><a href="RightTrackAgency.html#getConfig">getConfig</a></li><li data-type='method'><a href="RightTrackAgency.html#isFeedSupported">isFeedSupported</a></li><li data-type='method'><a href="RightTrackAgency.html#loadFeed">loadFeed</a></li><li data-type='method'><a href="RightTrackAgency.html#readConfig">readConfig</a></li><li data-type='method'><a href="RightTrackAgency.html#resetConfig">resetConfig</a></li></ul></li><li><a href="RightTrackDB.html">RightTrackDB</a><ul class='methods'><li data-type='method'><a href="RightTrackDB.html#get">get</a></li><li data-type='method'><a href="RightTrackDB.html#select">select</a></li></ul></li><li><a href="RightTrackTransitAgency.html">RightTrackTransitAgency</a><ul class='methods'><li data-type='method'><a href="RightTrackTransitAgency.html#getConfig">getConfig</a></li><li data-type='method'><a href="RightTrackTransitAgency.html#getDivision">getDivision</a></li><li data-type='method'><a href="RightTrackTransitAgency.html#loadFeed">loadFeed</a></li><li data-type='method'><a href="RightTrackTransitAgency.html#readConfig">readConfig</a></li><li data-type='method'><a href="RightTrackTransitAgency.html#resetConfig">resetConfig</a></li></ul></li><li><a href="Route.html">Route</a><ul class='methods'><li data-type='method'><a href="Route.html#.sortByName">sortByName</a></li></ul></li><li><a href="Service.html">Service</a></li><li><a href="ServiceException.html">ServiceException</a></li><li><a href="StationFeed.html">StationFeed</a></li><li><a href="StationFeedDeparture.html">StationFeedDeparture</a><ul class='methods'><li data-type='method'><a href="StationFeedDeparture.html#.sort">sort</a></li></ul></li><li><a href="StationFeedDepartureStatus.html">StationFeedDepartureStatus</a></li><li><a href="Stop.html">Stop</a><ul class='methods'><li data-type='method'><a href="Stop.html#.sortByDistance">sortByDistance</a></li><li data-type='method'><a href="Stop.html#.sortById">sortById</a></li><li data-type='method'><a href="Stop.html#.sortByName">sortByName</a></li><li data-type='method'><a href="Stop.html#.sortByTransferWeight">sortByTransferWeight</a></li><li data-type='method'><a href="Stop.html#setDistance">setDistance</a></li></ul></li><li><a href="StopTime.html">StopTime</a><ul class='methods'><li data-type='method'><a href="StopTime.html#.sortByStopSequence">sortByStopSequence</a></li><li data-type='method'><a href="StopTime.html#.sortByStopTransferWeight">sortByStopTransferWeight</a></li></ul></li><li><a href="TransitDivision.html">TransitDivision</a><ul class='methods'><li data-type='method'><a href="TransitDivision.html#getEventCount">getEventCount</a></li></ul></li><li><a href="TransitEvent.html">TransitEvent</a></li><li><a href="TransitFeed.html">TransitFeed</a><ul class='methods'><li data-type='method'><a href="TransitFeed.html#getEventCount">getEventCount</a></li></ul></li><li><a href="Trip.html">Trip</a><ul class='methods'><li data-type='method'><a href="Trip.html#.sortByDepartureTime">sortByDepartureTime</a></li><li data-type='method'><a href="Trip.html#getStopTime">getStopTime</a></li><li data-type='method'><a href="Trip.html#hasStopTime">hasStopTime</a></li></ul></li><li><a href="TripSearch.html">TripSearch</a><ul class='methods'><li data-type='method'><a href="TripSearch.html#search">search</a></li></ul></li><li><a href="TripSearchResult.html">TripSearchResult</a><ul class='methods'><li data-type='method'><a href="TripSearchResult.html#.sortByDeparture">sortByDeparture</a></li></ul></li><li><a href="TripSearchResultSegment.html">TripSearchResultSegment</a></li><li><a href="TripSearchResultTransfer.html">TripSearchResultTransfer</a></li></ul><h3>Modules</h3><ul><li><a href="module-_.html">/</a></li><li><a href="module-classes.html">classes</a></li><li><a href="module-classes_RightTrackAgency.html">classes/RightTrackAgency</a></li><li><a href="module-classes_RightTrackDB.html">classes/RightTrackDB</a></li><li><a href="module-classes_RightTrackTransitAgency.html">classes/RightTrackTransitAgency</a></li><li><a href="module-gtfs.html">gtfs</a></li><li><a href="module-gtfs_Agency.html">gtfs/Agency</a></li><li><a href="module-gtfs_Route.html">gtfs/Route</a></li><li><a href="module-gtfs_Service.html">gtfs/Service</a></li><li><a href="module-gtfs_ServiceException.html">gtfs/ServiceException</a></li><li><a href="module-gtfs_Stop.html">gtfs/Stop</a></li><li><a href="module-gtfs_StopTime.html">gtfs/StopTime</a></li><li><a href="module-gtfs_Trip.html">gtfs/Trip</a></li><li><a href="module-query.html">query</a><ul class='methods'><li data-type='method'><a href="module-query.html#.clearCache">clearCache</a></li></ul></li><li><a href="module-query_about.html">query/about</a><ul class='methods'><li data-type='method'><a href="module-query_about.html#~getAbout">getAbout</a></li></ul></li><li><a href="module-query_calendar.html">query/calendar</a><ul class='methods'><li data-type='method'><a href="module-query_calendar.html#~getService">getService</a></li><li data-type='method'><a href="module-query_calendar.html#~getServiceExceptions">getServiceExceptions</a></li><li data-type='method'><a href="module-query_calendar.html#~getServicesDefault">getServicesDefault</a></li><li data-type='method'><a href="module-query_calendar.html#~getServicesEffective">getServicesEffective</a></li></ul></li><li><a href="module-query_holiday.html">query/holiday</a><ul class='methods'><li data-type='method'><a href="module-query_holiday.html#~getHoliday">getHoliday</a></li><li data-type='method'><a href="module-query_holiday.html#~getHolidays">getHolidays</a></li><li data-type='method'><a href="module-query_holiday.html#~isHoliday">isHoliday</a></li></ul></li><li><a href="module-query_linegraph.html">query/linegraph</a><ul class='methods'><li data-type='method'><a href="module-query_linegraph.html#~buildGraph">buildGraph</a></li><li data-type='method'><a href="module-query_linegraph.html#~getNextStops">getNextStops</a></li><li data-type='method'><a href="module-query_linegraph.html#~getPaths">getPaths</a></li></ul></li><li><a href="module-query_links.html">query/links</a><ul class='methods'><li data-type='method'><a href="module-query_links.html#~getLinkCategories">getLinkCategories</a></li><li data-type='method'><a href="module-query_links.html#~getLinks">getLinks</a></li><li data-type='method'><a href="module-query_links.html#~getLinksByCategory">getLinksByCategory</a></li></ul></li><li><a href="module-query_routegraph.html">query/routegraph</a><ul class='methods'><li data-type='method'><a href="module-query_routegraph.html#~getNextStops">getNextStops</a></li></ul></li><li><a href="module-query_routes.html">query/routes</a><ul class='methods'><li data-type='method'><a href="module-query_routes.html#~getRoute">getRoute</a></li><li data-type='method'><a href="module-query_routes.html#~getRoutes">getRoutes</a></li></ul></li><li><a href="module-query_stops.html">query/stops</a><ul class='methods'><li data-type='method'><a href="module-query_stops.html#~getStop">getStop</a></li><li data-type='method'><a href="module-query_stops.html#~getStopByName">getStopByName</a></li><li data-type='method'><a href="module-query_stops.html#~getStopByStatusId">getStopByStatusId</a></li><li data-type='method'><a href="module-query_stops.html#~getStops">getStops</a></li><li data-type='method'><a href="module-query_stops.html#~getStopsByLocation">getStopsByLocation</a></li><li data-type='method'><a href="module-query_stops.html#~getStopsByRoute">getStopsByRoute</a></li></ul></li><li><a href="module-query_stoptimes.html">query/stoptimes</a><ul class='methods'><li data-type='method'><a href="module-query_stoptimes.html#~getStopTimeByTripStop">getStopTimeByTripStop</a></li><li data-type='method'><a href="module-query_stoptimes.html#~getStopTimesByTrip">getStopTimesByTrip</a></li></ul></li><li><a href="module-query_trips.html">query/trips</a><ul class='methods'><li data-type='method'><a href="module-query_trips.html#~getTrip">getTrip</a></li><li data-type='method'><a href="module-query_trips.html#~getTripByDeparture">getTripByDeparture</a></li><li data-type='method'><a href="module-query_trips.html#~getTripByShortName">getTripByShortName</a></li><li data-type='method'><a href="module-query_trips.html#~getTripsByDate">getTripsByDate</a></li></ul></li><li><a href="module-rt.html">rt</a></li><li><a href="module-rt_About.html">rt/About</a></li><li><a href="module-rt_Favorite.html">rt/Favorite</a></li><li><a href="module-rt_Holiday.html">rt/Holiday</a></li><li><a href="module-rt_Link.html">rt/Link</a></li><li><a href="module-search.html">search</a></li><li><a href="module-search_TripSearch.html">search/TripSearch</a></li><li><a href="module-search_TripSearchResult.html">search/TripSearchResult</a></li><li><a href="module-search_TripSearchResultSegment.html">search/TripSearchResultSegment</a></li><li><a href="module-search_TripSearchResultTransfer.html">search/TripSearchResultTransfer</a></li><li><a href="module-utils.html">utils</a></li><li><a href="module-utils_calc.html">utils/calc</a><ul class='methods'><li data-type='method'><a href="module-utils_calc.html#~distance">distance</a></li></ul></li><li><a href="module-utils_DateTime.html">utils/DateTime</a></li></ul>
-</nav>
-
-<div id="main">
-    
-    <h1 class="page-title">TripSearch</h1>
-    
-
-    
-
-
-
-
-<section>
-
-<header>
-    
-        <h2>
-        TripSearch
-        </h2>
-        
-            <div class="class-description"><h2>Trip Search</h2>
-<p>This Class sets the parameters and options of a Trip Search: a search
-of the GTFS schedule data finding trips (direct and/or with transfers)
-from the origin Stop to the destination Stop at the specified time
-with the specified options.</p>
-<p><strong>Module:</strong> <a href="module-search_TripSearch.html">search/TripSearch</a></p></div>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-    <h2>Constructor</h2>
-    
-
-    <h4 class="name" id="TripSearch"><span class="type-signature"></span>new TripSearch<span class="signature">(origin, destination, departure<span class="signature-attributes">opt</span>, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line27">line 27</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Set the parameters of a new Trip Search</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>origin</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Stop.html">Stop</a></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>Origin Stop</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>destination</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Stop.html">Stop</a></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>Destination Stop</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>departure</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="DateTime.html">DateTime</a></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>now</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The Departure Date/Time of the Trip Search</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>Trip Search Options</p>
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>allowTransfers</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>true</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>Allow transfers between trains</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>allowChangeInDirection</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>true</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>Allow transfers that change direction of travel</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>preDepartureHours</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">int</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>3</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The number of hours before the requested departure to include in results</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>postDepartureHours</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">int</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>6</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The number of hours after the requested departure to include in results</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>maxLayoverMins</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">int</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>30</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The maximum number of minutes to layover at a transfer Stop</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>minLayoverMins</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">int</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>0</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The minimum number of minutes to layover at a transfer Stop</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>maxTransfers</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">int</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>2</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The maximum number of transfers</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="allowChangeInDirection"><span class="type-signature"></span>allowChangeInDirection<span class="type-signature"> :boolean</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line95">line 95</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>true</li>
-        </ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Allow Transfers between trains operating in opposite directions</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">boolean</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="allowTransfers"><span class="type-signature"></span>allowTransfers<span class="type-signature"> :boolean</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line87">line 87</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>true</li>
-        </ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Allow Transfers between Trains</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">boolean</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="departure"><span class="type-signature"></span>departure<span class="type-signature"> :<a href="DateTime.html">DateTime</a></span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line79">line 79</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>now</li>
-        </ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Trip Search Departure Date/Time</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="DateTime.html">DateTime</a></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="destination"><span class="type-signature"></span>destination<span class="type-signature"> :<a href="Stop.html">Stop</a></span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line72">line 72</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Trip Search Destination Stop</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="Stop.html">Stop</a></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="maxLayoverMins"><span class="type-signature"></span>maxLayoverMins<span class="type-signature"> :int</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line119">line 119</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>30</li>
-        </ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>The maximum number of minutes between trips at a layover</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">int</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="maxTransfers"><span class="type-signature"></span>maxTransfers<span class="type-signature"> :int</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line135">line 135</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>2</li>
-        </ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>The maximum number of transfers for a single result</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">int</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="minLayoverMins"><span class="type-signature"></span>minLayoverMins<span class="type-signature"> :int</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line127">line 127</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>0</li>
-        </ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>The minimum number of minutes between trips at a layover</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">int</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="options"><span class="type-signature"></span>options<span class="type-signature"></span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line144">line 144</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>All of the Trip Search options</p>
-</div>
-
-
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="origin"><span class="type-signature"></span>origin<span class="type-signature"> :<a href="Stop.html">Stop</a></span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line66">line 66</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Trip Search Origin Stop</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="Stop.html">Stop</a></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="postDepartureHours"><span class="type-signature"></span>postDepartureHours<span class="type-signature"> :int</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line111">line 111</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>6</li>
-        </ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>The number of hours after the departure time to include in results</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">int</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="preDepartureHours"><span class="type-signature"></span>preDepartureHours<span class="type-signature"> :int</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line103">line 103</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>3</li>
-        </ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>The number of hours before the departure time to include in results</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">int</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    <h4 class="name" id="search"><span class="type-signature"></span>search<span class="signature">(db, callback)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line164">line 164</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Perform the trip search on the provided Right Track Database</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>db</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The Right Track DB to query</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Callback function</p>
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>err</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Error</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Database Query Error</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>results</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;<a href="TripSearchResult.html">TripSearchResult</a>></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Trip Search Results</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-
-    
-
-    
-</article>
-
-</section>
-
-
-
-
-</div>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Wed Dec 08 2021 11:17:17 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/dwaring87/docdash">@dwaring87/docdash</a> theme.
-</footer>
-
-<script>prettyPrint();</script>
-<script src="scripts/linenumber.js"></script>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Right Track Core
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Globals<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-_.html">/</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="About.html">About</a></li>
+											<li><a href="Agency.html">Agency</a></li>
+											<li><a href="DateTime.html">DateTime</a></li>
+											<li><a href="Favorite.html">Favorite</a></li>
+											<li><a href="Holiday.html">Holiday</a></li>
+											<li><a href="Link.html">Link</a></li>
+											<li><a href="RightTrackAgency.html">RightTrackAgency</a></li>
+											<li><a href="RightTrackDB.html">RightTrackDB</a></li>
+											<li><a href="RightTrackTransitAgency.html">RightTrackTransitAgency</a></li>
+											<li><a href="Route.html">Route</a></li>
+											<li><a href="Service.html">Service</a></li>
+											<li><a href="ServiceException.html">ServiceException</a></li>
+											<li><a href="StationFeed.html">StationFeed</a></li>
+											<li><a href="StationFeedDeparture.html">StationFeedDeparture</a></li>
+											<li><a href="StationFeedDepartureStatus.html">StationFeedDepartureStatus</a></li>
+											<li><a href="Stop.html">Stop</a></li>
+											<li><a href="StopTime.html">StopTime</a></li>
+											<li><a href="TransitDivision.html">TransitDivision</a></li>
+											<li><a href="TransitEvent.html">TransitEvent</a></li>
+											<li><a href="TransitFeed.html">TransitFeed</a></li>
+											<li><a href="Trip.html">Trip</a></li>
+											<li><a href="TripSearch.html">TripSearch</a></li>
+											<li><a href="TripSearchResult.html">TripSearchResult</a></li>
+											<li><a href="TripSearchResultSegment.html">TripSearchResultSegment</a></li>
+											<li><a href="TripSearchResultTransfer.html">TripSearchResultTransfer</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-_.html">/</a></li>
+											<li><a href="module-classes.html">classes</a></li>
+											<li><a href="module-classes_RightTrackAgency.html">classes/RightTrackAgency</a></li>
+											<li><a href="module-classes_RightTrackDB.html">classes/RightTrackDB</a></li>
+											<li><a href="module-classes_RightTrackTransitAgency.html">classes/RightTrackTransitAgency</a></li>
+											<li><a href="module-gtfs.html">gtfs</a></li>
+											<li><a href="module-gtfs_Agency.html">gtfs/Agency</a></li>
+											<li><a href="module-gtfs_Route.html">gtfs/Route</a></li>
+											<li><a href="module-gtfs_Service.html">gtfs/Service</a></li>
+											<li><a href="module-gtfs_ServiceException.html">gtfs/ServiceException</a></li>
+											<li><a href="module-gtfs_Stop.html">gtfs/Stop</a></li>
+											<li><a href="module-gtfs_StopTime.html">gtfs/StopTime</a></li>
+											<li><a href="module-gtfs_Trip.html">gtfs/Trip</a></li>
+											<li><a href="module-query.html">query</a></li>
+											<li><a href="module-query_about.html">query/about</a></li>
+											<li><a href="module-query_calendar.html">query/calendar</a></li>
+											<li><a href="module-query_holiday.html">query/holiday</a></li>
+											<li><a href="module-query_linegraph.html">query/linegraph</a></li>
+											<li><a href="module-query_links.html">query/links</a></li>
+											<li><a href="module-query_routegraph.html">query/routegraph</a></li>
+											<li><a href="module-query_routes.html">query/routes</a></li>
+											<li><a href="module-query_stops.html">query/stops</a></li>
+											<li><a href="module-query_stoptimes.html">query/stoptimes</a></li>
+											<li><a href="module-query_trips.html">query/trips</a></li>
+											<li><a href="module-rt.html">rt</a></li>
+											<li><a href="module-rt_About.html">rt/About</a></li>
+											<li><a href="module-rt_Favorite.html">rt/Favorite</a></li>
+											<li><a href="module-rt_Holiday.html">rt/Holiday</a></li>
+											<li><a href="module-rt_Link.html">rt/Link</a></li>
+											<li><a href="module-search.html">search</a></li>
+											<li><a href="module-search_TripSearch.html">search/TripSearch</a></li>
+											<li><a href="module-search_TripSearchResult.html">search/TripSearchResult</a></li>
+											<li><a href="module-search_TripSearchResultSegment.html">search/TripSearchResultSegment</a></li>
+											<li><a href="module-search_TripSearchResultTransfer.html">search/TripSearchResultTransfer</a></li>
+											<li><a href="module-utils.html">utils</a></li>
+											<li><a href="module-utils_calc.html">utils/calc</a></li>
+											<li><a href="module-utils_DateTime.html">utils/DateTime</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">class</span>
+				<h1><span class="name">TripSearch</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-9 main-content">
+						<ol class="breadcrumb">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="list_class.html">Classes</a></li>
+							<li class="active">TripSearch</li>
+						</ol>
+					<section>
+							<dl class="symbol primary">
+								<dt class="symbol-title class">
+			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">TripSearch</span><span class="signature-params">( <span class="signature-param">origin</span>, <span class="signature-param">destination</span> [,&nbsp;<span class="signature-param">departure</span> [,&nbsp;<span class="signature-param">options</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"></span></h2>
+</dt>
+<dd class="symbol-details class" style="max-height: 9999px;">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description classdesc"><h2>Trip Search</h2>
+			<p>This Class sets the parameters and options of a Trip Search: a search
+			of the GTFS schedule data finding trips (direct and/or with transfers)
+			from the origin Stop to the destination Stop at the specified time
+			with the specified options.</p>
+			<p><strong>Module:</strong> <a href="module-search_TripSearch.html">search/TripSearch</a></p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+							<th>Default</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>origin</code></td>
+							<td><span class="param-type"><a href="Stop.html">Stop</a></span></td>
+								<td class="attributes"></td>
+								<td></td>
+							<td class="last">
+									<p>Origin Stop</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>destination</code></td>
+							<td><span class="param-type"><a href="Stop.html">Stop</a></span></td>
+								<td class="attributes"></td>
+								<td></td>
+							<td class="last">
+									<p>Destination Stop</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>departure</code></td>
+							<td><span class="param-type"><a href="DateTime.html">DateTime</a></span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td>now</td>
+							<td class="last">
+									<p>The Departure Date/Time of the Trip Search</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>options</code></td>
+							<td><span class="param-type">Object</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td></td>
+							<td class="last">
+									<p>Trip Search Options</p>
+										<table class="params table table-striped">
+											<thead>
+											<tr>
+													<th>Name</th>
+												<th>Type</th>
+													<th>Attributes</th>
+													<th>Default</th>
+												<th class="last">Description</th>
+											</tr>
+											</thead>
+											<tbody>
+												<tr>
+														<td><code>allowTransfers</code></td>
+													<td><span class="param-type">boolean</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>true</td>
+													<td class="last">
+															<p>Allow transfers between trains</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>allowChangeInDirection</code></td>
+													<td><span class="param-type">boolean</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>true</td>
+													<td class="last">
+															<p>Allow transfers that change direction of travel</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>preDepartureHours</code></td>
+													<td><span class="param-type">int</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>3</td>
+													<td class="last">
+															<p>The number of hours before the requested departure to include in results</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>postDepartureHours</code></td>
+													<td><span class="param-type">int</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>6</td>
+													<td class="last">
+															<p>The number of hours after the requested departure to include in results</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>maxLayoverMins</code></td>
+													<td><span class="param-type">int</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>30</td>
+													<td class="last">
+															<p>The maximum number of minutes to layover at a transfer Stop</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>minLayoverMins</code></td>
+													<td><span class="param-type">int</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>0</td>
+													<td class="last">
+															<p>The minimum number of minutes to layover at a transfer Stop</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>maxTransfers</code></td>
+													<td><span class="param-type">int</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>2</td>
+													<td class="last">
+															<p>The maximum number of transfers</p>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line-27">line 27</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+							</dl>
+							<article class="secondary">
+									<h3>Members</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="origin" class="member public"><span class="name">origin</span><span class="signature-type"> :<a href="Stop.html">Stop</a></span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Trip Search Origin Stop</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type"><a href="Stop.html">Stop</a></span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line-66">line 66</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="destination" class="member public"><span class="name">destination</span><span class="signature-type"> :<a href="Stop.html">Stop</a></span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Trip Search Destination Stop</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type"><a href="Stop.html">Stop</a></span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line-72">line 72</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="departure" class="member public"><span class="name">departure</span><span class="signature-type"> :<a href="DateTime.html">DateTime</a></span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Trip Search Departure Date/Time</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type"><a href="DateTime.html">DateTime</a></span></div>
+								</div>
+							</div>
+			
+							<!-- defaultvalue -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Default Value</label>
+								<div class="col-sm-9">
+									<p class="form-control-static">now</p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line-79">line 79</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="allowTransfers" class="member public"><span class="name">allowTransfers</span><span class="signature-type"> :boolean</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Allow Transfers between Trains</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
+								</div>
+							</div>
+			
+							<!-- defaultvalue -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Default Value</label>
+								<div class="col-sm-9">
+									<p class="form-control-static">true</p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line-87">line 87</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="allowChangeInDirection" class="member public"><span class="name">allowChangeInDirection</span><span class="signature-type"> :boolean</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Allow Transfers between trains operating in opposite directions</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
+								</div>
+							</div>
+			
+							<!-- defaultvalue -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Default Value</label>
+								<div class="col-sm-9">
+									<p class="form-control-static">true</p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line-95">line 95</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="preDepartureHours" class="member public"><span class="name">preDepartureHours</span><span class="signature-type"> :int</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The number of hours before the departure time to include in results</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">int</span></div>
+								</div>
+							</div>
+			
+							<!-- defaultvalue -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Default Value</label>
+								<div class="col-sm-9">
+									<p class="form-control-static">3</p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line-103">line 103</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="postDepartureHours" class="member public"><span class="name">postDepartureHours</span><span class="signature-type"> :int</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The number of hours after the departure time to include in results</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">int</span></div>
+								</div>
+							</div>
+			
+							<!-- defaultvalue -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Default Value</label>
+								<div class="col-sm-9">
+									<p class="form-control-static">6</p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line-111">line 111</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="maxLayoverMins" class="member public"><span class="name">maxLayoverMins</span><span class="signature-type"> :int</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The maximum number of minutes between trips at a layover</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">int</span></div>
+								</div>
+							</div>
+			
+							<!-- defaultvalue -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Default Value</label>
+								<div class="col-sm-9">
+									<p class="form-control-static">30</p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line-119">line 119</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="minLayoverMins" class="member public"><span class="name">minLayoverMins</span><span class="signature-type"> :int</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The minimum number of minutes between trips at a layover</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">int</span></div>
+								</div>
+							</div>
+			
+							<!-- defaultvalue -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Default Value</label>
+								<div class="col-sm-9">
+									<p class="form-control-static">0</p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line-127">line 127</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="maxTransfers" class="member public"><span class="name">maxTransfers</span><span class="signature-type"> :int</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The maximum number of transfers for a single result</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">int</span></div>
+								</div>
+							</div>
+			
+							<!-- defaultvalue -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Default Value</label>
+								<div class="col-sm-9">
+									<p class="form-control-static">2</p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line-135">line 135</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="options" class="member public"><span class="name">options</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>All of the Trip Search options</p></div>
+			</div>			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Object</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line-144">line 144</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
+									<h3>Methods</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title function public">
+			<h4 id="search" class="function public"><span class="name">search</span><span class="signature-params">( <span class="signature-param">db</span>, <span class="signature-param">callback</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Perform the trip search on the provided Right Track Database</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>db</code></td>
+							<td><span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span></td>
+							<td class="last">
+									<p>The Right Track DB to query</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>callback</code></td>
+							<td><span class="param-type">function</span></td>
+							<td class="last">
+									<p>Callback function</p>
+										<table class="params table table-striped">
+											<thead>
+											<tr>
+													<th>Name</th>
+												<th>Type</th>
+													<th>Attributes</th>
+												<th class="last">Description</th>
+											</tr>
+											</thead>
+											<tbody>
+												<tr>
+														<td><code>err</code></td>
+													<td><span class="param-type">Error</span></td>
+														<td class="attributes"></td>
+													<td class="last">
+															<p>Database Query Error</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>results</code></td>
+													<td><span class="param-type">Array.&lt;<a href="TripSearchResult.html">TripSearchResult</a>></span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+													<td class="last">
+															<p>Trip Search Results</p>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line-164">line 164</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
+							</article>
+					</section>
+			</div>
+				<div class="col-md-3 side-content">
+					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+				</div>
+		</div>
+	</div>
+	<footer>
+				<div class="footer-option">Source Code for Right Track available at <a href='https://github.com/right-track'>GitHub/right-track</a></div>
+				<div class="copyright">Copyright &copy; 2021 David Waring and Right Track Contributors</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on 2021-12-08 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+	
 </body>
 </html>
