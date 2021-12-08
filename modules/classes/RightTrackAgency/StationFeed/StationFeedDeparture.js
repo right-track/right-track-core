@@ -8,7 +8,8 @@
  *
  * To access this Class directly:
  * ```javascript
- * const SF = require('right-track-core/modules/classes/RightTrackAgency/StationFeed');
+ * const core = require('right-track-core');
+ * const SF = core.classes.StationFeed;
  * const StationFeedDeparture = SF.StationFeedDeparture;
  * ```
  *

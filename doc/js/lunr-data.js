@@ -247,7 +247,8 @@ window.lunrData = {
           "access",
           "class",
           "const",
-          "core/modules/classes/righttrackagency/stationfe",
+          "core",
+          "core.classes.stationfe",
           "departur",
           "directli",
           "feed",
@@ -294,7 +295,8 @@ window.lunrData = {
           "access",
           "class",
           "const",
-          "core/modules/classes/righttrackagency/stationfe",
+          "core",
+          "core.classes.stationfe",
           "departur",
           "directli",
           "feed",
@@ -361,7 +363,8 @@ window.lunrData = {
           "access",
           "class",
           "const",
-          "core/modules/classes/righttrackagency/stationfe",
+          "core",
+          "core.classes.stationfe",
           "departur",
           "directli",
           "feed",
@@ -3586,133 +3589,70 @@ window.lunrData = {
                     "ref": "index.html",
                     "tf": 214
                   },
+                  "StationFeed.html": {
+                    "ref": "StationFeed.html",
+                    "tf": 4.166666666666666
+                  },
+                  "StationFeedDeparture.html": {
+                    "ref": "StationFeedDeparture.html",
+                    "tf": 3.571428571428571
+                  },
+                  "StationFeedDepartureStatus.html": {
+                    "ref": "StationFeedDepartureStatus.html",
+                    "tf": 3.7037037037037033
+                  },
                   "module-_.html": {
                     "ref": "module-_.html",
                     "tf": 4.545454545454546
                   }
                 },
-                "/": {
+                ".": {
                   "docs": {},
-                  "m": {
+                  "c": {
                     "docs": {},
-                    "o": {
+                    "l": {
                       "docs": {},
-                      "d": {
+                      "a": {
                         "docs": {},
-                        "u": {
+                        "s": {
                           "docs": {},
-                          "l": {
+                          "s": {
                             "docs": {},
                             "e": {
                               "docs": {},
                               "s": {
                                 "docs": {},
-                                "/": {
+                                ".": {
                                   "docs": {},
-                                  "c": {
+                                  "s": {
                                     "docs": {},
-                                    "l": {
+                                    "t": {
                                       "docs": {},
                                       "a": {
                                         "docs": {},
-                                        "s": {
+                                        "t": {
                                           "docs": {},
-                                          "s": {
+                                          "i": {
                                             "docs": {},
-                                            "e": {
+                                            "o": {
                                               "docs": {},
-                                              "s": {
+                                              "n": {
                                                 "docs": {},
-                                                "/": {
+                                                "f": {
                                                   "docs": {},
-                                                  "r": {
-                                                    "docs": {},
-                                                    "i": {
-                                                      "docs": {},
-                                                      "g": {
-                                                        "docs": {},
-                                                        "h": {
-                                                          "docs": {},
-                                                          "t": {
-                                                            "docs": {},
-                                                            "t": {
-                                                              "docs": {},
-                                                              "r": {
-                                                                "docs": {},
-                                                                "a": {
-                                                                  "docs": {},
-                                                                  "c": {
-                                                                    "docs": {},
-                                                                    "k": {
-                                                                      "docs": {},
-                                                                      "a": {
-                                                                        "docs": {},
-                                                                        "g": {
-                                                                          "docs": {},
-                                                                          "e": {
-                                                                            "docs": {},
-                                                                            "n": {
-                                                                              "docs": {},
-                                                                              "c": {
-                                                                                "docs": {},
-                                                                                "y": {
-                                                                                  "docs": {},
-                                                                                  "/": {
-                                                                                    "docs": {},
-                                                                                    "s": {
-                                                                                      "docs": {},
-                                                                                      "t": {
-                                                                                        "docs": {},
-                                                                                        "a": {
-                                                                                          "docs": {},
-                                                                                          "t": {
-                                                                                            "docs": {},
-                                                                                            "i": {
-                                                                                              "docs": {},
-                                                                                              "o": {
-                                                                                                "docs": {},
-                                                                                                "n": {
-                                                                                                  "docs": {},
-                                                                                                  "f": {
-                                                                                                    "docs": {},
-                                                                                                    "e": {
-                                                                                                      "docs": {
-                                                                                                        "StationFeed.html": {
-                                                                                                          "ref": "StationFeed.html",
-                                                                                                          "tf": 2.380952380952381
-                                                                                                        },
-                                                                                                        "StationFeedDeparture.html": {
-                                                                                                          "ref": "StationFeedDeparture.html",
-                                                                                                          "tf": 2
-                                                                                                        },
-                                                                                                        "StationFeedDepartureStatus.html": {
-                                                                                                          "ref": "StationFeedDepartureStatus.html",
-                                                                                                          "tf": 2.083333333333333
-                                                                                                        }
-                                                                                                      }
-                                                                                                    }
-                                                                                                  }
-                                                                                                }
-                                                                                              }
-                                                                                            }
-                                                                                          }
-                                                                                        }
-                                                                                      }
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              }
-                                                                            }
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
+                                                  "e": {
+                                                    "docs": {
+                                                      "StationFeed.html": {
+                                                        "ref": "StationFeed.html",
+                                                        "tf": 2.083333333333333
+                                                      },
+                                                      "StationFeedDeparture.html": {
+                                                        "ref": "StationFeedDeparture.html",
+                                                        "tf": 1.7857142857142856
+                                                      },
+                                                      "StationFeedDepartureStatus.html": {
+                                                        "ref": "StationFeedDepartureStatus.html",
+                                                        "tf": 1.8518518518518516
                                                       }
                                                     }
                                                   }
@@ -3817,15 +3757,15 @@ window.lunrData = {
                   "docs": {
                     "StationFeed.html": {
                       "ref": "StationFeed.html",
-                      "tf": 4.761904761904762
+                      "tf": 6.25
                     },
                     "StationFeedDeparture.html": {
                       "ref": "StationFeedDeparture.html",
-                      "tf": 4
+                      "tf": 5.357142857142857
                     },
                     "StationFeedDepartureStatus.html": {
                       "ref": "StationFeedDepartureStatus.html",
-                      "tf": 4.166666666666666
+                      "tf": 5.555555555555555
                     }
                   },
                   "r": {
@@ -4149,15 +4089,15 @@ window.lunrData = {
                     },
                     "StationFeed.html": {
                       "ref": "StationFeed.html",
-                      "tf": 112.38095238095238
+                      "tf": 112.08333333333333
                     },
                     "StationFeedDeparture.html": {
                       "ref": "StationFeedDeparture.html",
-                      "tf": 114
+                      "tf": 113.57142857142857
                     },
                     "StationFeedDepartureStatus.html": {
                       "ref": "StationFeedDepartureStatus.html",
-                      "tf": 114.16666666666667
+                      "tf": 113.70370370370371
                     },
                     "TripSearchResultTransfer.html": {
                       "ref": "TripSearchResultTransfer.html",
@@ -4979,15 +4919,15 @@ window.lunrData = {
                       },
                       "StationFeed.html": {
                         "ref": "StationFeed.html",
-                        "tf": 2.380952380952381
+                        "tf": 2.083333333333333
                       },
                       "StationFeedDeparture.html": {
                         "ref": "StationFeedDeparture.html",
-                        "tf": 2
+                        "tf": 1.7857142857142856
                       },
                       "StationFeedDepartureStatus.html": {
                         "ref": "StationFeedDepartureStatus.html",
-                        "tf": 2.083333333333333
+                        "tf": 1.8518518518518516
                       },
                       "TripSearchResultTransfer.html": {
                         "ref": "TripSearchResultTransfer.html",
@@ -7102,15 +7042,15 @@ window.lunrData = {
                   },
                   "StationFeed.html": {
                     "ref": "StationFeed.html",
-                    "tf": 2.380952380952381
+                    "tf": 2.083333333333333
                   },
                   "StationFeedDeparture.html": {
                     "ref": "StationFeedDeparture.html",
-                    "tf": 2
+                    "tf": 1.7857142857142856
                   },
                   "StationFeedDepartureStatus.html": {
                     "ref": "StationFeedDepartureStatus.html",
-                    "tf": 2.083333333333333
+                    "tf": 1.8518518518518516
                   },
                   "RightTrackAgency.html": {
                     "ref": "RightTrackAgency.html",
@@ -7186,15 +7126,15 @@ window.lunrData = {
                                     "docs": {
                                       "StationFeed.html": {
                                         "ref": "StationFeed.html",
-                                        "tf": 2.380952380952381
+                                        "tf": 2.083333333333333
                                       },
                                       "StationFeedDeparture.html": {
                                         "ref": "StationFeedDeparture.html",
-                                        "tf": 2
+                                        "tf": 1.7857142857142856
                                       },
                                       "StationFeedDepartureStatus.html": {
                                         "ref": "StationFeedDepartureStatus.html",
-                                        "tf": 2.083333333333333
+                                        "tf": 1.8518518518518516
                                       }
                                     }
                                   }
@@ -9385,15 +9325,15 @@ window.lunrData = {
                     },
                     "StationFeed.html": {
                       "ref": "StationFeed.html",
-                      "tf": 2.380952380952381
+                      "tf": 2.083333333333333
                     },
                     "StationFeedDeparture.html": {
                       "ref": "StationFeedDeparture.html",
-                      "tf": 2
+                      "tf": 1.7857142857142856
                     },
                     "StationFeedDepartureStatus.html": {
                       "ref": "StationFeedDepartureStatus.html",
-                      "tf": 2.083333333333333
+                      "tf": 1.8518518518518516
                     },
                     "StationFeedDepartureStatus.html#track": {
                       "ref": "StationFeedDepartureStatus.html#track",
@@ -10375,7 +10315,7 @@ window.lunrData = {
                 "docs": {
                   "StationFeedDeparture.html": {
                     "ref": "StationFeedDeparture.html",
-                    "tf": 2
+                    "tf": 1.7857142857142856
                   },
                   "StationFeedDeparture.html#destination": {
                     "ref": "StationFeedDeparture.html#destination",
@@ -12052,15 +11992,15 @@ window.lunrData = {
                   },
                   "StationFeed.html": {
                     "ref": "StationFeed.html",
-                    "tf": 2.380952380952381
+                    "tf": 2.083333333333333
                   },
                   "StationFeedDeparture.html": {
                     "ref": "StationFeedDeparture.html",
-                    "tf": 2
+                    "tf": 1.7857142857142856
                   },
                   "StationFeedDepartureStatus.html": {
                     "ref": "StationFeedDepartureStatus.html",
-                    "tf": 2.083333333333333
+                    "tf": 1.8518518518518516
                   },
                   "TripSearchResultTransfer.html": {
                     "ref": "TripSearchResultTransfer.html",
@@ -12881,7 +12821,7 @@ window.lunrData = {
                         "docs": {
                           "StationFeed.html": {
                             "ref": "StationFeed.html",
-                            "tf": 2.380952380952381
+                            "tf": 2.083333333333333
                           },
                           "StationFeed.html#departures": {
                             "ref": "StationFeed.html#departures",
@@ -12889,7 +12829,7 @@ window.lunrData = {
                           },
                           "StationFeedDeparture.html": {
                             "ref": "StationFeedDeparture.html",
-                            "tf": 6
+                            "tf": 5.357142857142857
                           },
                           "StationFeedDeparture.html#departure": {
                             "ref": "StationFeedDeparture.html#departure",
@@ -12905,7 +12845,7 @@ window.lunrData = {
                           },
                           "StationFeedDepartureStatus.html": {
                             "ref": "StationFeedDepartureStatus.html",
-                            "tf": 4.166666666666666
+                            "tf": 3.7037037037037033
                           },
                           "StationFeedDepartureStatus.html#estDeparture": {
                             "ref": "StationFeedDepartureStatus.html#estDeparture",
@@ -13466,15 +13406,15 @@ window.lunrData = {
                         "docs": {
                           "StationFeed.html": {
                             "ref": "StationFeed.html",
-                            "tf": 2.380952380952381
+                            "tf": 2.083333333333333
                           },
                           "StationFeedDeparture.html": {
                             "ref": "StationFeedDeparture.html",
-                            "tf": 2
+                            "tf": 1.7857142857142856
                           },
                           "StationFeedDepartureStatus.html": {
                             "ref": "StationFeedDepartureStatus.html",
-                            "tf": 2.083333333333333
+                            "tf": 1.8518518518518516
                           }
                         }
                       }
@@ -17780,7 +17720,7 @@ window.lunrData = {
                   },
                   "StationFeed.html": {
                     "ref": "StationFeed.html",
-                    "tf": 4.761904761904762
+                    "tf": 4.166666666666666
                   },
                   "StationFeed.html#stop": {
                     "ref": "StationFeed.html#stop",
@@ -17792,7 +17732,7 @@ window.lunrData = {
                   },
                   "StationFeedDeparture.html": {
                     "ref": "StationFeedDeparture.html",
-                    "tf": 2
+                    "tf": 1.7857142857142856
                   },
                   "StationFeedDeparture.html#status": {
                     "ref": "StationFeedDeparture.html#status",
@@ -17800,7 +17740,7 @@ window.lunrData = {
                   },
                   "StationFeedDepartureStatus.html": {
                     "ref": "StationFeedDepartureStatus.html",
-                    "tf": 2.083333333333333
+                    "tf": 1.8518518518518516
                   },
                   "RightTrackTransitAgency.html": {
                     "ref": "RightTrackTransitAgency.html",
@@ -19264,11 +19204,11 @@ window.lunrData = {
                     },
                     "StationFeed.html": {
                       "ref": "StationFeed.html",
-                      "tf": 2.380952380952381
+                      "tf": 2.083333333333333
                     },
                     "StationFeedDeparture.html": {
                       "ref": "StationFeedDeparture.html",
-                      "tf": 2
+                      "tf": 1.7857142857142856
                     },
                     "TripSearch.html#maxTransfers": {
                       "ref": "TripSearch.html#maxTransfers",
@@ -19425,7 +19365,7 @@ window.lunrData = {
                     },
                     "StationFeed.html": {
                       "ref": "StationFeed.html",
-                      "tf": 2.380952380952381
+                      "tf": 2.083333333333333
                     },
                     "StationFeedDeparture.html#status": {
                       "ref": "StationFeedDeparture.html#status",
@@ -19433,7 +19373,7 @@ window.lunrData = {
                     },
                     "StationFeedDepartureStatus.html": {
                       "ref": "StationFeedDepartureStatus.html",
-                      "tf": 4.166666666666666
+                      "tf": 3.7037037037037033
                     },
                     "StationFeedDepartureStatus.html#status": {
                       "ref": "StationFeedDepartureStatus.html#status",
@@ -19479,7 +19419,7 @@ window.lunrData = {
                       "docs": {
                         "StationFeed.html": {
                           "ref": "StationFeed.html",
-                          "tf": 2.380952380952381
+                          "tf": 2.083333333333333
                         },
                         "StationFeed.html#stop": {
                           "ref": "StationFeed.html#stop",
@@ -19491,7 +19431,7 @@ window.lunrData = {
                         },
                         "StationFeedDeparture.html": {
                           "ref": "StationFeedDeparture.html",
-                          "tf": 2
+                          "tf": 1.7857142857142856
                         },
                         "StationFeedDeparture.html#trip": {
                           "ref": "StationFeedDeparture.html#trip",
@@ -19503,7 +19443,7 @@ window.lunrData = {
                         },
                         "StationFeedDepartureStatus.html": {
                           "ref": "StationFeedDepartureStatus.html",
-                          "tf": 2.083333333333333
+                          "tf": 1.8518518518518516
                         },
                         "RightTrackAgency.html": {
                           "ref": "RightTrackAgency.html",
@@ -19556,11 +19496,11 @@ window.lunrData = {
                           "docs": {
                             "StationFeed.html": {
                               "ref": "StationFeed.html",
-                              "tf": 1902.3809523809523
+                              "tf": 1902.0833333333333
                             },
                             "StationFeedDeparture.html": {
                               "ref": "StationFeedDeparture.html",
-                              "tf": 2
+                              "tf": 1.7857142857142856
                             }
                           },
                           "e": {
@@ -19648,11 +19588,11 @@ window.lunrData = {
                                               "docs": {
                                                 "StationFeedDeparture.html": {
                                                   "ref": "StationFeedDeparture.html",
-                                                  "tf": 1902
+                                                  "tf": 1901.7857142857142
                                                 },
                                                 "StationFeedDepartureStatus.html": {
                                                   "ref": "StationFeedDepartureStatus.html",
-                                                  "tf": 2.083333333333333
+                                                  "tf": 1.8518518518518516
                                                 }
                                               },
                                               "e": {
@@ -19759,7 +19699,7 @@ window.lunrData = {
                                                             },
                                                             "StationFeedDepartureStatus.html": {
                                                               "ref": "StationFeedDepartureStatus.html",
-                                                              "tf": 1902.0833333333333
+                                                              "tf": 1901.851851851852
                                                             }
                                                           },
                                                           "s": {
@@ -20313,7 +20253,7 @@ window.lunrData = {
                 "docs": {
                   "StationFeed.html": {
                     "ref": "StationFeed.html",
-                    "tf": 2.380952380952381
+                    "tf": 2.083333333333333
                   },
                   "StationFeed.html#stop": {
                     "ref": "StationFeed.html#stop",
@@ -20321,7 +20261,7 @@ window.lunrData = {
                   },
                   "StationFeedDeparture.html": {
                     "ref": "StationFeedDeparture.html",
-                    "tf": 2
+                    "tf": 1.7857142857142856
                   },
                   "StationFeedDeparture.html#destination": {
                     "ref": "StationFeedDeparture.html#destination",
@@ -20329,7 +20269,7 @@ window.lunrData = {
                   },
                   "StationFeedDepartureStatus.html": {
                     "ref": "StationFeedDepartureStatus.html",
-                    "tf": 2.083333333333333
+                    "tf": 1.8518518518518516
                   },
                   "TripSearchResultTransfer.html": {
                     "ref": "TripSearchResultTransfer.html",
@@ -21576,15 +21516,15 @@ window.lunrData = {
             "docs": {
               "StationFeed.html": {
                 "ref": "StationFeed.html",
-                "tf": 2.380952380952381
+                "tf": 2.083333333333333
               },
               "StationFeedDeparture.html": {
                 "ref": "StationFeedDeparture.html",
-                "tf": 2
+                "tf": 1.7857142857142856
               },
               "StationFeedDepartureStatus.html": {
                 "ref": "StationFeedDepartureStatus.html",
-                "tf": 2.083333333333333
+                "tf": 1.8518518518518516
               }
             },
             ".": {
@@ -21609,7 +21549,7 @@ window.lunrData = {
                                 "docs": {
                                   "StationFeed.html": {
                                     "ref": "StationFeed.html",
-                                    "tf": 2.380952380952381
+                                    "tf": 2.083333333333333
                                   }
                                 },
                                 "e": {
@@ -21634,7 +21574,7 @@ window.lunrData = {
                                                     "docs": {
                                                       "StationFeedDeparture.html": {
                                                         "ref": "StationFeedDeparture.html",
-                                                        "tf": 2
+                                                        "tf": 1.7857142857142856
                                                       }
                                                     },
                                                     "e": {
@@ -21651,7 +21591,7 @@ window.lunrData = {
                                                                 "docs": {
                                                                   "StationFeedDepartureStatus.html": {
                                                                     "ref": "StationFeedDepartureStatus.html",
-                                                                    "tf": 2.083333333333333
+                                                                    "tf": 1.8518518518518516
                                                                   }
                                                                 }
                                                               }
@@ -25001,15 +24941,15 @@ window.lunrData = {
                     "docs": {
                       "StationFeed.html": {
                         "ref": "StationFeed.html",
-                        "tf": 2.380952380952381
+                        "tf": 2.083333333333333
                       },
                       "StationFeedDeparture.html": {
                         "ref": "StationFeedDeparture.html",
-                        "tf": 2
+                        "tf": 1.7857142857142856
                       },
                       "StationFeedDepartureStatus.html": {
                         "ref": "StationFeedDepartureStatus.html",
-                        "tf": 2.083333333333333
+                        "tf": 1.8518518518518516
                       },
                       "Trip.html": {
                         "ref": "Trip.html",
@@ -25965,11 +25905,11 @@ window.lunrData = {
             "docs": {
               "StationFeedDeparture.html": {
                 "ref": "StationFeedDeparture.html",
-                "tf": 2
+                "tf": 1.7857142857142856
               },
               "StationFeedDepartureStatus.html": {
                 "ref": "StationFeedDepartureStatus.html",
-                "tf": 2.083333333333333
+                "tf": 1.8518518518518516
               },
               "DateTime.html": {
                 "ref": "DateTime.html",
@@ -27753,7 +27693,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 2773
+      "length": 2776
     },
     "corpusTokens": [
       "1",
@@ -27855,7 +27795,7 @@ window.lunrData = {
       "contact",
       "contain",
       "core",
-      "core/modules/classes/righttrackagency/stationfe",
+      "core.classes.stationfe",
       "correspond",
       "creat",
       "createfromd",
@@ -28792,7 +28732,7 @@ window.lunrData = {
       "name": "StationFeed",
       "tags": "StationFeed",
       "summary": "",
-      "description": "Station Feed A real-time feed of status information of departures from a single Stop. To access this Class directly: const SF = require('right-track-core/modules/classes/RightTrackAgency/StationFeed'); const StationFeed = SF.StationFeed;",
+      "description": "Station Feed A real-time feed of status information of departures from a single Stop. To access this Class directly: const core = require('right-track-core'); const SF = core.classes.StationFeed; const StationFeed = SF.StationFeed;",
       "body": ""
     },
     "StationFeed.html#stop": {
@@ -28833,7 +28773,7 @@ window.lunrData = {
       "name": "StationFeedDeparture",
       "tags": "StationFeedDeparture",
       "summary": "",
-      "description": "Station Feed Departure Real-time and departure information about the departure of a single Trip from a Stop. Used by the StationFeed Class. To access this Class directly: const SF = require('right-track-core/modules/classes/RightTrackAgency/StationFeed'); const StationFeedDeparture = SF.StationFeedDeparture;",
+      "description": "Station Feed Departure Real-time and departure information about the departure of a single Trip from a Stop. Used by the StationFeed Class. To access this Class directly: const core = require('right-track-core'); const SF = core.classes.StationFeed; const StationFeedDeparture = SF.StationFeedDeparture;",
       "body": ""
     },
     "StationFeedDeparture.html#departure": {
@@ -28894,7 +28834,7 @@ window.lunrData = {
       "name": "StationFeedDepartureStatus",
       "tags": "StationFeedDepartureStatus",
       "summary": "",
-      "description": "Station Feed Departure Status Real-time Status Information about a departure from a Stop. Used by the StationFeedDeparture Class. To access this Class directly: const SF = require('right-track-core/modules/classes/RightTrackAgency/StationFeed'); const StationFeedDepartureStatus = SF.StationFeedDepartureStatus;",
+      "description": "Station Feed Departure Status Real-time Status Information about a departure from a Stop. Used by the StationFeedDeparture Class. To access this Class directly: const core = require('right-track-core'); const SF = core.classes.StationFeed; const StationFeedDepartureStatus = SF.StationFeedDepartureStatus;",
       "body": ""
     },
     "StationFeedDepartureStatus.html#status": {
