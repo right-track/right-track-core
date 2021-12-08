@@ -10,6 +10,12 @@
  module.exports = {
 
   /**
+   * Right Track DB Abstract Class
+   * @see RightTrackDB
+   */
+  RightTrackDB: require('./RightTrackDB'),
+
+  /**
    * Right Track Transit Agency Abstract Class
    * @see RightTrackTransitAgency
    */
