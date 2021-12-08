@@ -7,8 +7,7 @@
  */
 
 /**
- * Right Track Database
- * --------------------
+ * ### `RightTrackDB` Abstract Class
  *
  * This is the abstract `RightTrackDB` Class that is used by the Right Track projects
  * to query the SQLite [Right Track Database](https://github.com/right-track/right-track-db-build).
@@ -51,8 +50,6 @@ class RightTrackDB {
 
   /**
    * Right Track Database Constructor
-   * @constructor
-   * @abstract
    * @param {RightTrackAgency} agency The Right Track Agency this DB will be used to query
    */
   constructor(agency) {
