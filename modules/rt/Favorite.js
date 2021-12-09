@@ -1,7 +1,7 @@
 'use strict';
 
-const TransitAgency = require('right-track-transit');
-const TransitDivision = require('right-track-transit/src/TransitFeed/TransitDivision');
+const TransitAgency = require('../classes/RightTrackTransitAgency');
+const TransitDivision = require('../classes/RightTrackTransitAgency/TransitFeed/TransitDivision');
 
 /**
  * Right Track Favorite Class
