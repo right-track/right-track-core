@@ -1,6 +1,15 @@
 'use strict';
 
 /**
+ * The maximum number of allowed hours in a day
+ * NOTE: This can be greater than 24 due to trips starting late in the day on one 
+ * day and continuing into the next calendar day, but the hours continue from the 
+ * first day (ie, 25:30 = 1:30 AM)
+ * @private
+ */
+const MAX_HOURS = 36;
+
+/**
  * DateTime Class
  * @see {@link DateTime}
  * @module utils/DateTime
@@ -53,13 +62,13 @@ class DateTime {
     if ( Number.isInteger(time) ) {
 
       // Check to make sure time int is within reasonable range
-      if ( time >= 0 && time <= 172800 ) {
+      if ( time >= 0 && time <= (MAX_HOURS*3600) ) {
         this.time = time;
       }
 
-      // Time int is not within reasonable range of 0 --> 48 hours
+      // Time int is not within reasonable range of 0 --> MAX_HOURS hours
       else {
-        console.warn('DATETIME ERROR: Time Integer is out of bounds!');
+        throw new Error('DATETIME ERROR: Time Integer is out of bounds. time=' + time + ' seconds');
       }
 
     }
@@ -98,7 +107,7 @@ class DateTime {
           let s = parts.length === 3 ? parseInt(parts[2]) : 0;
 
           // Check to make sure time parts are within a reasonable range
-          if (Number.isInteger(h) && h >= 0 && h <= 32 &&
+          if (Number.isInteger(h) && h >= 0 && h <= MAX_HOURS &&
             Number.isInteger(m) && m >= 0 && m <= 59 &&
             Number.isInteger(s) && s >= 0 && s <= 59) {
             this.time = h*3600 + m*60 + s;
@@ -124,7 +133,7 @@ class DateTime {
         let m = parseInt(time.substring(2, 4));
 
         // Check to make sure time parse are numbers within a reasonable range
-        if ( Number.isInteger(h) && h >= 0 && h <= 32 &&
+        if ( Number.isInteger(h) && h >= 0 && h <= MAX_HOURS &&
            Number.isInteger(m) && m >= 0 && m <= 59 ) {
           this.time = h*3600 + m*60;
         }
