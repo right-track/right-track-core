@@ -5,9 +5,11 @@
  * NOTE: This can be greater than 24 due to trips starting late in the day on one 
  * day and continuing into the next calendar day, but the hours continue from the 
  * first day (ie, 25:30 = 1:30 AM)
+ * It is also artificially increase in TripsTable.js by 24 hours when looking for 
+ * a trip that started on the previous day (but has a 24+ hr time)
  * @private
  */
-const MAX_HOURS = 36;
+const MAX_HOURS = 48;
 
 /**
  * DateTime Class
