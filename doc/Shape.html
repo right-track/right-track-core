@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>query/holiday</title>
+		<title>Shape</title>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -160,8 +160,8 @@
 	</header>
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
-				<span class="kind">module</span>
-				<h1><span class="name">query/holiday</span></h1>
+				<span class="kind">class</span>
+				<h1><span class="name">Shape</span></h1>
 			</div>
 		</div>
 	<div class="container content">
@@ -169,58 +169,376 @@
 			<div class="col-md-9 main-content">
 						<ol class="breadcrumb">
 							<li><a href="index.html">Home</a></li>
-							<li><a href="list_module.html">Modules</a></li>
-							<li class="active">query/holiday</li>
+							<li><a href="list_class.html">Classes</a></li>
+							<li class="active">Shape</li>
 						</ol>
 					<section>
-		<dl class="symbol">
-			<dt class="symbol-title "></dt>
-			<dd class="symbol-details ">
-				<div class="symbol-details-inner">
-					<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><h3>Holiday Query Functions</h3>
-					<p>These functions query the <code>rt_holidays</code> table in the Right Track Database.</p></div>
-					</div>					<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-									<!-- source -->
-									<div class="form-group">
-										<label class="col-sm-3 control-label">Source</label>
-										<div class="col-sm-9">
-											<p class="form-control-static"><a href="query_HolidayTable.js.html">query/HolidayTable.js</a>, <a href="query_HolidayTable.js.html#line-3">line 3</a></p>
-										</div>
-									</div>
-					
-					
-					
-					
-							</form>
-					</div>				</div>
-			</dd>
-		</dl>
+							<dl class="symbol primary">
+								<dt class="symbol-title class">
+			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">Shape</span><span class="signature-params">( <span class="signature-param">id</span>, <span class="signature-param">shapePtLat</span>, <span class="signature-param">shapePtLon</span>, <span class="signature-param">shapePtSequence</span> [,&nbsp;<span class="signature-param">optional</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h2>
+</dt>
+<dd class="symbol-details class" style="max-height: 9999px;">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description classdesc"><h2>GTFS Shape</h2>
+			<p>Representation of the GTFS Shape data</p>
+			<p>GTFS Required Fields:</p>
+			<ul>
+			<li>Shape ID</li>
+			<li>Shape Point Latitude</li>
+			<li>Shape Point Longitude</li>
+			<li>Shape Point Sequence</li>
+			</ul>
+			<p>GTFS Optional Fields:</p>
+			<ul>
+			<li>Shape Distance Traveled</li>
+			</ul>
+			<p><strong>Module:</strong> <a href="module-gtfs_Shape.html">gtfs/Shape</a></p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>id</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>Shape ID</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>shapePtLat</code></td>
+							<td><span class="param-type">number</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>Shape Point Latitude</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>shapePtLon</code></td>
+							<td><span class="param-type">number</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>Shape Point Longitude</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>shapePtSequence</code></td>
+							<td><span class="param-type">int</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>Shape Point Sequence</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>optional</code></td>
+							<td><span class="param-type">Object</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>Optional Arguments</p>
+										<table class="params table table-striped">
+											<thead>
+											<tr>
+													<th>Name</th>
+												<th>Type</th>
+													<th>Attributes</th>
+												<th class="last">Description</th>
+											</tr>
+											</thead>
+											<tbody>
+												<tr>
+														<td><code>shapeDistTraveled</code></td>
+													<td><span class="param-type">number</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+													<td class="last">
+															<p>Shape Distance Traveled</p>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="gtfs_Shape.js.html">gtfs/Shape.js</a>, <a href="gtfs_Shape.js.html#line-32">line 32</a></p>
+								</div>
+							</div>
+			
+			
+							<!-- see -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">See</label>
+								<div class="col-sm-9">
+										<p class="form-control-static"><a href="https://developers.google.com/transit/gtfs/reference/shapes-file">GTFS Spec</a></p>
+								</div>
+							</div>
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+							</dl>
 							<article class="secondary">
+									<h3>Members</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="id" class="member public"><span class="name">id</span><span class="signature-type"> :string</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The ID of the Shape (referenced in the gtfs_trips table)</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">string</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="gtfs_Shape.js.html">gtfs/Shape.js</a>, <a href="gtfs_Shape.js.html#line-50">line 50</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="shapePtLat" class="member public"><span class="name">shapePtLat</span><span class="signature-type"> :number</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The latitude of a Shape's point</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">number</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="gtfs_Shape.js.html">gtfs/Shape.js</a>, <a href="gtfs_Shape.js.html#line-56">line 56</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="shapePtLon" class="member public"><span class="name">shapePtLon</span><span class="signature-type"> :number</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The longitude of a Shape's point</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">number</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="gtfs_Shape.js.html">gtfs/Shape.js</a>, <a href="gtfs_Shape.js.html#line-62">line 62</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="shapePtSequence" class="member public"><span class="name">shapePtSequence</span><span class="signature-type"> :int</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The sequence of the point along a Shape</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">int</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="gtfs_Shape.js.html">gtfs/Shape.js</a>, <a href="gtfs_Shape.js.html#line-68">line 68</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="shapeDistTraveled" class="member public"><span class="name">shapeDistTraveled</span><span class="signature-type"> :number</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The distance traveled to the point from the start of the Shape</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">number</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="gtfs_Shape.js.html">gtfs/Shape.js</a>, <a href="gtfs_Shape.js.html#line-74">line 74</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
 									<h3>Methods</h3>
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title function public">
-			<h4 id="~getHolidays" class="function public"><span class="signature-attribs">&lt;inner> </span><span class="name">getHolidays</span><span class="signature-params">( <span class="signature-param">db</span>, <span class="signature-param">callback</span>&nbsp;)</span><span class="signature-type"></span></h4>
+			<h4 id=".sortBySequence" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">sortBySequence</span><span class="signature-params">( <span class="signature-param">a</span>, <span class="signature-param">b</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{number}</span></h4>
 		</dt>
 <dd class="symbol-details function public">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Get a list of Holidays that are stored in the specified
-			database.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Sort the points of a Shape by their sequence</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -233,152 +551,31 @@
 					</thead>
 					<tbody>
 						<tr>
-								<td><code>db</code></td>
-							<td><span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span></td>
+								<td><code>a</code></td>
+							<td><span class="param-type"><a href="Stop.html">Stop</a></span></td>
 							<td class="last">
-									<p>The Right Track DB to query</p>
+									<p>first Shape</p>
 							</td>
 						</tr>
 						<tr>
-								<td><code>callback</code></td>
-							<td><span class="param-type">function</span></td>
+								<td><code>b</code></td>
+							<td><span class="param-type"><a href="Stop.html">Stop</a></span></td>
 							<td class="last">
-									<p>Callback function</p>
-										<table class="params table table-striped">
-											<thead>
-											<tr>
-													<th>Name</th>
-												<th>Type</th>
-													<th>Attributes</th>
-												<th class="last">Description</th>
-											</tr>
-											</thead>
-											<tbody>
-												<tr>
-														<td><code>error</code></td>
-													<td><span class="param-type">Error</span></td>
-														<td class="attributes"></td>
-													<td class="last">
-															<p>Database Query Error</p>
-													</td>
-												</tr>
-												<tr>
-														<td><code>holidays</code></td>
-													<td><span class="param-type">Array.&lt;<a href="Holiday.html">Holiday</a>></span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-													<td class="last">
-															<p>The selected Holidays</p>
-													</td>
-												</tr>
-											</tbody>
-										</table>
+									<p>second Shape</p>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">number</span></label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="query_HolidayTable.js.html">query/HolidayTable.js</a>, <a href="query_HolidayTable.js.html#line-24">line 24</a></p>
+									<div class="form-control-static returns-description"><p>compare integer</p></div>
 								</div>
 							</div>
-			
-			
-			
-			
 					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public">
-			<h4 id="~getHoliday" class="function public"><span class="signature-attribs">&lt;inner> </span><span class="name">getHoliday</span><span class="signature-params">( <span class="signature-param">db</span>, <span class="signature-param">date</span>, <span class="signature-param">callback</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Get the Holiday for the specified date or 'undefined' if
-			there is no holiday on the date</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>db</code></td>
-							<td><span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span></td>
-							<td class="last">
-									<p>The Right Track DB to query</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>date</code></td>
-							<td><span class="param-type">int</span></td>
-							<td class="last">
-									<p>the date (yyyymmdd)</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>callback</code></td>
-							<td><span class="param-type">function</span></td>
-							<td class="last">
-									<p>Callback function</p>
-										<table class="params table table-striped">
-											<thead>
-											<tr>
-													<th>Name</th>
-												<th>Type</th>
-													<th>Attributes</th>
-												<th class="last">Description</th>
-											</tr>
-											</thead>
-											<tbody>
-												<tr>
-														<td><code>error</code></td>
-													<td><span class="param-type">Error</span></td>
-														<td class="attributes"></td>
-													<td class="last">
-															<p>Database Query Error</p>
-													</td>
-												</tr>
-												<tr>
-														<td><code>holiday</code></td>
-													<td><span class="param-type"><a href="Holiday.html">Holiday</a></span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-													<td class="last">
-															<p>The selected Holiday</p>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
 			
@@ -398,107 +595,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="query_HolidayTable.js.html">query/HolidayTable.js</a>, <a href="query_HolidayTable.js.html#line-84">line 84</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public">
-			<h4 id="~isHoliday" class="function public"><span class="signature-attribs">&lt;inner> </span><span class="name">isHoliday</span><span class="signature-params">( <span class="signature-param">db</span>, <span class="signature-param">date</span>, <span class="signature-param">callback</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Check if the specified date is a Holiday</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>db</code></td>
-							<td><span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span></td>
-							<td class="last">
-									<p>The Right Track DB to query</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>date</code></td>
-							<td><span class="param-type">int</span></td>
-							<td class="last">
-									<p>The date to check (yyyymmdd)</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>callback</code></td>
-							<td><span class="param-type">function</span></td>
-							<td class="last">
-									<p>Callback function</p>
-										<table class="params table table-striped">
-											<thead>
-											<tr>
-													<th>Name</th>
-												<th>Type</th>
-													<th>Attributes</th>
-												<th class="last">Description</th>
-											</tr>
-											</thead>
-											<tbody>
-												<tr>
-														<td><code>error</code></td>
-													<td><span class="param-type">Error</span></td>
-														<td class="attributes"></td>
-													<td class="last">
-															<p>Database Query Error</p>
-													</td>
-												</tr>
-												<tr>
-														<td><code>isHoliday</code></td>
-													<td><span class="param-type">boolean</span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-													<td class="last">
-															<p>True if the specified date is a Holiday</p>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="query_HolidayTable.js.html">query/HolidayTable.js</a>, <a href="query_HolidayTable.js.html#line-141">line 141</a></p>
+									<p class="form-control-static"><a href="gtfs_Shape.js.html">gtfs/Shape.js</a>, <a href="gtfs_Shape.js.html#line-86">line 86</a></p>
 								</div>
 							</div>
 			

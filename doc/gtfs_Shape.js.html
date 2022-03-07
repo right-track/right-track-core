@@ -1,9 +1,10 @@
+<!-- start:source.tmpl.hbs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>query/holiday</title>
+		<title>gtfs/Shape.js</title>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -41,7 +42,7 @@
 			</style>
 		<script type="text/javascript">
 			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"YYYY-MM-DD","systemName":"Right Track Core","systemSummary":"The core library for the Right Track projects","systemLogo":"","systemColor":"#00897B","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"Source Code for Right Track available at <a href='https://github.com/right-track'>GitHub/right-track</a>","copyright":"Copyright &copy; 2021 David Waring and Right Track Contributors","linenums":true,"collapseSymbols":false,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false};
-			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_TOC_ENABLED = false;
 			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
 </head>
@@ -160,361 +161,116 @@
 	</header>
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
-				<span class="kind">module</span>
-				<h1><span class="name">query/holiday</span></h1>
+				<span class="kind">source</span>
+				<h1><span class="name">gtfs/Shape.js</span></h1>
 			</div>
 		</div>
 	<div class="container content">
 		<div class="row">
-			<div class="col-md-9 main-content">
-						<ol class="breadcrumb">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="list_module.html">Modules</a></li>
-							<li class="active">query/holiday</li>
-						</ol>
-					<section>
-		<dl class="symbol">
-			<dt class="symbol-title "></dt>
-			<dd class="symbol-details ">
-				<div class="symbol-details-inner">
-					<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><h3>Holiday Query Functions</h3>
-					<p>These functions query the <code>rt_holidays</code> table in the Right Track Database.</p></div>
-					</div>					<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-									<!-- source -->
-									<div class="form-group">
-										<label class="col-sm-3 control-label">Source</label>
-										<div class="col-sm-9">
-											<p class="form-control-static"><a href="query_HolidayTable.js.html">query/HolidayTable.js</a>, <a href="query_HolidayTable.js.html#line-3">line 3</a></p>
-										</div>
-									</div>
-					
-					
-					
-					
-							</form>
-					</div>				</div>
-			</dd>
-		</dl>
-							<article class="secondary">
-									<h3>Methods</h3>
-									<dl class="symbol">
-											<hr/>
-											<dt class="symbol-title function public">
-			<h4 id="~getHolidays" class="function public"><span class="signature-attribs">&lt;inner> </span><span class="name">getHolidays</span><span class="signature-params">( <span class="signature-param">db</span>, <span class="signature-param">callback</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Get a list of Holidays that are stored in the specified
-			database.</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>db</code></td>
-							<td><span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span></td>
-							<td class="last">
-									<p>The Right Track DB to query</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>callback</code></td>
-							<td><span class="param-type">function</span></td>
-							<td class="last">
-									<p>Callback function</p>
-										<table class="params table table-striped">
-											<thead>
-											<tr>
-													<th>Name</th>
-												<th>Type</th>
-													<th>Attributes</th>
-												<th class="last">Description</th>
-											</tr>
-											</thead>
-											<tbody>
-												<tr>
-														<td><code>error</code></td>
-													<td><span class="param-type">Error</span></td>
-														<td class="attributes"></td>
-													<td class="last">
-															<p>Database Query Error</p>
-													</td>
-												</tr>
-												<tr>
-														<td><code>holidays</code></td>
-													<td><span class="param-type">Array.&lt;<a href="Holiday.html">Holiday</a>></span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-													<td class="last">
-															<p>The selected Holidays</p>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">'use strict';
+
+/**
+ * GTFS Shape Class
+ * @see {@link Shape}
+ * @module gtfs/Shape
+ */
+
+const provided = require('../utils/provided.js');
+
+/**
+ * GTFS Shape
+ * ----------
+ * Representation of the GTFS Shape data
+ * 
+ * GTFS Required Fields:
+ * - Shape ID
+ * - Shape Point Latitude
+ * - Shape Point Longitude
+ * - Shape Point Sequence
+ * 
+ * GTFS Optional Fields:
+ * - Shape Distance Traveled
+ * 
+ * **Module:** {@link module:gtfs/Shape|gtfs/Shape}
+ * 
+ * @see {@link https://developers.google.com/transit/gtfs/reference/shapes-file|GTFS Spec}
+ * @class
+ * @alias Shape
+ */
+
+class Shape {
+
+  /**
+   * Shape Constructor
+   * @constructor
+   * @param {string} id Shape ID
+   * @param {number} shapePtLat Shape Point Latitude
+   * @param {number} shapePtLon Shape Point Longitude
+   * @param {int} shapePtSequence Shape Point Sequence
+   * @param {Object} [optional] Optional Arguments
+   * @param {number} [optional.shapeDistTraveled] Shape Distance Traveled
+   */
+  constructor(id, shapePtLat, shapePtLon, shapePtSequence, optional={}) {
+
+    /**
+     * The ID of the Shape (referenced in the gtfs_trips table)
+     * @type {string}
+     */
+    this.id = id;
+
+    /**
+     * The latitude of a Shape's point
+     * @type {number}
+     */
+    this.shapePtLat = shapePtLat;
+
+    /**
+     * The longitude of a Shape's point
+     * @type {number}
+     */
+    this.shapePtLon = shapePtLon;
+
+    /**
+     * The sequence of the point along a Shape
+     * @type {int}
+     */
+    this.shapePtSequence = shapePtSequence;
+
+    /**
+     * The distance traveled to the point from the start of the Shape
+     * @type {number}
+     */
+    this.shapeDistTraveled = provided(optional.shapeDistTraveled);
+
+  }
+
+}
+
+/**
+ * Sort the points of a Shape by their sequence
+ * @param {Stop} a first Shape
+ * @param {Stop} b second Shape
+ * @return {number} compare integer
+ */
+ Shape.sortBySequence = function(a, b) {
+  if ( a.shapePtSequence &lt; b.shapePtSequence ) {
+    return -1;
+  }
+  else if ( a.shapePtSequence > b.shapePtSequence ) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+};
+
+
+module.exports = Shape;</code></pre>
+		</section>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="query_HolidayTable.js.html">query/HolidayTable.js</a>, <a href="query_HolidayTable.js.html#line-24">line 24</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public">
-			<h4 id="~getHoliday" class="function public"><span class="signature-attribs">&lt;inner> </span><span class="name">getHoliday</span><span class="signature-params">( <span class="signature-param">db</span>, <span class="signature-param">date</span>, <span class="signature-param">callback</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Get the Holiday for the specified date or 'undefined' if
-			there is no holiday on the date</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>db</code></td>
-							<td><span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span></td>
-							<td class="last">
-									<p>The Right Track DB to query</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>date</code></td>
-							<td><span class="param-type">int</span></td>
-							<td class="last">
-									<p>the date (yyyymmdd)</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>callback</code></td>
-							<td><span class="param-type">function</span></td>
-							<td class="last">
-									<p>Callback function</p>
-										<table class="params table table-striped">
-											<thead>
-											<tr>
-													<th>Name</th>
-												<th>Type</th>
-													<th>Attributes</th>
-												<th class="last">Description</th>
-											</tr>
-											</thead>
-											<tbody>
-												<tr>
-														<td><code>error</code></td>
-													<td><span class="param-type">Error</span></td>
-														<td class="attributes"></td>
-													<td class="last">
-															<p>Database Query Error</p>
-													</td>
-												</tr>
-												<tr>
-														<td><code>holiday</code></td>
-													<td><span class="param-type"><a href="Holiday.html">Holiday</a></span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-													<td class="last">
-															<p>The selected Holiday</p>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="query_HolidayTable.js.html">query/HolidayTable.js</a>, <a href="query_HolidayTable.js.html#line-84">line 84</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public">
-			<h4 id="~isHoliday" class="function public"><span class="signature-attribs">&lt;inner> </span><span class="name">isHoliday</span><span class="signature-params">( <span class="signature-param">db</span>, <span class="signature-param">date</span>, <span class="signature-param">callback</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Check if the specified date is a Holiday</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>db</code></td>
-							<td><span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span></td>
-							<td class="last">
-									<p>The Right Track DB to query</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>date</code></td>
-							<td><span class="param-type">int</span></td>
-							<td class="last">
-									<p>The date to check (yyyymmdd)</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>callback</code></td>
-							<td><span class="param-type">function</span></td>
-							<td class="last">
-									<p>Callback function</p>
-										<table class="params table table-striped">
-											<thead>
-											<tr>
-													<th>Name</th>
-												<th>Type</th>
-													<th>Attributes</th>
-												<th class="last">Description</th>
-											</tr>
-											</thead>
-											<tbody>
-												<tr>
-														<td><code>error</code></td>
-													<td><span class="param-type">Error</span></td>
-														<td class="attributes"></td>
-													<td class="last">
-															<p>Database Query Error</p>
-													</td>
-												</tr>
-												<tr>
-														<td><code>isHoliday</code></td>
-													<td><span class="param-type">boolean</span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-													<td class="last">
-															<p>True if the specified date is a Holiday</p>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="query_HolidayTable.js.html">query/HolidayTable.js</a>, <a href="query_HolidayTable.js.html#line-141">line 141</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-									</dl>
-							</article>
-					</section>
-			</div>
-				<div class="col-md-3 side-content">
-					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
-				</div>
 		</div>
 	</div>
 	<footer>
@@ -547,3 +303,4 @@
 	
 </body>
 </html>
+<!-- end:source.tmpl.hbs -->

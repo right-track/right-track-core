@@ -1328,259 +1328,85 @@ window.lunrData = {
           "station",
           "stop"
         ],
-        "DateTime.html": [
-          "1330",
-          "13:30",
-          "13:30:00",
-          "1:30",
-          "20170930",
-          "25200",
-          "7:00",
-          "aa",
-          "between",
+        "Shape.html": [
           "class",
-          "date",
-          "datetim",
-          "format",
+          "data",
+          "distanc",
+          "field",
           "gtf",
-          "handl",
-          "hh:mm",
-          "hh:mm:ss",
-          "hhmm",
-          "human",
-          "int",
-          "integ",
-          "librari",
-          "midnight",
+          "gtfs/shape",
+          "id",
+          "latitud",
+          "longitud",
           "modul",
-          "pm",
-          "readabl",
+          "option",
+          "point",
           "represent",
-          "right",
-          "second",
-          "spec",
+          "requir",
+          "sequenc",
+          "shape",
+          "travel"
+        ],
+        "Shape.html#id": [
+          "gtfs_trip",
+          "id",
+          "member",
+          "referenc",
+          "shape",
+          "shape#id",
           "string",
-          "time",
-          "track",
-          "transform",
-          "us",
-          "utils/datetim",
-          "variou",
-          "yyyymmdd"
+          "tabl"
         ],
-        "DateTime.html#deltaDays": [
-          "add",
-          "date",
-          "datetim",
-          "datetime#deltaday",
-          "datetime'",
-          "day",
-          "delta",
-          "deltaday",
-          "function",
+        "Shape.html#shapePtLat": [
+          "latitud",
+          "member",
           "number",
-          "specifi",
-          "subtract"
+          "point",
+          "shape#shapeptlat",
+          "shape'",
+          "shapeptlat"
         ],
-        "DateTime.html#deltaMins": [
-          "add",
-          "datetim",
-          "datetime#deltamin",
-          "datetime'",
-          "delta",
-          "deltamin",
-          "function",
-          "minut",
+        "Shape.html#shapePtLon": [
+          "longitud",
+          "member",
           "number",
-          "specifi",
-          "subtract",
-          "time"
+          "point",
+          "shape#shapeptlon",
+          "shape'",
+          "shapeptlon"
         ],
-        "DateTime.html#getTimeSeconds": [
-          "datetime#gettimesecond",
-          "function",
-          "gettimesecond",
+        "Shape.html#shapePtSequence": [
+          "along",
           "int",
-          "midnight",
-          "second",
-          "time"
+          "member",
+          "point",
+          "sequenc",
+          "shape",
+          "shape#shapeptsequ",
+          "shapeptsequ"
         ],
-        "DateTime.html#getTimeInt": [
-          "datetime#gettimeint",
-          "format",
-          "function",
-          "gettimeint",
-          "hhmm",
-          "string",
-          "time"
-        ],
-        "DateTime.html#getTimeGTFS": [
-          "datetime#gettimegtf",
-          "function",
-          "gettimegtf",
-          "gtf",
-          "hh:mm:ss",
-          "represent",
-          "spec",
-          "string",
-          "time"
-        ],
-        "DateTime.html#getTimeReadable": [
-          "12",
-          "am/pm",
-          "datetime#gettimeread",
-          "function",
-          "gettimeread",
-          "hr",
-          "human",
-          "readabl",
-          "string",
-          "time"
-        ],
-        "DateTime.html#isDateSet": [
-          "boolean",
-          "check",
-          "date",
-          "datetime#isdateset",
-          "function",
-          "isdateset",
-          "set"
-        ],
-        "DateTime.html#getDateInt": [
-          "date",
-          "datetime#getdateint",
-          "function",
-          "getdateint",
-          "int",
-          "integ",
-          "represent",
-          "yyyymmdd"
-        ],
-        "DateTime.html#getDateDOW": [
-          "date",
-          "datetime#getdatedow",
-          "etc",
-          "full",
-          "function",
-          "getdatedow",
-          "monday",
-          "name",
-          "string",
-          "tuesday",
-          "weekday"
-        ],
-        "DateTime.html#getDateReadable": [
-          "18",
-          "2019",
-          "apr",
-          "date",
-          "datetime#getdateread",
-          "dow",
-          "function",
-          "getdateread",
-          "human",
-          "readabl",
-          "string",
-          "thu"
-        ],
-        "DateTime.html#toMySQLString": [
-          "datetim",
-          "datetime#tomysqlstr",
-          "function",
-          "mysql",
-          "represent",
-          "string",
-          "tomysqlstr",
-          "us"
-        ],
-        "DateTime.html#toHTTPString": [
-          "datetim",
-          "datetime#tohttpstr",
-          "function",
-          "header",
-          "http",
-          "represent",
-          "string",
-          "tohttpstr",
-          "us"
-        ],
-        "DateTime.html#toTimestamp": [
-          "datetim",
-          "datetime#totimestamp",
-          "function",
-          "ms",
+        "Shape.html#shapeDistTraveled": [
+          "distanc",
+          "member",
           "number",
-          "timestamp",
-          "totimestamp"
+          "point",
+          "shape",
+          "shape#shapedisttravel",
+          "shapedisttravel",
+          "start",
+          "travel"
         ],
-        "DateTime.html#toString": [
-          "datetim",
-          "datetime#tostr",
-          "function",
-          "represent",
-          "string",
-          "tostr"
-        ],
-        "DateTime.html#clone": [
-          "clone",
-          "creat",
-          "datetim",
-          "datetime#clon",
-          "function",
-          "new",
-          "object",
-          "on",
-          "properti"
-        ],
-        "DateTime.html#.create": [
-          "creat",
-          "date",
-          "datetim",
-          "datetime.cr",
-          "factori",
+        "Shape.html#.sortBySequence": [
+          "b",
           "function",
           "lt;static&gt",
-          "time"
-        ],
-        "DateTime.html#.now": [
-          "date",
-          "datetim",
-          "datetime.now",
-          "factori",
-          "function",
-          "lt;static&gt",
-          "now",
-          "time"
-        ],
-        "DateTime.html#.createFromJSDate": [
-          "createfromjsd",
-          "date",
-          "datetim",
-          "datetime.createfromjsd",
-          "factori",
-          "function",
-          "javascript",
-          "jd",
-          "lt;static&gt"
-        ],
-        "DateTime.html#.createFromTime": [
-          "createfromtim",
-          "datetim",
-          "datetime.createfromtim",
-          "factori",
-          "function",
-          "guessdat",
-          "lt;static&gt",
-          "time"
-        ],
-        "DateTime.html#.createFromDate": [
-          "createfromd",
-          "date",
-          "datetim",
-          "datetime.createfromd",
-          "factori",
-          "function",
-          "lt;static&gt"
+          "number",
+          "point",
+          "sequenc",
+          "shape",
+          "shape.sortbysequ",
+          "sort",
+          "sortbysequ"
         ],
         "Agency.html": [
           "agenc",
@@ -2193,7 +2019,6 @@ window.lunrData = {
           "descript",
           "direct",
           "field",
-          "gt",
           "gtf",
           "gtfs/trip",
           "headsign",
@@ -2384,6 +2209,260 @@ window.lunrData = {
           "time",
           "trip",
           "trip.sortbydeparturetim"
+        ],
+        "DateTime.html": [
+          "1330",
+          "13:30",
+          "13:30:00",
+          "1:30",
+          "20170930",
+          "25200",
+          "7:00",
+          "aa",
+          "between",
+          "class",
+          "date",
+          "datetim",
+          "format",
+          "gtf",
+          "handl",
+          "hh:mm",
+          "hh:mm:ss",
+          "hhmm",
+          "human",
+          "int",
+          "integ",
+          "librari",
+          "midnight",
+          "modul",
+          "pm",
+          "readabl",
+          "represent",
+          "right",
+          "second",
+          "spec",
+          "string",
+          "time",
+          "track",
+          "transform",
+          "us",
+          "utils/datetim",
+          "variou",
+          "yyyymmdd"
+        ],
+        "DateTime.html#deltaDays": [
+          "add",
+          "date",
+          "datetim",
+          "datetime#deltaday",
+          "datetime'",
+          "day",
+          "delta",
+          "deltaday",
+          "function",
+          "number",
+          "specifi",
+          "subtract"
+        ],
+        "DateTime.html#deltaMins": [
+          "add",
+          "datetim",
+          "datetime#deltamin",
+          "datetime'",
+          "delta",
+          "deltamin",
+          "function",
+          "minut",
+          "number",
+          "specifi",
+          "subtract",
+          "time"
+        ],
+        "DateTime.html#getTimeSeconds": [
+          "datetime#gettimesecond",
+          "function",
+          "gettimesecond",
+          "int",
+          "midnight",
+          "second",
+          "time"
+        ],
+        "DateTime.html#getTimeInt": [
+          "datetime#gettimeint",
+          "format",
+          "function",
+          "gettimeint",
+          "hhmm",
+          "string",
+          "time"
+        ],
+        "DateTime.html#getTimeGTFS": [
+          "datetime#gettimegtf",
+          "function",
+          "gettimegtf",
+          "gtf",
+          "hh:mm:ss",
+          "represent",
+          "spec",
+          "string",
+          "time"
+        ],
+        "DateTime.html#getTimeReadable": [
+          "12",
+          "am/pm",
+          "datetime#gettimeread",
+          "function",
+          "gettimeread",
+          "hr",
+          "human",
+          "readabl",
+          "string",
+          "time"
+        ],
+        "DateTime.html#isDateSet": [
+          "boolean",
+          "check",
+          "date",
+          "datetime#isdateset",
+          "function",
+          "isdateset",
+          "set"
+        ],
+        "DateTime.html#getDateInt": [
+          "date",
+          "datetime#getdateint",
+          "function",
+          "getdateint",
+          "int",
+          "integ",
+          "represent",
+          "yyyymmdd"
+        ],
+        "DateTime.html#getDateDOW": [
+          "date",
+          "datetime#getdatedow",
+          "etc",
+          "full",
+          "function",
+          "getdatedow",
+          "monday",
+          "name",
+          "string",
+          "tuesday",
+          "weekday"
+        ],
+        "DateTime.html#getDateReadable": [
+          "18",
+          "2019",
+          "apr",
+          "date",
+          "datetime#getdateread",
+          "dow",
+          "function",
+          "getdateread",
+          "human",
+          "readabl",
+          "string",
+          "thu"
+        ],
+        "DateTime.html#toMySQLString": [
+          "datetim",
+          "datetime#tomysqlstr",
+          "function",
+          "mysql",
+          "represent",
+          "string",
+          "tomysqlstr",
+          "us"
+        ],
+        "DateTime.html#toHTTPString": [
+          "datetim",
+          "datetime#tohttpstr",
+          "function",
+          "header",
+          "http",
+          "represent",
+          "string",
+          "tohttpstr",
+          "us"
+        ],
+        "DateTime.html#toTimestamp": [
+          "datetim",
+          "datetime#totimestamp",
+          "function",
+          "ms",
+          "number",
+          "timestamp",
+          "totimestamp"
+        ],
+        "DateTime.html#toString": [
+          "datetim",
+          "datetime#tostr",
+          "function",
+          "represent",
+          "string",
+          "tostr"
+        ],
+        "DateTime.html#clone": [
+          "clone",
+          "creat",
+          "datetim",
+          "datetime#clon",
+          "function",
+          "new",
+          "object",
+          "on",
+          "properti"
+        ],
+        "DateTime.html#.create": [
+          "creat",
+          "date",
+          "datetim",
+          "datetime.cr",
+          "factori",
+          "function",
+          "lt;static&gt",
+          "time"
+        ],
+        "DateTime.html#.now": [
+          "date",
+          "datetim",
+          "datetime.now",
+          "factori",
+          "function",
+          "lt;static&gt",
+          "now",
+          "time"
+        ],
+        "DateTime.html#.createFromJSDate": [
+          "createfromjsd",
+          "date",
+          "datetim",
+          "datetime.createfromjsd",
+          "factori",
+          "function",
+          "javascript",
+          "jd",
+          "lt;static&gt"
+        ],
+        "DateTime.html#.createFromTime": [
+          "createfromtim",
+          "datetim",
+          "datetime.createfromtim",
+          "factori",
+          "function",
+          "guessdat",
+          "lt;static&gt",
+          "time"
+        ],
+        "DateTime.html#.createFromDate": [
+          "createfromd",
+          "date",
+          "datetim",
+          "datetime.createfromd",
+          "factori",
+          "function",
+          "lt;static&gt"
         ],
         "Stop.html": [
           "board",
@@ -3017,6 +3096,14 @@ window.lunrData = {
           "module:gtfs/serviceexcept",
           "serviceexcept"
         ],
+        "module-gtfs_Shape.html": [
+          "class",
+          "gtf",
+          "gtfs/shape",
+          "modul",
+          "module:gtfs/shap",
+          "shape"
+        ],
         "module-gtfs_StopTime.html": [
           "class",
           "gtf",
@@ -3149,6 +3236,19 @@ window.lunrData = {
           "query/rout",
           "right",
           "rout",
+          "tabl",
+          "track"
+        ],
+        "module-query_shapes.html": [
+          "databas",
+          "function",
+          "gtfs_shape",
+          "modul",
+          "module:query/shap",
+          "queri",
+          "query/shap",
+          "right",
+          "shape",
           "tabl",
           "track"
         ],
@@ -3298,13 +3398,6 @@ window.lunrData = {
           "trip",
           "us"
         ],
-        "module-utils_DateTime.html": [
-          "class",
-          "datetim",
-          "modul",
-          "module:utils/datetim",
-          "utils/datetim"
-        ],
         "module-utils_calc.html": [
           "calcul",
           "function",
@@ -3382,9 +3475,16 @@ window.lunrData = {
           "right",
           "rt/favorit",
           "track"
+        ],
+        "module-utils_DateTime.html": [
+          "class",
+          "datetim",
+          "modul",
+          "module:utils/datetim",
+          "utils/datetim"
         ]
       },
-      "length": 284
+      "length": 293
     },
     "tokenStore": {
       "root": {
@@ -4143,9 +4243,9 @@ window.lunrData = {
                       "ref": "RightTrackAgency.html",
                       "tf": 114.65116279069767
                     },
-                    "DateTime.html": {
-                      "ref": "DateTime.html",
-                      "tf": 110.89285714285714
+                    "Shape.html": {
+                      "ref": "Shape.html",
+                      "tf": 110
                     },
                     "Agency.html": {
                       "ref": "Agency.html",
@@ -4166,6 +4266,10 @@ window.lunrData = {
                     "Trip.html": {
                       "ref": "Trip.html",
                       "tf": 110
+                    },
+                    "DateTime.html": {
+                      "ref": "DateTime.html",
+                      "tf": 110.89285714285714
                     },
                     "Stop.html": {
                       "ref": "Stop.html",
@@ -4193,6 +4297,10 @@ window.lunrData = {
                     },
                     "module-gtfs_ServiceException.html": {
                       "ref": "module-gtfs_ServiceException.html",
+                      "tf": 16.666666666666664
+                    },
+                    "module-gtfs_Shape.html": {
+                      "ref": "module-gtfs_Shape.html",
                       "tf": 16.666666666666664
                     },
                     "module-gtfs_StopTime.html": {
@@ -4247,10 +4355,6 @@ window.lunrData = {
                       "ref": "module-search.html",
                       "tf": 6.25
                     },
-                    "module-utils_DateTime.html": {
-                      "ref": "module-utils_DateTime.html",
-                      "tf": 25
-                    },
                     "module-utils.html": {
                       "ref": "module-utils.html",
                       "tf": 3.571428571428571
@@ -4278,6 +4382,10 @@ window.lunrData = {
                     "module-rt_Favorite.html": {
                       "ref": "module-rt_Favorite.html",
                       "tf": 12.5
+                    },
+                    "module-utils_DateTime.html": {
+                      "ref": "module-utils_DateTime.html",
+                      "tf": 25
                     }
                   },
                   "e": {
@@ -4437,13 +4545,13 @@ window.lunrData = {
                       "ref": "RightTrackAgency.html#isFeedSupported",
                       "tf": 2.631578947368421
                     },
-                    "DateTime.html#isDateSet": {
-                      "ref": "DateTime.html#isDateSet",
-                      "tf": 16.666666666666664
-                    },
                     "Trip.html#hasStopTime": {
                       "ref": "Trip.html#hasStopTime",
                       "tf": 7.142857142857142
+                    },
+                    "DateTime.html#isDateSet": {
+                      "ref": "DateTime.html#isDateSet",
+                      "tf": 16.666666666666664
                     },
                     "Favorite.html#isStation": {
                       "ref": "Favorite.html#isStation",
@@ -5004,16 +5112,8 @@ window.lunrData = {
                   "ref": "TripSearchResult.html#travelTime",
                   "tf": 50
                 },
-                "DateTime.html": {
-                  "ref": "DateTime.html",
-                  "tf": 1.7857142857142856
-                },
-                "DateTime.html#getTimeSeconds": {
-                  "ref": "DateTime.html#getTimeSeconds",
-                  "tf": 50
-                },
-                "DateTime.html#getDateInt": {
-                  "ref": "DateTime.html#getDateInt",
+                "Shape.html#shapePtSequence": {
+                  "ref": "Shape.html#shapePtSequence",
                   "tf": 50
                 },
                 "Service.html#monday": {
@@ -5080,6 +5180,18 @@ window.lunrData = {
                   "ref": "Trip.html#bikesAllowed",
                   "tf": 50
                 },
+                "DateTime.html": {
+                  "ref": "DateTime.html",
+                  "tf": 1.7857142857142856
+                },
+                "DateTime.html#getTimeSeconds": {
+                  "ref": "DateTime.html#getTimeSeconds",
+                  "tf": 50
+                },
+                "DateTime.html#getDateInt": {
+                  "ref": "DateTime.html#getDateInt",
+                  "tf": 50
+                },
                 "Stop.html#locationType": {
                   "ref": "Stop.html#locationType",
                   "tf": 50
@@ -5097,6 +5209,10 @@ window.lunrData = {
                 "docs": {},
                 "g": {
                   "docs": {
+                    "StopTime.html": {
+                      "ref": "StopTime.html",
+                      "tf": 1.1111111111111112
+                    },
                     "DateTime.html": {
                       "ref": "DateTime.html",
                       "tf": 0.8928571428571428
@@ -5104,10 +5220,6 @@ window.lunrData = {
                     "DateTime.html#getDateInt": {
                       "ref": "DateTime.html#getDateInt",
                       "tf": 12.5
-                    },
-                    "StopTime.html": {
-                      "ref": "StopTime.html",
-                      "tf": 1.1111111111111112
                     }
                   }
                 }
@@ -5205,6 +5317,14 @@ window.lunrData = {
               "RightTrackAgency.html#id": {
                 "ref": "RightTrackAgency.html#id",
                 "tf": 766.6666666666666
+              },
+              "Shape.html": {
+                "ref": "Shape.html",
+                "tf": 1.7857142857142856
+              },
+              "Shape.html#id": {
+                "ref": "Shape.html#id",
+                "tf": 710
               },
               "Agency.html": {
                 "ref": "Agency.html",
@@ -5408,6 +5528,14 @@ window.lunrData = {
                 }
               }
             },
+            "o": {
+              "docs": {
+                "Agency.html#lang": {
+                  "ref": "Agency.html#lang",
+                  "tf": 4.166666666666666
+                }
+              }
+            },
             "d": {
               "docs": {},
               "a": {
@@ -5431,14 +5559,6 @@ window.lunrData = {
                       }
                     }
                   }
-                }
-              }
-            },
-            "o": {
-              "docs": {
-                "Agency.html#lang": {
-                  "ref": "Agency.html#lang",
-                  "tf": 4.166666666666666
                 }
               }
             },
@@ -5839,35 +5959,6 @@ window.lunrData = {
                 }
               }
             },
-            "n": {
-              "docs": {},
-              "g": {
-                "docs": {
-                  "Agency.html#lang": {
-                    "ref": "Agency.html#lang",
-                    "tf": 700
-                  }
-                },
-                "u": {
-                  "docs": {},
-                  "a": {
-                    "docs": {},
-                    "g": {
-                      "docs": {
-                        "Agency.html": {
-                          "ref": "Agency.html",
-                          "tf": 1.5151515151515151
-                        },
-                        "Agency.html#lang": {
-                          "ref": "Agency.html#lang",
-                          "tf": 8.333333333333332
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "t": {
               "docs": {
                 "Stop.html": {
@@ -5891,9 +5982,46 @@ window.lunrData = {
                     "docs": {},
                     "d": {
                       "docs": {
+                        "Shape.html": {
+                          "ref": "Shape.html",
+                          "tf": 1.7857142857142856
+                        },
+                        "Shape.html#shapePtLat": {
+                          "ref": "Shape.html#shapePtLat",
+                          "tf": 16.666666666666664
+                        },
                         "Stop.html#lat": {
                           "ref": "Stop.html#lat",
                           "tf": 12.5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "n": {
+              "docs": {},
+              "g": {
+                "docs": {
+                  "Agency.html#lang": {
+                    "ref": "Agency.html#lang",
+                    "tf": 700
+                  }
+                },
+                "u": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "g": {
+                      "docs": {
+                        "Agency.html": {
+                          "ref": "Agency.html",
+                          "tf": 1.5151515151515151
+                        },
+                        "Agency.html#lang": {
+                          "ref": "Agency.html#lang",
+                          "tf": 8.333333333333332
                         }
                       }
                     }
@@ -5932,6 +6060,26 @@ window.lunrData = {
                                     "ref": "TripSearchResult.html#.sortByDeparture",
                                     "tf": 25
                                   },
+                                  "Shape.html#.sortBySequence": {
+                                    "ref": "Shape.html#.sortBySequence",
+                                    "tf": 25
+                                  },
+                                  "Route.html#.sortByName": {
+                                    "ref": "Route.html#.sortByName",
+                                    "tf": 25
+                                  },
+                                  "StopTime.html#.sortByStopTransferWeight": {
+                                    "ref": "StopTime.html#.sortByStopTransferWeight",
+                                    "tf": 25
+                                  },
+                                  "StopTime.html#.sortByStopSequence": {
+                                    "ref": "StopTime.html#.sortByStopSequence",
+                                    "tf": 25
+                                  },
+                                  "Trip.html#.sortByDepartureTime": {
+                                    "ref": "Trip.html#.sortByDepartureTime",
+                                    "tf": 25
+                                  },
                                   "DateTime.html#.create": {
                                     "ref": "DateTime.html#.create",
                                     "tf": 20
@@ -5950,22 +6098,6 @@ window.lunrData = {
                                   },
                                   "DateTime.html#.createFromDate": {
                                     "ref": "DateTime.html#.createFromDate",
-                                    "tf": 25
-                                  },
-                                  "Route.html#.sortByName": {
-                                    "ref": "Route.html#.sortByName",
-                                    "tf": 25
-                                  },
-                                  "StopTime.html#.sortByStopTransferWeight": {
-                                    "ref": "StopTime.html#.sortByStopTransferWeight",
-                                    "tf": 25
-                                  },
-                                  "StopTime.html#.sortByStopSequence": {
-                                    "ref": "StopTime.html#.sortByStopSequence",
-                                    "tf": 25
-                                  },
-                                  "Trip.html#.sortByDepartureTime": {
-                                    "ref": "Trip.html#.sortByDepartureTime",
                                     "tf": 25
                                   },
                                   "Stop.html#.sortById": {
@@ -6114,6 +6246,69 @@ window.lunrData = {
                 }
               }
             },
+            "n": {
+              "docs": {
+                "Stop.html": {
+                  "ref": "Stop.html",
+                  "tf": 0.78125
+                },
+                "Stop.html#lon": {
+                  "ref": "Stop.html#lon",
+                  "tf": 700
+                },
+                "Stop.html#setDistance": {
+                  "ref": "Stop.html#setDistance",
+                  "tf": 33.33333333333333
+                }
+              },
+              "g": {
+                "docs": {
+                  "Route.html": {
+                    "ref": "Route.html",
+                    "tf": 1.3157894736842104
+                  }
+                },
+                "i": {
+                  "docs": {},
+                  "t": {
+                    "docs": {},
+                    "u": {
+                      "docs": {},
+                      "d": {
+                        "docs": {
+                          "Shape.html": {
+                            "ref": "Shape.html",
+                            "tf": 1.7857142857142856
+                          },
+                          "Shape.html#shapePtLon": {
+                            "ref": "Shape.html#shapePtLon",
+                            "tf": 16.666666666666664
+                          },
+                          "Stop.html#lon": {
+                            "ref": "Stop.html#lon",
+                            "tf": 12.5
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "n": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "m": {
+                      "docs": {
+                        "Route.html#longName": {
+                          "ref": "Route.html#longName",
+                          "tf": 700
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "c": {
               "docs": {},
               "a": {
@@ -6167,61 +6362,6 @@ window.lunrData = {
                                 }
                               }
                             }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "n": {
-              "docs": {
-                "Stop.html": {
-                  "ref": "Stop.html",
-                  "tf": 0.78125
-                },
-                "Stop.html#lon": {
-                  "ref": "Stop.html#lon",
-                  "tf": 700
-                },
-                "Stop.html#setDistance": {
-                  "ref": "Stop.html#setDistance",
-                  "tf": 33.33333333333333
-                }
-              },
-              "g": {
-                "docs": {
-                  "Route.html": {
-                    "ref": "Route.html",
-                    "tf": 1.3157894736842104
-                  }
-                },
-                "n": {
-                  "docs": {},
-                  "a": {
-                    "docs": {},
-                    "m": {
-                      "docs": {
-                        "Route.html#longName": {
-                          "ref": "Route.html#longName",
-                          "tf": 700
-                        }
-                      }
-                    }
-                  }
-                },
-                "i": {
-                  "docs": {},
-                  "t": {
-                    "docs": {},
-                    "u": {
-                      "docs": {},
-                      "d": {
-                        "docs": {
-                          "Stop.html#lon": {
-                            "ref": "Stop.html#lon",
-                            "tf": 12.5
                           }
                         }
                       }
@@ -6796,6 +6936,30 @@ window.lunrData = {
                 "docs": {},
                 "t": {
                   "docs": {
+                    "Shape.html": {
+                      "ref": "Shape.html",
+                      "tf": 5.357142857142857
+                    },
+                    "Shape.html#shapePtLat": {
+                      "ref": "Shape.html#shapePtLat",
+                      "tf": 16.666666666666664
+                    },
+                    "Shape.html#shapePtLon": {
+                      "ref": "Shape.html#shapePtLon",
+                      "tf": 16.666666666666664
+                    },
+                    "Shape.html#shapePtSequence": {
+                      "ref": "Shape.html#shapePtSequence",
+                      "tf": 12.5
+                    },
+                    "Shape.html#shapeDistTraveled": {
+                      "ref": "Shape.html#shapeDistTraveled",
+                      "tf": 10
+                    },
+                    "Shape.html#.sortBySequence": {
+                      "ref": "Shape.html#.sortBySequence",
+                      "tf": 12.5
+                    },
                     "StopTime.html#shapeDistanceTraveled": {
                       "ref": "StopTime.html#shapeDistanceTraveled",
                       "tf": 8.333333333333332
@@ -6878,14 +7042,6 @@ window.lunrData = {
               }
             }
           },
-          "m": {
-            "docs": {
-              "DateTime.html": {
-                "ref": "DateTime.html",
-                "tf": 0.8928571428571428
-              }
-            }
-          },
           "h": {
             "docs": {},
             "o": {
@@ -6943,6 +7099,14 @@ window.lunrData = {
                     }
                   }
                 }
+              }
+            }
+          },
+          "m": {
+            "docs": {
+              "DateTime.html": {
+                "ref": "DateTime.html",
+                "tf": 0.8928571428571428
               }
             }
           }
@@ -7082,6 +7246,10 @@ window.lunrData = {
                       "RightTrackTransitAgency.html": {
                         "ref": "RightTrackTransitAgency.html",
                         "tf": 1.8518518518518516
+                      },
+                      "Shape.html": {
+                        "ref": "Shape.html",
+                        "tf": 1.7857142857142856
                       },
                       "Agency.html": {
                         "ref": "Agency.html",
@@ -7252,6 +7420,30 @@ window.lunrData = {
                               "ref": "About.html",
                               "tf": 1.9230769230769231
                             },
+                            "Shape.html": {
+                              "ref": "Shape.html",
+                              "tf": 1.7857142857142856
+                            },
+                            "Agency.html": {
+                              "ref": "Agency.html",
+                              "tf": 1.5151515151515151
+                            },
+                            "Service.html": {
+                              "ref": "Service.html",
+                              "tf": 1.6666666666666667
+                            },
+                            "Route.html": {
+                              "ref": "Route.html",
+                              "tf": 1.3157894736842104
+                            },
+                            "StopTime.html": {
+                              "ref": "StopTime.html",
+                              "tf": 1.1111111111111112
+                            },
+                            "Trip.html": {
+                              "ref": "Trip.html",
+                              "tf": 1.0204081632653061
+                            },
                             "DateTime.html": {
                               "ref": "DateTime.html",
                               "tf": 0.8928571428571428
@@ -7275,26 +7467,6 @@ window.lunrData = {
                             "DateTime.html#toString": {
                               "ref": "DateTime.html#toString",
                               "tf": 16.666666666666664
-                            },
-                            "Agency.html": {
-                              "ref": "Agency.html",
-                              "tf": 1.5151515151515151
-                            },
-                            "Service.html": {
-                              "ref": "Service.html",
-                              "tf": 1.6666666666666667
-                            },
-                            "Route.html": {
-                              "ref": "Route.html",
-                              "tf": 1.3157894736842104
-                            },
-                            "StopTime.html": {
-                              "ref": "StopTime.html",
-                              "tf": 1.1111111111111112
-                            },
-                            "Trip.html": {
-                              "ref": "Trip.html",
-                              "tf": 1.0204081632653061
                             },
                             "Stop.html": {
                               "ref": "Stop.html",
@@ -7552,6 +7724,20 @@ window.lunrData = {
                       "ref": "Trip.html#.sortByDepartureTime",
                       "tf": 5.555555555555555
                     }
+                  },
+                  "e": {
+                    "docs": {},
+                    "n": {
+                      "docs": {},
+                      "c": {
+                        "docs": {
+                          "Shape.html#id": {
+                            "ref": "Shape.html#id",
+                            "tf": 10
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -7601,10 +7787,6 @@ window.lunrData = {
                       "ref": "RightTrackAgency.html",
                       "tf": 1.1627906976744187
                     },
-                    "DateTime.html": {
-                      "ref": "DateTime.html",
-                      "tf": 1.7857142857142856
-                    },
                     "StopTime.html": {
                       "ref": "StopTime.html",
                       "tf": 1.1111111111111112
@@ -7612,6 +7794,10 @@ window.lunrData = {
                     "Trip.html": {
                       "ref": "Trip.html",
                       "tf": 1.0204081632653061
+                    },
+                    "DateTime.html": {
+                      "ref": "DateTime.html",
+                      "tf": 1.7857142857142856
                     },
                     "Stop.html": {
                       "ref": "Stop.html",
@@ -7671,6 +7857,10 @@ window.lunrData = {
                     },
                     "module-query_routes.html": {
                       "ref": "module-query_routes.html",
+                      "tf": 5
+                    },
+                    "module-query_shapes.html": {
+                      "ref": "module-query_shapes.html",
                       "tf": 5
                     },
                     "module-query_stoptimes.html": {
@@ -9375,10 +9565,6 @@ window.lunrData = {
                       "ref": "RightTrackAgency.html",
                       "tf": 1.1627906976744187
                     },
-                    "DateTime.html": {
-                      "ref": "DateTime.html",
-                      "tf": 1.7857142857142856
-                    },
                     "StopTime.html": {
                       "ref": "StopTime.html",
                       "tf": 1.1111111111111112
@@ -9386,6 +9572,10 @@ window.lunrData = {
                     "Trip.html": {
                       "ref": "Trip.html",
                       "tf": 1.0204081632653061
+                    },
+                    "DateTime.html": {
+                      "ref": "DateTime.html",
+                      "tf": 1.7857142857142856
                     },
                     "Stop.html": {
                       "ref": "Stop.html",
@@ -9445,6 +9635,10 @@ window.lunrData = {
                     },
                     "module-query_routes.html": {
                       "ref": "module-query_routes.html",
+                      "tf": 5
+                    },
+                    "module-query_shapes.html": {
+                      "ref": "module-query_shapes.html",
                       "tf": 5
                     },
                     "module-query_stoptimes.html": {
@@ -10273,6 +10467,14 @@ window.lunrData = {
                       "TripSearchResultSegment.html#travelTime": {
                         "ref": "TripSearchResultSegment.html#travelTime",
                         "tf": 12.5
+                      },
+                      "Shape.html": {
+                        "ref": "Shape.html",
+                        "tf": 1.7857142857142856
+                      },
+                      "Shape.html#shapeDistTraveled": {
+                        "ref": "Shape.html#shapeDistTraveled",
+                        "tf": 10
                       },
                       "StopTime.html": {
                         "ref": "StopTime.html",
@@ -12038,6 +12240,26 @@ window.lunrData = {
                     "ref": "RightTrackAgency.html#isFeedSupported",
                     "tf": 2.631578947368421
                   },
+                  "StopTime.html": {
+                    "ref": "StopTime.html",
+                    "tf": 2.2222222222222223
+                  },
+                  "StopTime.html#arrivalTime": {
+                    "ref": "StopTime.html#arrivalTime",
+                    "tf": 7.142857142857142
+                  },
+                  "StopTime.html#departureTime": {
+                    "ref": "StopTime.html#departureTime",
+                    "tf": 7.142857142857142
+                  },
+                  "StopTime.html#timepoint": {
+                    "ref": "StopTime.html#timepoint",
+                    "tf": 6.25
+                  },
+                  "Trip.html#.sortByDepartureTime": {
+                    "ref": "Trip.html#.sortByDepartureTime",
+                    "tf": 5.555555555555555
+                  },
                   "DateTime.html": {
                     "ref": "DateTime.html",
                     "tf": 5.357142857142857
@@ -12074,49 +12296,9 @@ window.lunrData = {
                     "ref": "DateTime.html#.createFromTime",
                     "tf": 36.666666666666664
                   },
-                  "StopTime.html": {
-                    "ref": "StopTime.html",
-                    "tf": 2.2222222222222223
-                  },
-                  "StopTime.html#arrivalTime": {
-                    "ref": "StopTime.html#arrivalTime",
-                    "tf": 7.142857142857142
-                  },
-                  "StopTime.html#departureTime": {
-                    "ref": "StopTime.html#departureTime",
-                    "tf": 7.142857142857142
-                  },
-                  "StopTime.html#timepoint": {
-                    "ref": "StopTime.html#timepoint",
-                    "tf": 6.25
-                  },
-                  "Trip.html#.sortByDepartureTime": {
-                    "ref": "Trip.html#.sortByDepartureTime",
-                    "tf": 5.555555555555555
-                  },
                   "Stop.html#statusId": {
                     "ref": "Stop.html#statusId",
                     "tf": 7.142857142857142
-                  }
-                },
-                "s": {
-                  "docs": {},
-                  "t": {
-                    "docs": {},
-                    "a": {
-                      "docs": {},
-                      "m": {
-                        "docs": {},
-                        "p": {
-                          "docs": {
-                            "DateTime.html#toTimestamp": {
-                              "ref": "DateTime.html#toTimestamp",
-                              "tf": 16.666666666666664
-                            }
-                          }
-                        }
-                      }
-                    }
                   }
                 },
                 "z": {
@@ -12162,6 +12344,26 @@ window.lunrData = {
                             "StopTime.html#timepoint": {
                               "ref": "StopTime.html#timepoint",
                               "tf": 700
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "s": {
+                  "docs": {},
+                  "t": {
+                    "docs": {},
+                    "a": {
+                      "docs": {},
+                      "m": {
+                        "docs": {},
+                        "p": {
+                          "docs": {
+                            "DateTime.html#toTimestamp": {
+                              "ref": "DateTime.html#toTimestamp",
+                              "tf": 16.666666666666664
                             }
                           }
                         }
@@ -12608,6 +12810,10 @@ window.lunrData = {
                     "ref": "About.html",
                     "tf": 1.9230769230769231
                   },
+                  "Shape.html#id": {
+                    "ref": "Shape.html#id",
+                    "tf": 10
+                  },
                   "Service.html": {
                     "ref": "Service.html",
                     "tf": 1.6666666666666667
@@ -12642,6 +12848,10 @@ window.lunrData = {
                   },
                   "module-query_routes.html": {
                     "ref": "module-query_routes.html",
+                    "tf": 5
+                  },
+                  "module-query_shapes.html": {
+                    "ref": "module-query_shapes.html",
                     "tf": 5
                   },
                   "module-query_stoptimes.html": {
@@ -12691,10 +12901,6 @@ window.lunrData = {
                     "docs": {},
                     "y": {
                       "docs": {
-                        "DateTime.html#getDateDOW": {
-                          "ref": "DateTime.html#getDateDOW",
-                          "tf": 7.142857142857142
-                        },
                         "Service.html": {
                           "ref": "Service.html",
                           "tf": 1.6666666666666667
@@ -12702,6 +12908,10 @@ window.lunrData = {
                         "Service.html#tuesday": {
                           "ref": "Service.html#tuesday",
                           "tf": 707.1428571428571
+                        },
+                        "DateTime.html#getDateDOW": {
+                          "ref": "DateTime.html#getDateDOW",
+                          "tf": 7.142857142857142
                         }
                       }
                     }
@@ -13345,6 +13555,14 @@ window.lunrData = {
                     "docs": {},
                     "c": {
                       "docs": {
+                        "Shape.html": {
+                          "ref": "Shape.html",
+                          "tf": 1.7857142857142856
+                        },
+                        "Shape.html#shapeDistTraveled": {
+                          "ref": "Shape.html#shapeDistTraveled",
+                          "tf": 10
+                        },
                         "StopTime.html": {
                           "ref": "StopTime.html",
                           "tf": 1.1111111111111112
@@ -13537,6 +13755,30 @@ window.lunrData = {
                     "ref": "About.html#endDate",
                     "tf": 7.142857142857142
                   },
+                  "Service.html": {
+                    "ref": "Service.html",
+                    "tf": 3.3333333333333335
+                  },
+                  "Service.html#startDate": {
+                    "ref": "Service.html#startDate",
+                    "tf": 10
+                  },
+                  "Service.html#endDate": {
+                    "ref": "Service.html#endDate",
+                    "tf": 10
+                  },
+                  "Service.html#serviceExceptions": {
+                    "ref": "Service.html#serviceExceptions",
+                    "tf": 4.545454545454546
+                  },
+                  "StopTime.html": {
+                    "ref": "StopTime.html",
+                    "tf": 1.1111111111111112
+                  },
+                  "StopTime.html#date": {
+                    "ref": "StopTime.html#date",
+                    "tf": 712.5
+                  },
                   "DateTime.html": {
                     "ref": "DateTime.html",
                     "tf": 3.571428571428571
@@ -13576,30 +13818,6 @@ window.lunrData = {
                   "DateTime.html#.createFromDate": {
                     "ref": "DateTime.html#.createFromDate",
                     "tf": 41.666666666666664
-                  },
-                  "Service.html": {
-                    "ref": "Service.html",
-                    "tf": 3.3333333333333335
-                  },
-                  "Service.html#startDate": {
-                    "ref": "Service.html#startDate",
-                    "tf": 10
-                  },
-                  "Service.html#endDate": {
-                    "ref": "Service.html#endDate",
-                    "tf": 10
-                  },
-                  "Service.html#serviceExceptions": {
-                    "ref": "Service.html#serviceExceptions",
-                    "tf": 4.545454545454546
-                  },
-                  "StopTime.html": {
-                    "ref": "StopTime.html",
-                    "tf": 1.1111111111111112
-                  },
-                  "StopTime.html#date": {
-                    "ref": "StopTime.html#date",
-                    "tf": 712.5
                   }
                 },
                 "/": {
@@ -13685,6 +13903,14 @@ window.lunrData = {
                           "ref": "TripSearch.html#departure",
                           "tf": 50
                         },
+                        "StopTime.html#arrival": {
+                          "ref": "StopTime.html#arrival",
+                          "tf": 50
+                        },
+                        "StopTime.html#departure": {
+                          "ref": "StopTime.html#departure",
+                          "tf": 50
+                        },
                         "DateTime.html": {
                           "ref": "DateTime.html",
                           "tf": 1900
@@ -13736,14 +13962,6 @@ window.lunrData = {
                         "DateTime.html#.createFromDate": {
                           "ref": "DateTime.html#.createFromDate",
                           "tf": 41.666666666666664
-                        },
-                        "StopTime.html#arrival": {
-                          "ref": "StopTime.html#arrival",
-                          "tf": 50
-                        },
-                        "StopTime.html#departure": {
-                          "ref": "StopTime.html#departure",
-                          "tf": 50
                         },
                         "module-utils_DateTime.html": {
                           "ref": "module-utils_DateTime.html",
@@ -14235,6 +14453,10 @@ window.lunrData = {
                     "ref": "About.html#endDate",
                     "tf": 7.142857142857142
                   },
+                  "Shape.html": {
+                    "ref": "Shape.html",
+                    "tf": 1.7857142857142856
+                  },
                   "module-classes.html": {
                     "ref": "module-classes.html",
                     "tf": 3.3333333333333335
@@ -14308,6 +14530,10 @@ window.lunrData = {
                         },
                         "module-query_routes.html": {
                           "ref": "module-query_routes.html",
+                          "tf": 5
+                        },
+                        "module-query_shapes.html": {
+                          "ref": "module-query_shapes.html",
                           "tf": 5
                         },
                         "module-query_stoptimes.html": {
@@ -14632,6 +14858,32 @@ window.lunrData = {
                   }
                 }
               },
+              "s": {
+                "docs": {},
+                "t": {
+                  "docs": {},
+                  "o": {
+                    "docs": {},
+                    "p": {
+                      "docs": {},
+                      "t": {
+                        "docs": {},
+                        "i": {
+                          "docs": {},
+                          "m": {
+                            "docs": {
+                              "Trip.html#getStopTime": {
+                                "ref": "Trip.html#getStopTime",
+                                "tf": 683.3333333333334
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
               "t": {
                 "docs": {},
                 "i": {
@@ -14712,32 +14964,6 @@ window.lunrData = {
                   }
                 }
               },
-              "s": {
-                "docs": {},
-                "t": {
-                  "docs": {},
-                  "o": {
-                    "docs": {},
-                    "p": {
-                      "docs": {},
-                      "t": {
-                        "docs": {},
-                        "i": {
-                          "docs": {},
-                          "m": {
-                            "docs": {
-                              "Trip.html#getStopTime": {
-                                "ref": "Trip.html#getStopTime",
-                                "tf": 683.3333333333334
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
               "(": {
                 "docs": {},
                 "{": {
@@ -14765,10 +14991,6 @@ window.lunrData = {
               "StopTime.html": {
                 "ref": "StopTime.html",
                 "tf": 1.1111111111111112
-              },
-              "Trip.html": {
-                "ref": "Trip.html",
-                "tf": 1.0204081632653061
               }
             },
             "f": {
@@ -14793,13 +15015,9 @@ window.lunrData = {
                   "ref": "About.html#endDate",
                   "tf": 7.142857142857142
                 },
-                "DateTime.html": {
-                  "ref": "DateTime.html",
-                  "tf": 1.7857142857142856
-                },
-                "DateTime.html#getTimeGTFS": {
-                  "ref": "DateTime.html#getTimeGTFS",
-                  "tf": 10
+                "Shape.html": {
+                  "ref": "Shape.html",
+                  "tf": 7.142857142857142
                 },
                 "Agency.html": {
                   "ref": "Agency.html",
@@ -14819,7 +15037,15 @@ window.lunrData = {
                 },
                 "Trip.html": {
                   "ref": "Trip.html",
-                  "tf": 3.061224489795918
+                  "tf": 4.081632653061225
+                },
+                "DateTime.html": {
+                  "ref": "DateTime.html",
+                  "tf": 1.7857142857142856
+                },
+                "DateTime.html#getTimeGTFS": {
+                  "ref": "DateTime.html#getTimeGTFS",
+                  "tf": 10
                 },
                 "Stop.html": {
                   "ref": "Stop.html",
@@ -14831,6 +15057,10 @@ window.lunrData = {
                 },
                 "module-gtfs_ServiceException.html": {
                   "ref": "module-gtfs_ServiceException.html",
+                  "tf": 16.666666666666664
+                },
+                "module-gtfs_Shape.html": {
+                  "ref": "module-gtfs_Shape.html",
                   "tf": 16.666666666666664
                 },
                 "module-gtfs_StopTime.html": {
@@ -14916,6 +15146,27 @@ window.lunrData = {
                                     }
                                   }
                                 }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "h": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "p": {
+                          "docs": {},
+                          "e": {
+                            "docs": {
+                              "Shape.html": {
+                                "ref": "Shape.html",
+                                "tf": 1.7857142857142856
+                              },
+                              "module-gtfs_Shape.html": {
+                                "ref": "module-gtfs_Shape.html",
+                                "tf": 600
                               }
                             }
                           }
@@ -15028,6 +15279,27 @@ window.lunrData = {
                 },
                 "_": {
                   "docs": {},
+                  "t": {
+                    "docs": {},
+                    "r": {
+                      "docs": {},
+                      "i": {
+                        "docs": {},
+                        "p": {
+                          "docs": {
+                            "Shape.html#id": {
+                              "ref": "Shape.html#id",
+                              "tf": 10
+                            },
+                            "module-query_trips.html": {
+                              "ref": "module-query_trips.html",
+                              "tf": 5
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
                   "c": {
                     "docs": {},
                     "a": {
@@ -15087,6 +15359,23 @@ window.lunrData = {
                   },
                   "s": {
                     "docs": {},
+                    "h": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "p": {
+                          "docs": {},
+                          "e": {
+                            "docs": {
+                              "module-query_shapes.html": {
+                                "ref": "module-query_shapes.html",
+                                "tf": 5
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
                     "t": {
                       "docs": {},
                       "o": {
@@ -15113,23 +15402,6 @@ window.lunrData = {
                                   }
                                 }
                               }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "t": {
-                    "docs": {},
-                    "r": {
-                      "docs": {},
-                      "i": {
-                        "docs": {},
-                        "p": {
-                          "docs": {
-                            "module-query_trips.html": {
-                              "ref": "module-query_trips.html",
-                              "tf": 5
                             }
                           }
                         }
@@ -15250,9 +15522,9 @@ window.lunrData = {
                       "ref": "RightTrackAgency.html#moduleDirectory",
                       "tf": 16.666666666666664
                     },
-                    "DateTime.html": {
-                      "ref": "DateTime.html",
-                      "tf": 0.8928571428571428
+                    "Shape.html": {
+                      "ref": "Shape.html",
+                      "tf": 1.7857142857142856
                     },
                     "Agency.html": {
                       "ref": "Agency.html",
@@ -15273,6 +15545,10 @@ window.lunrData = {
                     "Trip.html": {
                       "ref": "Trip.html",
                       "tf": 1.0204081632653061
+                    },
+                    "DateTime.html": {
+                      "ref": "DateTime.html",
+                      "tf": 0.8928571428571428
                     },
                     "Stop.html": {
                       "ref": "Stop.html",
@@ -15300,6 +15576,10 @@ window.lunrData = {
                     },
                     "module-gtfs_ServiceException.html": {
                       "ref": "module-gtfs_ServiceException.html",
+                      "tf": 110
+                    },
+                    "module-gtfs_Shape.html": {
+                      "ref": "module-gtfs_Shape.html",
                       "tf": 110
                     },
                     "module-gtfs_StopTime.html": {
@@ -15344,6 +15624,10 @@ window.lunrData = {
                     },
                     "module-query_routes.html": {
                       "ref": "module-query_routes.html",
+                      "tf": 110
+                    },
+                    "module-query_shapes.html": {
+                      "ref": "module-query_shapes.html",
                       "tf": 110
                     },
                     "module-query_stoptimes.html": {
@@ -15398,10 +15682,6 @@ window.lunrData = {
                       "ref": "module-search.html",
                       "tf": 110
                     },
-                    "module-utils_DateTime.html": {
-                      "ref": "module-utils_DateTime.html",
-                      "tf": 110
-                    },
                     "module-utils_calc.html": {
                       "ref": "module-utils_calc.html",
                       "tf": 110
@@ -15432,6 +15712,10 @@ window.lunrData = {
                     },
                     "module-rt_Favorite.html": {
                       "ref": "module-rt_Favorite.html",
+                      "tf": 110
+                    },
+                    "module-utils_DateTime.html": {
+                      "ref": "module-utils_DateTime.html",
                       "tf": 110
                     }
                   },
@@ -15646,6 +15930,20 @@ window.lunrData = {
                                                 }
                                               }
                                             }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "h": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "p": {
+                                        "docs": {
+                                          "module-gtfs_Shape.html": {
+                                            "ref": "module-gtfs_Shape.html",
+                                            "tf": 1300
                                           }
                                         }
                                       }
@@ -15899,6 +16197,20 @@ window.lunrData = {
                                   },
                                   "s": {
                                     "docs": {},
+                                    "h": {
+                                      "docs": {},
+                                      "a": {
+                                        "docs": {},
+                                        "p": {
+                                          "docs": {
+                                            "module-query_shapes.html": {
+                                              "ref": "module-query_shapes.html",
+                                              "tf": 1300
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
                                     "t": {
                                       "docs": {},
                                       "o": {
@@ -16200,6 +16512,23 @@ window.lunrData = {
                                 "docs": {},
                                 "/": {
                                   "docs": {},
+                                  "c": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "l": {
+                                        "docs": {},
+                                        "c": {
+                                          "docs": {
+                                            "module-utils_calc.html": {
+                                              "ref": "module-utils_calc.html",
+                                              "tf": 1300
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
                                   "d": {
                                     "docs": {},
                                     "a": {
@@ -16220,23 +16549,6 @@ window.lunrData = {
                                                   }
                                                 }
                                               }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "c": {
-                                    "docs": {},
-                                    "a": {
-                                      "docs": {},
-                                      "l": {
-                                        "docs": {},
-                                        "c": {
-                                          "docs": {
-                                            "module-utils_calc.html": {
-                                              "ref": "module-utils_calc.html",
-                                              "tf": 1300
                                             }
                                           }
                                         }
@@ -16289,10 +16601,6 @@ window.lunrData = {
                   "docs": {},
                   "y": {
                     "docs": {
-                      "DateTime.html#getDateDOW": {
-                        "ref": "DateTime.html#getDateDOW",
-                        "tf": 7.142857142857142
-                      },
                       "Service.html": {
                         "ref": "Service.html",
                         "tf": 1.6666666666666667
@@ -16300,6 +16608,10 @@ window.lunrData = {
                       "Service.html#monday": {
                         "ref": "Service.html#monday",
                         "tf": 707.1428571428571
+                      },
+                      "DateTime.html#getDateDOW": {
+                        "ref": "DateTime.html#getDateDOW",
+                        "tf": 7.142857142857142
                       }
                     }
                   }
@@ -16627,6 +16939,26 @@ window.lunrData = {
                       },
                       "RightTrackAgency.html#config": {
                         "ref": "RightTrackAgency.html#config",
+                        "tf": 110
+                      },
+                      "Shape.html#id": {
+                        "ref": "Shape.html#id",
+                        "tf": 110
+                      },
+                      "Shape.html#shapePtLat": {
+                        "ref": "Shape.html#shapePtLat",
+                        "tf": 110
+                      },
+                      "Shape.html#shapePtLon": {
+                        "ref": "Shape.html#shapePtLon",
+                        "tf": 110
+                      },
+                      "Shape.html#shapePtSequence": {
+                        "ref": "Shape.html#shapePtSequence",
+                        "tf": 110
+                      },
+                      "Shape.html#shapeDistTraveled": {
+                        "ref": "Shape.html#shapeDistTraveled",
                         "tf": 110
                       },
                       "Agency.html#name": {
@@ -17632,17 +17964,6 @@ window.lunrData = {
               }
             }
           },
-          "t": {
-            "docs": {},
-            "c": {
-              "docs": {
-                "DateTime.html#getDateDOW": {
-                  "ref": "DateTime.html#getDateDOW",
-                  "tf": 7.142857142857142
-                }
-              }
-            }
-          },
           "m": {
             "docs": {},
             "a": {
@@ -17660,6 +17981,17 @@ window.lunrData = {
                       "tf": 707.1428571428571
                     }
                   }
+                }
+              }
+            }
+          },
+          "t": {
+            "docs": {},
+            "c": {
+              "docs": {
+                "DateTime.html#getDateDOW": {
+                  "ref": "DateTime.html#getDateDOW",
+                  "tf": 7.142857142857142
                 }
               }
             }
@@ -17847,6 +18179,10 @@ window.lunrData = {
                       "ref": "About.html",
                       "tf": 1.9230769230769231
                     },
+                    "Shape.html": {
+                      "ref": "Shape.html",
+                      "tf": 3.571428571428571
+                    },
                     "Agency.html": {
                       "ref": "Agency.html",
                       "tf": 3.0303030303030303
@@ -18006,6 +18342,34 @@ window.lunrData = {
                             "ref": "RightTrackAgency.html#loadFeed",
                             "tf": 114.16666666666667
                           },
+                          "Shape.html#.sortBySequence": {
+                            "ref": "Shape.html#.sortBySequence",
+                            "tf": 110
+                          },
+                          "Route.html#.sortByName": {
+                            "ref": "Route.html#.sortByName",
+                            "tf": 110
+                          },
+                          "StopTime.html#.sortByStopTransferWeight": {
+                            "ref": "StopTime.html#.sortByStopTransferWeight",
+                            "tf": 110
+                          },
+                          "StopTime.html#.sortByStopSequence": {
+                            "ref": "StopTime.html#.sortByStopSequence",
+                            "tf": 110
+                          },
+                          "Trip.html#getStopTime": {
+                            "ref": "Trip.html#getStopTime",
+                            "tf": 110
+                          },
+                          "Trip.html#hasStopTime": {
+                            "ref": "Trip.html#hasStopTime",
+                            "tf": 110
+                          },
+                          "Trip.html#.sortByDepartureTime": {
+                            "ref": "Trip.html#.sortByDepartureTime",
+                            "tf": 110
+                          },
                           "DateTime.html#deltaDays": {
                             "ref": "DateTime.html#deltaDays",
                             "tf": 110
@@ -18084,30 +18448,6 @@ window.lunrData = {
                           },
                           "DateTime.html#.createFromDate": {
                             "ref": "DateTime.html#.createFromDate",
-                            "tf": 110
-                          },
-                          "Route.html#.sortByName": {
-                            "ref": "Route.html#.sortByName",
-                            "tf": 110
-                          },
-                          "StopTime.html#.sortByStopTransferWeight": {
-                            "ref": "StopTime.html#.sortByStopTransferWeight",
-                            "tf": 110
-                          },
-                          "StopTime.html#.sortByStopSequence": {
-                            "ref": "StopTime.html#.sortByStopSequence",
-                            "tf": 110
-                          },
-                          "Trip.html#getStopTime": {
-                            "ref": "Trip.html#getStopTime",
-                            "tf": 110
-                          },
-                          "Trip.html#hasStopTime": {
-                            "ref": "Trip.html#hasStopTime",
-                            "tf": 110
-                          },
-                          "Trip.html#.sortByDepartureTime": {
-                            "ref": "Trip.html#.sortByDepartureTime",
                             "tf": 110
                           },
                           "Stop.html#setDistance": {
@@ -18198,6 +18538,10 @@ window.lunrData = {
                             "ref": "module-query_routes.html",
                             "tf": 10
                           },
+                          "module-query_shapes.html": {
+                            "ref": "module-query_shapes.html",
+                            "tf": 10
+                          },
                           "module-query_stoptimes.html": {
                             "ref": "module-query_stoptimes.html",
                             "tf": 10
@@ -18245,10 +18589,6 @@ window.lunrData = {
                     "ref": "RightTrackAgency.html#name",
                     "tf": 16.666666666666664
                   },
-                  "DateTime.html#getDateDOW": {
-                    "ref": "DateTime.html#getDateDOW",
-                    "tf": 7.142857142857142
-                  },
                   "Agency.html#name": {
                     "ref": "Agency.html#name",
                     "tf": 12.5
@@ -18256,6 +18596,10 @@ window.lunrData = {
                   "Route.html#longName": {
                     "ref": "Route.html#longName",
                     "tf": 16.666666666666664
+                  },
+                  "DateTime.html#getDateDOW": {
+                    "ref": "DateTime.html#getDateDOW",
+                    "tf": 7.142857142857142
                   },
                   "RightTrackDB.html": {
                     "ref": "RightTrackDB.html",
@@ -18315,14 +18659,6 @@ window.lunrData = {
                         "ref": "About.html#endDate",
                         "tf": 7.142857142857142
                       },
-                      "DateTime.html": {
-                        "ref": "DateTime.html",
-                        "tf": 1.7857142857142856
-                      },
-                      "DateTime.html#getTimeInt": {
-                        "ref": "DateTime.html#getTimeInt",
-                        "tf": 16.666666666666664
-                      },
                       "Service.html#startDate": {
                         "ref": "Service.html#startDate",
                         "tf": 10
@@ -18342,6 +18678,14 @@ window.lunrData = {
                       "StopTime.html#departureTime": {
                         "ref": "StopTime.html#departureTime",
                         "tf": 7.142857142857142
+                      },
+                      "DateTime.html": {
+                        "ref": "DateTime.html",
+                        "tf": 1.7857142857142856
+                      },
+                      "DateTime.html#getTimeInt": {
+                        "ref": "DateTime.html#getTimeInt",
+                        "tf": 16.666666666666664
                       },
                       "Favorite.html": {
                         "ref": "Favorite.html",
@@ -18387,6 +18731,35 @@ window.lunrData = {
                 }
               }
             },
+            "r": {
+              "docs": {},
+              "e": {
+                "docs": {
+                  "Agency.html": {
+                    "ref": "Agency.html",
+                    "tf": 1.5151515151515151
+                  },
+                  "Stop.html#zoneId": {
+                    "ref": "Stop.html#zoneId",
+                    "tf": 14.285714285714285
+                  }
+                },
+                "u": {
+                  "docs": {},
+                  "r": {
+                    "docs": {},
+                    "l": {
+                      "docs": {
+                        "Agency.html#fareUrl": {
+                          "ref": "Agency.html#fareUrl",
+                          "tf": 700
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "c": {
               "docs": {},
               "t": {
@@ -18428,35 +18801,6 @@ window.lunrData = {
                         "Favorite.html#.createTransit": {
                           "ref": "Favorite.html#.createTransit",
                           "tf": 8.333333333333332
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "r": {
-              "docs": {},
-              "e": {
-                "docs": {
-                  "Agency.html": {
-                    "ref": "Agency.html",
-                    "tf": 1.5151515151515151
-                  },
-                  "Stop.html#zoneId": {
-                    "ref": "Stop.html#zoneId",
-                    "tf": 14.285714285714285
-                  }
-                },
-                "u": {
-                  "docs": {},
-                  "r": {
-                    "docs": {},
-                    "l": {
-                      "docs": {
-                        "Agency.html#fareUrl": {
-                          "ref": "Agency.html#fareUrl",
-                          "tf": 700
                         }
                       }
                     }
@@ -19297,20 +19641,20 @@ window.lunrData = {
                           "ref": "RightTrackAgency.html#loadFeed",
                           "tf": 4.166666666666666
                         },
-                        "DateTime.html#deltaDays": {
-                          "ref": "DateTime.html#deltaDays",
-                          "tf": 7.142857142857142
-                        },
-                        "DateTime.html#deltaMins": {
-                          "ref": "DateTime.html#deltaMins",
-                          "tf": 7.142857142857142
-                        },
                         "Trip.html#getStopTime": {
                           "ref": "Trip.html#getStopTime",
                           "tf": 12.5
                         },
                         "Trip.html#hasStopTime": {
                           "ref": "Trip.html#hasStopTime",
+                          "tf": 7.142857142857142
+                        },
+                        "DateTime.html#deltaDays": {
+                          "ref": "DateTime.html#deltaDays",
+                          "tf": 7.142857142857142
+                        },
+                        "DateTime.html#deltaMins": {
+                          "ref": "DateTime.html#deltaMins",
                           "tf": 7.142857142857142
                         },
                         "Stop.html#setDistance": {
@@ -19942,6 +20286,10 @@ window.lunrData = {
                       "ref": "TripSearchResultSegment.html#enter",
                       "tf": 16.666666666666664
                     },
+                    "Shape.html#shapeDistTraveled": {
+                      "ref": "Shape.html#shapeDistTraveled",
+                      "tf": 10
+                    },
                     "Service.html": {
                       "ref": "Service.html",
                       "tf": 1.6666666666666667
@@ -20052,41 +20400,9 @@ window.lunrData = {
                         "ref": "About.html#notes",
                         "tf": 50
                       },
-                      "DateTime.html": {
-                        "ref": "DateTime.html",
-                        "tf": 3.571428571428571
-                      },
-                      "DateTime.html#getTimeInt": {
-                        "ref": "DateTime.html#getTimeInt",
+                      "Shape.html#id": {
+                        "ref": "Shape.html#id",
                         "tf": 50
-                      },
-                      "DateTime.html#getTimeGTFS": {
-                        "ref": "DateTime.html#getTimeGTFS",
-                        "tf": 50
-                      },
-                      "DateTime.html#getTimeReadable": {
-                        "ref": "DateTime.html#getTimeReadable",
-                        "tf": 50
-                      },
-                      "DateTime.html#getDateDOW": {
-                        "ref": "DateTime.html#getDateDOW",
-                        "tf": 50
-                      },
-                      "DateTime.html#getDateReadable": {
-                        "ref": "DateTime.html#getDateReadable",
-                        "tf": 33.33333333333333
-                      },
-                      "DateTime.html#toMySQLString": {
-                        "ref": "DateTime.html#toMySQLString",
-                        "tf": 58.33333333333333
-                      },
-                      "DateTime.html#toHTTPString": {
-                        "ref": "DateTime.html#toHTTPString",
-                        "tf": 58.33333333333333
-                      },
-                      "DateTime.html#toString": {
-                        "ref": "DateTime.html#toString",
-                        "tf": 66.66666666666666
                       },
                       "Agency.html#name": {
                         "ref": "Agency.html#name",
@@ -20191,6 +20507,42 @@ window.lunrData = {
                       "Trip.html#shapeId": {
                         "ref": "Trip.html#shapeId",
                         "tf": 50
+                      },
+                      "DateTime.html": {
+                        "ref": "DateTime.html",
+                        "tf": 3.571428571428571
+                      },
+                      "DateTime.html#getTimeInt": {
+                        "ref": "DateTime.html#getTimeInt",
+                        "tf": 50
+                      },
+                      "DateTime.html#getTimeGTFS": {
+                        "ref": "DateTime.html#getTimeGTFS",
+                        "tf": 50
+                      },
+                      "DateTime.html#getTimeReadable": {
+                        "ref": "DateTime.html#getTimeReadable",
+                        "tf": 50
+                      },
+                      "DateTime.html#getDateDOW": {
+                        "ref": "DateTime.html#getDateDOW",
+                        "tf": 50
+                      },
+                      "DateTime.html#getDateReadable": {
+                        "ref": "DateTime.html#getDateReadable",
+                        "tf": 33.33333333333333
+                      },
+                      "DateTime.html#toMySQLString": {
+                        "ref": "DateTime.html#toMySQLString",
+                        "tf": 58.33333333333333
+                      },
+                      "DateTime.html#toHTTPString": {
+                        "ref": "DateTime.html#toHTTPString",
+                        "tf": 58.33333333333333
+                      },
+                      "DateTime.html#toString": {
+                        "ref": "DateTime.html#toString",
+                        "tf": 66.66666666666666
                       },
                       "Stop.html#id": {
                         "ref": "Stop.html#id",
@@ -21694,6 +22046,10 @@ window.lunrData = {
                     "ref": "TripSearchResult.html#.sortByDeparture",
                     "tf": 8.333333333333332
                   },
+                  "Shape.html#.sortBySequence": {
+                    "ref": "Shape.html#.sortBySequence",
+                    "tf": 12.5
+                  },
                   "Route.html": {
                     "ref": "Route.html",
                     "tf": 1.3157894736842104
@@ -21803,26 +22159,26 @@ window.lunrData = {
                         }
                       }
                     },
-                    "n": {
+                    "s": {
                       "docs": {},
-                      "a": {
+                      "e": {
                         "docs": {},
-                        "m": {
-                          "docs": {
-                            "Route.html#.sortByName": {
-                              "ref": "Route.html#.sortByName",
-                              "tf": 675
-                            },
-                            "Stop.html#.sortByName": {
-                              "ref": "Stop.html#.sortByName",
-                              "tf": 675
+                        "q": {
+                          "docs": {},
+                          "u": {
+                            "docs": {
+                              "Shape.html#.sortBySequence": {
+                                "ref": "Shape.html#.sortBySequence",
+                                "tf": 675
+                              },
+                              "Favorite.html#.sortBySequence": {
+                                "ref": "Favorite.html#.sortBySequence",
+                                "tf": 675
+                              }
                             }
                           }
                         }
-                      }
-                    },
-                    "s": {
-                      "docs": {},
+                      },
                       "t": {
                         "docs": {},
                         "o": {
@@ -21895,17 +22251,21 @@ window.lunrData = {
                             }
                           }
                         }
-                      },
-                      "e": {
+                      }
+                    },
+                    "n": {
+                      "docs": {},
+                      "a": {
                         "docs": {},
-                        "q": {
-                          "docs": {},
-                          "u": {
-                            "docs": {
-                              "Favorite.html#.sortBySequence": {
-                                "ref": "Favorite.html#.sortBySequence",
-                                "tf": 675
-                              }
+                        "m": {
+                          "docs": {
+                            "Route.html#.sortByName": {
+                              "ref": "Route.html#.sortByName",
+                              "tf": 675
+                            },
+                            "Stop.html#.sortByName": {
+                              "ref": "Stop.html#.sortByName",
+                              "tf": 675
                             }
                           }
                         }
@@ -22848,27 +23208,6 @@ window.lunrData = {
                 }
               }
             },
-            "c": {
-              "docs": {},
-              "o": {
-                "docs": {},
-                "n": {
-                  "docs": {},
-                  "d": {
-                    "docs": {
-                      "DateTime.html": {
-                        "ref": "DateTime.html",
-                        "tf": 1.7857142857142856
-                      },
-                      "DateTime.html#getTimeSeconds": {
-                        "ref": "DateTime.html#getTimeSeconds",
-                        "tf": 16.666666666666664
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "q": {
               "docs": {},
               "u": {
@@ -22879,6 +23218,18 @@ window.lunrData = {
                     "docs": {},
                     "c": {
                       "docs": {
+                        "Shape.html": {
+                          "ref": "Shape.html",
+                          "tf": 1.7857142857142856
+                        },
+                        "Shape.html#shapePtSequence": {
+                          "ref": "Shape.html#shapePtSequence",
+                          "tf": 12.5
+                        },
+                        "Shape.html#.sortBySequence": {
+                          "ref": "Shape.html#.sortBySequence",
+                          "tf": 12.5
+                        },
                         "StopTime.html": {
                           "ref": "StopTime.html",
                           "tf": 1.1111111111111112
@@ -22911,6 +23262,27 @@ window.lunrData = {
                           "ref": "Favorite.html#.sortBySequence",
                           "tf": 12.5
                         }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "c": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "n": {
+                  "docs": {},
+                  "d": {
+                    "docs": {
+                      "DateTime.html": {
+                        "ref": "DateTime.html",
+                        "tf": 1.7857142857142856
+                      },
+                      "DateTime.html#getTimeSeconds": {
+                        "ref": "DateTime.html#getTimeSeconds",
+                        "tf": 16.666666666666664
                       }
                     }
                   }
@@ -23026,6 +23398,27 @@ window.lunrData = {
                 }
               }
             },
+            "n": {
+              "docs": {},
+              "d": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "y": {
+                    "docs": {
+                      "Service.html": {
+                        "ref": "Service.html",
+                        "tf": 1.6666666666666667
+                      },
+                      "Service.html#sunday": {
+                        "ref": "Service.html#sunday",
+                        "tf": 707.1428571428571
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "b": {
               "docs": {},
               "t": {
@@ -23067,27 +23460,6 @@ window.lunrData = {
                 }
               }
             },
-            "n": {
-              "docs": {},
-              "d": {
-                "docs": {},
-                "a": {
-                  "docs": {},
-                  "y": {
-                    "docs": {
-                      "Service.html": {
-                        "ref": "Service.html",
-                        "tf": 1.6666666666666667
-                      },
-                      "Service.html#sunday": {
-                        "ref": "Service.html#sunday",
-                        "tf": 707.1428571428571
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "i": {
               "docs": {},
               "t": {
@@ -23120,49 +23492,364 @@ window.lunrData = {
               }
             }
           },
-          "a": {
+          "h": {
             "docs": {},
-            "t": {
+            "a": {
               "docs": {},
-              "u": {
+              "p": {
                 "docs": {},
-                "r": {
-                  "docs": {},
+                "e": {
+                  "docs": {
+                    "Shape.html": {
+                      "ref": "Shape.html",
+                      "tf": 1912.5
+                    },
+                    "Shape.html#id": {
+                      "ref": "Shape.html#id",
+                      "tf": 10
+                    },
+                    "Shape.html#shapePtSequence": {
+                      "ref": "Shape.html#shapePtSequence",
+                      "tf": 12.5
+                    },
+                    "Shape.html#shapeDistTraveled": {
+                      "ref": "Shape.html#shapeDistTraveled",
+                      "tf": 10
+                    },
+                    "Shape.html#.sortBySequence": {
+                      "ref": "Shape.html#.sortBySequence",
+                      "tf": 12.5
+                    },
+                    "StopTime.html": {
+                      "ref": "StopTime.html",
+                      "tf": 1.1111111111111112
+                    },
+                    "StopTime.html#shapeDistanceTraveled": {
+                      "ref": "StopTime.html#shapeDistanceTraveled",
+                      "tf": 8.333333333333332
+                    },
+                    "Trip.html": {
+                      "ref": "Trip.html",
+                      "tf": 1.0204081632653061
+                    },
+                    "Trip.html#shapeId": {
+                      "ref": "Trip.html#shapeId",
+                      "tf": 12.5
+                    },
+                    "module-gtfs_Shape.html": {
+                      "ref": "module-gtfs_Shape.html",
+                      "tf": 16.666666666666664
+                    },
+                    "module-query_shapes.html": {
+                      "ref": "module-query_shapes.html",
+                      "tf": 5
+                    }
+                  },
+                  "#": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "d": {
+                        "docs": {
+                          "Shape.html#id": {
+                            "ref": "Shape.html#id",
+                            "tf": 1150
+                          }
+                        }
+                      }
+                    },
+                    "s": {
+                      "docs": {},
+                      "h": {
+                        "docs": {},
+                        "a": {
+                          "docs": {},
+                          "p": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "p": {
+                                "docs": {},
+                                "t": {
+                                  "docs": {},
+                                  "l": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "t": {
+                                        "docs": {
+                                          "Shape.html#shapePtLat": {
+                                            "ref": "Shape.html#shapePtLat",
+                                            "tf": 1150
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "o": {
+                                      "docs": {},
+                                      "n": {
+                                        "docs": {
+                                          "Shape.html#shapePtLon": {
+                                            "ref": "Shape.html#shapePtLon",
+                                            "tf": 1150
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "s": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "q": {
+                                        "docs": {},
+                                        "u": {
+                                          "docs": {
+                                            "Shape.html#shapePtSequence": {
+                                              "ref": "Shape.html#shapePtSequence",
+                                              "tf": 1150
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "d": {
+                                "docs": {},
+                                "i": {
+                                  "docs": {},
+                                  "s": {
+                                    "docs": {},
+                                    "t": {
+                                      "docs": {},
+                                      "t": {
+                                        "docs": {},
+                                        "r": {
+                                          "docs": {},
+                                          "a": {
+                                            "docs": {},
+                                            "v": {
+                                              "docs": {},
+                                              "e": {
+                                                "docs": {},
+                                                "l": {
+                                                  "docs": {
+                                                    "Shape.html#shapeDistTraveled": {
+                                                      "ref": "Shape.html#shapeDistTraveled",
+                                                      "tf": 1150
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "'": {
+                    "docs": {
+                      "Shape.html#shapePtLat": {
+                        "ref": "Shape.html#shapePtLat",
+                        "tf": 16.666666666666664
+                      },
+                      "Shape.html#shapePtLon": {
+                        "ref": "Shape.html#shapePtLon",
+                        "tf": 16.666666666666664
+                      }
+                    }
+                  },
+                  "p": {
+                    "docs": {},
+                    "t": {
+                      "docs": {},
+                      "l": {
+                        "docs": {},
+                        "a": {
+                          "docs": {},
+                          "t": {
+                            "docs": {
+                              "Shape.html#shapePtLat": {
+                                "ref": "Shape.html#shapePtLat",
+                                "tf": 700
+                              }
+                            }
+                          }
+                        },
+                        "o": {
+                          "docs": {},
+                          "n": {
+                            "docs": {
+                              "Shape.html#shapePtLon": {
+                                "ref": "Shape.html#shapePtLon",
+                                "tf": 700
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "s": {
+                        "docs": {},
+                        "e": {
+                          "docs": {},
+                          "q": {
+                            "docs": {},
+                            "u": {
+                              "docs": {
+                                "Shape.html#shapePtSequence": {
+                                  "ref": "Shape.html#shapePtSequence",
+                                  "tf": 700
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
                   "d": {
                     "docs": {},
-                    "a": {
+                    "i": {
                       "docs": {},
-                      "y": {
-                        "docs": {
-                          "Service.html": {
-                            "ref": "Service.html",
-                            "tf": 1.6666666666666667
+                      "s": {
+                        "docs": {},
+                        "t": {
+                          "docs": {},
+                          "t": {
+                            "docs": {},
+                            "r": {
+                              "docs": {},
+                              "a": {
+                                "docs": {},
+                                "v": {
+                                  "docs": {},
+                                  "e": {
+                                    "docs": {},
+                                    "l": {
+                                      "docs": {
+                                        "Shape.html#shapeDistTraveled": {
+                                          "ref": "Shape.html#shapeDistTraveled",
+                                          "tf": 700
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
                           },
-                          "Service.html#saturday": {
-                            "ref": "Service.html#saturday",
-                            "tf": 707.1428571428571
+                          "a": {
+                            "docs": {},
+                            "n": {
+                              "docs": {},
+                              "c": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {},
+                                  "t": {
+                                    "docs": {},
+                                    "r": {
+                                      "docs": {},
+                                      "a": {
+                                        "docs": {},
+                                        "v": {
+                                          "docs": {},
+                                          "e": {
+                                            "docs": {},
+                                            "l": {
+                                              "docs": {
+                                                "StopTime.html#shapeDistanceTraveled": {
+                                                  "ref": "StopTime.html#shapeDistanceTraveled",
+                                                  "tf": 700
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
                           }
+                        }
+                      }
+                    }
+                  },
+                  ".": {
+                    "docs": {},
+                    "s": {
+                      "docs": {},
+                      "o": {
+                        "docs": {},
+                        "r": {
+                          "docs": {},
+                          "t": {
+                            "docs": {},
+                            "b": {
+                              "docs": {},
+                              "y": {
+                                "docs": {},
+                                "s": {
+                                  "docs": {},
+                                  "e": {
+                                    "docs": {},
+                                    "q": {
+                                      "docs": {},
+                                      "u": {
+                                        "docs": {
+                                          "Shape.html#.sortBySequence": {
+                                            "ref": "Shape.html#.sortBySequence",
+                                            "tf": 1150
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "i": {
+                    "docs": {},
+                    "d": {
+                      "docs": {
+                        "Trip.html#shapeId": {
+                          "ref": "Trip.html#shapeId",
+                          "tf": 700
                         }
                       }
                     }
                   }
                 }
-              }
-            },
-            "v": {
-              "docs": {},
-              "e": {
-                "docs": {
-                  "Favorite.html": {
-                    "ref": "Favorite.html",
-                    "tf": 0.6097560975609756
+              },
+              "r": {
+                "docs": {},
+                "e": {
+                  "docs": {
+                    "module-utils.html": {
+                      "ref": "module-utils.html",
+                      "tf": 3.571428571428571
+                    }
                   }
                 }
               }
-            }
-          },
-          "h": {
-            "docs": {},
+            },
             "o": {
               "docs": {},
               "r": {
@@ -23206,98 +23893,44 @@ window.lunrData = {
                   }
                 }
               }
-            },
-            "a": {
+            }
+          },
+          "a": {
+            "docs": {},
+            "t": {
               "docs": {},
-              "p": {
+              "u": {
                 "docs": {},
-                "e": {
-                  "docs": {
-                    "StopTime.html": {
-                      "ref": "StopTime.html",
-                      "tf": 1.1111111111111112
-                    },
-                    "StopTime.html#shapeDistanceTraveled": {
-                      "ref": "StopTime.html#shapeDistanceTraveled",
-                      "tf": 8.333333333333332
-                    },
-                    "Trip.html": {
-                      "ref": "Trip.html",
-                      "tf": 1.0204081632653061
-                    },
-                    "Trip.html#shapeId": {
-                      "ref": "Trip.html#shapeId",
-                      "tf": 12.5
-                    }
-                  },
+                "r": {
+                  "docs": {},
                   "d": {
                     "docs": {},
-                    "i": {
+                    "a": {
                       "docs": {},
-                      "s": {
-                        "docs": {},
-                        "t": {
-                          "docs": {},
-                          "a": {
-                            "docs": {},
-                            "n": {
-                              "docs": {},
-                              "c": {
-                                "docs": {},
-                                "e": {
-                                  "docs": {},
-                                  "t": {
-                                    "docs": {},
-                                    "r": {
-                                      "docs": {},
-                                      "a": {
-                                        "docs": {},
-                                        "v": {
-                                          "docs": {},
-                                          "e": {
-                                            "docs": {},
-                                            "l": {
-                                              "docs": {
-                                                "StopTime.html#shapeDistanceTraveled": {
-                                                  "ref": "StopTime.html#shapeDistanceTraveled",
-                                                  "tf": 700
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
+                      "y": {
+                        "docs": {
+                          "Service.html": {
+                            "ref": "Service.html",
+                            "tf": 1.6666666666666667
+                          },
+                          "Service.html#saturday": {
+                            "ref": "Service.html#saturday",
+                            "tf": 707.1428571428571
                           }
-                        }
-                      }
-                    }
-                  },
-                  "i": {
-                    "docs": {},
-                    "d": {
-                      "docs": {
-                        "Trip.html#shapeId": {
-                          "ref": "Trip.html#shapeId",
-                          "tf": 700
                         }
                       }
                     }
                   }
                 }
-              },
-              "r": {
-                "docs": {},
-                "e": {
-                  "docs": {
-                    "module-utils.html": {
-                      "ref": "module-utils.html",
-                      "tf": 3.571428571428571
-                    }
+              }
+            },
+            "v": {
+              "docs": {},
+              "e": {
+                "docs": {
+                  "Favorite.html": {
+                    "ref": "Favorite.html",
+                    "tf": 0.6097560975609756
                   }
                 }
               }
@@ -23372,10 +24005,6 @@ window.lunrData = {
                     "ref": "RightTrackAgency.html#name",
                     "tf": 766.6666666666666
                   },
-                  "DateTime.html#getDateDOW": {
-                    "ref": "DateTime.html#getDateDOW",
-                    "tf": 7.142857142857142
-                  },
                   "Agency.html": {
                     "ref": "Agency.html",
                     "tf": 1.5151515151515151
@@ -23407,6 +24036,10 @@ window.lunrData = {
                   "Trip.html#shortName": {
                     "ref": "Trip.html#shortName",
                     "tf": 10
+                  },
+                  "DateTime.html#getDateDOW": {
+                    "ref": "DateTime.html#getDateDOW",
+                    "tf": 7.142857142857142
                   },
                   "Stop.html": {
                     "ref": "Stop.html",
@@ -23514,17 +24147,21 @@ window.lunrData = {
                         "ref": "TripSearchResultSegment.html#travelTime",
                         "tf": 50
                       },
-                      "DateTime.html#deltaDays": {
-                        "ref": "DateTime.html#deltaDays",
-                        "tf": 7.142857142857142
-                      },
-                      "DateTime.html#deltaMins": {
-                        "ref": "DateTime.html#deltaMins",
-                        "tf": 7.142857142857142
-                      },
-                      "DateTime.html#toTimestamp": {
-                        "ref": "DateTime.html#toTimestamp",
+                      "Shape.html#shapePtLat": {
+                        "ref": "Shape.html#shapePtLat",
                         "tf": 50
+                      },
+                      "Shape.html#shapePtLon": {
+                        "ref": "Shape.html#shapePtLon",
+                        "tf": 50
+                      },
+                      "Shape.html#shapeDistTraveled": {
+                        "ref": "Shape.html#shapeDistTraveled",
+                        "tf": 50
+                      },
+                      "Shape.html#.sortBySequence": {
+                        "ref": "Shape.html#.sortBySequence",
+                        "tf": 25
                       },
                       "Agency.html": {
                         "ref": "Agency.html",
@@ -23573,6 +24210,18 @@ window.lunrData = {
                       "Trip.html#.sortByDepartureTime": {
                         "ref": "Trip.html#.sortByDepartureTime",
                         "tf": 25
+                      },
+                      "DateTime.html#deltaDays": {
+                        "ref": "DateTime.html#deltaDays",
+                        "tf": 7.142857142857142
+                      },
+                      "DateTime.html#deltaMins": {
+                        "ref": "DateTime.html#deltaMins",
+                        "tf": 7.142857142857142
+                      },
+                      "DateTime.html#toTimestamp": {
+                        "ref": "DateTime.html#toTimestamp",
+                        "tf": 50
                       },
                       "Stop.html#lat": {
                         "ref": "Stop.html#lat",
@@ -23724,6 +24373,10 @@ window.lunrData = {
             },
             "TripSearchResult.html#.sortByDeparture": {
               "ref": "TripSearchResult.html#.sortByDeparture",
+              "tf": 25
+            },
+            "Shape.html#.sortBySequence": {
+              "ref": "Shape.html#.sortBySequence",
               "tf": 25
             },
             "Route.html#.sortByName": {
@@ -23925,10 +24578,6 @@ window.lunrData = {
                           "ref": "RightTrackAgency.html#isFeedSupported",
                           "tf": 33.33333333333333
                         },
-                        "DateTime.html#isDateSet": {
-                          "ref": "DateTime.html#isDateSet",
-                          "tf": 50
-                        },
                         "Trip.html#peak": {
                           "ref": "Trip.html#peak",
                           "tf": 50
@@ -23936,6 +24585,10 @@ window.lunrData = {
                         "Trip.html#hasStopTime": {
                           "ref": "Trip.html#hasStopTime",
                           "tf": 33.33333333333333
+                        },
+                        "DateTime.html#isDateSet": {
+                          "ref": "DateTime.html#isDateSet",
+                          "tf": 50
                         },
                         "Favorite.html#isStation": {
                           "ref": "Favorite.html#isStation",
@@ -25381,68 +26034,13 @@ window.lunrData = {
                 "docs": {},
                 "g": {
                   "docs": {
+                    "Shape.html#shapePtSequence": {
+                      "ref": "Shape.html#shapePtSequence",
+                      "tf": 12.5
+                    },
                     "StopTime.html#headsign": {
                       "ref": "StopTime.html#headsign",
                       "tf": 5.555555555555555
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "a": {
-            "docs": {
-              "DateTime.html": {
-                "ref": "DateTime.html",
-                "tf": 0.8928571428571428
-              }
-            }
-          },
-          "m": {
-            "docs": {},
-            "/": {
-              "docs": {},
-              "p": {
-                "docs": {},
-                "m": {
-                  "docs": {
-                    "DateTime.html#getTimeReadable": {
-                      "ref": "DateTime.html#getTimeReadable",
-                      "tf": 8.333333333333332
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "p": {
-            "docs": {},
-            "r": {
-              "docs": {
-                "DateTime.html#getDateReadable": {
-                  "ref": "DateTime.html#getDateReadable",
-                  "tf": 7.142857142857142
-                }
-              }
-            },
-            "p": {
-              "docs": {},
-              "r": {
-                "docs": {},
-                "o": {
-                  "docs": {},
-                  "x": {
-                    "docs": {},
-                    "i": {
-                      "docs": {},
-                      "m": {
-                        "docs": {
-                          "StopTime.html#timepoint": {
-                            "ref": "StopTime.html#timepoint",
-                            "tf": 6.25
-                          }
-                        }
-                      }
                     }
                   }
                 }
@@ -25500,6 +26098,65 @@ window.lunrData = {
                         "ref": "Favorite.html",
                         "tf": 0.6097560975609756
                       }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "p": {
+            "docs": {},
+            "p": {
+              "docs": {},
+              "r": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "x": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "m": {
+                        "docs": {
+                          "StopTime.html#timepoint": {
+                            "ref": "StopTime.html#timepoint",
+                            "tf": 6.25
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "r": {
+              "docs": {
+                "DateTime.html#getDateReadable": {
+                  "ref": "DateTime.html#getDateReadable",
+                  "tf": 7.142857142857142
+                }
+              }
+            }
+          },
+          "a": {
+            "docs": {
+              "DateTime.html": {
+                "ref": "DateTime.html",
+                "tf": 0.8928571428571428
+              }
+            }
+          },
+          "m": {
+            "docs": {},
+            "/": {
+              "docs": {},
+              "p": {
+                "docs": {},
+                "m": {
+                  "docs": {
+                    "DateTime.html#getTimeReadable": {
+                      "ref": "DateTime.html#getTimeReadable",
+                      "tf": 8.333333333333332
                     }
                   }
                 }
@@ -25575,6 +26232,10 @@ window.lunrData = {
                       "TripSearch.html#options": {
                         "ref": "TripSearch.html#options",
                         "tf": 766.6666666666666
+                      },
+                      "Shape.html": {
+                        "ref": "Shape.html",
+                        "tf": 1.7857142857142856
                       },
                       "Agency.html": {
                         "ref": "Agency.html",
@@ -25911,18 +26572,6 @@ window.lunrData = {
                 "ref": "StationFeedDepartureStatus.html",
                 "tf": 1.8518518518518516
               },
-              "DateTime.html": {
-                "ref": "DateTime.html",
-                "tf": 0.8928571428571428
-              },
-              "DateTime.html#toMySQLString": {
-                "ref": "DateTime.html#toMySQLString",
-                "tf": 8.333333333333332
-              },
-              "DateTime.html#toHTTPString": {
-                "ref": "DateTime.html#toHTTPString",
-                "tf": 8.333333333333332
-              },
               "Agency.html#lang": {
                 "ref": "Agency.html#lang",
                 "tf": 4.166666666666666
@@ -25938,6 +26587,18 @@ window.lunrData = {
               "Route.html#sortOrder": {
                 "ref": "Route.html#sortOrder",
                 "tf": 10
+              },
+              "DateTime.html": {
+                "ref": "DateTime.html",
+                "tf": 0.8928571428571428
+              },
+              "DateTime.html#toMySQLString": {
+                "ref": "DateTime.html#toMySQLString",
+                "tf": 8.333333333333332
+              },
+              "DateTime.html#toHTTPString": {
+                "ref": "DateTime.html#toHTTPString",
+                "tf": 8.333333333333332
               },
               "Stop.html#code": {
                 "ref": "Stop.html#code",
@@ -26255,14 +26916,6 @@ window.lunrData = {
                             "ref": "About.html#endDate",
                             "tf": 7.142857142857142
                           },
-                          "DateTime.html": {
-                            "ref": "DateTime.html",
-                            "tf": 0.8928571428571428
-                          },
-                          "DateTime.html#getDateInt": {
-                            "ref": "DateTime.html#getDateInt",
-                            "tf": 12.5
-                          },
                           "Service.html#startDate": {
                             "ref": "Service.html#startDate",
                             "tf": 10
@@ -26277,6 +26930,14 @@ window.lunrData = {
                           },
                           "StopTime.html#date": {
                             "ref": "StopTime.html#date",
+                            "tf": 12.5
+                          },
+                          "DateTime.html": {
+                            "ref": "DateTime.html",
+                            "tf": 0.8928571428571428
+                          },
+                          "DateTime.html#getDateInt": {
+                            "ref": "DateTime.html#getDateInt",
                             "tf": 12.5
                           }
                         }
@@ -26504,6 +27165,102 @@ window.lunrData = {
               }
             }
           },
+          "e": {
+            "docs": {},
+            "x": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "d": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "c": {
+                      "docs": {},
+                      "i": {
+                        "docs": {},
+                        "m": {
+                          "docs": {
+                            "Route.html#color": {
+                              "ref": "Route.html#color",
+                              "tf": 5
+                            },
+                            "Route.html#textColor": {
+                              "ref": "Route.html#textColor",
+                              "tf": 4.545454545454546
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "a": {
+              "docs": {},
+              "d": {
+                "docs": {},
+                "s": {
+                  "docs": {},
+                  "i": {
+                    "docs": {},
+                    "g": {
+                      "docs": {},
+                      "n": {
+                        "docs": {
+                          "StopTime.html": {
+                            "ref": "StopTime.html",
+                            "tf": 1.1111111111111112
+                          },
+                          "StopTime.html#headsign": {
+                            "ref": "StopTime.html#headsign",
+                            "tf": 711.1111111111111
+                          },
+                          "Trip.html": {
+                            "ref": "Trip.html",
+                            "tf": 1.0204081632653061
+                          },
+                          "Trip.html#headsign": {
+                            "ref": "Trip.html#headsign",
+                            "tf": 706.25
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "e": {
+                  "docs": {},
+                  "r": {
+                    "docs": {
+                      "DateTime.html#toHTTPString": {
+                        "ref": "DateTime.html#toHTTPString",
+                        "tf": 8.333333333333332
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "l": {
+              "docs": {},
+              "p": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "r": {
+                    "docs": {
+                      "module-utils_calc.html": {
+                        "ref": "module-utils_calc.html",
+                        "tf": 10
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
           "h": {
             "docs": {},
             ":": {
@@ -26523,14 +27280,6 @@ window.lunrData = {
                       "docs": {},
                       "s": {
                         "docs": {
-                          "DateTime.html": {
-                            "ref": "DateTime.html",
-                            "tf": 0.8928571428571428
-                          },
-                          "DateTime.html#getTimeGTFS": {
-                            "ref": "DateTime.html#getTimeGTFS",
-                            "tf": 10
-                          },
                           "StopTime.html": {
                             "ref": "StopTime.html",
                             "tf": 2.2222222222222223
@@ -26542,6 +27291,14 @@ window.lunrData = {
                           "StopTime.html#departureTime": {
                             "ref": "StopTime.html#departureTime",
                             "tf": 7.142857142857142
+                          },
+                          "DateTime.html": {
+                            "ref": "DateTime.html",
+                            "tf": 0.8928571428571428
+                          },
+                          "DateTime.html#getTimeGTFS": {
+                            "ref": "DateTime.html#getTimeGTFS",
+                            "tf": 10
                           }
                         }
                       }
@@ -26596,102 +27353,6 @@ window.lunrData = {
               "DateTime.html#getTimeReadable": {
                 "ref": "DateTime.html#getTimeReadable",
                 "tf": 8.333333333333332
-              }
-            }
-          },
-          "e": {
-            "docs": {},
-            "a": {
-              "docs": {},
-              "d": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "r": {
-                    "docs": {
-                      "DateTime.html#toHTTPString": {
-                        "ref": "DateTime.html#toHTTPString",
-                        "tf": 8.333333333333332
-                      }
-                    }
-                  }
-                },
-                "s": {
-                  "docs": {},
-                  "i": {
-                    "docs": {},
-                    "g": {
-                      "docs": {},
-                      "n": {
-                        "docs": {
-                          "StopTime.html": {
-                            "ref": "StopTime.html",
-                            "tf": 1.1111111111111112
-                          },
-                          "StopTime.html#headsign": {
-                            "ref": "StopTime.html#headsign",
-                            "tf": 711.1111111111111
-                          },
-                          "Trip.html": {
-                            "ref": "Trip.html",
-                            "tf": 1.0204081632653061
-                          },
-                          "Trip.html#headsign": {
-                            "ref": "Trip.html#headsign",
-                            "tf": 706.25
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "x": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "d": {
-                  "docs": {},
-                  "e": {
-                    "docs": {},
-                    "c": {
-                      "docs": {},
-                      "i": {
-                        "docs": {},
-                        "m": {
-                          "docs": {
-                            "Route.html#color": {
-                              "ref": "Route.html#color",
-                              "tf": 5
-                            },
-                            "Route.html#textColor": {
-                              "ref": "Route.html#textColor",
-                              "tf": 4.545454545454546
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "l": {
-              "docs": {},
-              "p": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "r": {
-                    "docs": {
-                      "module-utils_calc.html": {
-                        "ref": "module-utils_calc.html",
-                        "tf": 10
-                      }
-                    }
-                  }
-                }
               }
             }
           },
@@ -27058,6 +27719,10 @@ window.lunrData = {
                       "ref": "module-query_routes.html",
                       "tf": 10
                     },
+                    "module-query_shapes.html": {
+                      "ref": "module-query_shapes.html",
+                      "tf": 10
+                    },
                     "module-query_stoptimes.html": {
                       "ref": "module-query_stoptimes.html",
                       "tf": 10
@@ -27241,6 +27906,20 @@ window.lunrData = {
                     },
                     "s": {
                       "docs": {},
+                      "h": {
+                        "docs": {},
+                        "a": {
+                          "docs": {},
+                          "p": {
+                            "docs": {
+                              "module-query_shapes.html": {
+                                "ref": "module-query_shapes.html",
+                                "tf": 600
+                              }
+                            }
+                          }
+                        }
+                      },
                       "t": {
                         "docs": {},
                         "o": {
@@ -27308,26 +27987,6 @@ window.lunrData = {
           },
           "e": {
             "docs": {},
-            "e": {
-              "docs": {},
-              "k": {
-                "docs": {},
-                "d": {
-                  "docs": {},
-                  "a": {
-                    "docs": {},
-                    "y": {
-                      "docs": {
-                        "DateTime.html#getDateDOW": {
-                          "ref": "DateTime.html#getDateDOW",
-                          "tf": 7.142857142857142
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "b": {
               "docs": {
                 "Agency.html#fareUrl": {
@@ -27407,6 +28066,26 @@ window.lunrData = {
                       "Stop.html#.sortByTransferWeight": {
                         "ref": "Stop.html#.sortByTransferWeight",
                         "tf": 10
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "e": {
+              "docs": {},
+              "k": {
+                "docs": {},
+                "d": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "y": {
+                      "docs": {
+                        "DateTime.html#getDateDOW": {
+                          "ref": "DateTime.html#getDateDOW",
+                          "tf": 7.142857142857142
+                        }
                       }
                     }
                   }
@@ -27693,7 +28372,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 2776
+      "length": 2858
     },
     "corpusTokens": [
       "1",
@@ -27943,12 +28622,14 @@ window.lunrData = {
       "gtfs/rout",
       "gtfs/servic",
       "gtfs/serviceexcept",
+      "gtfs/shape",
       "gtfs/stop",
       "gtfs/stoptim",
       "gtfs/trip",
       "gtfs_calendar",
       "gtfs_calendar_d",
       "gtfs_rout",
+      "gtfs_shape",
       "gtfs_stop",
       "gtfs_stop_tim",
       "gtfs_trip",
@@ -28051,6 +28732,7 @@ window.lunrData = {
       "module:gtfs/rout",
       "module:gtfs/servic",
       "module:gtfs/serviceexcept",
+      "module:gtfs/shap",
       "module:gtfs/stop",
       "module:gtfs/stoptim",
       "module:gtfs/trip",
@@ -28062,6 +28744,7 @@ window.lunrData = {
       "module:query/link",
       "module:query/rout",
       "module:query/routegraph",
+      "module:query/shap",
       "module:query/stop",
       "module:query/stoptim",
       "module:query/trip",
@@ -28141,6 +28824,7 @@ window.lunrData = {
       "query/link",
       "query/rout",
       "query/routegraph",
+      "query/shap",
       "query/stop",
       "query/stoptim",
       "query/trip",
@@ -28150,6 +28834,7 @@ window.lunrData = {
       "readm",
       "real",
       "refer",
+      "referenc",
       "regard",
       "regular",
       "relat",
@@ -28264,8 +28949,19 @@ window.lunrData = {
       "sf.stationfeeddepartur",
       "sf.stationfeeddeparturestatu",
       "shape",
+      "shape#id",
+      "shape#shapedisttravel",
+      "shape#shapeptlat",
+      "shape#shapeptlon",
+      "shape#shapeptsequ",
+      "shape'",
+      "shape.sortbysequ",
       "shapedistancetravel",
+      "shapedisttravel",
       "shapeid",
+      "shapeptlat",
+      "shapeptlon",
+      "shapeptsequ",
       "share",
       "short",
       "shortnam",
@@ -29667,216 +30363,76 @@ window.lunrData = {
       "summary": "",
       "description": "Load the Agency's Station Feed for the specified Origin Stop. This function will need to be overridden by the implementing agency."
     },
-    "DateTime.html": {
-      "id": "DateTime.html",
+    "Shape.html": {
+      "id": "Shape.html",
       "kind": "class",
-      "title": "DateTime",
-      "longname": "DateTime",
-      "name": "DateTime",
-      "tags": "DateTime",
+      "title": "Shape",
+      "longname": "Shape",
+      "name": "Shape",
+      "tags": "Shape",
       "summary": "",
-      "description": "Right Track Date Time This class handles the various representations of dates and times used by the GTFS Spec and the Right Track Library and the various transformations between them. Time Formats string hh:mm aa (1:30 PM) | Human Readable Time string HH:mm:ss (13:30:00) | GTFS Time string HH:mm (13:30) string HHmm (1330) int seconds since midnight (7:00 am = 25200) | Time Seconds Date Formats int yyyymmdd (20170930) | Date Integer Module: utils/DateTime",
+      "description": "GTFS Shape Representation of the GTFS Shape data GTFS Required Fields: Shape ID Shape Point Latitude Shape Point Longitude Shape Point Sequence GTFS Optional Fields: Shape Distance Traveled Module: gtfs/Shape",
       "body": ""
     },
-    "DateTime.html#deltaDays": {
-      "id": "DateTime.html#deltaDays",
-      "kind": "function",
-      "title": "deltaDays( delta ) → {DateTime}",
-      "longname": "DateTime#deltaDays",
-      "name": "deltaDays",
-      "tags": "DateTime#deltaDays deltaDays",
+    "Shape.html#id": {
+      "id": "Shape.html#id",
+      "kind": "member",
+      "title": "id :string",
+      "longname": "Shape#id",
+      "name": "id",
+      "tags": "Shape#id id",
       "summary": "",
-      "description": "Add or Subtract the specified number of days to the DateTime's date"
+      "description": "The ID of the Shape (referenced in the gtfs_trips table)"
     },
-    "DateTime.html#deltaMins": {
-      "id": "DateTime.html#deltaMins",
-      "kind": "function",
-      "title": "deltaMins( delta ) → {DateTime}",
-      "longname": "DateTime#deltaMins",
-      "name": "deltaMins",
-      "tags": "DateTime#deltaMins deltaMins",
+    "Shape.html#shapePtLat": {
+      "id": "Shape.html#shapePtLat",
+      "kind": "member",
+      "title": "shapePtLat :number",
+      "longname": "Shape#shapePtLat",
+      "name": "shapePtLat",
+      "tags": "Shape#shapePtLat shapePtLat",
       "summary": "",
-      "description": "Add or Subtract the specified number of minutes to the DateTime's time"
+      "description": "The latitude of a Shape's point"
     },
-    "DateTime.html#getTimeSeconds": {
-      "id": "DateTime.html#getTimeSeconds",
-      "kind": "function",
-      "title": "getTimeSeconds() → {int}",
-      "longname": "DateTime#getTimeSeconds",
-      "name": "getTimeSeconds",
-      "tags": "DateTime#getTimeSeconds getTimeSeconds",
+    "Shape.html#shapePtLon": {
+      "id": "Shape.html#shapePtLon",
+      "kind": "member",
+      "title": "shapePtLon :number",
+      "longname": "Shape#shapePtLon",
+      "name": "shapePtLon",
+      "tags": "Shape#shapePtLon shapePtLon",
       "summary": "",
-      "description": "Get the time in seconds since midnight"
+      "description": "The longitude of a Shape's point"
     },
-    "DateTime.html#getTimeInt": {
-      "id": "DateTime.html#getTimeInt",
-      "kind": "function",
-      "title": "getTimeInt() → {string}",
-      "longname": "DateTime#getTimeInt",
-      "name": "getTimeInt",
-      "tags": "DateTime#getTimeInt getTimeInt",
+    "Shape.html#shapePtSequence": {
+      "id": "Shape.html#shapePtSequence",
+      "kind": "member",
+      "title": "shapePtSequence :int",
+      "longname": "Shape#shapePtSequence",
+      "name": "shapePtSequence",
+      "tags": "Shape#shapePtSequence shapePtSequence",
       "summary": "",
-      "description": "Get the Time in HHmm format"
+      "description": "The sequence of the point along a Shape"
     },
-    "DateTime.html#getTimeGTFS": {
-      "id": "DateTime.html#getTimeGTFS",
-      "kind": "function",
-      "title": "getTimeGTFS() → {string}",
-      "longname": "DateTime#getTimeGTFS",
-      "name": "getTimeGTFS",
-      "tags": "DateTime#getTimeGTFS getTimeGTFS",
+    "Shape.html#shapeDistTraveled": {
+      "id": "Shape.html#shapeDistTraveled",
+      "kind": "member",
+      "title": "shapeDistTraveled :number",
+      "longname": "Shape#shapeDistTraveled",
+      "name": "shapeDistTraveled",
+      "tags": "Shape#shapeDistTraveled shapeDistTraveled",
       "summary": "",
-      "description": "Get the GTFS Spec time representation (HH:mm:ss)"
+      "description": "The distance traveled to the point from the start of the Shape"
     },
-    "DateTime.html#getTimeReadable": {
-      "id": "DateTime.html#getTimeReadable",
+    "Shape.html#.sortBySequence": {
+      "id": "Shape.html#.sortBySequence",
       "kind": "function",
-      "title": "getTimeReadable() → {string}",
-      "longname": "DateTime#getTimeReadable",
-      "name": "getTimeReadable",
-      "tags": "DateTime#getTimeReadable getTimeReadable",
+      "title": "&lt;static&gt; sortBySequence( a, b ) → {number}",
+      "longname": "Shape.sortBySequence",
+      "name": "sortBySequence",
+      "tags": "Shape.sortBySequence sortBySequence",
       "summary": "",
-      "description": "Get the human readable time (12 hr with AM/PM)"
-    },
-    "DateTime.html#isDateSet": {
-      "id": "DateTime.html#isDateSet",
-      "kind": "function",
-      "title": "isDateSet() → {boolean}",
-      "longname": "DateTime#isDateSet",
-      "name": "isDateSet",
-      "tags": "DateTime#isDateSet isDateSet",
-      "summary": "",
-      "description": "Check if the date is set"
-    },
-    "DateTime.html#getDateInt": {
-      "id": "DateTime.html#getDateInt",
-      "kind": "function",
-      "title": "getDateInt() → {int}",
-      "longname": "DateTime#getDateInt",
-      "name": "getDateInt",
-      "tags": "DateTime#getDateInt getDateInt",
-      "summary": "",
-      "description": "Get the integer representation of the date (yyyymmdd)"
-    },
-    "DateTime.html#getDateDOW": {
-      "id": "DateTime.html#getDateDOW",
-      "kind": "function",
-      "title": "getDateDOW() → {string}",
-      "longname": "DateTime#getDateDOW",
-      "name": "getDateDOW",
-      "tags": "DateTime#getDateDOW getDateDOW",
-      "summary": "",
-      "description": "Get the full name of the weekday of the date (monday, tuesday, etc)"
-    },
-    "DateTime.html#getDateReadable": {
-      "id": "DateTime.html#getDateReadable",
-      "kind": "function",
-      "title": "getDateReadable( dow ) → {string}",
-      "longname": "DateTime#getDateReadable",
-      "name": "getDateReadable",
-      "tags": "DateTime#getDateReadable getDateReadable",
-      "summary": "",
-      "description": "Get the human readable date ([Thu, ]Apr 18, 2019)"
-    },
-    "DateTime.html#toMySQLString": {
-      "id": "DateTime.html#toMySQLString",
-      "kind": "function",
-      "title": "toMySQLString() → {string}",
-      "longname": "DateTime#toMySQLString",
-      "name": "toMySQLString",
-      "tags": "DateTime#toMySQLString toMySQLString",
-      "summary": "",
-      "description": "Get a String representation of the DateTime to be used as a MySQL DateTime"
-    },
-    "DateTime.html#toHTTPString": {
-      "id": "DateTime.html#toHTTPString",
-      "kind": "function",
-      "title": "toHTTPString() → {string}",
-      "longname": "DateTime#toHTTPString",
-      "name": "toHTTPString",
-      "tags": "DateTime#toHTTPString toHTTPString",
-      "summary": "",
-      "description": "Get a String representation of the DateTime to be used in HTTP Headers"
-    },
-    "DateTime.html#toTimestamp": {
-      "id": "DateTime.html#toTimestamp",
-      "kind": "function",
-      "title": "toTimestamp() → {number}",
-      "longname": "DateTime#toTimestamp",
-      "name": "toTimestamp",
-      "tags": "DateTime#toTimestamp toTimestamp",
-      "summary": "",
-      "description": "Get a timestamp (in ms) of the DateTime"
-    },
-    "DateTime.html#toString": {
-      "id": "DateTime.html#toString",
-      "kind": "function",
-      "title": "toString() → {string}",
-      "longname": "DateTime#toString",
-      "name": "toString",
-      "tags": "DateTime#toString toString",
-      "summary": "",
-      "description": "Get a String representation of the DateTIme"
-    },
-    "DateTime.html#clone": {
-      "id": "DateTime.html#clone",
-      "kind": "function",
-      "title": "clone() → {DateTime}",
-      "longname": "DateTime#clone",
-      "name": "clone",
-      "tags": "DateTime#clone clone",
-      "summary": "",
-      "description": "Create a new DateTime Object with the properties of this one"
-    },
-    "DateTime.html#.create": {
-      "id": "DateTime.html#.create",
-      "kind": "function",
-      "title": "&lt;static&gt; create( time, date ) → {DateTime}",
-      "longname": "DateTime.create",
-      "name": "create",
-      "tags": "DateTime.create create",
-      "summary": "",
-      "description": "DateTime Factory: with time and date"
-    },
-    "DateTime.html#.now": {
-      "id": "DateTime.html#.now",
-      "kind": "function",
-      "title": "&lt;static&gt; now() → {DateTime}",
-      "longname": "DateTime.now",
-      "name": "now",
-      "tags": "DateTime.now now",
-      "summary": "",
-      "description": "DateTime Factory: date and time of now"
-    },
-    "DateTime.html#.createFromJSDate": {
-      "id": "DateTime.html#.createFromJSDate",
-      "kind": "function",
-      "title": "&lt;static&gt; createFromJSDate( jd )",
-      "longname": "DateTime.createFromJSDate",
-      "name": "createFromJSDate",
-      "tags": "DateTime.createFromJSDate createFromJSDate",
-      "summary": "",
-      "description": "DateTime Factory: with JavaScript Date"
-    },
-    "DateTime.html#.createFromTime": {
-      "id": "DateTime.html#.createFromTime",
-      "kind": "function",
-      "title": "&lt;static&gt; createFromTime( time [, guessDate ] ) → {DateTime}",
-      "longname": "DateTime.createFromTime",
-      "name": "createFromTime",
-      "tags": "DateTime.createFromTime createFromTime",
-      "summary": "",
-      "description": "DateTime Factory: with time"
-    },
-    "DateTime.html#.createFromDate": {
-      "id": "DateTime.html#.createFromDate",
-      "kind": "function",
-      "title": "&lt;static&gt; createFromDate( date ) → {DateTime}",
-      "longname": "DateTime.createFromDate",
-      "name": "createFromDate",
-      "tags": "DateTime.createFromDate createFromDate",
-      "summary": "",
-      "description": "DateTime Factory: with date"
+      "description": "Sort the points of a Shape by their sequence"
     },
     "Agency.html": {
       "id": "Agency.html",
@@ -30370,7 +30926,7 @@ window.lunrData = {
       "name": "Trip",
       "tags": "Trip",
       "summary": "",
-      "description": "GTFS Trip Representation of the GTS Trip definition GTFS Required Fields: Trip ID Route Service List of StopTimes GTFS Optional Fields: Trip Headsign Trip Short Name Trip Direction ID Trip Block ID Trip Shape ID Trip Wheelchair Accessibility Trip Bikes Allowed Right Track Fields: Trip Direction Description Trip Peak Indicator Module: gtfs/Trip",
+      "description": "GTFS Trip Representation of the GTFS Trip definition GTFS Required Fields: Trip ID Route Service List of StopTimes GTFS Optional Fields: Trip Headsign Trip Short Name Trip Direction ID Trip Block ID Trip Shape ID Trip Wheelchair Accessibility Trip Bikes Allowed Right Track Fields: Trip Direction Description Trip Peak Indicator Module: gtfs/Trip",
       "body": ""
     },
     "Trip.html#id": {
@@ -30532,6 +31088,217 @@ window.lunrData = {
       "tags": "Trip.sortByDepartureTime sortByDepartureTime",
       "summary": "",
       "description": "Sort Trips by departure time of the first Stop (or reference Stop, if defined)"
+    },
+    "DateTime.html": {
+      "id": "DateTime.html",
+      "kind": "class",
+      "title": "DateTime",
+      "longname": "DateTime",
+      "name": "DateTime",
+      "tags": "DateTime",
+      "summary": "",
+      "description": "Right Track Date Time This class handles the various representations of dates and times used by the GTFS Spec and the Right Track Library and the various transformations between them. Time Formats string hh:mm aa (1:30 PM) | Human Readable Time string HH:mm:ss (13:30:00) | GTFS Time string HH:mm (13:30) string HHmm (1330) int seconds since midnight (7:00 am = 25200) | Time Seconds Date Formats int yyyymmdd (20170930) | Date Integer Module: utils/DateTime",
+      "body": ""
+    },
+    "DateTime.html#deltaDays": {
+      "id": "DateTime.html#deltaDays",
+      "kind": "function",
+      "title": "deltaDays( delta ) → {DateTime}",
+      "longname": "DateTime#deltaDays",
+      "name": "deltaDays",
+      "tags": "DateTime#deltaDays deltaDays",
+      "summary": "",
+      "description": "Add or Subtract the specified number of days to the DateTime's date"
+    },
+    "DateTime.html#deltaMins": {
+      "id": "DateTime.html#deltaMins",
+      "kind": "function",
+      "title": "deltaMins( delta ) → {DateTime}",
+      "longname": "DateTime#deltaMins",
+      "name": "deltaMins",
+      "tags": "DateTime#deltaMins deltaMins",
+      "summary": "",
+      "description": "Add or Subtract the specified number of minutes to the DateTime's time"
+    },
+    "DateTime.html#getTimeSeconds": {
+      "id": "DateTime.html#getTimeSeconds",
+      "kind": "function",
+      "title": "getTimeSeconds() → {int}",
+      "longname": "DateTime#getTimeSeconds",
+      "name": "getTimeSeconds",
+      "tags": "DateTime#getTimeSeconds getTimeSeconds",
+      "summary": "",
+      "description": "Get the time in seconds since midnight"
+    },
+    "DateTime.html#getTimeInt": {
+      "id": "DateTime.html#getTimeInt",
+      "kind": "function",
+      "title": "getTimeInt() → {string}",
+      "longname": "DateTime#getTimeInt",
+      "name": "getTimeInt",
+      "tags": "DateTime#getTimeInt getTimeInt",
+      "summary": "",
+      "description": "Get the Time in HHmm format"
+    },
+    "DateTime.html#getTimeGTFS": {
+      "id": "DateTime.html#getTimeGTFS",
+      "kind": "function",
+      "title": "getTimeGTFS() → {string}",
+      "longname": "DateTime#getTimeGTFS",
+      "name": "getTimeGTFS",
+      "tags": "DateTime#getTimeGTFS getTimeGTFS",
+      "summary": "",
+      "description": "Get the GTFS Spec time representation (HH:mm:ss)"
+    },
+    "DateTime.html#getTimeReadable": {
+      "id": "DateTime.html#getTimeReadable",
+      "kind": "function",
+      "title": "getTimeReadable() → {string}",
+      "longname": "DateTime#getTimeReadable",
+      "name": "getTimeReadable",
+      "tags": "DateTime#getTimeReadable getTimeReadable",
+      "summary": "",
+      "description": "Get the human readable time (12 hr with AM/PM)"
+    },
+    "DateTime.html#isDateSet": {
+      "id": "DateTime.html#isDateSet",
+      "kind": "function",
+      "title": "isDateSet() → {boolean}",
+      "longname": "DateTime#isDateSet",
+      "name": "isDateSet",
+      "tags": "DateTime#isDateSet isDateSet",
+      "summary": "",
+      "description": "Check if the date is set"
+    },
+    "DateTime.html#getDateInt": {
+      "id": "DateTime.html#getDateInt",
+      "kind": "function",
+      "title": "getDateInt() → {int}",
+      "longname": "DateTime#getDateInt",
+      "name": "getDateInt",
+      "tags": "DateTime#getDateInt getDateInt",
+      "summary": "",
+      "description": "Get the integer representation of the date (yyyymmdd)"
+    },
+    "DateTime.html#getDateDOW": {
+      "id": "DateTime.html#getDateDOW",
+      "kind": "function",
+      "title": "getDateDOW() → {string}",
+      "longname": "DateTime#getDateDOW",
+      "name": "getDateDOW",
+      "tags": "DateTime#getDateDOW getDateDOW",
+      "summary": "",
+      "description": "Get the full name of the weekday of the date (monday, tuesday, etc)"
+    },
+    "DateTime.html#getDateReadable": {
+      "id": "DateTime.html#getDateReadable",
+      "kind": "function",
+      "title": "getDateReadable( dow ) → {string}",
+      "longname": "DateTime#getDateReadable",
+      "name": "getDateReadable",
+      "tags": "DateTime#getDateReadable getDateReadable",
+      "summary": "",
+      "description": "Get the human readable date ([Thu, ]Apr 18, 2019)"
+    },
+    "DateTime.html#toMySQLString": {
+      "id": "DateTime.html#toMySQLString",
+      "kind": "function",
+      "title": "toMySQLString() → {string}",
+      "longname": "DateTime#toMySQLString",
+      "name": "toMySQLString",
+      "tags": "DateTime#toMySQLString toMySQLString",
+      "summary": "",
+      "description": "Get a String representation of the DateTime to be used as a MySQL DateTime"
+    },
+    "DateTime.html#toHTTPString": {
+      "id": "DateTime.html#toHTTPString",
+      "kind": "function",
+      "title": "toHTTPString() → {string}",
+      "longname": "DateTime#toHTTPString",
+      "name": "toHTTPString",
+      "tags": "DateTime#toHTTPString toHTTPString",
+      "summary": "",
+      "description": "Get a String representation of the DateTime to be used in HTTP Headers"
+    },
+    "DateTime.html#toTimestamp": {
+      "id": "DateTime.html#toTimestamp",
+      "kind": "function",
+      "title": "toTimestamp() → {number}",
+      "longname": "DateTime#toTimestamp",
+      "name": "toTimestamp",
+      "tags": "DateTime#toTimestamp toTimestamp",
+      "summary": "",
+      "description": "Get a timestamp (in ms) of the DateTime"
+    },
+    "DateTime.html#toString": {
+      "id": "DateTime.html#toString",
+      "kind": "function",
+      "title": "toString() → {string}",
+      "longname": "DateTime#toString",
+      "name": "toString",
+      "tags": "DateTime#toString toString",
+      "summary": "",
+      "description": "Get a String representation of the DateTIme"
+    },
+    "DateTime.html#clone": {
+      "id": "DateTime.html#clone",
+      "kind": "function",
+      "title": "clone() → {DateTime}",
+      "longname": "DateTime#clone",
+      "name": "clone",
+      "tags": "DateTime#clone clone",
+      "summary": "",
+      "description": "Create a new DateTime Object with the properties of this one"
+    },
+    "DateTime.html#.create": {
+      "id": "DateTime.html#.create",
+      "kind": "function",
+      "title": "&lt;static&gt; create( time, date ) → {DateTime}",
+      "longname": "DateTime.create",
+      "name": "create",
+      "tags": "DateTime.create create",
+      "summary": "",
+      "description": "DateTime Factory: with time and date"
+    },
+    "DateTime.html#.now": {
+      "id": "DateTime.html#.now",
+      "kind": "function",
+      "title": "&lt;static&gt; now() → {DateTime}",
+      "longname": "DateTime.now",
+      "name": "now",
+      "tags": "DateTime.now now",
+      "summary": "",
+      "description": "DateTime Factory: date and time of now"
+    },
+    "DateTime.html#.createFromJSDate": {
+      "id": "DateTime.html#.createFromJSDate",
+      "kind": "function",
+      "title": "&lt;static&gt; createFromJSDate( jd )",
+      "longname": "DateTime.createFromJSDate",
+      "name": "createFromJSDate",
+      "tags": "DateTime.createFromJSDate createFromJSDate",
+      "summary": "",
+      "description": "DateTime Factory: with JavaScript Date"
+    },
+    "DateTime.html#.createFromTime": {
+      "id": "DateTime.html#.createFromTime",
+      "kind": "function",
+      "title": "&lt;static&gt; createFromTime( time [, guessDate ] ) → {DateTime}",
+      "longname": "DateTime.createFromTime",
+      "name": "createFromTime",
+      "tags": "DateTime.createFromTime createFromTime",
+      "summary": "",
+      "description": "DateTime Factory: with time"
+    },
+    "DateTime.html#.createFromDate": {
+      "id": "DateTime.html#.createFromDate",
+      "kind": "function",
+      "title": "&lt;static&gt; createFromDate( date ) → {DateTime}",
+      "longname": "DateTime.createFromDate",
+      "name": "createFromDate",
+      "tags": "DateTime.createFromDate createFromDate",
+      "summary": "",
+      "description": "DateTime Factory: with date"
     },
     "Stop.html": {
       "id": "Stop.html",
@@ -31050,6 +31817,17 @@ window.lunrData = {
       "description": "GTFS ServiceException Class",
       "body": ""
     },
+    "module-gtfs_Shape.html": {
+      "id": "module-gtfs_Shape.html",
+      "kind": "module",
+      "title": "gtfs/Shape",
+      "longname": "module:gtfs/Shape",
+      "name": "gtfs/Shape",
+      "tags": "module:gtfs/Shape",
+      "summary": "",
+      "description": "GTFS Shape Class",
+      "body": ""
+    },
     "module-gtfs_StopTime.html": {
       "id": "module-gtfs_StopTime.html",
       "kind": "module",
@@ -31169,6 +31947,17 @@ window.lunrData = {
       "tags": "module:query/routes",
       "summary": "",
       "description": "Route Query Functions These functions query the gtfs_routes table in the Right Track Database.",
+      "body": ""
+    },
+    "module-query_shapes.html": {
+      "id": "module-query_shapes.html",
+      "kind": "module",
+      "title": "query/shapes",
+      "longname": "module:query/shapes",
+      "name": "query/shapes",
+      "tags": "module:query/shapes",
+      "summary": "",
+      "description": "Shape Query Functions These functions query the gtfs_shapes table in the Right Track Database.",
       "body": ""
     },
     "module-query_stoptimes.html": {
@@ -31314,17 +32103,6 @@ window.lunrData = {
       "description": "Trip Search Classes and Functions These classes and functions are used to query the Right Track Database for trips between origin and destination Stops",
       "body": ""
     },
-    "module-utils_DateTime.html": {
-      "id": "module-utils_DateTime.html",
-      "kind": "module",
-      "title": "utils/DateTime",
-      "longname": "module:utils/DateTime",
-      "name": "utils/DateTime",
-      "tags": "module:utils/DateTime",
-      "summary": "",
-      "description": "DateTime Class",
-      "body": ""
-    },
     "module-utils_calc.html": {
       "id": "module-utils_calc.html",
       "kind": "module",
@@ -31411,6 +32189,17 @@ window.lunrData = {
       "tags": "module:rt/Favorite",
       "summary": "",
       "description": "Right Track Favorite Class",
+      "body": ""
+    },
+    "module-utils_DateTime.html": {
+      "id": "module-utils_DateTime.html",
+      "kind": "module",
+      "title": "utils/DateTime",
+      "longname": "module:utils/DateTime",
+      "name": "utils/DateTime",
+      "tags": "module:utils/DateTime",
+      "summary": "",
+      "description": "DateTime Class",
       "body": ""
     }
   }

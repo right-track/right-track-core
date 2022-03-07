@@ -1,9 +1,10 @@
+<!-- start:source.tmpl.hbs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>query/holiday</title>
+		<title>query/ShapesTable.js</title>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -41,7 +42,7 @@
 			</style>
 		<script type="text/javascript">
 			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"YYYY-MM-DD","systemName":"Right Track Core","systemSummary":"The core library for the Right Track projects","systemLogo":"","systemColor":"#00897B","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"Source Code for Right Track available at <a href='https://github.com/right-track'>GitHub/right-track</a>","copyright":"Copyright &copy; 2021 David Waring and Right Track Contributors","linenums":true,"collapseSymbols":false,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false};
-			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_TOC_ENABLED = false;
 			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
 </head>
@@ -160,361 +161,301 @@
 	</header>
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
-				<span class="kind">module</span>
-				<h1><span class="name">query/holiday</span></h1>
+				<span class="kind">source</span>
+				<h1><span class="name">query/ShapesTable.js</span></h1>
 			</div>
 		</div>
 	<div class="container content">
 		<div class="row">
-			<div class="col-md-9 main-content">
-						<ol class="breadcrumb">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="list_module.html">Modules</a></li>
-							<li class="active">query/holiday</li>
-						</ol>
-					<section>
-		<dl class="symbol">
-			<dt class="symbol-title "></dt>
-			<dd class="symbol-details ">
-				<div class="symbol-details-inner">
-					<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><h3>Holiday Query Functions</h3>
-					<p>These functions query the <code>rt_holidays</code> table in the Right Track Database.</p></div>
-					</div>					<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-									<!-- source -->
-									<div class="form-group">
-										<label class="col-sm-3 control-label">Source</label>
-										<div class="col-sm-9">
-											<p class="form-control-static"><a href="query_HolidayTable.js.html">query/HolidayTable.js</a>, <a href="query_HolidayTable.js.html#line-3">line 3</a></p>
-										</div>
-									</div>
-					
-					
-					
-					
-							</form>
-					</div>				</div>
-			</dd>
-		</dl>
-							<article class="secondary">
-									<h3>Methods</h3>
-									<dl class="symbol">
-											<hr/>
-											<dt class="symbol-title function public">
-			<h4 id="~getHolidays" class="function public"><span class="signature-attribs">&lt;inner> </span><span class="name">getHolidays</span><span class="signature-params">( <span class="signature-param">db</span>, <span class="signature-param">callback</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Get a list of Holidays that are stored in the specified
-			database.</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>db</code></td>
-							<td><span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span></td>
-							<td class="last">
-									<p>The Right Track DB to query</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>callback</code></td>
-							<td><span class="param-type">function</span></td>
-							<td class="last">
-									<p>Callback function</p>
-										<table class="params table table-striped">
-											<thead>
-											<tr>
-													<th>Name</th>
-												<th>Type</th>
-													<th>Attributes</th>
-												<th class="last">Description</th>
-											</tr>
-											</thead>
-											<tbody>
-												<tr>
-														<td><code>error</code></td>
-													<td><span class="param-type">Error</span></td>
-														<td class="attributes"></td>
-													<td class="last">
-															<p>Database Query Error</p>
-													</td>
-												</tr>
-												<tr>
-														<td><code>holidays</code></td>
-													<td><span class="param-type">Array.&lt;<a href="Holiday.html">Holiday</a>></span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-													<td class="last">
-															<p>The selected Holidays</p>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">'use strict';
+
+/**
+ * ### Shape Query Functions
+ * These functions query the `gtfs_shapes` table in the Right Track Database.
+ * @module query/shapes
+ */
+
+const cache = require('memory-cache');
+const Shape = require('../gtfs/Shape.js');
+const Route = require('../gtfs/Route.js');
+const Agency = require('../gtfs/Agency.js');
+
+
+// ==== QUERY FUNCTIONS ==== //
+
+/**
+ * Get all of the Shape's Points for the specified Shape ID
+ * @param {RightTrackDB} db The Right Track DB to query
+ * @param {string} id Shape ID
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Shape[]} callback.shapes The Shape's Points for the specified Shape ID
+ */
+let getShape = function(db, id, callback) {
+
+  // Check cache for shape
+  let cacheKey = db.id + "-" + id;
+  let cache = cache_shapesById.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
+
+  // Query the DB
+  let select = "SELECT shape_id, shape_pt_lat, shape_pt_lon, shape_pt_sequence, shape_dist_traveled FROM gtfs_shapes WHERE shape_id = '" + id + "';";
+  db.select(select, function(err, results) {
+
+    // Database Query Error
+    if ( err ) {
+      return callback(err);
+    }
+
+    // Build the Shapes
+    let rtn = [];
+    for ( let i = 0; i &lt; results.length; i++ ) {
+      let row = results[i];
+      let shape = new Shape(
+        row.shape_id,
+        row.shape_pt_lat,
+        row.shape_pt_lon,
+        row.shape_pt_sequence,
+        {
+          shapeDistTraveled: row.shape_dist_traveled
+        }
+      );
+      rtn.push(shape);
+    }
+
+    // Sort the Shapes
+    rtn.sort(Shape.sortBySequence);
+
+    // Return results
+    cache_shapesById.put(cacheKey, rtn);
+    return callback(null, rtn);
+
+  });
+
+}
+
+
+/**
+ * Get all of the Points grouped by Shape from the database
+ * @param {RightTrackDB} db The Right Track DB to query
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Shape[][]} callback.shapes A 2D-Array of Shape Points
+ */
+let getShapes = function(db, callback) {
+  
+  // Check cache for shapes
+  let cacheKey = db.id + "-shapes";
+  let cache = cache_shapes.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
+
+  // Set counters and return shapes
+  let count = 0;
+  let done = 1;
+  let rtn = [];
+
+  // Get the Shape IDs
+  let select = "SELECT DISTINCT(shape_id) FROM gtfs_trips WHERE shape_id IS NOT NULL AND shape_id &lt;> '' ORDER BY shape_id ASC;";
+  db.select(select, function(err, results) {
+    if ( err ) {
+      return callback(err);
+    }
+
+    // No shapes found
+    if ( results.length === 0 ) {
+      return callback(null, rtn);
+    }
+
+    // Get each Shape
+    done = results.length;
+    for ( let i = 0; i &lt; results.length; i++ ) {
+      let row = results[i];
+      getShape(db, row.shape_id, _finish);
+    }
+  });
+
+
+  // Return to th main callback once all queries are done
+  function _finish(err, shape) {
+    if ( err ) {
+      return callback();
+    }
+    else {
+      count++;
+      rtn.push(shape);
+      if ( count >= done ) {
+        cache_shapes.put(cacheKey, rtn);
+        return callback(null, rtn);
+      }
+    }
+  }
+}
+
+
+/**
+ * Get the details of the Route(s) that correspond to the specified 
+ * Shape (or all of the Shapes)
+ * @param {RightTrackDB} db The Right Track DB to query
+ * @param {string} [id] Shape ID
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Object|Route[]} callback.routes Routes associated with each Shape
+ */
+let getShapeRoutes = function(db, id, callback) {
+  if ( !callback &amp;&amp; typeof id === 'function' ) {
+    callback = id;
+    id = undefined;
+  }
+
+  // Check cache for routes
+  let cacheKey = db.id + "-" + id + "-routes";
+  let cache = cache_shapeRoutes.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
+
+  // Build query
+  let select = "SELECT shape_id, ";
+	select += "gtfs_routes.route_id, route_short_name, route_long_name, route_desc, route_type, route_url, route_color, route_text_color, ";
+	select += "gtfs_agency.agency_id, agency_name, agency_url, agency_timezone, agency_lang, agency_phone, agency_fare_url";
+  select += " FROM gtfs_trips";
+  select += " LEFT JOIN gtfs_routes USING (route_id)";
+  select += " LEFT JOIN gtfs_agency USING (agency_id)";
+  select += " WHERE shape_id IS NOT NULL AND shape_id &lt;> ''";
+  if ( id ) select += " AND shape_id = '" + id + "'";
+  select += " GROUP BY shape_id, route_id;";
+
+  // Get the route details for the shape(s)
+  db.select(select, function(err, rows) {
+    if ( err ) {
+      return callback(err);
+    }
+
+    // Build response
+    let rtn = {};
+    for ( let i = 0; i &lt; rows.length; i++ ) {
+      let row = rows[i];
+      let shape_id = row.shape_id;
+      
+      // Create Agency
+      let agency = new Agency(
+        row.agency_name,
+        row.agency_url,
+        row.agency_timezone,
+        {
+          id: row.agency_id,
+          lang: row.agency_lang,
+          phone: row.agency_phone,
+          fareUrl: row.agency_fare_url
+        }
+      );
+      
+      // Create Route
+      let route = new Route(
+        row.route_id,
+        row.route_short_name,
+        row.route_long_name,
+        row.route_type,
+        {
+          agency: agency,
+          description: row.route_desc,
+          url: row.route_url,
+          color: row.route_color,
+          textColor: row.route_text_color
+        }
+      );
+
+      // Add Route to return
+      if ( rtn.hasOwnProperty(shape_id) ) {
+        rtn[shape_id].push(route);
+      }
+      else {
+        rtn[shape_id] = [route];
+      }
+    }
+
+    // Return the Routes
+    return callback(null, id ? rtn[id] : rtn);
+  });
+}
+
+
+/**
+ * Get the coordinates of the center of the specified Shape (or all of the Shapes)
+ * @param {RightTrackDB} db The Right Track DB to query
+ * @param {string} [id] The Shape ID 
+ * @param {function} callback Callback function
+ * @param {Error} callback.error Database Query Error
+ * @param {Object} callback.center The coordinates of the Shape's center
+ * @param {number} callback.center.lat The latitiude of the Shape's center
+ * @param {number} callback.center.lon The longitude of the Shape's center
+ */
+let getShapeCenter = function(db, id, callback) {
+  if ( !callback &amp;&amp; typeof id === 'function' ) {
+    callback = id;
+    id = undefined;
+  }
+
+  // Check cache for shapes
+  let cacheKey = db.id + "-" + id + "-center";
+  let cache = cache_shapeCenter.get(cacheKey);
+  if ( cache !== null ) {
+    return callback(null, cache);
+  }
+
+  // Get the average lat and lon
+  let select = "SELECT AVG(shape_pt_lat) AS avg_lat, AVG(shape_pt_lon) AS avg_lon FROM gtfs_shapes";
+  if ( id ) {
+    select += " WHERE shape_id = '" + id + "'";
+  }
+  db.get(select, function(err, row) {
+    let rtn = {
+      lat: row &amp;&amp; row.avg_lat ? row.avg_lat : 0,
+      lon: row &amp;&amp; row.avg_lon ? row.avg_lon : 0
+    };
+    cache_shapeCenter.put(cacheKey, rtn);
+    return callback(err, rtn);
+  });
+}
+
+
+// ==== SETUP CACHES ==== //
+let cache_shapesById = new cache.Cache();
+let cache_shapes = new cache.Cache();
+let cache_shapeRoutes = new cache.Cache();
+let cache_shapeCenter = new cache.Cache();
+
+/**
+ * Clear the ShapesTable caches
+ * @private
+ */
+function clearCache() {
+  cache_shapesById.clear();
+  cache_shapes.clear();
+  cache_shapeRoutes.clear();
+  cache_shapeCenter.clear();
+}
+
+
+
+// Export Functions
+module.exports = {
+  getShape: getShape,
+  getShapes: getShapes,
+  getShapeRoutes: getShapeRoutes,
+  getShapeCenter: getShapeCenter,
+  clearCache: clearCache
+}
+</code></pre>
+		</section>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="query_HolidayTable.js.html">query/HolidayTable.js</a>, <a href="query_HolidayTable.js.html#line-24">line 24</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public">
-			<h4 id="~getHoliday" class="function public"><span class="signature-attribs">&lt;inner> </span><span class="name">getHoliday</span><span class="signature-params">( <span class="signature-param">db</span>, <span class="signature-param">date</span>, <span class="signature-param">callback</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Get the Holiday for the specified date or 'undefined' if
-			there is no holiday on the date</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>db</code></td>
-							<td><span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span></td>
-							<td class="last">
-									<p>The Right Track DB to query</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>date</code></td>
-							<td><span class="param-type">int</span></td>
-							<td class="last">
-									<p>the date (yyyymmdd)</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>callback</code></td>
-							<td><span class="param-type">function</span></td>
-							<td class="last">
-									<p>Callback function</p>
-										<table class="params table table-striped">
-											<thead>
-											<tr>
-													<th>Name</th>
-												<th>Type</th>
-													<th>Attributes</th>
-												<th class="last">Description</th>
-											</tr>
-											</thead>
-											<tbody>
-												<tr>
-														<td><code>error</code></td>
-													<td><span class="param-type">Error</span></td>
-														<td class="attributes"></td>
-													<td class="last">
-															<p>Database Query Error</p>
-													</td>
-												</tr>
-												<tr>
-														<td><code>holiday</code></td>
-													<td><span class="param-type"><a href="Holiday.html">Holiday</a></span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-													<td class="last">
-															<p>The selected Holiday</p>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="query_HolidayTable.js.html">query/HolidayTable.js</a>, <a href="query_HolidayTable.js.html#line-84">line 84</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public">
-			<h4 id="~isHoliday" class="function public"><span class="signature-attribs">&lt;inner> </span><span class="name">isHoliday</span><span class="signature-params">( <span class="signature-param">db</span>, <span class="signature-param">date</span>, <span class="signature-param">callback</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Check if the specified date is a Holiday</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>db</code></td>
-							<td><span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span></td>
-							<td class="last">
-									<p>The Right Track DB to query</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>date</code></td>
-							<td><span class="param-type">int</span></td>
-							<td class="last">
-									<p>The date to check (yyyymmdd)</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>callback</code></td>
-							<td><span class="param-type">function</span></td>
-							<td class="last">
-									<p>Callback function</p>
-										<table class="params table table-striped">
-											<thead>
-											<tr>
-													<th>Name</th>
-												<th>Type</th>
-													<th>Attributes</th>
-												<th class="last">Description</th>
-											</tr>
-											</thead>
-											<tbody>
-												<tr>
-														<td><code>error</code></td>
-													<td><span class="param-type">Error</span></td>
-														<td class="attributes"></td>
-													<td class="last">
-															<p>Database Query Error</p>
-													</td>
-												</tr>
-												<tr>
-														<td><code>isHoliday</code></td>
-													<td><span class="param-type">boolean</span></td>
-														<td class="attributes">&lt;optional&gt;<br/></td>
-													<td class="last">
-															<p>True if the specified date is a Holiday</p>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="query_HolidayTable.js.html">query/HolidayTable.js</a>, <a href="query_HolidayTable.js.html#line-141">line 141</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-									</dl>
-							</article>
-					</section>
-			</div>
-				<div class="col-md-3 side-content">
-					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
-				</div>
 		</div>
 	</div>
 	<footer>
@@ -547,3 +488,4 @@
 	
 </body>
 </html>
+<!-- end:source.tmpl.hbs -->
