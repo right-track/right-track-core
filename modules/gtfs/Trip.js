@@ -12,7 +12,7 @@ const StopTime = require('./StopTime.js');
 /**
  * GTFS Trip
  * ---------
- * Representation of the GTS Trip definition
+ * Representation of the GTFS Trip definition
  *
  * GTFS Required Fields:
  * - Trip ID

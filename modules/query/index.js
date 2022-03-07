@@ -22,6 +22,7 @@ function clearCache() {
   require('./StopsTable.js').clearCache();
   require('./StopTimesTable.js').clearCache();
   require('./TripsTable.js').clearCache();
+  require('./ShapesTable.js').clearCache();
 }
 
 
@@ -74,6 +75,11 @@ module.exports = {
    * @see module:query/trips
    */
   trips: require('./TripsTable.js'),
+
+  /**
+   * Quuery gtfs_shapes table
+   */
+  shapes: require('./ShapesTable.js'),
 
   /**
    * Query rt_route_graph table

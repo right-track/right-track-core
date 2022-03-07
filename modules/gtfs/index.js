@@ -48,5 +48,12 @@ module.exports = {
    * GTFS Trip Class
    * @see Trip
    */
-  Trip: require('./Trip.js')
+  Trip: require('./Trip.js'),
+
+  /**
+   * GTFS Shape Class
+   * @see Shape
+   */
+  Shape: require('./Shape.js')
+
 };
