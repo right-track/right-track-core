@@ -183,6 +183,35 @@ class RightTrackAgency {
     return callback(new Error("4051|Station Feed Not Supported|This agency (" + this.config.name + ") does not support real-time Station Feeds"));
   }
 
+  /**
+   * Check if the Agency supports real-time Vehicle Feeds.
+   * 
+   * This will return false by default unless the implementing agency overrides
+   * the function to indicate support for Vehicle Feeds.
+   * @returns {boolean} true if the agency has implemented Vehicle Feeds
+   * @abstract
+   */
+  isVehicleFeedSupported() {
+    return false;
+  }
+
+  /**
+   * Load all of the Agency's Vehicle Feeds.
+   * 
+   * This function will need to be overridden by the implementing agency.
+   * @param {RightTrackDB} db The Right Track DB to query
+   * @param {function} callback Callback function
+   * @param {Error} callback.error Vehicle Feed Error.  The Error's message will be
+   * a pipe (`|`) separated string in the format of: `Error Code|Error Type|Error Message`
+   * that will be parsed out by the **Right Track API Server** into a more specific
+   * error Response.
+   * @param {VehicleFeed[]} [callback.feeds] An array of `VehicleFeed`s for the Agency
+   * @abstract
+   */
+  loadVehicleFeeds(db, callback) {
+    return callback(new Error("4053|Vehicle Feeds Not Supported|This agency (" + this.config.name + ") does not support real-time vehicle feeds"));
+  }
+
 }
 
 

@@ -30,6 +30,13 @@
   StationFeed: require('./RightTrackAgency/StationFeed'),
 
   /**
+   * Right Track Agency Vehicle Feed Classes
+   * @see VehicleFeed
+   * @see VehicleFeedPosition
+   */
+  VehicleFeed: require('./RightTrackAgency/VehicleFeed'),
+
+  /**
    * Right Track Transit Agency Abstract Class
    * @see RightTrackTransitAgency
    */
