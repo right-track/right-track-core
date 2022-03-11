@@ -1,9 +1,10 @@
+<!-- start:source.tmpl.hbs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>search/TripSearch</title>
+		<title>classes/RightTrackAgency/VehicleFeed/VehicleFeed.js</title>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -41,7 +42,7 @@
 			</style>
 		<script type="text/javascript">
 			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"YYYY-MM-DD","systemName":"Right Track Core","systemSummary":"The core library for the Right Track projects","systemLogo":"","systemColor":"#00897B","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"Source Code for Right Track available at <a href='https://github.com/right-track'>GitHub/right-track</a>","copyright":"Copyright &copy; 2021 David Waring and Right Track Contributors","linenums":true,"collapseSymbols":false,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false};
-			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_TOC_ENABLED = false;
 			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
 </head>
@@ -162,69 +163,81 @@
 	</header>
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
-				<span class="kind">module</span>
-				<h1><span class="name">search/TripSearch</span></h1>
+				<span class="kind">source</span>
+				<h1><span class="name">classes/RightTrackAgency/VehicleFeed/VehicleFeed.js</span></h1>
 			</div>
 		</div>
 	<div class="container content">
 		<div class="row">
-			<div class="col-md-9 main-content">
-						<ol class="breadcrumb">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="list_module.html">Modules</a></li>
-							<li class="active">search/TripSearch</li>
-						</ol>
-					<section>
-		<dl class="symbol">
-			<dt class="symbol-title "></dt>
-			<dd class="symbol-details ">
-				<div class="symbol-details-inner">
-					<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Trip Search Class</p></div>
-					</div>					<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-									<!-- source -->
-									<div class="form-group">
-										<label class="col-sm-3 control-label">Source</label>
-										<div class="col-sm-9">
-											<p class="form-control-static"><a href="search_TripSearch.js.html">search/TripSearch.js</a>, <a href="search_TripSearch.js.html#line-3">line 3</a></p>
-										</div>
-									</div>
-					
-					
-									<!-- see -->
-									<div class="form-group">
-										<label class="col-sm-3 control-label">See</label>
-										<div class="col-sm-9">
-												<p class="form-control-static"><a href="TripSearch.html">TripSearch</a></p>
-										</div>
-									</div>
-					
-					
-							</form>
-					</div>				</div>
-			</dd>
-		</dl>
-							<article class="secondary">
-							</article>
-					</section>
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">'use strict';
+
+/**
+ * Vehicle Feed
+ * ----------------
+ * Information about the real-time postions of a vehicle
+ * 
+ * To access this Class directly:
+ * ```javascript
+ * const core = require('right-track-core');
+ * const VF = core.classes.VehicleFeed;
+ * const VehicleFeed = VP.VehicleFeed;
+ * ```
+ * 
+ * @class
+ * @alias VehicleFeed
+ */
+
+class VehicleFeed {
+
+    /**
+     * Vehicle Feed Constructor
+     * @constructor
+     * @param {string} id The ID of the vehicle
+     * @param {VehicleFeedPosition} position The most recent position of the vehicle
+     * @param {Object} [properties] Additional properties of the vehicle
+     * @param {StopTime[]} [properties.stops] List of remaining Stops with arrival/departure times made by the vehicle
+     * @param {Trip} [properties.trip] The Trip the vehicle is operating
+     */
+    constructor(id, position, properties) {
+
+        /**
+         * The ID of the Vehicle
+         * @type {string}
+         */
+        this.id = id;
+
+        /**
+         * The most-recent position of the Vehicle
+         * @type {VehicleFeedPosition}
+         */
+        this.position = position;
+
+        /**
+         * List of remaining stops mabe by the vehicle, along with 
+         * the departure time(s) from the stop(s)
+         * @type {VehicleFeedStop[]}
+         * @optional
+         */
+        this.stops = properties?.stops;
+
+        /**
+         * The Trip the vehicle is operating
+         * @type {Trip}
+         * @optional
+         */
+         this.trip = properties?.trip;
+
+    }
+
+}
+
+
+module.exports = VehicleFeed;</code></pre>
+		</section>
 			</div>
-				<div class="col-md-3 side-content">
-					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
-				</div>
 		</div>
 	</div>
 	<footer>
@@ -257,3 +270,4 @@
 	
 </body>
 </html>
+<!-- end:source.tmpl.hbs -->

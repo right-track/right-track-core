@@ -434,6 +434,153 @@ window.lunrData = {
           "track",
           "typedef"
         ],
+        "VehicleFeed.html": [
+          "access",
+          "class",
+          "const",
+          "core",
+          "core.classes.vehiclefe",
+          "directli",
+          "feed",
+          "inform",
+          "postion",
+          "real",
+          "require('right",
+          "time",
+          "track",
+          "vehicl",
+          "vehiclefe",
+          "vf",
+          "vp.vehiclefe"
+        ],
+        "VehicleFeed.html#id": [
+          "id",
+          "member",
+          "string",
+          "vehicl",
+          "vehiclefeed#id"
+        ],
+        "VehicleFeed.html#position": [
+          "member",
+          "posit",
+          "recent",
+          "vehicl",
+          "vehiclefeed#posit",
+          "vehiclefeedposit"
+        ],
+        "VehicleFeed.html#stops": [
+          "along",
+          "array.&lt;vehiclefeedstop&gt",
+          "departur",
+          "list",
+          "mabe",
+          "member",
+          "remain",
+          "stop",
+          "stop(",
+          "time(",
+          "vehicl",
+          "vehiclefeed#stop"
+        ],
+        "VehicleFeed.html#trip": [
+          "member",
+          "oper",
+          "trip",
+          "vehicl",
+          "vehiclefeed#trip"
+        ],
+        "VehicleFeedPosition.html": [
+          "access",
+          "class",
+          "const",
+          "core",
+          "core.classes.vehiclefe",
+          "directli",
+          "feed",
+          "inform",
+          "posit",
+          "real",
+          "require('right",
+          "specif",
+          "time",
+          "track",
+          "us",
+          "vehicl",
+          "vehiclefe",
+          "vehiclefeedposit",
+          "vf",
+          "vf.vehiclefeedposit"
+        ],
+        "VehicleFeedPosition.html#lat": [
+          "lat",
+          "latitud",
+          "member",
+          "number",
+          "recent",
+          "vehicl",
+          "vehiclefeedposition#lat"
+        ],
+        "VehicleFeedPosition.html#lon": [
+          "lon",
+          "longitud",
+          "member",
+          "number",
+          "recent",
+          "vehicl",
+          "vehiclefeedposition#lon"
+        ],
+        "VehicleFeedPosition.html#updated": [
+          "date/tim",
+          "datetim",
+          "last",
+          "member",
+          "posit",
+          "updat",
+          "vehiclefeedposition#upd"
+        ],
+        "VehicleFeedPosition.html#bearing": [
+          "bear",
+          "member",
+          "number",
+          "recent",
+          "vehicl",
+          "vehiclefeedposition#bear"
+        ],
+        "VehicleFeedPosition.html#speed": [
+          "m/",
+          "member",
+          "number",
+          "recent",
+          "speed",
+          "vehicl",
+          "vehiclefeedposition#spe"
+        ],
+        "VehicleFeedPosition.html#status": [
+          "current",
+          "member",
+          "statu",
+          "vehicl",
+          "vehiclefeedposition#statu",
+          "vehiclefeedposition.vehiclestatu"
+        ],
+        "VehicleFeedPosition.html#stop": [
+          "member",
+          "referenc",
+          "statu",
+          "stop",
+          "vehiclefeedposition#stop"
+        ],
+        "VehicleFeedPosition.html#.VehicleStatus": [
+          "current",
+          "lt;static",
+          "member",
+          "readonly&gt",
+          "statu",
+          "string",
+          "vehicl",
+          "vehiclefeedposition.vehiclestatu",
+          "vehiclestatu"
+        ],
         "TripSearchResultTransfer.html": [
           "arriv",
           "between",
@@ -1327,6 +1474,43 @@ window.lunrData = {
           "specifi",
           "station",
           "stop"
+        ],
+        "RightTrackAgency.html#isVehicleFeedSupported": [
+          "agenc",
+          "boolean",
+          "check",
+          "default",
+          "fals",
+          "feed",
+          "function",
+          "implement",
+          "indic",
+          "isvehiclefeedsupport",
+          "lt;abstract&gt",
+          "overrid",
+          "real",
+          "return",
+          "righttrackagency#isvehiclefeedsupport",
+          "support",
+          "time",
+          "unless",
+          "vehicl"
+        ],
+        "RightTrackAgency.html#loadVehicleFeeds": [
+          "agenc",
+          "agency'",
+          "callback",
+          "db",
+          "feed",
+          "function",
+          "implement",
+          "load",
+          "loadvehiclefe",
+          "lt;abstract&gt",
+          "need",
+          "overridden",
+          "righttrackagency#loadvehiclefe",
+          "vehicl"
         ],
         "Shape.html": [
           "class",
@@ -3484,7 +3668,7 @@ window.lunrData = {
           "utils/datetim"
         ]
       },
-      "length": 293
+      "length": 309
     },
     "tokenStore": {
       "root": {
@@ -3701,6 +3885,14 @@ window.lunrData = {
                     "ref": "StationFeedDepartureStatus.html",
                     "tf": 3.7037037037037033
                   },
+                  "VehicleFeed.html": {
+                    "ref": "VehicleFeed.html",
+                    "tf": 4.761904761904762
+                  },
+                  "VehicleFeedPosition.html": {
+                    "ref": "VehicleFeedPosition.html",
+                    "tf": 3.8461538461538463
+                  },
                   "module-_.html": {
                     "ref": "module-_.html",
                     "tf": 4.545454545454546
@@ -3753,6 +3945,42 @@ window.lunrData = {
                                                       "StationFeedDepartureStatus.html": {
                                                         "ref": "StationFeedDepartureStatus.html",
                                                         "tf": 1.8518518518518516
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "v": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "h": {
+                                        "docs": {},
+                                        "i": {
+                                          "docs": {},
+                                          "c": {
+                                            "docs": {},
+                                            "l": {
+                                              "docs": {},
+                                              "e": {
+                                                "docs": {},
+                                                "f": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {
+                                                      "VehicleFeed.html": {
+                                                        "ref": "VehicleFeed.html",
+                                                        "tf": 2.380952380952381
+                                                      },
+                                                      "VehicleFeedPosition.html": {
+                                                        "ref": "VehicleFeedPosition.html",
+                                                        "tf": 1.9230769230769231
                                                       }
                                                     }
                                                   }
@@ -3866,6 +4094,14 @@ window.lunrData = {
                     "StationFeedDepartureStatus.html": {
                       "ref": "StationFeedDepartureStatus.html",
                       "tf": 5.555555555555555
+                    },
+                    "VehicleFeed.html": {
+                      "ref": "VehicleFeed.html",
+                      "tf": 7.142857142857142
+                    },
+                    "VehicleFeedPosition.html": {
+                      "ref": "VehicleFeedPosition.html",
+                      "tf": 5.769230769230769
                     }
                   },
                   "r": {
@@ -4198,6 +4434,14 @@ window.lunrData = {
                     "StationFeedDepartureStatus.html": {
                       "ref": "StationFeedDepartureStatus.html",
                       "tf": 113.70370370370371
+                    },
+                    "VehicleFeed.html": {
+                      "ref": "VehicleFeed.html",
+                      "tf": 112.38095238095238
+                    },
+                    "VehicleFeedPosition.html": {
+                      "ref": "VehicleFeedPosition.html",
+                      "tf": 113.84615384615384
                     },
                     "TripSearchResultTransfer.html": {
                       "ref": "TripSearchResultTransfer.html",
@@ -4545,6 +4789,10 @@ window.lunrData = {
                       "ref": "RightTrackAgency.html#isFeedSupported",
                       "tf": 2.631578947368421
                     },
+                    "RightTrackAgency.html#isVehicleFeedSupported": {
+                      "ref": "RightTrackAgency.html#isVehicleFeedSupported",
+                      "tf": 2.631578947368421
+                    },
                     "Trip.html#hasStopTime": {
                       "ref": "Trip.html#hasStopTime",
                       "tf": 7.142857142857142
@@ -4578,6 +4826,54 @@ window.lunrData = {
                     "StopTime.html#headsign": {
                       "ref": "StopTime.html#headsign",
                       "tf": 5.555555555555555
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "u": {
+            "docs": {},
+            "r": {
+              "docs": {},
+              "r": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "t": {
+                      "docs": {
+                        "VehicleFeedPosition.html#status": {
+                          "ref": "VehicleFeedPosition.html#status",
+                          "tf": 16.666666666666664
+                        },
+                        "VehicleFeedPosition.html#.VehicleStatus": {
+                          "ref": "VehicleFeedPosition.html#.VehicleStatus",
+                          "tf": 16.666666666666664
+                        },
+                        "Favorite.html": {
+                          "ref": "Favorite.html",
+                          "tf": 1.2195121951219512
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "s": {
+              "docs": {},
+              "t": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "m": {
+                    "docs": {
+                      "module-rt.html": {
+                        "ref": "module-rt.html",
+                        "tf": 4.545454545454546
+                      }
                     }
                   }
                 }
@@ -4644,6 +4940,10 @@ window.lunrData = {
                           "RightTrackAgency.html#loadFeed": {
                             "ref": "RightTrackAgency.html#loadFeed",
                             "tf": 20
+                          },
+                          "RightTrackAgency.html#loadVehicleFeeds": {
+                            "ref": "RightTrackAgency.html#loadVehicleFeeds",
+                            "tf": 25
                           },
                           "RightTrackDB.html": {
                             "ref": "RightTrackDB.html",
@@ -4845,46 +5145,6 @@ window.lunrData = {
                 }
               }
             }
-          },
-          "u": {
-            "docs": {},
-            "r": {
-              "docs": {},
-              "r": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "n": {
-                    "docs": {},
-                    "t": {
-                      "docs": {
-                        "Favorite.html": {
-                          "ref": "Favorite.html",
-                          "tf": 1.2195121951219512
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "s": {
-              "docs": {},
-              "t": {
-                "docs": {},
-                "o": {
-                  "docs": {},
-                  "m": {
-                    "docs": {
-                      "module-rt.html": {
-                        "ref": "module-rt.html",
-                        "tf": 4.545454545454546
-                      }
-                    }
-                  }
-                }
-              }
-            }
           }
         },
         "i": {
@@ -4914,6 +5174,10 @@ window.lunrData = {
                     },
                     "RightTrackAgency.html#isFeedSupported": {
                       "ref": "RightTrackAgency.html#isFeedSupported",
+                      "tf": 2.631578947368421
+                    },
+                    "RightTrackAgency.html#isVehicleFeedSupported": {
+                      "ref": "RightTrackAgency.html#isVehicleFeedSupported",
                       "tf": 2.631578947368421
                     },
                     "Service.html#monday": {
@@ -5036,6 +5300,14 @@ window.lunrData = {
                       "StationFeedDepartureStatus.html": {
                         "ref": "StationFeedDepartureStatus.html",
                         "tf": 1.8518518518518516
+                      },
+                      "VehicleFeed.html": {
+                        "ref": "VehicleFeed.html",
+                        "tf": 2.380952380952381
+                      },
+                      "VehicleFeedPosition.html": {
+                        "ref": "VehicleFeedPosition.html",
+                        "tf": 1.9230769230769231
                       },
                       "TripSearchResultTransfer.html": {
                         "ref": "TripSearchResultTransfer.html",
@@ -5302,6 +5574,10 @@ window.lunrData = {
           },
           "d": {
             "docs": {
+              "VehicleFeed.html#id": {
+                "ref": "VehicleFeed.html#id",
+                "tf": 725
+              },
               "ServiceException.html": {
                 "ref": "ServiceException.html",
                 "tf": 2.7777777777777777
@@ -5471,6 +5747,14 @@ window.lunrData = {
                               "ref": "RightTrackAgency.html#loadFeed",
                               "tf": 4.166666666666666
                             },
+                            "RightTrackAgency.html#isVehicleFeedSupported": {
+                              "ref": "RightTrackAgency.html#isVehicleFeedSupported",
+                              "tf": 2.631578947368421
+                            },
+                            "RightTrackAgency.html#loadVehicleFeeds": {
+                              "ref": "RightTrackAgency.html#loadVehicleFeeds",
+                              "tf": 5.555555555555555
+                            },
                             "RightTrackDB.html": {
                               "ref": "RightTrackDB.html",
                               "tf": 0.7936507936507936
@@ -5515,6 +5799,65 @@ window.lunrData = {
                                     "RightTrackAgency.html#isFeedSupported": {
                                       "ref": "RightTrackAgency.html#isFeedSupported",
                                       "tf": 683.3333333333334
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "v": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "h": {
+                  "docs": {},
+                  "i": {
+                    "docs": {},
+                    "c": {
+                      "docs": {},
+                      "l": {
+                        "docs": {},
+                        "e": {
+                          "docs": {},
+                          "f": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "e": {
+                                "docs": {},
+                                "d": {
+                                  "docs": {},
+                                  "s": {
+                                    "docs": {},
+                                    "u": {
+                                      "docs": {},
+                                      "p": {
+                                        "docs": {},
+                                        "p": {
+                                          "docs": {},
+                                          "o": {
+                                            "docs": {},
+                                            "r": {
+                                              "docs": {},
+                                              "t": {
+                                                "docs": {
+                                                  "RightTrackAgency.html#isVehicleFeedSupported": {
+                                                    "ref": "RightTrackAgency.html#isVehicleFeedSupported",
+                                                    "tf": 683.3333333333334
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -5685,6 +6028,10 @@ window.lunrData = {
                   "StationFeed.html#departures": {
                     "ref": "StationFeed.html#departures",
                     "tf": 8.333333333333332
+                  },
+                  "VehicleFeed.html#stops": {
+                    "ref": "VehicleFeed.html#stops",
+                    "tf": 5.555555555555555
                   },
                   "TripSearchResult.html#transfers": {
                     "ref": "TripSearchResult.html#transfers",
@@ -5905,6 +6252,59 @@ window.lunrData = {
                   "StationFeed.html#updated": {
                     "ref": "StationFeed.html#updated",
                     "tf": 12.5
+                  },
+                  "VehicleFeedPosition.html#updated": {
+                    "ref": "VehicleFeedPosition.html#updated",
+                    "tf": 12.5
+                  }
+                }
+              }
+            },
+            "t": {
+              "docs": {
+                "VehicleFeedPosition.html#lat": {
+                  "ref": "VehicleFeedPosition.html#lat",
+                  "tf": 700
+                },
+                "Stop.html": {
+                  "ref": "Stop.html",
+                  "tf": 0.78125
+                },
+                "Stop.html#lat": {
+                  "ref": "Stop.html#lat",
+                  "tf": 700
+                },
+                "Stop.html#setDistance": {
+                  "ref": "Stop.html#setDistance",
+                  "tf": 33.33333333333333
+                }
+              },
+              "i": {
+                "docs": {},
+                "t": {
+                  "docs": {},
+                  "u": {
+                    "docs": {},
+                    "d": {
+                      "docs": {
+                        "VehicleFeedPosition.html#lat": {
+                          "ref": "VehicleFeedPosition.html#lat",
+                          "tf": 16.666666666666664
+                        },
+                        "Shape.html": {
+                          "ref": "Shape.html",
+                          "tf": 1.7857142857142856
+                        },
+                        "Shape.html#shapePtLat": {
+                          "ref": "Shape.html#shapePtLat",
+                          "tf": 16.666666666666664
+                        },
+                        "Stop.html#lat": {
+                          "ref": "Stop.html#lat",
+                          "tf": 12.5
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -5959,47 +6359,6 @@ window.lunrData = {
                 }
               }
             },
-            "t": {
-              "docs": {
-                "Stop.html": {
-                  "ref": "Stop.html",
-                  "tf": 0.78125
-                },
-                "Stop.html#lat": {
-                  "ref": "Stop.html#lat",
-                  "tf": 700
-                },
-                "Stop.html#setDistance": {
-                  "ref": "Stop.html#setDistance",
-                  "tf": 33.33333333333333
-                }
-              },
-              "i": {
-                "docs": {},
-                "t": {
-                  "docs": {},
-                  "u": {
-                    "docs": {},
-                    "d": {
-                      "docs": {
-                        "Shape.html": {
-                          "ref": "Shape.html",
-                          "tf": 1.7857142857142856
-                        },
-                        "Shape.html#shapePtLat": {
-                          "ref": "Shape.html#shapePtLat",
-                          "tf": 16.666666666666664
-                        },
-                        "Stop.html#lat": {
-                          "ref": "Stop.html#lat",
-                          "tf": 12.5
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "n": {
               "docs": {},
               "g": {
@@ -6045,7 +6404,12 @@ window.lunrData = {
                       "i": {
                         "docs": {},
                         "c": {
-                          "docs": {},
+                          "docs": {
+                            "VehicleFeedPosition.html#.VehicleStatus": {
+                              "ref": "VehicleFeedPosition.html#.VehicleStatus",
+                              "tf": 25
+                            }
+                          },
                           "&": {
                             "docs": {},
                             "g": {
@@ -6184,6 +6548,14 @@ window.lunrData = {
                                         "ref": "RightTrackAgency.html#loadFeed",
                                         "tf": 20
                                       },
+                                      "RightTrackAgency.html#isVehicleFeedSupported": {
+                                        "ref": "RightTrackAgency.html#isVehicleFeedSupported",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "RightTrackAgency.html#loadVehicleFeeds": {
+                                        "ref": "RightTrackAgency.html#loadVehicleFeeds",
+                                        "tf": 25
+                                      },
                                       "RightTrackDB.html": {
                                         "ref": "RightTrackDB.html",
                                         "tf": 50
@@ -6212,42 +6584,12 @@ window.lunrData = {
           },
           "o": {
             "docs": {},
-            "a": {
-              "docs": {},
-              "d": {
-                "docs": {
-                  "RightTrackTransitAgency.html": {
-                    "ref": "RightTrackTransitAgency.html",
-                    "tf": 1.8518518518518516
-                  },
-                  "RightTrackTransitAgency.html#loadFeed": {
-                    "ref": "RightTrackTransitAgency.html#loadFeed",
-                    "tf": 10
-                  },
-                  "RightTrackAgency.html#loadFeed": {
-                    "ref": "RightTrackAgency.html#loadFeed",
-                    "tf": 4.166666666666666
-                  }
-                },
-                "f": {
-                  "docs": {},
-                  "e": {
-                    "docs": {
-                      "RightTrackTransitAgency.html#loadFeed": {
-                        "ref": "RightTrackTransitAgency.html#loadFeed",
-                        "tf": 683.3333333333334
-                      },
-                      "RightTrackAgency.html#loadFeed": {
-                        "ref": "RightTrackAgency.html#loadFeed",
-                        "tf": 670
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "n": {
               "docs": {
+                "VehicleFeedPosition.html#lon": {
+                  "ref": "VehicleFeedPosition.html#lon",
+                  "tf": 700
+                },
                 "Stop.html": {
                   "ref": "Stop.html",
                   "tf": 0.78125
@@ -6276,6 +6618,10 @@ window.lunrData = {
                       "docs": {},
                       "d": {
                         "docs": {
+                          "VehicleFeedPosition.html#lon": {
+                            "ref": "VehicleFeedPosition.html#lon",
+                            "tf": 16.666666666666664
+                          },
                           "Shape.html": {
                             "ref": "Shape.html",
                             "tf": 1.7857142857142856
@@ -6302,6 +6648,76 @@ window.lunrData = {
                         "Route.html#longName": {
                           "ref": "Route.html#longName",
                           "tf": 700
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "a": {
+              "docs": {},
+              "d": {
+                "docs": {
+                  "RightTrackTransitAgency.html": {
+                    "ref": "RightTrackTransitAgency.html",
+                    "tf": 1.8518518518518516
+                  },
+                  "RightTrackTransitAgency.html#loadFeed": {
+                    "ref": "RightTrackTransitAgency.html#loadFeed",
+                    "tf": 10
+                  },
+                  "RightTrackAgency.html#loadFeed": {
+                    "ref": "RightTrackAgency.html#loadFeed",
+                    "tf": 4.166666666666666
+                  },
+                  "RightTrackAgency.html#loadVehicleFeeds": {
+                    "ref": "RightTrackAgency.html#loadVehicleFeeds",
+                    "tf": 5.555555555555555
+                  }
+                },
+                "f": {
+                  "docs": {},
+                  "e": {
+                    "docs": {
+                      "RightTrackTransitAgency.html#loadFeed": {
+                        "ref": "RightTrackTransitAgency.html#loadFeed",
+                        "tf": 683.3333333333334
+                      },
+                      "RightTrackAgency.html#loadFeed": {
+                        "ref": "RightTrackAgency.html#loadFeed",
+                        "tf": 670
+                      }
+                    }
+                  }
+                },
+                "v": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "h": {
+                      "docs": {},
+                      "i": {
+                        "docs": {},
+                        "c": {
+                          "docs": {},
+                          "l": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "f": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {
+                                    "RightTrackAgency.html#loadVehicleFeeds": {
+                                      "ref": "RightTrackAgency.html#loadVehicleFeeds",
+                                      "tf": 675
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -6807,66 +7223,26 @@ window.lunrData = {
               }
             }
           },
-          "e": {
-            "docs": {},
-            "a": {
-              "docs": {},
-              "k": {
-                "docs": {
-                  "Holiday.html": {
-                    "ref": "Holiday.html",
-                    "tf": 2.272727272727273
-                  },
-                  "Holiday.html#peak": {
-                    "ref": "Holiday.html#peak",
-                    "tf": 708.3333333333334
-                  },
-                  "Trip.html": {
-                    "ref": "Trip.html",
-                    "tf": 1.0204081632653061
-                  },
-                  "Trip.html#peak": {
-                    "ref": "Trip.html#peak",
-                    "tf": 710
-                  }
-                }
-              }
-            },
-            "r": {
-              "docs": {},
-              "f": {
-                "docs": {},
-                "o": {
-                  "docs": {},
-                  "r": {
-                    "docs": {},
-                    "m": {
-                      "docs": {
-                        "TripSearch.html#search": {
-                          "ref": "TripSearch.html#search",
-                          "tf": 7.142857142857142
-                        },
-                        "RightTrackDB.html#~selectCallback": {
-                          "ref": "RightTrackDB.html#~selectCallback",
-                          "tf": 12.5
-                        },
-                        "RightTrackDB.html#~getCallback": {
-                          "ref": "RightTrackDB.html#~getCallback",
-                          "tf": 12.5
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
           "o": {
             "docs": {},
             "s": {
               "docs": {},
               "t": {
                 "docs": {},
+                "i": {
+                  "docs": {},
+                  "o": {
+                    "docs": {},
+                    "n": {
+                      "docs": {
+                        "VehicleFeed.html": {
+                          "ref": "VehicleFeed.html",
+                          "tf": 2.380952380952381
+                        }
+                      }
+                    }
+                  }
+                },
                 "d": {
                   "docs": {},
                   "e": {
@@ -6908,6 +7284,25 @@ window.lunrData = {
                           }
                         }
                       }
+                    }
+                  }
+                }
+              },
+              "i": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "VehicleFeed.html#position": {
+                      "ref": "VehicleFeed.html#position",
+                      "tf": 716.6666666666666
+                    },
+                    "VehicleFeedPosition.html": {
+                      "ref": "VehicleFeedPosition.html",
+                      "tf": 3.8461538461538463
+                    },
+                    "VehicleFeedPosition.html#updated": {
+                      "ref": "VehicleFeedPosition.html#updated",
+                      "tf": 12.5
                     }
                   }
                 }
@@ -6963,6 +7358,60 @@ window.lunrData = {
                     "StopTime.html#shapeDistanceTraveled": {
                       "ref": "StopTime.html#shapeDistanceTraveled",
                       "tf": 8.333333333333332
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "e": {
+            "docs": {},
+            "a": {
+              "docs": {},
+              "k": {
+                "docs": {
+                  "Holiday.html": {
+                    "ref": "Holiday.html",
+                    "tf": 2.272727272727273
+                  },
+                  "Holiday.html#peak": {
+                    "ref": "Holiday.html#peak",
+                    "tf": 708.3333333333334
+                  },
+                  "Trip.html": {
+                    "ref": "Trip.html",
+                    "tf": 1.0204081632653061
+                  },
+                  "Trip.html#peak": {
+                    "ref": "Trip.html#peak",
+                    "tf": 710
+                  }
+                }
+              }
+            },
+            "r": {
+              "docs": {},
+              "f": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "r": {
+                    "docs": {},
+                    "m": {
+                      "docs": {
+                        "TripSearch.html#search": {
+                          "ref": "TripSearch.html#search",
+                          "tf": 7.142857142857142
+                        },
+                        "RightTrackDB.html#~selectCallback": {
+                          "ref": "RightTrackDB.html#~selectCallback",
+                          "tf": 12.5
+                        },
+                        "RightTrackDB.html#~getCallback": {
+                          "ref": "RightTrackDB.html#~getCallback",
+                          "tf": 12.5
+                        }
+                      }
                     }
                   }
                 }
@@ -7140,6 +7589,32 @@ window.lunrData = {
                     }
                   }
                 },
+                "o": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "l": {
+                      "docs": {},
+                      "y": {
+                        "docs": {},
+                        "&": {
+                          "docs": {},
+                          "g": {
+                            "docs": {},
+                            "t": {
+                              "docs": {
+                                "VehicleFeedPosition.html#.VehicleStatus": {
+                                  "ref": "VehicleFeedPosition.html#.VehicleStatus",
+                                  "tf": 25
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
                 "c": {
                   "docs": {},
                   "o": {
@@ -7216,12 +7691,24 @@ window.lunrData = {
                     "ref": "StationFeedDepartureStatus.html",
                     "tf": 1.8518518518518516
                   },
+                  "VehicleFeed.html": {
+                    "ref": "VehicleFeed.html",
+                    "tf": 2.380952380952381
+                  },
+                  "VehicleFeedPosition.html": {
+                    "ref": "VehicleFeedPosition.html",
+                    "tf": 1.9230769230769231
+                  },
                   "RightTrackAgency.html": {
                     "ref": "RightTrackAgency.html",
                     "tf": 2.3255813953488373
                   },
                   "RightTrackAgency.html#isFeedSupported": {
                     "ref": "RightTrackAgency.html#isFeedSupported",
+                    "tf": 2.631578947368421
+                  },
+                  "RightTrackAgency.html#isVehicleFeedSupported": {
+                    "ref": "RightTrackAgency.html#isVehicleFeedSupported",
                     "tf": 2.631578947368421
                   },
                   "Stop.html#statusId": {
@@ -7303,6 +7790,14 @@ window.lunrData = {
                                       "StationFeedDepartureStatus.html": {
                                         "ref": "StationFeedDepartureStatus.html",
                                         "tf": 1.8518518518518516
+                                      },
+                                      "VehicleFeed.html": {
+                                        "ref": "VehicleFeed.html",
+                                        "tf": 2.380952380952381
+                                      },
+                                      "VehicleFeedPosition.html": {
+                                        "ref": "VehicleFeedPosition.html",
+                                        "tf": 1.9230769230769231
                                       }
                                     }
                                   }
@@ -7331,6 +7826,17 @@ window.lunrData = {
                       }
                     }
                   }
+                },
+                "i": {
+                  "docs": {},
+                  "n": {
+                    "docs": {
+                      "VehicleFeed.html#stops": {
+                        "ref": "VehicleFeed.html#stops",
+                        "tf": 5.555555555555555
+                      }
+                    }
+                  }
                 }
               },
               "o": {
@@ -7344,6 +7850,71 @@ window.lunrData = {
                     "Service.html#serviceExceptions": {
                       "ref": "Service.html#serviceExceptions",
                       "tf": 4.545454545454546
+                    }
+                  }
+                }
+              }
+            },
+            "c": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "n": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "VehicleFeed.html#position": {
+                        "ref": "VehicleFeed.html#position",
+                        "tf": 16.666666666666664
+                      },
+                      "VehicleFeedPosition.html#lat": {
+                        "ref": "VehicleFeedPosition.html#lat",
+                        "tf": 16.666666666666664
+                      },
+                      "VehicleFeedPosition.html#lon": {
+                        "ref": "VehicleFeedPosition.html#lon",
+                        "tf": 16.666666666666664
+                      },
+                      "VehicleFeedPosition.html#bearing": {
+                        "ref": "VehicleFeedPosition.html#bearing",
+                        "tf": 16.666666666666664
+                      },
+                      "VehicleFeedPosition.html#speed": {
+                        "ref": "VehicleFeedPosition.html#speed",
+                        "tf": 12.5
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "f": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "r": {
+                  "docs": {
+                    "Trip.html#.sortByDepartureTime": {
+                      "ref": "Trip.html#.sortByDepartureTime",
+                      "tf": 5.555555555555555
+                    }
+                  },
+                  "e": {
+                    "docs": {},
+                    "n": {
+                      "docs": {},
+                      "c": {
+                        "docs": {
+                          "VehicleFeedPosition.html#stop": {
+                            "ref": "VehicleFeedPosition.html#stop",
+                            "tf": 16.666666666666664
+                          },
+                          "Shape.html#id": {
+                            "ref": "Shape.html#id",
+                            "tf": 10
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -7693,6 +8264,10 @@ window.lunrData = {
                         "ref": "RightTrackAgency.html#isFeedSupported",
                         "tf": 2.631578947368421
                       },
+                      "RightTrackAgency.html#isVehicleFeedSupported": {
+                        "ref": "RightTrackAgency.html#isVehicleFeedSupported",
+                        "tf": 2.631578947368421
+                      },
                       "RightTrackDB.html": {
                         "ref": "RightTrackDB.html",
                         "tf": 1.984126984126984
@@ -7708,34 +8283,6 @@ window.lunrData = {
                       "RightTrackDB.html#~getCallback": {
                         "ref": "RightTrackDB.html#~getCallback",
                         "tf": 6.25
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "f": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "r": {
-                  "docs": {
-                    "Trip.html#.sortByDepartureTime": {
-                      "ref": "Trip.html#.sortByDepartureTime",
-                      "tf": 5.555555555555555
-                    }
-                  },
-                  "e": {
-                    "docs": {},
-                    "n": {
-                      "docs": {},
-                      "c": {
-                        "docs": {
-                          "Shape.html#id": {
-                            "ref": "Shape.html#id",
-                            "tf": 10
-                          }
-                        }
                       }
                     }
                   }
@@ -8348,6 +8895,65 @@ window.lunrData = {
                                                     }
                                                   }
                                                 }
+                                              },
+                                              "v": {
+                                                "docs": {},
+                                                "e": {
+                                                  "docs": {},
+                                                  "h": {
+                                                    "docs": {},
+                                                    "i": {
+                                                      "docs": {},
+                                                      "c": {
+                                                        "docs": {},
+                                                        "l": {
+                                                          "docs": {},
+                                                          "e": {
+                                                            "docs": {},
+                                                            "f": {
+                                                              "docs": {},
+                                                              "e": {
+                                                                "docs": {},
+                                                                "e": {
+                                                                  "docs": {},
+                                                                  "d": {
+                                                                    "docs": {},
+                                                                    "s": {
+                                                                      "docs": {},
+                                                                      "u": {
+                                                                        "docs": {},
+                                                                        "p": {
+                                                                          "docs": {},
+                                                                          "p": {
+                                                                            "docs": {},
+                                                                            "o": {
+                                                                              "docs": {},
+                                                                              "r": {
+                                                                                "docs": {},
+                                                                                "t": {
+                                                                                  "docs": {
+                                                                                    "RightTrackAgency.html#isVehicleFeedSupported": {
+                                                                                      "ref": "RightTrackAgency.html#isVehicleFeedSupported",
+                                                                                      "tf": 1150
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
                                               }
                                             }
                                           },
@@ -8552,6 +9158,38 @@ window.lunrData = {
                                                         "RightTrackAgency.html#loadFeed": {
                                                           "ref": "RightTrackAgency.html#loadFeed",
                                                           "tf": 1150
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "v": {
+                                                    "docs": {},
+                                                    "e": {
+                                                      "docs": {},
+                                                      "h": {
+                                                        "docs": {},
+                                                        "i": {
+                                                          "docs": {},
+                                                          "c": {
+                                                            "docs": {},
+                                                            "l": {
+                                                              "docs": {},
+                                                              "e": {
+                                                                "docs": {},
+                                                                "f": {
+                                                                  "docs": {},
+                                                                  "e": {
+                                                                    "docs": {
+                                                                      "RightTrackAgency.html#loadVehicleFeeds": {
+                                                                        "ref": "RightTrackAgency.html#loadVehicleFeeds",
+                                                                        "tf": 1150
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
                                                         }
                                                       }
                                                     }
@@ -9532,6 +10170,14 @@ window.lunrData = {
                     "StationFeedDepartureStatus.html#~Track": {
                       "ref": "StationFeedDepartureStatus.html#~Track",
                       "tf": 616.6666666666666
+                    },
+                    "VehicleFeed.html": {
+                      "ref": "VehicleFeed.html",
+                      "tf": 2.380952380952381
+                    },
+                    "VehicleFeedPosition.html": {
+                      "ref": "VehicleFeedPosition.html",
+                      "tf": 1.9230769230769231
                     },
                     "Holiday.html": {
                       "ref": "Holiday.html",
@@ -10534,6 +11180,10 @@ window.lunrData = {
                   "StationFeedDepartureStatus.html#remarks": {
                     "ref": "StationFeedDepartureStatus.html#remarks",
                     "tf": 12.5
+                  },
+                  "VehicleFeed.html#trip": {
+                    "ref": "VehicleFeed.html#trip",
+                    "tf": 766.6666666666666
                   },
                   "TripSearchResultTransfer.html": {
                     "ref": "TripSearchResultTransfer.html",
@@ -12204,6 +12854,14 @@ window.lunrData = {
                     "ref": "StationFeedDepartureStatus.html",
                     "tf": 1.8518518518518516
                   },
+                  "VehicleFeed.html": {
+                    "ref": "VehicleFeed.html",
+                    "tf": 2.380952380952381
+                  },
+                  "VehicleFeedPosition.html": {
+                    "ref": "VehicleFeedPosition.html",
+                    "tf": 1.9230769230769231
+                  },
                   "TripSearchResultTransfer.html": {
                     "ref": "TripSearchResultTransfer.html",
                     "tf": 2.857142857142857
@@ -12238,6 +12896,10 @@ window.lunrData = {
                   },
                   "RightTrackAgency.html#isFeedSupported": {
                     "ref": "RightTrackAgency.html#isFeedSupported",
+                    "tf": 2.631578947368421
+                  },
+                  "RightTrackAgency.html#isVehicleFeedSupported": {
+                    "ref": "RightTrackAgency.html#isVehicleFeedSupported",
                     "tf": 2.631578947368421
                   },
                   "StopTime.html": {
@@ -12299,6 +12961,14 @@ window.lunrData = {
                   "Stop.html#statusId": {
                     "ref": "Stop.html#statusId",
                     "tf": 7.142857142857142
+                  }
+                },
+                "(": {
+                  "docs": {
+                    "VehicleFeed.html#stops": {
+                      "ref": "VehicleFeed.html#stops",
+                      "tf": 5.555555555555555
+                    }
                   }
                 },
                 "z": {
@@ -13065,6 +13735,10 @@ window.lunrData = {
                             "ref": "StationFeedDepartureStatus.html#~Track",
                             "tf": 16.666666666666664
                           },
+                          "VehicleFeed.html#stops": {
+                            "ref": "VehicleFeed.html#stops",
+                            "tf": 5.555555555555555
+                          },
                           "TripSearchResultTransfer.html": {
                             "ref": "TripSearchResultTransfer.html",
                             "tf": 1.4285714285714286
@@ -13350,6 +14024,10 @@ window.lunrData = {
                         "RightTrackAgency.html#isFeedSupported": {
                           "ref": "RightTrackAgency.html#isFeedSupported",
                           "tf": 2.631578947368421
+                        },
+                        "RightTrackAgency.html#isVehicleFeedSupported": {
+                          "ref": "RightTrackAgency.html#isVehicleFeedSupported",
+                          "tf": 2.631578947368421
                         }
                       }
                     }
@@ -13633,6 +14311,14 @@ window.lunrData = {
                           "StationFeedDepartureStatus.html": {
                             "ref": "StationFeedDepartureStatus.html",
                             "tf": 1.8518518518518516
+                          },
+                          "VehicleFeed.html": {
+                            "ref": "VehicleFeed.html",
+                            "tf": 2.380952380952381
+                          },
+                          "VehicleFeedPosition.html": {
+                            "ref": "VehicleFeedPosition.html",
+                            "tf": 1.9230769230769231
                           }
                         }
                       }
@@ -13848,6 +14534,10 @@ window.lunrData = {
                             "ref": "StationFeedDepartureStatus.html#estDeparture",
                             "tf": 12.5
                           },
+                          "VehicleFeedPosition.html#updated": {
+                            "ref": "VehicleFeedPosition.html#updated",
+                            "tf": 12.5
+                          },
                           "TripSearchResultTransfer.html#arrival": {
                             "ref": "TripSearchResultTransfer.html#arrival",
                             "tf": 12.5
@@ -13889,6 +14579,10 @@ window.lunrData = {
                         },
                         "StationFeedDepartureStatus.html#estDeparture": {
                           "ref": "StationFeedDepartureStatus.html#estDeparture",
+                          "tf": 50
+                        },
+                        "VehicleFeedPosition.html#updated": {
+                          "ref": "VehicleFeedPosition.html#updated",
                           "tf": 50
                         },
                         "TripSearchResultTransfer.html#arrival": {
@@ -14592,6 +15286,10 @@ window.lunrData = {
               "RightTrackAgency.html#loadFeed": {
                 "ref": "RightTrackAgency.html#loadFeed",
                 "tf": 20
+              },
+              "RightTrackAgency.html#loadVehicleFeeds": {
+                "ref": "RightTrackAgency.html#loadVehicleFeeds",
+                "tf": 25
               },
               "RightTrackDB.html": {
                 "ref": "RightTrackDB.html",
@@ -16725,6 +17423,54 @@ window.lunrData = {
                         "ref": "StationFeedDepartureStatus.html#remarks",
                         "tf": 110
                       },
+                      "VehicleFeed.html#id": {
+                        "ref": "VehicleFeed.html#id",
+                        "tf": 110
+                      },
+                      "VehicleFeed.html#position": {
+                        "ref": "VehicleFeed.html#position",
+                        "tf": 110
+                      },
+                      "VehicleFeed.html#stops": {
+                        "ref": "VehicleFeed.html#stops",
+                        "tf": 110
+                      },
+                      "VehicleFeed.html#trip": {
+                        "ref": "VehicleFeed.html#trip",
+                        "tf": 110
+                      },
+                      "VehicleFeedPosition.html#lat": {
+                        "ref": "VehicleFeedPosition.html#lat",
+                        "tf": 110
+                      },
+                      "VehicleFeedPosition.html#lon": {
+                        "ref": "VehicleFeedPosition.html#lon",
+                        "tf": 110
+                      },
+                      "VehicleFeedPosition.html#updated": {
+                        "ref": "VehicleFeedPosition.html#updated",
+                        "tf": 110
+                      },
+                      "VehicleFeedPosition.html#bearing": {
+                        "ref": "VehicleFeedPosition.html#bearing",
+                        "tf": 110
+                      },
+                      "VehicleFeedPosition.html#speed": {
+                        "ref": "VehicleFeedPosition.html#speed",
+                        "tf": 110
+                      },
+                      "VehicleFeedPosition.html#status": {
+                        "ref": "VehicleFeedPosition.html#status",
+                        "tf": 110
+                      },
+                      "VehicleFeedPosition.html#stop": {
+                        "ref": "VehicleFeedPosition.html#stop",
+                        "tf": 110
+                      },
+                      "VehicleFeedPosition.html#.VehicleStatus": {
+                        "ref": "VehicleFeedPosition.html#.VehicleStatus",
+                        "tf": 110
+                      },
                       "TripSearchResultTransfer.html#stop": {
                         "ref": "TripSearchResultTransfer.html#stop",
                         "tf": 110
@@ -17425,6 +18171,17 @@ window.lunrData = {
           },
           "a": {
             "docs": {},
+            "b": {
+              "docs": {},
+              "e": {
+                "docs": {
+                  "VehicleFeed.html#stops": {
+                    "ref": "VehicleFeed.html#stops",
+                    "tf": 5.555555555555555
+                  }
+                }
+              }
+            },
             "t": {
               "docs": {},
               "c": {
@@ -17583,6 +18340,14 @@ window.lunrData = {
                     "tf": 6.25
                   }
                 }
+              }
+            }
+          },
+          "/": {
+            "docs": {
+              "VehicleFeedPosition.html#speed": {
+                "ref": "VehicleFeedPosition.html#speed",
+                "tf": 12.5
               }
             }
           },
@@ -18074,6 +18839,14 @@ window.lunrData = {
                     "ref": "StationFeedDepartureStatus.html",
                     "tf": 1.8518518518518516
                   },
+                  "VehicleFeed.html": {
+                    "ref": "VehicleFeed.html",
+                    "tf": 2.380952380952381
+                  },
+                  "VehicleFeedPosition.html": {
+                    "ref": "VehicleFeedPosition.html",
+                    "tf": 1.9230769230769231
+                  },
                   "RightTrackTransitAgency.html": {
                     "ref": "RightTrackTransitAgency.html",
                     "tf": 1.8518518518518516
@@ -18097,6 +18870,14 @@ window.lunrData = {
                   "RightTrackAgency.html#loadFeed": {
                     "ref": "RightTrackAgency.html#loadFeed",
                     "tf": 4.166666666666666
+                  },
+                  "RightTrackAgency.html#isVehicleFeedSupported": {
+                    "ref": "RightTrackAgency.html#isVehicleFeedSupported",
+                    "tf": 5.263157894736842
+                  },
+                  "RightTrackAgency.html#loadVehicleFeeds": {
+                    "ref": "RightTrackAgency.html#loadVehicleFeeds",
+                    "tf": 5.555555555555555
                   }
                 }
               }
@@ -18341,6 +19122,14 @@ window.lunrData = {
                           "RightTrackAgency.html#loadFeed": {
                             "ref": "RightTrackAgency.html#loadFeed",
                             "tf": 114.16666666666667
+                          },
+                          "RightTrackAgency.html#isVehicleFeedSupported": {
+                            "ref": "RightTrackAgency.html#isVehicleFeedSupported",
+                            "tf": 112.63157894736842
+                          },
+                          "RightTrackAgency.html#loadVehicleFeeds": {
+                            "ref": "RightTrackAgency.html#loadVehicleFeeds",
+                            "tf": 115.55555555555556
                           },
                           "Shape.html#.sortBySequence": {
                             "ref": "Shape.html#.sortBySequence",
@@ -18726,6 +19515,10 @@ window.lunrData = {
                 "docs": {
                   "RightTrackAgency.html#isFeedSupported": {
                     "ref": "RightTrackAgency.html#isFeedSupported",
+                    "tf": 2.631578947368421
+                  },
+                  "RightTrackAgency.html#isVehicleFeedSupported": {
+                    "ref": "RightTrackAgency.html#isVehicleFeedSupported",
                     "tf": 2.631578947368421
                   }
                 }
@@ -19622,6 +20415,10 @@ window.lunrData = {
                         "ref": "TransitEvent.html",
                         "tf": 2.941176470588235
                       },
+                      "VehicleFeedPosition.html": {
+                        "ref": "VehicleFeedPosition.html",
+                        "tf": 1.9230769230769231
+                      },
                       "RightTrackAgency.html": {
                         "ref": "RightTrackAgency.html",
                         "tf": 1.1627906976744187
@@ -19662,6 +20459,17 @@ window.lunrData = {
                           "tf": 7.142857142857142
                         }
                       }
+                    }
+                  }
+                }
+              },
+              "e": {
+                "docs": {},
+                "d": {
+                  "docs": {
+                    "VehicleFeedPosition.html#speed": {
+                      "ref": "VehicleFeedPosition.html#speed",
+                      "tf": 712.5
                     }
                   }
                 }
@@ -19722,6 +20530,18 @@ window.lunrData = {
                     "StationFeedDepartureStatus.html#status": {
                       "ref": "StationFeedDepartureStatus.html#status",
                       "tf": 716.6666666666666
+                    },
+                    "VehicleFeedPosition.html#status": {
+                      "ref": "VehicleFeedPosition.html#status",
+                      "tf": 716.6666666666666
+                    },
+                    "VehicleFeedPosition.html#stop": {
+                      "ref": "VehicleFeedPosition.html#stop",
+                      "tf": 16.666666666666664
+                    },
+                    "VehicleFeedPosition.html#.VehicleStatus": {
+                      "ref": "VehicleFeedPosition.html#.VehicleStatus",
+                      "tf": 16.666666666666664
                     },
                     "RightTrackAgency.html": {
                       "ref": "RightTrackAgency.html",
@@ -20368,6 +21188,14 @@ window.lunrData = {
                         "ref": "StationFeedDepartureStatus.html#remarks",
                         "tf": 50
                       },
+                      "VehicleFeed.html#id": {
+                        "ref": "VehicleFeed.html#id",
+                        "tf": 50
+                      },
+                      "VehicleFeedPosition.html#.VehicleStatus": {
+                        "ref": "VehicleFeedPosition.html#.VehicleStatus",
+                        "tf": 25
+                      },
                       "ServiceException.html#serviceId": {
                         "ref": "ServiceException.html#serviceId",
                         "tf": 50
@@ -20623,6 +21451,14 @@ window.lunrData = {
                     "ref": "StationFeedDepartureStatus.html",
                     "tf": 1.8518518518518516
                   },
+                  "VehicleFeed.html#stops": {
+                    "ref": "VehicleFeed.html#stops",
+                    "tf": 705.5555555555555
+                  },
+                  "VehicleFeedPosition.html#stop": {
+                    "ref": "VehicleFeedPosition.html#stop",
+                    "tf": 766.6666666666666
+                  },
                   "TripSearchResultTransfer.html": {
                     "ref": "TripSearchResultTransfer.html",
                     "tf": 4.285714285714286
@@ -20798,6 +21634,14 @@ window.lunrData = {
                   "module-gtfs_Stop.html": {
                     "ref": "module-gtfs_Stop.html",
                     "tf": 16.666666666666664
+                  }
+                },
+                "(": {
+                  "docs": {
+                    "VehicleFeed.html#stops": {
+                      "ref": "VehicleFeed.html#stops",
+                      "tf": 5.555555555555555
+                    }
                   }
                 },
                 "t": {
@@ -23391,6 +24235,10 @@ window.lunrData = {
                         "RightTrackAgency.html#isFeedSupported": {
                           "ref": "RightTrackAgency.html#isFeedSupported",
                           "tf": 5.263157894736842
+                        },
+                        "RightTrackAgency.html#isVehicleFeedSupported": {
+                          "ref": "RightTrackAgency.html#isVehicleFeedSupported",
+                          "tf": 5.263157894736842
                         }
                       }
                     }
@@ -24083,6 +24931,22 @@ window.lunrData = {
                         "ref": "StationFeedDepartureStatus.html#delay",
                         "tf": 50
                       },
+                      "VehicleFeedPosition.html#lat": {
+                        "ref": "VehicleFeedPosition.html#lat",
+                        "tf": 50
+                      },
+                      "VehicleFeedPosition.html#lon": {
+                        "ref": "VehicleFeedPosition.html#lon",
+                        "tf": 50
+                      },
+                      "VehicleFeedPosition.html#bearing": {
+                        "ref": "VehicleFeedPosition.html#bearing",
+                        "tf": 50
+                      },
+                      "VehicleFeedPosition.html#speed": {
+                        "ref": "VehicleFeedPosition.html#speed",
+                        "tf": 50
+                      },
                       "TripSearchResultTransfer.html#layoverTime": {
                         "ref": "TripSearchResultTransfer.html#layoverTime",
                         "tf": 50
@@ -24351,6 +25215,10 @@ window.lunrData = {
                   "RightTrackAgency.html#loadFeed": {
                     "ref": "RightTrackAgency.html#loadFeed",
                     "tf": 4.166666666666666
+                  },
+                  "RightTrackAgency.html#loadVehicleFeeds": {
+                    "ref": "RightTrackAgency.html#loadVehicleFeeds",
+                    "tf": 5.555555555555555
                   }
                 }
               }
@@ -24470,6 +25338,17 @@ window.lunrData = {
           },
           "e": {
             "docs": {},
+            "a": {
+              "docs": {},
+              "r": {
+                "docs": {
+                  "VehicleFeedPosition.html#bearing": {
+                    "ref": "VehicleFeedPosition.html#bearing",
+                    "tf": 716.6666666666666
+                  }
+                }
+              }
+            },
             "t": {
               "docs": {},
               "w": {
@@ -24576,6 +25455,10 @@ window.lunrData = {
                         },
                         "RightTrackAgency.html#isFeedSupported": {
                           "ref": "RightTrackAgency.html#isFeedSupported",
+                          "tf": 33.33333333333333
+                        },
+                        "RightTrackAgency.html#isVehicleFeedSupported": {
+                          "ref": "RightTrackAgency.html#isVehicleFeedSupported",
                           "tf": 33.33333333333333
                         },
                         "Trip.html#peak": {
@@ -25150,6 +26033,65 @@ window.lunrData = {
                                   }
                                 }
                               }
+                            },
+                            "v": {
+                              "docs": {},
+                              "e": {
+                                "docs": {},
+                                "h": {
+                                  "docs": {},
+                                  "i": {
+                                    "docs": {},
+                                    "c": {
+                                      "docs": {},
+                                      "l": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "f": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "e": {
+                                                "docs": {},
+                                                "d": {
+                                                  "docs": {},
+                                                  "s": {
+                                                    "docs": {},
+                                                    "t": {
+                                                      "docs": {},
+                                                      "o": {
+                                                        "docs": {},
+                                                        "p": {
+                                                          "docs": {},
+                                                          "&": {
+                                                            "docs": {},
+                                                            "g": {
+                                                              "docs": {},
+                                                              "t": {
+                                                                "docs": {
+                                                                  "VehicleFeed.html#stops": {
+                                                                    "ref": "VehicleFeed.html#stops",
+                                                                    "tf": 50
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
                             }
                           }
                         }
@@ -25270,6 +26212,14 @@ window.lunrData = {
                     "RightTrackAgency.html#loadFeed": {
                       "ref": "RightTrackAgency.html#loadFeed",
                       "tf": 4.166666666666666
+                    },
+                    "RightTrackAgency.html#isVehicleFeedSupported": {
+                      "ref": "RightTrackAgency.html#isVehicleFeedSupported",
+                      "tf": 5.263157894736842
+                    },
+                    "RightTrackAgency.html#loadVehicleFeeds": {
+                      "ref": "RightTrackAgency.html#loadVehicleFeeds",
+                      "tf": 5.555555555555555
                     },
                     "Agency.html": {
                       "ref": "Agency.html",
@@ -25399,6 +26349,10 @@ window.lunrData = {
                         "RightTrackAgency.html#loadFeed": {
                           "ref": "RightTrackAgency.html#loadFeed",
                           "tf": 4.166666666666666
+                        },
+                        "RightTrackAgency.html#loadVehicleFeeds": {
+                          "ref": "RightTrackAgency.html#loadVehicleFeeds",
+                          "tf": 5.555555555555555
                         },
                         "RightTrackDB.html": {
                           "ref": "RightTrackDB.html",
@@ -25604,6 +26558,14 @@ window.lunrData = {
                         "ref": "StationFeedDepartureStatus.html",
                         "tf": 1.8518518518518516
                       },
+                      "VehicleFeed.html": {
+                        "ref": "VehicleFeed.html",
+                        "tf": 2.380952380952381
+                      },
+                      "VehicleFeedPosition.html": {
+                        "ref": "VehicleFeedPosition.html",
+                        "tf": 1.9230769230769231
+                      },
                       "Trip.html": {
                         "ref": "Trip.html",
                         "tf": 1.0204081632653061
@@ -25703,6 +26665,131 @@ window.lunrData = {
                         "Agency.html#email": {
                           "ref": "Agency.html#email",
                           "tf": 7.142857142857142
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "l": {
+            "docs": {},
+            "o": {
+              "docs": {},
+              "n": {
+                "docs": {},
+                "g": {
+                  "docs": {
+                    "VehicleFeed.html#stops": {
+                      "ref": "VehicleFeed.html#stops",
+                      "tf": 5.555555555555555
+                    },
+                    "Shape.html#shapePtSequence": {
+                      "ref": "Shape.html#shapePtSequence",
+                      "tf": 12.5
+                    },
+                    "StopTime.html#headsign": {
+                      "ref": "StopTime.html#headsign",
+                      "tf": 5.555555555555555
+                    }
+                  }
+                }
+              }
+            },
+            "l": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "w": {
+                  "docs": {
+                    "TripSearch.html#allowTransfers": {
+                      "ref": "TripSearch.html#allowTransfers",
+                      "tf": 12.5
+                    },
+                    "TripSearch.html#allowChangeInDirection": {
+                      "ref": "TripSearch.html#allowChangeInDirection",
+                      "tf": 7.142857142857142
+                    },
+                    "Trip.html": {
+                      "ref": "Trip.html",
+                      "tf": 1.0204081632653061
+                    },
+                    "Trip.html#bikesAllowed": {
+                      "ref": "Trip.html#bikesAllowed",
+                      "tf": 6.25
+                    }
+                  },
+                  "t": {
+                    "docs": {},
+                    "r": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "n": {
+                          "docs": {},
+                          "s": {
+                            "docs": {},
+                            "f": {
+                              "docs": {
+                                "TripSearch.html#allowTransfers": {
+                                  "ref": "TripSearch.html#allowTransfers",
+                                  "tf": 700
+                                },
+                                "Favorite.html": {
+                                  "ref": "Favorite.html",
+                                  "tf": 0.6097560975609756
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "c": {
+                    "docs": {},
+                    "h": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "n": {
+                          "docs": {},
+                          "g": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "i": {
+                                "docs": {},
+                                "n": {
+                                  "docs": {},
+                                  "d": {
+                                    "docs": {},
+                                    "i": {
+                                      "docs": {},
+                                      "r": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "c": {
+                                            "docs": {},
+                                            "t": {
+                                              "docs": {
+                                                "TripSearch.html#allowChangeInDirection": {
+                                                  "ref": "TripSearch.html#allowChangeInDirection",
+                                                  "tf": 700
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -25926,127 +27013,6 @@ window.lunrData = {
               }
             }
           },
-          "l": {
-            "docs": {},
-            "l": {
-              "docs": {},
-              "o": {
-                "docs": {},
-                "w": {
-                  "docs": {
-                    "TripSearch.html#allowTransfers": {
-                      "ref": "TripSearch.html#allowTransfers",
-                      "tf": 12.5
-                    },
-                    "TripSearch.html#allowChangeInDirection": {
-                      "ref": "TripSearch.html#allowChangeInDirection",
-                      "tf": 7.142857142857142
-                    },
-                    "Trip.html": {
-                      "ref": "Trip.html",
-                      "tf": 1.0204081632653061
-                    },
-                    "Trip.html#bikesAllowed": {
-                      "ref": "Trip.html#bikesAllowed",
-                      "tf": 6.25
-                    }
-                  },
-                  "t": {
-                    "docs": {},
-                    "r": {
-                      "docs": {},
-                      "a": {
-                        "docs": {},
-                        "n": {
-                          "docs": {},
-                          "s": {
-                            "docs": {},
-                            "f": {
-                              "docs": {
-                                "TripSearch.html#allowTransfers": {
-                                  "ref": "TripSearch.html#allowTransfers",
-                                  "tf": 700
-                                },
-                                "Favorite.html": {
-                                  "ref": "Favorite.html",
-                                  "tf": 0.6097560975609756
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "c": {
-                    "docs": {},
-                    "h": {
-                      "docs": {},
-                      "a": {
-                        "docs": {},
-                        "n": {
-                          "docs": {},
-                          "g": {
-                            "docs": {},
-                            "e": {
-                              "docs": {},
-                              "i": {
-                                "docs": {},
-                                "n": {
-                                  "docs": {},
-                                  "d": {
-                                    "docs": {},
-                                    "i": {
-                                      "docs": {},
-                                      "r": {
-                                        "docs": {},
-                                        "e": {
-                                          "docs": {},
-                                          "c": {
-                                            "docs": {},
-                                            "t": {
-                                              "docs": {
-                                                "TripSearch.html#allowChangeInDirection": {
-                                                  "ref": "TripSearch.html#allowChangeInDirection",
-                                                  "tf": 700
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "o": {
-              "docs": {},
-              "n": {
-                "docs": {},
-                "g": {
-                  "docs": {
-                    "Shape.html#shapePtSequence": {
-                      "ref": "Shape.html#shapePtSequence",
-                      "tf": 12.5
-                    },
-                    "StopTime.html#headsign": {
-                      "ref": "StopTime.html#headsign",
-                      "tf": 5.555555555555555
-                    }
-                  }
-                }
-              }
-            }
-          },
           "s": {
             "docs": {},
             "c": {
@@ -26192,6 +27158,10 @@ window.lunrData = {
                   "TransitDivision.html#status": {
                     "ref": "TransitDivision.html#status",
                     "tf": 12.5
+                  },
+                  "VehicleFeed.html#trip": {
+                    "ref": "VehicleFeed.html#trip",
+                    "tf": 16.666666666666664
                   },
                   "TripSearch.html#allowChangeInDirection": {
                     "ref": "TripSearch.html#allowChangeInDirection",
@@ -26481,6 +27451,10 @@ window.lunrData = {
                         "RightTrackAgency.html#isFeedSupported": {
                           "ref": "RightTrackAgency.html#isFeedSupported",
                           "tf": 2.631578947368421
+                        },
+                        "RightTrackAgency.html#isVehicleFeedSupported": {
+                          "ref": "RightTrackAgency.html#isVehicleFeedSupported",
+                          "tf": 2.631578947368421
                         }
                       },
                       "d": {
@@ -26492,6 +27466,10 @@ window.lunrData = {
                               "RightTrackAgency.html#loadFeed": {
                                 "ref": "RightTrackAgency.html#loadFeed",
                                 "tf": 4.166666666666666
+                              },
+                              "RightTrackAgency.html#loadVehicleFeeds": {
+                                "ref": "RightTrackAgency.html#loadVehicleFeeds",
+                                "tf": 5.555555555555555
                               }
                             }
                           }
@@ -26556,6 +27534,10 @@ window.lunrData = {
                     "StationFeed.html#updated": {
                       "ref": "StationFeed.html#updated",
                       "tf": 712.5
+                    },
+                    "VehicleFeedPosition.html#updated": {
+                      "ref": "VehicleFeedPosition.html#updated",
+                      "tf": 712.5
                     }
                   }
                 }
@@ -26571,6 +27553,10 @@ window.lunrData = {
               "StationFeedDepartureStatus.html": {
                 "ref": "StationFeedDepartureStatus.html",
                 "tf": 1.8518518518518516
+              },
+              "VehicleFeedPosition.html": {
+                "ref": "VehicleFeedPosition.html",
+                "tf": 1.9230769230769231
               },
               "Agency.html#lang": {
                 "ref": "Agency.html#lang",
@@ -26707,6 +27693,10 @@ window.lunrData = {
                     "docs": {
                       "RightTrackAgency.html#isFeedSupported": {
                         "ref": "RightTrackAgency.html#isFeedSupported",
+                        "tf": 2.631578947368421
+                      },
+                      "RightTrackAgency.html#isVehicleFeedSupported": {
+                        "ref": "RightTrackAgency.html#isVehicleFeedSupported",
                         "tf": 2.631578947368421
                       }
                     }
@@ -26867,6 +27857,704 @@ window.lunrData = {
                               }
                             }
                           }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "v": {
+          "docs": {},
+          "e": {
+            "docs": {},
+            "h": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "c": {
+                  "docs": {},
+                  "l": {
+                    "docs": {
+                      "VehicleFeed.html": {
+                        "ref": "VehicleFeed.html",
+                        "tf": 4.761904761904762
+                      },
+                      "VehicleFeed.html#id": {
+                        "ref": "VehicleFeed.html#id",
+                        "tf": 25
+                      },
+                      "VehicleFeed.html#position": {
+                        "ref": "VehicleFeed.html#position",
+                        "tf": 16.666666666666664
+                      },
+                      "VehicleFeed.html#stops": {
+                        "ref": "VehicleFeed.html#stops",
+                        "tf": 5.555555555555555
+                      },
+                      "VehicleFeed.html#trip": {
+                        "ref": "VehicleFeed.html#trip",
+                        "tf": 16.666666666666664
+                      },
+                      "VehicleFeedPosition.html": {
+                        "ref": "VehicleFeedPosition.html",
+                        "tf": 3.8461538461538463
+                      },
+                      "VehicleFeedPosition.html#lat": {
+                        "ref": "VehicleFeedPosition.html#lat",
+                        "tf": 16.666666666666664
+                      },
+                      "VehicleFeedPosition.html#lon": {
+                        "ref": "VehicleFeedPosition.html#lon",
+                        "tf": 16.666666666666664
+                      },
+                      "VehicleFeedPosition.html#bearing": {
+                        "ref": "VehicleFeedPosition.html#bearing",
+                        "tf": 16.666666666666664
+                      },
+                      "VehicleFeedPosition.html#speed": {
+                        "ref": "VehicleFeedPosition.html#speed",
+                        "tf": 12.5
+                      },
+                      "VehicleFeedPosition.html#status": {
+                        "ref": "VehicleFeedPosition.html#status",
+                        "tf": 16.666666666666664
+                      },
+                      "VehicleFeedPosition.html#.VehicleStatus": {
+                        "ref": "VehicleFeedPosition.html#.VehicleStatus",
+                        "tf": 16.666666666666664
+                      },
+                      "RightTrackAgency.html#isVehicleFeedSupported": {
+                        "ref": "RightTrackAgency.html#isVehicleFeedSupported",
+                        "tf": 5.263157894736842
+                      },
+                      "RightTrackAgency.html#loadVehicleFeeds": {
+                        "ref": "RightTrackAgency.html#loadVehicleFeeds",
+                        "tf": 5.555555555555555
+                      },
+                      "Trip.html#wheelchairAccessible": {
+                        "ref": "Trip.html#wheelchairAccessible",
+                        "tf": 7.142857142857142
+                      },
+                      "Trip.html#bikesAllowed": {
+                        "ref": "Trip.html#bikesAllowed",
+                        "tf": 6.25
+                      }
+                    },
+                    "e": {
+                      "docs": {},
+                      "f": {
+                        "docs": {},
+                        "e": {
+                          "docs": {
+                            "VehicleFeed.html": {
+                              "ref": "VehicleFeed.html",
+                              "tf": 1902.3809523809523
+                            },
+                            "VehicleFeedPosition.html": {
+                              "ref": "VehicleFeedPosition.html",
+                              "tf": 1.9230769230769231
+                            }
+                          },
+                          "e": {
+                            "docs": {},
+                            "d": {
+                              "docs": {},
+                              "#": {
+                                "docs": {},
+                                "i": {
+                                  "docs": {},
+                                  "d": {
+                                    "docs": {
+                                      "VehicleFeed.html#id": {
+                                        "ref": "VehicleFeed.html#id",
+                                        "tf": 1150
+                                      }
+                                    }
+                                  }
+                                },
+                                "p": {
+                                  "docs": {},
+                                  "o": {
+                                    "docs": {},
+                                    "s": {
+                                      "docs": {},
+                                      "i": {
+                                        "docs": {},
+                                        "t": {
+                                          "docs": {
+                                            "VehicleFeed.html#position": {
+                                              "ref": "VehicleFeed.html#position",
+                                              "tf": 1150
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "s": {
+                                  "docs": {},
+                                  "t": {
+                                    "docs": {},
+                                    "o": {
+                                      "docs": {},
+                                      "p": {
+                                        "docs": {
+                                          "VehicleFeed.html#stops": {
+                                            "ref": "VehicleFeed.html#stops",
+                                            "tf": 1150
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "t": {
+                                  "docs": {},
+                                  "r": {
+                                    "docs": {},
+                                    "i": {
+                                      "docs": {},
+                                      "p": {
+                                        "docs": {
+                                          "VehicleFeed.html#trip": {
+                                            "ref": "VehicleFeed.html#trip",
+                                            "tf": 1150
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "p": {
+                                "docs": {},
+                                "o": {
+                                  "docs": {},
+                                  "s": {
+                                    "docs": {},
+                                    "i": {
+                                      "docs": {},
+                                      "t": {
+                                        "docs": {
+                                          "VehicleFeed.html#position": {
+                                            "ref": "VehicleFeed.html#position",
+                                            "tf": 50
+                                          },
+                                          "VehicleFeedPosition.html": {
+                                            "ref": "VehicleFeedPosition.html",
+                                            "tf": 1901.923076923077
+                                          }
+                                        },
+                                        "i": {
+                                          "docs": {},
+                                          "o": {
+                                            "docs": {},
+                                            "n": {
+                                              "docs": {},
+                                              "#": {
+                                                "docs": {},
+                                                "l": {
+                                                  "docs": {},
+                                                  "a": {
+                                                    "docs": {},
+                                                    "t": {
+                                                      "docs": {
+                                                        "VehicleFeedPosition.html#lat": {
+                                                          "ref": "VehicleFeedPosition.html#lat",
+                                                          "tf": 1150
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "o": {
+                                                    "docs": {},
+                                                    "n": {
+                                                      "docs": {
+                                                        "VehicleFeedPosition.html#lon": {
+                                                          "ref": "VehicleFeedPosition.html#lon",
+                                                          "tf": 1150
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "u": {
+                                                  "docs": {},
+                                                  "p": {
+                                                    "docs": {},
+                                                    "d": {
+                                                      "docs": {
+                                                        "VehicleFeedPosition.html#updated": {
+                                                          "ref": "VehicleFeedPosition.html#updated",
+                                                          "tf": 1150
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "b": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "a": {
+                                                      "docs": {},
+                                                      "r": {
+                                                        "docs": {
+                                                          "VehicleFeedPosition.html#bearing": {
+                                                            "ref": "VehicleFeedPosition.html#bearing",
+                                                            "tf": 1150
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "s": {
+                                                  "docs": {},
+                                                  "p": {
+                                                    "docs": {},
+                                                    "e": {
+                                                      "docs": {
+                                                        "VehicleFeedPosition.html#speed": {
+                                                          "ref": "VehicleFeedPosition.html#speed",
+                                                          "tf": 1150
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "t": {
+                                                    "docs": {},
+                                                    "a": {
+                                                      "docs": {},
+                                                      "t": {
+                                                        "docs": {},
+                                                        "u": {
+                                                          "docs": {
+                                                            "VehicleFeedPosition.html#status": {
+                                                              "ref": "VehicleFeedPosition.html#status",
+                                                              "tf": 1150
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "o": {
+                                                      "docs": {},
+                                                      "p": {
+                                                        "docs": {
+                                                          "VehicleFeedPosition.html#stop": {
+                                                            "ref": "VehicleFeedPosition.html#stop",
+                                                            "tf": 1150
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              ".": {
+                                                "docs": {},
+                                                "v": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "h": {
+                                                      "docs": {},
+                                                      "i": {
+                                                        "docs": {},
+                                                        "c": {
+                                                          "docs": {},
+                                                          "l": {
+                                                            "docs": {},
+                                                            "e": {
+                                                              "docs": {},
+                                                              "s": {
+                                                                "docs": {},
+                                                                "t": {
+                                                                  "docs": {},
+                                                                  "a": {
+                                                                    "docs": {},
+                                                                    "t": {
+                                                                      "docs": {},
+                                                                      "u": {
+                                                                        "docs": {
+                                                                          "VehicleFeedPosition.html#status": {
+                                                                            "ref": "VehicleFeedPosition.html#status",
+                                                                            "tf": 50
+                                                                          },
+                                                                          "VehicleFeedPosition.html#.VehicleStatus": {
+                                                                            "ref": "VehicleFeedPosition.html#.VehicleStatus",
+                                                                            "tf": 1150
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "s": {
+                        "docs": {},
+                        "t": {
+                          "docs": {},
+                          "a": {
+                            "docs": {},
+                            "t": {
+                              "docs": {},
+                              "u": {
+                                "docs": {
+                                  "VehicleFeedPosition.html#.VehicleStatus": {
+                                    "ref": "VehicleFeedPosition.html#.VehicleStatus",
+                                    "tf": 675
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "r": {
+              "docs": {},
+              "s": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "o": {
+                    "docs": {},
+                    "n": {
+                      "docs": {
+                        "About.html": {
+                          "ref": "About.html",
+                          "tf": 3.8461538461538463
+                        },
+                        "About.html#version": {
+                          "ref": "About.html#version",
+                          "tf": 712.5
+                        },
+                        "About.html#notes": {
+                          "ref": "About.html#notes",
+                          "tf": 10
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "f": {
+            "docs": {
+              "VehicleFeed.html": {
+                "ref": "VehicleFeed.html",
+                "tf": 2.380952380952381
+              },
+              "VehicleFeedPosition.html": {
+                "ref": "VehicleFeedPosition.html",
+                "tf": 1.9230769230769231
+              }
+            },
+            ".": {
+              "docs": {},
+              "v": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "h": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "c": {
+                        "docs": {},
+                        "l": {
+                          "docs": {},
+                          "e": {
+                            "docs": {},
+                            "f": {
+                              "docs": {},
+                              "e": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {},
+                                  "d": {
+                                    "docs": {},
+                                    "p": {
+                                      "docs": {},
+                                      "o": {
+                                        "docs": {},
+                                        "s": {
+                                          "docs": {},
+                                          "i": {
+                                            "docs": {},
+                                            "t": {
+                                              "docs": {
+                                                "VehicleFeedPosition.html": {
+                                                  "ref": "VehicleFeedPosition.html",
+                                                  "tf": 1.9230769230769231
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "p": {
+            "docs": {},
+            ".": {
+              "docs": {},
+              "v": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "h": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "c": {
+                        "docs": {},
+                        "l": {
+                          "docs": {},
+                          "e": {
+                            "docs": {},
+                            "f": {
+                              "docs": {},
+                              "e": {
+                                "docs": {
+                                  "VehicleFeed.html": {
+                                    "ref": "VehicleFeed.html",
+                                    "tf": 2.380952380952381
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "a": {
+            "docs": {},
+            "l": {
+              "docs": {},
+              "u": {
+                "docs": {
+                  "Holiday.html#peak": {
+                    "ref": "Holiday.html#peak",
+                    "tf": 8.333333333333332
+                  },
+                  "RightTrackTransitAgency.html#resetConfig": {
+                    "ref": "RightTrackTransitAgency.html#resetConfig",
+                    "tf": 8.333333333333332
+                  },
+                  "RightTrackAgency.html#resetConfig": {
+                    "ref": "RightTrackAgency.html#resetConfig",
+                    "tf": 10
+                  },
+                  "Service.html#monday": {
+                    "ref": "Service.html#monday",
+                    "tf": 7.142857142857142
+                  },
+                  "Service.html#tuesday": {
+                    "ref": "Service.html#tuesday",
+                    "tf": 7.142857142857142
+                  },
+                  "Service.html#wednesday": {
+                    "ref": "Service.html#wednesday",
+                    "tf": 7.142857142857142
+                  },
+                  "Service.html#thursday": {
+                    "ref": "Service.html#thursday",
+                    "tf": 7.142857142857142
+                  },
+                  "Service.html#friday": {
+                    "ref": "Service.html#friday",
+                    "tf": 7.142857142857142
+                  },
+                  "Service.html#saturday": {
+                    "ref": "Service.html#saturday",
+                    "tf": 7.142857142857142
+                  },
+                  "Service.html#sunday": {
+                    "ref": "Service.html#sunday",
+                    "tf": 7.142857142857142
+                  },
+                  "StopTime.html#pickupType": {
+                    "ref": "StopTime.html#pickupType",
+                    "tf": 7.142857142857142
+                  },
+                  "StopTime.html#dropOffType": {
+                    "ref": "StopTime.html#dropOffType",
+                    "tf": 8.333333333333332
+                  },
+                  "Trip.html#wheelchairAccessible": {
+                    "ref": "Trip.html#wheelchairAccessible",
+                    "tf": 7.142857142857142
+                  },
+                  "Trip.html#bikesAllowed": {
+                    "ref": "Trip.html#bikesAllowed",
+                    "tf": 6.25
+                  },
+                  "Trip.html#peak": {
+                    "ref": "Trip.html#peak",
+                    "tf": 10
+                  },
+                  "Stop.html#wheelchairBoarding": {
+                    "ref": "Stop.html#wheelchairBoarding",
+                    "tf": 7.142857142857142
+                  },
+                  "Stop.html#transferWeight": {
+                    "ref": "Stop.html#transferWeight",
+                    "tf": 2.941176470588235
+                  },
+                  "Favorite.html#type": {
+                    "ref": "Favorite.html#type",
+                    "tf": 12.5
+                  }
+                }
+              },
+              "i": {
+                "docs": {},
+                "d": {
+                  "docs": {
+                    "Agency.html#email": {
+                      "ref": "Agency.html#email",
+                      "tf": 7.142857142857142
+                    },
+                    "Service.html#monday": {
+                      "ref": "Service.html#monday",
+                      "tf": 7.142857142857142
+                    },
+                    "Service.html#tuesday": {
+                      "ref": "Service.html#tuesday",
+                      "tf": 7.142857142857142
+                    },
+                    "Service.html#wednesday": {
+                      "ref": "Service.html#wednesday",
+                      "tf": 7.142857142857142
+                    },
+                    "Service.html#thursday": {
+                      "ref": "Service.html#thursday",
+                      "tf": 7.142857142857142
+                    },
+                    "Service.html#friday": {
+                      "ref": "Service.html#friday",
+                      "tf": 7.142857142857142
+                    },
+                    "Service.html#saturday": {
+                      "ref": "Service.html#saturday",
+                      "tf": 7.142857142857142
+                    },
+                    "Service.html#sunday": {
+                      "ref": "Service.html#sunday",
+                      "tf": 7.142857142857142
+                    }
+                  }
+                }
+              }
+            },
+            "r": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "u": {
+                    "docs": {
+                      "RightTrackAgency.html": {
+                        "ref": "RightTrackAgency.html",
+                        "tf": 1.1627906976744187
+                      },
+                      "DateTime.html": {
+                        "ref": "DateTime.html",
+                        "tf": 1.7857142857142856
+                      },
+                      "module-query.html": {
+                        "ref": "module-query.html",
+                        "tf": 3.8461538461538463
+                      },
+                      "module-utils.html": {
+                        "ref": "module-utils.html",
+                        "tf": 3.571428571428571
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "o": {
+            "docs": {},
+            "i": {
+              "docs": {},
+              "c": {
+                "docs": {
+                  "Agency.html#phone": {
+                    "ref": "Agency.html#phone",
+                    "tf": 8.333333333333332
+                  }
+                }
+              }
+            }
+          },
+          "i": {
+            "docs": {},
+            "e": {
+              "docs": {},
+              "w": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "b": {
+                    "docs": {},
+                    "l": {
+                      "docs": {
+                        "Trip.html#shortName": {
+                          "ref": "Trip.html#shortName",
+                          "tf": 10
                         }
                       }
                     }
@@ -27383,248 +29071,6 @@ window.lunrData = {
                       "Stop.html#transferWeight": {
                         "ref": "Stop.html#transferWeight",
                         "tf": 2.941176470588235
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "v": {
-          "docs": {},
-          "a": {
-            "docs": {},
-            "l": {
-              "docs": {},
-              "u": {
-                "docs": {
-                  "Holiday.html#peak": {
-                    "ref": "Holiday.html#peak",
-                    "tf": 8.333333333333332
-                  },
-                  "RightTrackTransitAgency.html#resetConfig": {
-                    "ref": "RightTrackTransitAgency.html#resetConfig",
-                    "tf": 8.333333333333332
-                  },
-                  "RightTrackAgency.html#resetConfig": {
-                    "ref": "RightTrackAgency.html#resetConfig",
-                    "tf": 10
-                  },
-                  "Service.html#monday": {
-                    "ref": "Service.html#monday",
-                    "tf": 7.142857142857142
-                  },
-                  "Service.html#tuesday": {
-                    "ref": "Service.html#tuesday",
-                    "tf": 7.142857142857142
-                  },
-                  "Service.html#wednesday": {
-                    "ref": "Service.html#wednesday",
-                    "tf": 7.142857142857142
-                  },
-                  "Service.html#thursday": {
-                    "ref": "Service.html#thursday",
-                    "tf": 7.142857142857142
-                  },
-                  "Service.html#friday": {
-                    "ref": "Service.html#friday",
-                    "tf": 7.142857142857142
-                  },
-                  "Service.html#saturday": {
-                    "ref": "Service.html#saturday",
-                    "tf": 7.142857142857142
-                  },
-                  "Service.html#sunday": {
-                    "ref": "Service.html#sunday",
-                    "tf": 7.142857142857142
-                  },
-                  "StopTime.html#pickupType": {
-                    "ref": "StopTime.html#pickupType",
-                    "tf": 7.142857142857142
-                  },
-                  "StopTime.html#dropOffType": {
-                    "ref": "StopTime.html#dropOffType",
-                    "tf": 8.333333333333332
-                  },
-                  "Trip.html#wheelchairAccessible": {
-                    "ref": "Trip.html#wheelchairAccessible",
-                    "tf": 7.142857142857142
-                  },
-                  "Trip.html#bikesAllowed": {
-                    "ref": "Trip.html#bikesAllowed",
-                    "tf": 6.25
-                  },
-                  "Trip.html#peak": {
-                    "ref": "Trip.html#peak",
-                    "tf": 10
-                  },
-                  "Stop.html#wheelchairBoarding": {
-                    "ref": "Stop.html#wheelchairBoarding",
-                    "tf": 7.142857142857142
-                  },
-                  "Stop.html#transferWeight": {
-                    "ref": "Stop.html#transferWeight",
-                    "tf": 2.941176470588235
-                  },
-                  "Favorite.html#type": {
-                    "ref": "Favorite.html#type",
-                    "tf": 12.5
-                  }
-                }
-              },
-              "i": {
-                "docs": {},
-                "d": {
-                  "docs": {
-                    "Agency.html#email": {
-                      "ref": "Agency.html#email",
-                      "tf": 7.142857142857142
-                    },
-                    "Service.html#monday": {
-                      "ref": "Service.html#monday",
-                      "tf": 7.142857142857142
-                    },
-                    "Service.html#tuesday": {
-                      "ref": "Service.html#tuesday",
-                      "tf": 7.142857142857142
-                    },
-                    "Service.html#wednesday": {
-                      "ref": "Service.html#wednesday",
-                      "tf": 7.142857142857142
-                    },
-                    "Service.html#thursday": {
-                      "ref": "Service.html#thursday",
-                      "tf": 7.142857142857142
-                    },
-                    "Service.html#friday": {
-                      "ref": "Service.html#friday",
-                      "tf": 7.142857142857142
-                    },
-                    "Service.html#saturday": {
-                      "ref": "Service.html#saturday",
-                      "tf": 7.142857142857142
-                    },
-                    "Service.html#sunday": {
-                      "ref": "Service.html#sunday",
-                      "tf": 7.142857142857142
-                    }
-                  }
-                }
-              }
-            },
-            "r": {
-              "docs": {},
-              "i": {
-                "docs": {},
-                "o": {
-                  "docs": {},
-                  "u": {
-                    "docs": {
-                      "RightTrackAgency.html": {
-                        "ref": "RightTrackAgency.html",
-                        "tf": 1.1627906976744187
-                      },
-                      "DateTime.html": {
-                        "ref": "DateTime.html",
-                        "tf": 1.7857142857142856
-                      },
-                      "module-query.html": {
-                        "ref": "module-query.html",
-                        "tf": 3.8461538461538463
-                      },
-                      "module-utils.html": {
-                        "ref": "module-utils.html",
-                        "tf": 3.571428571428571
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "e": {
-            "docs": {},
-            "r": {
-              "docs": {},
-              "s": {
-                "docs": {},
-                "i": {
-                  "docs": {},
-                  "o": {
-                    "docs": {},
-                    "n": {
-                      "docs": {
-                        "About.html": {
-                          "ref": "About.html",
-                          "tf": 3.8461538461538463
-                        },
-                        "About.html#version": {
-                          "ref": "About.html#version",
-                          "tf": 712.5
-                        },
-                        "About.html#notes": {
-                          "ref": "About.html#notes",
-                          "tf": 10
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "h": {
-              "docs": {},
-              "i": {
-                "docs": {},
-                "c": {
-                  "docs": {},
-                  "l": {
-                    "docs": {
-                      "Trip.html#wheelchairAccessible": {
-                        "ref": "Trip.html#wheelchairAccessible",
-                        "tf": 7.142857142857142
-                      },
-                      "Trip.html#bikesAllowed": {
-                        "ref": "Trip.html#bikesAllowed",
-                        "tf": 6.25
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "o": {
-            "docs": {},
-            "i": {
-              "docs": {},
-              "c": {
-                "docs": {
-                  "Agency.html#phone": {
-                    "ref": "Agency.html#phone",
-                    "tf": 8.333333333333332
-                  }
-                }
-              }
-            }
-          },
-          "i": {
-            "docs": {},
-            "e": {
-              "docs": {},
-              "w": {
-                "docs": {},
-                "a": {
-                  "docs": {},
-                  "b": {
-                    "docs": {},
-                    "l": {
-                      "docs": {
-                        "Trip.html#shortName": {
-                          "ref": "Trip.html#shortName",
-                          "tf": 10
-                        }
                       }
                     }
                   }
@@ -28372,7 +29818,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 2858
+      "length": 3010
     },
     "corpusTokens": [
       "1",
@@ -28428,6 +29874,7 @@ window.lunrData = {
       "array.&lt;transitevent&gt",
       "array.&lt;tripsearchresultsegment&gt",
       "array.&lt;tripsearchresulttransfer&gt",
+      "array.&lt;vehiclefeedstop&gt",
       "arriv",
       "arrivaltim",
       "ascend",
@@ -28436,6 +29883,7 @@ window.lunrData = {
       "b",
       "background",
       "backgroundcolor",
+      "bear",
       "befor",
       "belong",
       "between",
@@ -28475,6 +29923,7 @@ window.lunrData = {
       "contain",
       "core",
       "core.classes.stationfe",
+      "core.classes.vehiclefe",
       "correspond",
       "creat",
       "createfromd",
@@ -28674,6 +30123,7 @@ window.lunrData = {
       "isstat",
       "istransit",
       "istrip",
+      "isvehiclefeedsupport",
       "javascript",
       "jd",
       "lang",
@@ -28699,6 +30149,7 @@ window.lunrData = {
       "list:modul",
       "load",
       "loadfe",
+      "loadvehiclefe",
       "locat",
       "locationtyp",
       "lon",
@@ -28707,7 +30158,10 @@ window.lunrData = {
       "longnam",
       "lower",
       "lt;abstract&gt",
+      "lt;static",
       "lt;static&gt",
+      "m/",
+      "mabe",
       "maintain",
       "make",
       "manag",
@@ -28803,8 +30257,10 @@ window.lunrData = {
       "pickuptyp",
       "pm",
       "point",
+      "posit",
       "possibl",
       "postdeparturehour",
+      "postion",
       "predeparturehour",
       "present",
       "primari",
@@ -28832,12 +30288,15 @@ window.lunrData = {
       "readabl",
       "readconfig",
       "readm",
+      "readonly&gt",
       "real",
+      "recent",
       "refer",
       "referenc",
       "regard",
       "regular",
       "relat",
+      "remain",
       "remark",
       "remov",
       "repres",
@@ -28857,7 +30316,9 @@ window.lunrData = {
       "righttrackagency#getconfig",
       "righttrackagency#id",
       "righttrackagency#isfeedsupport",
+      "righttrackagency#isvehiclefeedsupport",
       "righttrackagency#loadfe",
+      "righttrackagency#loadvehiclefe",
       "righttrackagency#moduledirectori",
       "righttrackagency#nam",
       "righttrackagency#readconfig",
@@ -28981,6 +30442,7 @@ window.lunrData = {
       "spec",
       "specif",
       "specifi",
+      "speed",
       "spent",
       "sqlite",
       "sqlite3",
@@ -29025,6 +30487,7 @@ window.lunrData = {
       "stop#wheelchairboard",
       "stop#zoneid",
       "stop'",
+      "stop(",
       "stop.sortbydist",
       "stop.sortbyid",
       "stop.sortbynam",
@@ -29067,6 +30530,7 @@ window.lunrData = {
       "thursday",
       "ticket",
       "time",
+      "time(",
       "timepoint",
       "timestamp",
       "timezon",
@@ -29176,9 +30640,27 @@ window.lunrData = {
       "valu",
       "variou",
       "vehicl",
+      "vehiclefe",
+      "vehiclefeed#id",
+      "vehiclefeed#posit",
+      "vehiclefeed#stop",
+      "vehiclefeed#trip",
+      "vehiclefeedposit",
+      "vehiclefeedposition#bear",
+      "vehiclefeedposition#lat",
+      "vehiclefeedposition#lon",
+      "vehiclefeedposition#spe",
+      "vehiclefeedposition#statu",
+      "vehiclefeedposition#stop",
+      "vehiclefeedposition#upd",
+      "vehiclefeedposition.vehiclestatu",
+      "vehiclestatu",
       "version",
+      "vf",
+      "vf.vehiclefeedposit",
       "viewabl",
       "voic",
+      "vp.vehiclefe",
       "way",
       "web",
       "websit",
@@ -29592,6 +31074,148 @@ window.lunrData = {
       "tags": "StationFeedDepartureStatus~Track",
       "summary": "",
       "description": "Departure track properties"
+    },
+    "VehicleFeed.html": {
+      "id": "VehicleFeed.html",
+      "kind": "class",
+      "title": "VehicleFeed",
+      "longname": "VehicleFeed",
+      "name": "VehicleFeed",
+      "tags": "VehicleFeed",
+      "summary": "",
+      "description": "Vehicle Feed Information about the real-time postions of a vehicle To access this Class directly: const core = require('right-track-core'); const VF = core.classes.VehicleFeed; const VehicleFeed = VP.VehicleFeed;",
+      "body": ""
+    },
+    "VehicleFeed.html#id": {
+      "id": "VehicleFeed.html#id",
+      "kind": "member",
+      "title": "id :string",
+      "longname": "VehicleFeed#id",
+      "name": "id",
+      "tags": "VehicleFeed#id id",
+      "summary": "",
+      "description": "The ID of the Vehicle"
+    },
+    "VehicleFeed.html#position": {
+      "id": "VehicleFeed.html#position",
+      "kind": "member",
+      "title": "position :VehicleFeedPosition",
+      "longname": "VehicleFeed#position",
+      "name": "position",
+      "tags": "VehicleFeed#position position",
+      "summary": "",
+      "description": "The most-recent position of the Vehicle"
+    },
+    "VehicleFeed.html#stops": {
+      "id": "VehicleFeed.html#stops",
+      "kind": "member",
+      "title": "stops :Array.&lt;VehicleFeedStop&gt;",
+      "longname": "VehicleFeed#stops",
+      "name": "stops",
+      "tags": "VehicleFeed#stops stops",
+      "summary": "",
+      "description": "List of remaining stops mabe by the vehicle, along with the departure time(s) from the stop(s)"
+    },
+    "VehicleFeed.html#trip": {
+      "id": "VehicleFeed.html#trip",
+      "kind": "member",
+      "title": "trip :Trip",
+      "longname": "VehicleFeed#trip",
+      "name": "trip",
+      "tags": "VehicleFeed#trip trip",
+      "summary": "",
+      "description": "The Trip the vehicle is operating"
+    },
+    "VehicleFeedPosition.html": {
+      "id": "VehicleFeedPosition.html",
+      "kind": "class",
+      "title": "VehicleFeedPosition",
+      "longname": "VehicleFeedPosition",
+      "name": "VehicleFeedPosition",
+      "tags": "VehicleFeedPosition",
+      "summary": "",
+      "description": "Vehicle Feed Position Real-time position information for a specific Vehicle. Used by the VehicleFeed Class. To access this Class directly: const core = require('right-track-core'); const VF = core.classes.VehicleFeed; const VehicleFeedPosition = VF.VehicleFeedPosition;",
+      "body": ""
+    },
+    "VehicleFeedPosition.html#lat": {
+      "id": "VehicleFeedPosition.html#lat",
+      "kind": "member",
+      "title": "lat :number",
+      "longname": "VehicleFeedPosition#lat",
+      "name": "lat",
+      "tags": "VehicleFeedPosition#lat lat",
+      "summary": "",
+      "description": "The most recent vehicle latitude"
+    },
+    "VehicleFeedPosition.html#lon": {
+      "id": "VehicleFeedPosition.html#lon",
+      "kind": "member",
+      "title": "lon :number",
+      "longname": "VehicleFeedPosition#lon",
+      "name": "lon",
+      "tags": "VehicleFeedPosition#lon lon",
+      "summary": "",
+      "description": "The most recent vehicle longitude"
+    },
+    "VehicleFeedPosition.html#updated": {
+      "id": "VehicleFeedPosition.html#updated",
+      "kind": "member",
+      "title": "updated :DateTime",
+      "longname": "VehicleFeedPosition#updated",
+      "name": "updated",
+      "tags": "VehicleFeedPosition#updated updated",
+      "summary": "",
+      "description": "The Date/Time of when the position was last updated"
+    },
+    "VehicleFeedPosition.html#bearing": {
+      "id": "VehicleFeedPosition.html#bearing",
+      "kind": "member",
+      "title": "bearing :number",
+      "longname": "VehicleFeedPosition#bearing",
+      "name": "bearing",
+      "tags": "VehicleFeedPosition#bearing bearing",
+      "summary": "",
+      "description": "The most recent vehicle bearing"
+    },
+    "VehicleFeedPosition.html#speed": {
+      "id": "VehicleFeedPosition.html#speed",
+      "kind": "member",
+      "title": "speed :number",
+      "longname": "VehicleFeedPosition#speed",
+      "name": "speed",
+      "tags": "VehicleFeedPosition#speed speed",
+      "summary": "",
+      "description": "The most recent vehicle speed, in m/s"
+    },
+    "VehicleFeedPosition.html#status": {
+      "id": "VehicleFeedPosition.html#status",
+      "kind": "member",
+      "title": "status :VehicleFeedPosition.VehicleStatus",
+      "longname": "VehicleFeedPosition#status",
+      "name": "status",
+      "tags": "VehicleFeedPosition#status status",
+      "summary": "",
+      "description": "The current status of the vehicle"
+    },
+    "VehicleFeedPosition.html#stop": {
+      "id": "VehicleFeedPosition.html#stop",
+      "kind": "member",
+      "title": "stop :Stop",
+      "longname": "VehicleFeedPosition#stop",
+      "name": "stop",
+      "tags": "VehicleFeedPosition#stop stop",
+      "summary": "",
+      "description": "The Stop referenced by the status"
+    },
+    "VehicleFeedPosition.html#.VehicleStatus": {
+      "id": "VehicleFeedPosition.html#.VehicleStatus",
+      "kind": "member",
+      "title": "&lt;static, readonly&gt; VehicleStatus :string",
+      "longname": "VehicleFeedPosition.VehicleStatus",
+      "name": "VehicleStatus",
+      "tags": "VehicleFeedPosition.VehicleStatus VehicleStatus",
+      "summary": "",
+      "description": "The current vehicle status"
     },
     "TripSearchResultTransfer.html": {
       "id": "TripSearchResultTransfer.html",
@@ -30362,6 +31986,26 @@ window.lunrData = {
       "tags": "RightTrackAgency#loadFeed loadFeed",
       "summary": "",
       "description": "Load the Agency's Station Feed for the specified Origin Stop. This function will need to be overridden by the implementing agency."
+    },
+    "RightTrackAgency.html#isVehicleFeedSupported": {
+      "id": "RightTrackAgency.html#isVehicleFeedSupported",
+      "kind": "function",
+      "title": "&lt;abstract&gt; isVehicleFeedSupported() → {boolean}",
+      "longname": "RightTrackAgency#isVehicleFeedSupported",
+      "name": "isVehicleFeedSupported",
+      "tags": "RightTrackAgency#isVehicleFeedSupported isVehicleFeedSupported",
+      "summary": "",
+      "description": "Check if the Agency supports real-time Vehicle Feeds. This will return false by default unless the implementing agency overrides the function to indicate support for Vehicle Feeds."
+    },
+    "RightTrackAgency.html#loadVehicleFeeds": {
+      "id": "RightTrackAgency.html#loadVehicleFeeds",
+      "kind": "function",
+      "title": "&lt;abstract&gt; loadVehicleFeeds( db, callback )",
+      "longname": "RightTrackAgency#loadVehicleFeeds",
+      "name": "loadVehicleFeeds",
+      "tags": "RightTrackAgency#loadVehicleFeeds loadVehicleFeeds",
+      "summary": "",
+      "description": "Load all of the Agency's Vehicle Feeds. This function will need to be overridden by the implementing agency."
     },
     "Shape.html": {
       "id": "Shape.html",
