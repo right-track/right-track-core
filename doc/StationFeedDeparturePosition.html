@@ -1,10 +1,9 @@
-<!-- start:source.tmpl.hbs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>classes/RightTrackAgency/index.js</title>
+		<title>StationFeedDeparturePosition</title>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -42,7 +41,7 @@
 			</style>
 		<script type="text/javascript">
 			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"YYYY-MM-DD","systemName":"Right Track Core","systemSummary":"The core library for the Right Track projects","systemLogo":"","systemColor":"#00897B","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"Source Code for Right Track available at <a href='https://github.com/right-track'>GitHub/right-track</a>","copyright":"Copyright &copy; 2021 David Waring and Right Track Contributors","linenums":true,"collapseSymbols":false,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false};
-			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_TOC_ENABLED = true;
 			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
 </head>
@@ -162,207 +161,298 @@
 	</header>
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
-				<span class="kind">source</span>
-				<h1><span class="name">classes/RightTrackAgency/index.js</span></h1>
+				<span class="kind">class</span>
+				<h1><span class="name">StationFeedDeparturePosition</span></h1>
 			</div>
 		</div>
 	<div class="container content">
 		<div class="row">
-			<div class="col-md-12 main-content">
-		<section class="source-section">
-			<article></article>
-			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">'use strict';
-
-const config = require('@dwaring87/config');
-const path = require('path');
-
-/**
- * Right Track Agency Abstract Class
- * @see {@link RightTrackAgency}
- * @module classes/RightTrackAgency
- */
-
-
-/**
- * ### `RightTrackAgency` Abstract Class
- * 
- * This abstract class is implemented by various Right Track Agencies which
- * provide the agency-specific configuration information and real-time status
- * information.
- *
- * The abstract class handles the agency configuration properties and the
- * reading of additional agency configuration files.  An implementation
- * of this class should override the feed-related functions to provide
- * a real-time Station Feed.
- * 
- * **Module:** {@link module:classes/RightTrackAgency|classes/RightTrackAgency}
- * 
- * @class
- * @alias RightTrackAgency
- * @abstract
- */
-class RightTrackAgency {
-
-  /**
-   * Abstract class constructor.  The implementing agency should call this
-   * constructor: `super(moduleDirectory)` in order to read the default
-   * agency configuration and set the initial configuration properties.
-   *
-   * This will set the following properties, which are accessible from the
-   * implementing agency's Class:
-   * - `moduleDirectory` = the root of the agency's module directory
-   * - `config` = the agency's configuration (the default configuration
-   * or the default merged with an additional configuration if `readConfig`
-   * is used).
-   * - `id` = the agency id code
-   * - `name` = the agency's full name
-   * @param {string} [moduleDirectory] The full path to the root of the agency's
-   * module directory.  This is where relative paths to configuration files
-   * will be relative to.
-   * @param {Object} [configuration] The Agency configuration settings
-   */
-  constructor(moduleDirectory, configuration) {
-
-    // Parse Arguments
-    if ( typeof moduleDirectory === 'object' &amp;&amp; moduleDirectory !== null ) {
-      configuration = moduleDirectory;
-      moduleDirectory = undefined;
-    }
-
-    // Module Directory Set
-    if ( moduleDirectory !== undefined ) {
-
-      // Set Agency Module Directory
-      this._moduleDirectory = moduleDirectory;
-
-      // Setup Config
-      this._config = new config(path.normalize(this._moduleDirectory + '/agency.json'));
-    }
-
-    // Config provided
-    else if ( config !== undefined ) {
-
-      // Set Agency Module Directory as undefined
-      this._moduleDirectory = undefined;
-
-      // Setup Config
-      this._config = new config(configuration);
-
-    }
-
-  }
-
-
-  // ==== CLASS MEMBERS ==== //
-
-  /**
-   * The Agency's id code
-   * @returns {string|undefined}
-   */
-  get id() {
-    if ( this.config !== undefined ) {
-      return this.config.id;
-    }
-    return undefined;
-  }
-
-  /**
-   * The Agency's full name
-   * @returns {string|undefined}
-   */
-  get name() {
-    if ( this.config !== undefined ) {
-      return this.config.name;
-    }
-    return undefined;
-  }
-
-  /**
-   * The Agency's module directory
-   * @returns {string}
-   */
-  get moduleDirectory() {
-    return path.normalize(this._moduleDirectory);
-  }
-
-  /**
-   * The Agency's configuration properties
-   * @returns {object}
-   */
-  get config() {
-    return this._config.get();
-  }
-
-
-  // ==== CONFIGURATION ==== //
-
-  /**
-   * Reset the agency configuration to the default values
-   */
-  resetConfig() {
-    this._config.reset();
-  }
-
-  /**
-   * Read an additional agency configuration file
-   * @param {string} configFile Path to agency configuration file.  Relative
-   * paths will be relative to the root of the agency's module directory.
-   */
-  readConfig(configFile) {
-    if ( !path.isAbsolute(configFile) ) {
-      configFile = path.normalize(this.moduleDirectory + '/' + configFile);
-    }
-    this._config.read(configFile);
-  }
-
-  /**
-   * Get the agency configuration
-   * @returns {object} Agency configuration
-   */
-  getConfig() {
-    return this.config;
-  }
-
-
-  // ==== STATION FEED ==== //
-
-  /**
-   * Check if the Agency supports real-time Station Feeds.
-   *
-   * This will return false by default unless the implementing agency overrides
-   * the function to indicate support for Station Feeds.
-   * @returns {boolean} true if the agency has implemented Station Feeds
-   * @abstract
-   */
-  isFeedSupported() {
-    return false;
-  }
-
-  /**
-   * Load the Agency's Station Feed for the specified Origin Stop.
-   *
-   * This function will need to be overridden by the implementing agency.
-   * @param {RightTrackDB} db The Right Track DB to query
-   * @param {Stop} origin The origin Stop
-   * @param {function} callback Callback function
-   * @param {Error} callback.error Station Feed Error.  The Error's message will be
-   * a pipe (`|`) separated string in the format of: `Error Code|Error Type|Error Message`
-   * that will be parsed out by the **Right Track API Server** into a more specific
-   * error Response.
-   * @param {StationFeed} [callback.feed] The built `StationFeed` for the Stop
-   * @abstract
-   */
-  loadFeed(db, origin, callback) {
-    return callback(new Error("4051|Station Feed Not Supported|This agency (" + this.config.name + ") does not support real-time Station Feeds"));
-  }
-
-}
-
-
-
-module.exports = RightTrackAgency;</code></pre>
-		</section>
+			<div class="col-md-9 main-content">
+						<ol class="breadcrumb">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="list_class.html">Classes</a></li>
+							<li class="active">StationFeedDeparturePosition</li>
+						</ol>
+					<section>
+							<dl class="symbol primary">
+								<dt class="symbol-title class">
+			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">StationFeedDeparturePosition</span><span class="signature-params">( <span class="signature-param">lat</span>, <span class="signature-param">lon</span> [,&nbsp;<span class="signature-param">description</span>&nbsp;], <span class="signature-param">updated</span>&nbsp;)</span><span class="signature-type"></span></h2>
+</dt>
+<dd class="symbol-details class" style="max-height: 9999px;">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description classdesc"><h2>Station Feed Departure Position</h2>
+			<p>Real-time Position Information about a departure from a Stop.  Used by
+			the <code>StationFeedDeparture</code> Class.</p>
+			<p>To access this Class directly:</p>
+			<pre class="prettyprint source lang-javascript"><code>const core = require('right-track-core');
+			const SF = core.classes.StationFeed;
+			const StationFeedDeparturePosition = SF.StationFeedDeparturePosition;
+			</code></pre></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>lat</code></td>
+							<td><span class="param-type">Number</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>Latitude of real-time position</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>lon</code></td>
+							<td><span class="param-type">Number</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>Longitude of real-time position</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>description</code></td>
+							<td><span class="param-type">String</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>Description of real-time position (ie &quot;In transit to {next stop}&quot;)</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>updated</code></td>
+							<td><span class="param-type"><a href="DateTime.html">DateTime</a></span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>DateTime of when the real-time position was last updated</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparturePosition.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparturePosition.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparturePosition.js.html#line-19">line 19</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+							</dl>
+							<article class="secondary">
+									<h3>Members</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="lat" class="member public"><span class="name">lat</span><span class="signature-type"> :Number</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The real-time position latitude</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">Number</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparturePosition.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparturePosition.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparturePosition.js.html#line-41">line 41</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="lon" class="member public"><span class="name">lon</span><span class="signature-type"> :Number</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The real-time position longitude</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">Number</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparturePosition.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparturePosition.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparturePosition.js.html#line-47">line 47</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="description" class="member public"><span class="name">description</span><span class="signature-type"> :String</span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The real-time position description</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">String</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparturePosition.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparturePosition.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparturePosition.js.html#line-53">line 53</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="updated" class="member public"><span class="name">updated</span><span class="signature-type"> :<a href="DateTime.html">DateTime</a></span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The date/time of when the real-time
+			position was last updated</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type"><a href="DateTime.html">DateTime</a></span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparturePosition.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparturePosition.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparturePosition.js.html#line-60">line 60</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
+							</article>
+					</section>
+			</div>
+				<div class="col-md-3 side-content">
+					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+				</div>
 		</div>
 	</div>
 	<footer>
@@ -395,4 +485,3 @@ module.exports = RightTrackAgency;</code></pre>
 	
 </body>
 </html>
-<!-- end:source.tmpl.hbs -->
