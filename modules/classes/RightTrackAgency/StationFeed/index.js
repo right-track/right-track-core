@@ -19,6 +19,12 @@ module.exports = {
    * StationFeedDepartureStatus Class (used by a StationFeedDeparture)
    * @see StationFeedDepartureStatus
    */
-  StationFeedDepartureStatus: require('./StationFeedDepartureStatus.js')
+  StationFeedDepartureStatus: require('./StationFeedDepartureStatus.js'),
+
+  /**
+   * StationFeedDeparturePosition Class (used by a StationFeedDeparture)
+   * @see StationFeedDeparturePosition
+   */
+  StationFeedDeparturePosition: require('./StationFeedDeparturePosition.js')
 
 };
