@@ -3,3 +3,4 @@
 /node_modules
 debug.js
 /package-lock.json
+/yarn.lock
