@@ -25,8 +25,9 @@ class StationFeedDeparture {
    * @param {Stop} destination Destination Stop
    * @param {Trip} trip Departure Trip
    * @param {StationFeedDepartureStatus} status Real-time Status Information
+   * @param {StationFeedDeparturePosition} [position] Real-time Position Information
    */
-  constructor(departure, destination, trip, status) {
+  constructor(departure, destination, trip, status, position) {
 
     /**
      * The Date/Time of the Scheduled Departure
@@ -51,6 +52,12 @@ class StationFeedDeparture {
      * @type {StationFeedDepartureStatus}
      */
     this.status = status;
+
+    /**
+     * The Real-Time Position of the Departure
+     * @type {StationFeedDeparturePosition}
+     */
+    this.position = position;
 
   }
 

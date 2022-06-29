@@ -74,6 +74,7 @@
 											<li><a href="About.html">About</a></li>
 											<li><a href="Agency.html">Agency</a></li>
 											<li><a href="DateTime.html">DateTime</a></li>
+											<li><a href="Direction.html">Direction</a></li>
 											<li><a href="Favorite.html">Favorite</a></li>
 											<li><a href="Holiday.html">Holiday</a></li>
 											<li><a href="Link.html">Link</a></li>
@@ -86,6 +87,7 @@
 											<li><a href="Shape.html">Shape</a></li>
 											<li><a href="StationFeed.html">StationFeed</a></li>
 											<li><a href="StationFeedDeparture.html">StationFeedDeparture</a></li>
+											<li><a href="StationFeedDeparturePosition.html">StationFeedDeparturePosition</a></li>
 											<li><a href="StationFeedDepartureStatus.html">StationFeedDepartureStatus</a></li>
 											<li><a href="Stop.html">Stop</a></li>
 											<li><a href="StopTime.html">StopTime</a></li>
@@ -111,6 +113,7 @@
 											<li><a href="module-classes_RightTrackTransitAgency.html">classes/RightTrackTransitAgency</a></li>
 											<li><a href="module-gtfs.html">gtfs</a></li>
 											<li><a href="module-gtfs_Agency.html">gtfs/Agency</a></li>
+											<li><a href="module-gtfs_Direction.html">gtfs/Direction</a></li>
 											<li><a href="module-gtfs_Route.html">gtfs/Route</a></li>
 											<li><a href="module-gtfs_Service.html">gtfs/Service</a></li>
 											<li><a href="module-gtfs_ServiceException.html">gtfs/ServiceException</a></li>
@@ -121,6 +124,7 @@
 											<li><a href="module-query.html">query</a></li>
 											<li><a href="module-query_about.html">query/about</a></li>
 											<li><a href="module-query_calendar.html">query/calendar</a></li>
+											<li><a href="module-query_directions.html">query/directions</a></li>
 											<li><a href="module-query_holiday.html">query/holiday</a></li>
 											<li><a href="module-query_linegraph.html">query/linegraph</a></li>
 											<li><a href="module-query_links.html">query/links</a></li>
@@ -177,7 +181,7 @@
 					<section>
 							<dl class="symbol primary">
 								<dt class="symbol-title class">
-			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">StationFeedDeparture</span><span class="signature-params">( <span class="signature-param">departure</span>, <span class="signature-param">destination</span>, <span class="signature-param">trip</span>, <span class="signature-param">status</span>&nbsp;)</span><span class="signature-type"></span></h2>
+			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">StationFeedDeparture</span><span class="signature-params">( <span class="signature-param">departure</span>, <span class="signature-param">destination</span>, <span class="signature-param">trip</span>, <span class="signature-param">status</span> [,&nbsp;<span class="signature-param">position</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h2>
 </dt>
 <dd class="symbol-details class" style="max-height: 9999px;">
 	<div class="symbol-details-inner">
@@ -196,6 +200,7 @@
 					<tr>
 							<th>Name</th>
 						<th>Type</th>
+							<th>Attributes</th>
 						<th class="last">Description</th>
 					</tr>
 					</thead>
@@ -203,6 +208,7 @@
 						<tr>
 								<td><code>departure</code></td>
 							<td><span class="param-type"><a href="DateTime.html">DateTime</a></span></td>
+								<td class="attributes"></td>
 							<td class="last">
 									<p>DateTime of scheduled departure</p>
 							</td>
@@ -210,6 +216,7 @@
 						<tr>
 								<td><code>destination</code></td>
 							<td><span class="param-type"><a href="Stop.html">Stop</a></span></td>
+								<td class="attributes"></td>
 							<td class="last">
 									<p>Destination Stop</p>
 							</td>
@@ -217,6 +224,7 @@
 						<tr>
 								<td><code>trip</code></td>
 							<td><span class="param-type"><a href="Trip.html">Trip</a></span></td>
+								<td class="attributes"></td>
 							<td class="last">
 									<p>Departure Trip</p>
 							</td>
@@ -224,8 +232,17 @@
 						<tr>
 								<td><code>status</code></td>
 							<td><span class="param-type"><a href="StationFeedDepartureStatus.html">StationFeedDepartureStatus</a></span></td>
+								<td class="attributes"></td>
 							<td class="last">
 									<p>Real-time Status Information</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>position</code></td>
+							<td><span class="param-type"><a href="StationFeedDeparturePosition.html">StationFeedDeparturePosition</a></span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>Real-time Position Information</p>
 							</td>
 						</tr>
 					</tbody>
@@ -299,7 +316,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparture.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html#line-35">line 35</a></p>
+									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparture.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html#line-36">line 36</a></p>
 								</div>
 							</div>
 			
@@ -343,7 +360,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparture.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html#line-41">line 41</a></p>
+									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparture.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html#line-42">line 42</a></p>
 								</div>
 							</div>
 			
@@ -387,7 +404,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparture.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html#line-47">line 47</a></p>
+									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparture.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html#line-48">line 48</a></p>
 								</div>
 							</div>
 			
@@ -431,7 +448,51 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparture.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html#line-53">line 53</a></p>
+									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparture.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html#line-54">line 54</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public">
+			<h4 id="position" class="member public"><span class="name">position</span><span class="signature-type"> :<a href="StationFeedDeparturePosition.html">StationFeedDeparturePosition</a></span></h4>
+		</dt>
+<dd class="symbol-details member public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The Real-Time Position of the Departure</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type"><a href="StationFeedDeparturePosition.html">StationFeedDeparturePosition</a></span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparture.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html#line-60">line 60</a></p>
 								</div>
 							</div>
 			
@@ -507,7 +568,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparture.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html#line-66">line 66</a></p>
+									<p class="form-control-static"><a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html">classes/RightTrackAgency/StationFeed/StationFeedDeparture.js</a>, <a href="classes_RightTrackAgency_StationFeed_StationFeedDeparture.js.html#line-73">line 73</a></p>
 								</div>
 							</div>
 			
@@ -529,7 +590,7 @@
 	<footer>
 				<div class="footer-option">Source Code for Right Track available at <a href='https://github.com/right-track'>GitHub/right-track</a></div>
 				<div class="copyright">Copyright &copy; 2021 David Waring and Right Track Contributors</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on 2022-03-11 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on 2022-06-29 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

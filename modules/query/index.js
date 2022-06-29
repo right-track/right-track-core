@@ -14,6 +14,7 @@
 function clearCache() {
   require('./AboutTable.js').clearCache();
   require('./CalendarTable.js').clearCache();
+  require('./DirectionsTable.js').clearCache();
   require('./HolidayTable.js').clearCache();
   require('./LineGraphTable.js').clearCache();
   require('./LinksTable.js').clearCache();
@@ -39,6 +40,12 @@ module.exports = {
    * @see module:query/calendar
    */
   calendar: require('./CalendarTable.js'),
+
+  /**
+   * Query gtfs_directions table
+   * @see module:query/direction
+   */
+  directions: require('./DirectionsTable.js'),
 
   /**
    * Query rt_holidays table

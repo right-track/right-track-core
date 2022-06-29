@@ -343,9 +343,9 @@ Right Track Agency.
 The abstract class provides the functionality for reading agency configuration files and 
 setting the configuration properties.
 
-This module also includes the Station Feed Classes: StationFeed, StationFeedDeparture, and 
-StationFeedDepartureStatus, which are all required when an Agency implements the real-time 
-Station Feed functionality.
+This module also includes the Station Feed Classes: StationFeed, StationFeedDeparture,  
+StationFeedDepartureStatus, and StationFeedDeparturePosition, which are all required when 
+an Agency implements the real-time Station Feed functionality.
 
 ##### Supported Agencies
 
