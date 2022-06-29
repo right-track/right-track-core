@@ -506,6 +506,37 @@
           "track",
           "typedef"
         ],
+        "Direction.html": [
+          "class",
+          "definit",
+          "descript",
+          "direct",
+          "field",
+          "gtf",
+          "gtfs/direct",
+          "id",
+          "modul",
+          "represent",
+          "requir"
+        ],
+        "Direction.html#id": [
+          "direct",
+          "direction#id",
+          "id",
+          "member",
+          "repres",
+          "string",
+          "uniqu"
+        ],
+        "Direction.html#description": [
+          "descript",
+          "direct",
+          "direction#descript",
+          "human",
+          "member",
+          "readabl",
+          "string"
+        ],
         "TripSearchResultTransfer.html": [
           "arriv",
           "between",
@@ -3152,6 +3183,14 @@
           "type",
           "us"
         ],
+        "module-gtfs_Direction.html": [
+          "class",
+          "direct",
+          "gtf",
+          "gtfs/direct",
+          "modul",
+          "module:gtfs/direct"
+        ],
         "module-gtfs_Service.html": [
           "class",
           "gtf",
@@ -3241,6 +3280,19 @@
           "right",
           "servic",
           "serviceexcept",
+          "tabl",
+          "track"
+        ],
+        "module-query_directions.html": [
+          "databas",
+          "direct",
+          "function",
+          "gtfs_direct",
+          "modul",
+          "module:query/direct",
+          "queri",
+          "query/direct",
+          "right",
           "tabl",
           "track"
         ],
@@ -3556,7 +3608,7 @@
           "utils/datetim"
         ]
       },
-      "length": 299
+      "length": 304
     },
     "tokenStore": {
       "root": {
@@ -4287,6 +4339,10 @@
                       "ref": "StationFeedDepartureStatus.html",
                       "tf": 113.70370370370371
                     },
+                    "Direction.html": {
+                      "ref": "Direction.html",
+                      "tf": 110
+                    },
                     "TripSearchResultTransfer.html": {
                       "ref": "TripSearchResultTransfer.html",
                       "tf": 112.85714285714286
@@ -4378,6 +4434,10 @@
                     "module-classes.html": {
                       "ref": "module-classes.html",
                       "tf": 606.6666666666666
+                    },
+                    "module-gtfs_Direction.html": {
+                      "ref": "module-gtfs_Direction.html",
+                      "tf": 16.666666666666664
                     },
                     "module-gtfs_Service.html": {
                       "ref": "module-gtfs_Service.html",
@@ -5394,6 +5454,14 @@
           },
           "d": {
             "docs": {
+              "Direction.html": {
+                "ref": "Direction.html",
+                "tf": 2.941176470588235
+              },
+              "Direction.html#id": {
+                "ref": "Direction.html#id",
+                "tf": 712.5
+              },
               "ServiceException.html": {
                 "ref": "ServiceException.html",
                 "tf": 2.7777777777777777
@@ -7283,6 +7351,32 @@
                     }
                   }
                 },
+                "a": {
+                  "docs": {},
+                  "b": {
+                    "docs": {},
+                    "l": {
+                      "docs": {
+                        "Direction.html#description": {
+                          "ref": "Direction.html#description",
+                          "tf": 12.5
+                        },
+                        "DateTime.html": {
+                          "ref": "DateTime.html",
+                          "tf": 0.8928571428571428
+                        },
+                        "DateTime.html#getTimeReadable": {
+                          "ref": "DateTime.html#getTimeReadable",
+                          "tf": 8.333333333333332
+                        },
+                        "DateTime.html#getDateReadable": {
+                          "ref": "DateTime.html#getDateReadable",
+                          "tf": 7.142857142857142
+                        }
+                      }
+                    }
+                  }
+                },
                 "c": {
                   "docs": {},
                   "o": {
@@ -7305,28 +7399,6 @@
                               }
                             }
                           }
-                        }
-                      }
-                    }
-                  }
-                },
-                "a": {
-                  "docs": {},
-                  "b": {
-                    "docs": {},
-                    "l": {
-                      "docs": {
-                        "DateTime.html": {
-                          "ref": "DateTime.html",
-                          "tf": 0.8928571428571428
-                        },
-                        "DateTime.html#getTimeReadable": {
-                          "ref": "DateTime.html#getTimeReadable",
-                          "tf": 8.333333333333332
-                        },
-                        "DateTime.html#getDateReadable": {
-                          "ref": "DateTime.html#getDateReadable",
-                          "tf": 7.142857142857142
                         }
                       }
                     }
@@ -7406,6 +7478,10 @@
                   "docs": {},
                   "r": {
                     "docs": {
+                      "Direction.html": {
+                        "ref": "Direction.html",
+                        "tf": 2.941176470588235
+                      },
                       "ServiceException.html": {
                         "ref": "ServiceException.html",
                         "tf": 2.7777777777777777
@@ -7528,6 +7604,10 @@
                   "docs": {},
                   "s": {
                     "docs": {
+                      "Direction.html#id": {
+                        "ref": "Direction.html#id",
+                        "tf": 12.5
+                      },
                       "TripSearchResultTransfer.html": {
                         "ref": "TripSearchResultTransfer.html",
                         "tf": 1.4285714285714286
@@ -7575,6 +7655,10 @@
                         "docs": {},
                         "t": {
                           "docs": {
+                            "Direction.html": {
+                              "ref": "Direction.html",
+                              "tf": 2.941176470588235
+                            },
                             "ServiceException.html": {
                               "ref": "ServiceException.html",
                               "tf": 2.7777777777777777
@@ -8009,6 +8093,10 @@
                     "module-query_calendar.html": {
                       "ref": "module-query_calendar.html",
                       "tf": 4.166666666666666
+                    },
+                    "module-query_directions.html": {
+                      "ref": "module-query_directions.html",
+                      "tf": 5
                     },
                     "module-query_holiday.html": {
                       "ref": "module-query_holiday.html",
@@ -9791,6 +9879,10 @@
                     "module-query_calendar.html": {
                       "ref": "module-query_calendar.html",
                       "tf": 4.166666666666666
+                    },
+                    "module-query_directions.html": {
+                      "ref": "module-query_directions.html",
+                      "tf": 5
                     },
                     "module-query_holiday.html": {
                       "ref": "module-query_holiday.html",
@@ -13029,6 +13121,10 @@
                     "ref": "module-query_calendar.html",
                     "tf": 4.166666666666666
                   },
+                  "module-query_directions.html": {
+                    "ref": "module-query_directions.html",
+                    "tf": 5
+                  },
                   "module-query_holiday.html": {
                     "ref": "module-query_holiday.html",
                     "tf": 5
@@ -13410,6 +13506,14 @@
                             "ref": "StationFeedDeparturePosition.html#description",
                             "tf": 712.5
                           },
+                          "Direction.html": {
+                            "ref": "Direction.html",
+                            "tf": 2.941176470588235
+                          },
+                          "Direction.html#description": {
+                            "ref": "Direction.html#description",
+                            "tf": 712.5
+                          },
                           "Holiday.html#serviceInformation": {
                             "ref": "Holiday.html#serviceInformation",
                             "tf": 12.5
@@ -13542,31 +13646,6 @@
             },
             "f": {
               "docs": {},
-              "a": {
-                "docs": {},
-                "u": {
-                  "docs": {},
-                  "l": {
-                    "docs": {},
-                    "t": {
-                      "docs": {
-                        "RightTrackTransitAgency.html#resetConfig": {
-                          "ref": "RightTrackTransitAgency.html#resetConfig",
-                          "tf": 8.333333333333332
-                        },
-                        "RightTrackAgency.html#resetConfig": {
-                          "ref": "RightTrackAgency.html#resetConfig",
-                          "tf": 10
-                        },
-                        "RightTrackAgency.html#isFeedSupported": {
-                          "ref": "RightTrackAgency.html#isFeedSupported",
-                          "tf": 2.631578947368421
-                        }
-                      }
-                    }
-                  }
-                }
-              },
               "i": {
                 "docs": {},
                 "n": {
@@ -13580,6 +13659,10 @@
                     "docs": {},
                     "t": {
                       "docs": {
+                        "Direction.html": {
+                          "ref": "Direction.html",
+                          "tf": 2.941176470588235
+                        },
                         "Agency.html": {
                           "ref": "Agency.html",
                           "tf": 1.5151515151515151
@@ -13599,6 +13682,31 @@
                         "Stop.html": {
                           "ref": "Stop.html",
                           "tf": 0.78125
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "a": {
+                "docs": {},
+                "u": {
+                  "docs": {},
+                  "l": {
+                    "docs": {},
+                    "t": {
+                      "docs": {
+                        "RightTrackTransitAgency.html#resetConfig": {
+                          "ref": "RightTrackTransitAgency.html#resetConfig",
+                          "tf": 8.333333333333332
+                        },
+                        "RightTrackAgency.html#resetConfig": {
+                          "ref": "RightTrackAgency.html#resetConfig",
+                          "tf": 10
+                        },
+                        "RightTrackAgency.html#isFeedSupported": {
+                          "ref": "RightTrackAgency.html#isFeedSupported",
+                          "tf": 2.631578947368421
                         }
                       }
                     }
@@ -13808,6 +13916,18 @@
                   "docs": {},
                   "t": {
                     "docs": {
+                      "Direction.html": {
+                        "ref": "Direction.html",
+                        "tf": 1911.764705882353
+                      },
+                      "Direction.html#id": {
+                        "ref": "Direction.html#id",
+                        "tf": 12.5
+                      },
+                      "Direction.html#description": {
+                        "ref": "Direction.html#description",
+                        "tf": 12.5
+                      },
                       "TripSearch.html": {
                         "ref": "TripSearch.html",
                         "tf": 1.8518518518518516
@@ -13827,6 +13947,14 @@
                       "Trip.html#directionDescription": {
                         "ref": "Trip.html#directionDescription",
                         "tf": 16.666666666666664
+                      },
+                      "module-gtfs_Direction.html": {
+                        "ref": "module-gtfs_Direction.html",
+                        "tf": 16.666666666666664
+                      },
+                      "module-query_directions.html": {
+                        "ref": "module-query_directions.html",
+                        "tf": 5
                       }
                     },
                     "l": {
@@ -13852,30 +13980,55 @@
                         }
                       }
                     },
-                    "o": {
-                      "docs": {},
-                      "r": {
-                        "docs": {},
-                        "i": {
-                          "docs": {
-                            "RightTrackTransitAgency.html#moduleDirectory": {
-                              "ref": "RightTrackTransitAgency.html#moduleDirectory",
-                              "tf": 12.5
-                            },
-                            "RightTrackAgency.html#moduleDirectory": {
-                              "ref": "RightTrackAgency.html#moduleDirectory",
-                              "tf": 16.666666666666664
-                            }
-                          }
-                        }
-                      }
-                    },
                     "i": {
                       "docs": {},
                       "o": {
                         "docs": {},
                         "n": {
                           "docs": {},
+                          "#": {
+                            "docs": {},
+                            "i": {
+                              "docs": {},
+                              "d": {
+                                "docs": {
+                                  "Direction.html#id": {
+                                    "ref": "Direction.html#id",
+                                    "tf": 1150
+                                  }
+                                }
+                              }
+                            },
+                            "d": {
+                              "docs": {},
+                              "e": {
+                                "docs": {},
+                                "s": {
+                                  "docs": {},
+                                  "c": {
+                                    "docs": {},
+                                    "r": {
+                                      "docs": {},
+                                      "i": {
+                                        "docs": {},
+                                        "p": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {
+                                              "Direction.html#description": {
+                                                "ref": "Direction.html#description",
+                                                "tf": 1150
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
                           "i": {
                             "docs": {},
                             "d": {
@@ -13914,6 +14067,24 @@
                                   }
                                 }
                               }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "o": {
+                      "docs": {},
+                      "r": {
+                        "docs": {},
+                        "i": {
+                          "docs": {
+                            "RightTrackTransitAgency.html#moduleDirectory": {
+                              "ref": "RightTrackTransitAgency.html#moduleDirectory",
+                              "tf": 12.5
+                            },
+                            "RightTrackAgency.html#moduleDirectory": {
+                              "ref": "RightTrackAgency.html#moduleDirectory",
+                              "tf": 16.666666666666664
                             }
                           }
                         }
@@ -14735,6 +14906,10 @@
                           "ref": "module-query_calendar.html",
                           "tf": 4.166666666666666
                         },
+                        "module-query_directions.html": {
+                          "ref": "module-query_directions.html",
+                          "tf": 5
+                        },
                         "module-query_holiday.html": {
                           "ref": "module-query_holiday.html",
                           "tf": 5
@@ -15218,6 +15393,10 @@
             },
             "f": {
               "docs": {
+                "Direction.html": {
+                  "ref": "Direction.html",
+                  "tf": 14.705882352941178
+                },
                 "ServiceException.html": {
                   "ref": "ServiceException.html",
                   "tf": 8.333333333333332
@@ -15274,6 +15453,10 @@
                   "ref": "Stop.html",
                   "tf": 12.5
                 },
+                "module-gtfs_Direction.html": {
+                  "ref": "module-gtfs_Direction.html",
+                  "tf": 16.666666666666664
+                },
                 "module-gtfs_Service.html": {
                   "ref": "module-gtfs_Service.html",
                   "tf": 16.666666666666664
@@ -15319,6 +15502,33 @@
                 "docs": {},
                 "/": {
                   "docs": {},
+                  "d": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "r": {
+                        "docs": {},
+                        "e": {
+                          "docs": {},
+                          "c": {
+                            "docs": {},
+                            "t": {
+                              "docs": {
+                                "Direction.html": {
+                                  "ref": "Direction.html",
+                                  "tf": 2.941176470588235
+                                },
+                                "module-gtfs_Direction.html": {
+                                  "ref": "module-gtfs_Direction.html",
+                                  "tf": 600
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
                   "s": {
                     "docs": {},
                     "e": {
@@ -15563,6 +15773,29 @@
                       }
                     }
                   },
+                  "d": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "r": {
+                        "docs": {},
+                        "e": {
+                          "docs": {},
+                          "c": {
+                            "docs": {},
+                            "t": {
+                              "docs": {
+                                "module-query_directions.html": {
+                                  "ref": "module-query_directions.html",
+                                  "tf": 5
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
                   "r": {
                     "docs": {},
                     "o": {
@@ -15697,6 +15930,10 @@
                       "ref": "list_module.html",
                       "tf": 635
                     },
+                    "Direction.html": {
+                      "ref": "Direction.html",
+                      "tf": 2.941176470588235
+                    },
                     "TripSearchResultTransfer.html": {
                       "ref": "TripSearchResultTransfer.html",
                       "tf": 1.4285714285714286
@@ -15793,6 +16030,10 @@
                       "ref": "module-classes.html",
                       "tf": 116.66666666666667
                     },
+                    "module-gtfs_Direction.html": {
+                      "ref": "module-gtfs_Direction.html",
+                      "tf": 110
+                    },
                     "module-gtfs_Service.html": {
                       "ref": "module-gtfs_Service.html",
                       "tf": 110
@@ -15827,6 +16068,10 @@
                     },
                     "module-query_calendar.html": {
                       "ref": "module-query_calendar.html",
+                      "tf": 110
+                    },
+                    "module-query_directions.html": {
+                      "ref": "module-query_directions.html",
                       "tf": 110
                     },
                     "module-query_holiday.html": {
@@ -16110,6 +16355,29 @@
                               "docs": {},
                               "/": {
                                 "docs": {},
+                                "d": {
+                                  "docs": {},
+                                  "i": {
+                                    "docs": {},
+                                    "r": {
+                                      "docs": {},
+                                      "e": {
+                                        "docs": {},
+                                        "c": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {
+                                              "module-gtfs_Direction.html": {
+                                                "ref": "module-gtfs_Direction.html",
+                                                "tf": 1300
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
                                 "s": {
                                   "docs": {},
                                   "e": {
@@ -16304,6 +16572,29 @@
                                                       "tf": 1300
                                                     }
                                                   }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "d": {
+                                    "docs": {},
+                                    "i": {
+                                      "docs": {},
+                                      "r": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "c": {
+                                            "docs": {},
+                                            "t": {
+                                              "docs": {
+                                                "module-query_directions.html": {
+                                                  "ref": "module-query_directions.html",
+                                                  "tf": 1300
                                                 }
                                               }
                                             }
@@ -16966,6 +17257,14 @@
                       },
                       "StationFeedDepartureStatus.html#remarks": {
                         "ref": "StationFeedDepartureStatus.html#remarks",
+                        "tf": 110
+                      },
+                      "Direction.html#id": {
+                        "ref": "Direction.html#id",
+                        "tf": 110
+                      },
+                      "Direction.html#description": {
+                        "ref": "Direction.html#description",
                         "tf": 110
                       },
                       "TripSearchResultTransfer.html#stop": {
@@ -18410,6 +18709,10 @@
                 "docs": {},
                 "d": {
                   "docs": {
+                    "Direction.html": {
+                      "ref": "Direction.html",
+                      "tf": 2.941176470588235
+                    },
                     "ServiceException.html": {
                       "ref": "ServiceException.html",
                       "tf": 2.7777777777777777
@@ -18764,6 +19067,10 @@
                           "module-query_calendar.html": {
                             "ref": "module-query_calendar.html",
                             "tf": 8.333333333333332
+                          },
+                          "module-query_directions.html": {
+                            "ref": "module-query_directions.html",
+                            "tf": 10
                           },
                           "module-query_holiday.html": {
                             "ref": "module-query_holiday.html",
@@ -20749,6 +21056,14 @@
                       },
                       "StationFeedDepartureStatus.html#remarks": {
                         "ref": "StationFeedDepartureStatus.html#remarks",
+                        "tf": 50
+                      },
+                      "Direction.html#id": {
+                        "ref": "Direction.html#id",
+                        "tf": 50
+                      },
+                      "Direction.html#description": {
+                        "ref": "Direction.html#description",
                         "tf": 50
                       },
                       "ServiceException.html#serviceId": {
@@ -27100,6 +27415,10 @@
                 "docs": {},
                 "u": {
                   "docs": {
+                    "Direction.html#id": {
+                      "ref": "Direction.html#id",
+                      "tf": 12.5
+                    },
                     "ServiceException.html#serviceId": {
                       "ref": "ServiceException.html#serviceId",
                       "tf": 3.8461538461538463
@@ -27307,81 +27626,37 @@
             }
           }
         },
-        "y": {
+        "h": {
           "docs": {},
-          "y": {
+          "u": {
             "docs": {},
-            "y": {
+            "m": {
               "docs": {},
-              "y": {
+              "a": {
                 "docs": {},
-                "m": {
-                  "docs": {},
-                  "m": {
-                    "docs": {},
-                    "d": {
-                      "docs": {},
-                      "d": {
-                        "docs": {
-                          "ServiceException.html#date": {
-                            "ref": "ServiceException.html#date",
-                            "tf": 10
-                          },
-                          "Holiday.html#date": {
-                            "ref": "Holiday.html#date",
-                            "tf": 12.5
-                          },
-                          "About.html#compileDate": {
-                            "ref": "About.html#compileDate",
-                            "tf": 7.142857142857142
-                          },
-                          "About.html#publishDate": {
-                            "ref": "About.html#publishDate",
-                            "tf": 10
-                          },
-                          "About.html#startDate": {
-                            "ref": "About.html#startDate",
-                            "tf": 7.142857142857142
-                          },
-                          "About.html#endDate": {
-                            "ref": "About.html#endDate",
-                            "tf": 7.142857142857142
-                          },
-                          "Service.html#startDate": {
-                            "ref": "Service.html#startDate",
-                            "tf": 10
-                          },
-                          "Service.html#endDate": {
-                            "ref": "Service.html#endDate",
-                            "tf": 10
-                          },
-                          "StopTime.html": {
-                            "ref": "StopTime.html",
-                            "tf": 1.1111111111111112
-                          },
-                          "StopTime.html#date": {
-                            "ref": "StopTime.html#date",
-                            "tf": 12.5
-                          },
-                          "DateTime.html": {
-                            "ref": "DateTime.html",
-                            "tf": 0.8928571428571428
-                          },
-                          "DateTime.html#getDateInt": {
-                            "ref": "DateTime.html#getDateInt",
-                            "tf": 12.5
-                          }
-                        }
-                      }
+                "n": {
+                  "docs": {
+                    "Direction.html#description": {
+                      "ref": "Direction.html#description",
+                      "tf": 12.5
+                    },
+                    "DateTime.html": {
+                      "ref": "DateTime.html",
+                      "tf": 0.8928571428571428
+                    },
+                    "DateTime.html#getTimeReadable": {
+                      "ref": "DateTime.html#getTimeReadable",
+                      "tf": 8.333333333333332
+                    },
+                    "DateTime.html#getDateReadable": {
+                      "ref": "DateTime.html#getDateReadable",
+                      "tf": 7.142857142857142
                     }
                   }
                 }
               }
             }
-          }
-        },
-        "h": {
-          "docs": {},
+          },
           "o": {
             "docs": {},
             "l": {
@@ -27754,31 +28029,6 @@
               }
             }
           },
-          "u": {
-            "docs": {},
-            "m": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "n": {
-                  "docs": {
-                    "DateTime.html": {
-                      "ref": "DateTime.html",
-                      "tf": 0.8928571428571428
-                    },
-                    "DateTime.html#getTimeReadable": {
-                      "ref": "DateTime.html#getTimeReadable",
-                      "tf": 8.333333333333332
-                    },
-                    "DateTime.html#getDateReadable": {
-                      "ref": "DateTime.html#getDateReadable",
-                      "tf": 7.142857142857142
-                    }
-                  }
-                }
-              }
-            }
-          },
           "r": {
             "docs": {
               "DateTime.html#getTimeReadable": {
@@ -27814,6 +28064,79 @@
                       "Stop.html#transferWeight": {
                         "ref": "Stop.html#transferWeight",
                         "tf": 2.941176470588235
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "y": {
+          "docs": {},
+          "y": {
+            "docs": {},
+            "y": {
+              "docs": {},
+              "y": {
+                "docs": {},
+                "m": {
+                  "docs": {},
+                  "m": {
+                    "docs": {},
+                    "d": {
+                      "docs": {},
+                      "d": {
+                        "docs": {
+                          "ServiceException.html#date": {
+                            "ref": "ServiceException.html#date",
+                            "tf": 10
+                          },
+                          "Holiday.html#date": {
+                            "ref": "Holiday.html#date",
+                            "tf": 12.5
+                          },
+                          "About.html#compileDate": {
+                            "ref": "About.html#compileDate",
+                            "tf": 7.142857142857142
+                          },
+                          "About.html#publishDate": {
+                            "ref": "About.html#publishDate",
+                            "tf": 10
+                          },
+                          "About.html#startDate": {
+                            "ref": "About.html#startDate",
+                            "tf": 7.142857142857142
+                          },
+                          "About.html#endDate": {
+                            "ref": "About.html#endDate",
+                            "tf": 7.142857142857142
+                          },
+                          "Service.html#startDate": {
+                            "ref": "Service.html#startDate",
+                            "tf": 10
+                          },
+                          "Service.html#endDate": {
+                            "ref": "Service.html#endDate",
+                            "tf": 10
+                          },
+                          "StopTime.html": {
+                            "ref": "StopTime.html",
+                            "tf": 1.1111111111111112
+                          },
+                          "StopTime.html#date": {
+                            "ref": "StopTime.html#date",
+                            "tf": 12.5
+                          },
+                          "DateTime.html": {
+                            "ref": "DateTime.html",
+                            "tf": 0.8928571428571428
+                          },
+                          "DateTime.html#getDateInt": {
+                            "ref": "DateTime.html#getDateInt",
+                            "tf": 12.5
+                          }
+                        }
                       }
                     }
                   }
@@ -28130,6 +28453,10 @@
                       "ref": "module-query_calendar.html",
                       "tf": 8.333333333333332
                     },
+                    "module-query_directions.html": {
+                      "ref": "module-query_directions.html",
+                      "tf": 10
+                    },
                     "module-query_holiday.html": {
                       "ref": "module-query_holiday.html",
                       "tf": 10
@@ -28221,6 +28548,29 @@
                                         "tf": 600
                                       }
                                     }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "d": {
+                      "docs": {},
+                      "i": {
+                        "docs": {},
+                        "r": {
+                          "docs": {},
+                          "e": {
+                            "docs": {},
+                            "c": {
+                              "docs": {},
+                              "t": {
+                                "docs": {
+                                  "module-query_directions.html": {
+                                    "ref": "module-query_directions.html",
+                                    "tf": 600
                                   }
                                 }
                               }
@@ -28803,7 +29153,7 @@
           }
         }
       },
-      "length": 2918
+      "length": 2960
     },
     "corpusTokens": [
       "1",
@@ -28960,6 +29310,8 @@
       "destin",
       "detail",
       "direct",
+      "direction#descript",
+      "direction#id",
       "directiondescript",
       "directionid",
       "directli",
@@ -29050,6 +29402,7 @@
       "gt",
       "gtf",
       "gtfs/agenc",
+      "gtfs/direct",
       "gtfs/rout",
       "gtfs/servic",
       "gtfs/serviceexcept",
@@ -29059,6 +29412,7 @@
       "gtfs/trip",
       "gtfs_calendar",
       "gtfs_calendar_d",
+      "gtfs_direct",
       "gtfs_rout",
       "gtfs_shape",
       "gtfs_stop",
@@ -29160,6 +29514,7 @@
       "module:classes/righttracktransitag",
       "module:gtf",
       "module:gtfs/ag",
+      "module:gtfs/direct",
       "module:gtfs/rout",
       "module:gtfs/servic",
       "module:gtfs/serviceexcept",
@@ -29170,6 +29525,7 @@
       "module:queri",
       "module:query/about",
       "module:query/calendar",
+      "module:query/direct",
       "module:query/holiday",
       "module:query/linegraph",
       "module:query/link",
@@ -29251,6 +29607,7 @@
       "queri",
       "query/about",
       "query/calendar",
+      "query/direct",
       "query/holiday",
       "query/linegraph",
       "query/link",
@@ -30092,6 +30449,37 @@
       "tags": "StationFeedDepartureStatus~Track",
       "summary": "",
       "description": "Departure track properties"
+    },
+    "Direction.html": {
+      "id": "Direction.html",
+      "kind": "class",
+      "title": "Direction",
+      "longname": "Direction",
+      "name": "Direction",
+      "tags": "Direction",
+      "summary": "",
+      "description": "GTFS Direction Representation of the GTFS Direction definition. GTFS Required Fields: GTFS Direction ID GTFS Direction Description Module: gtfs/Direction",
+      "body": ""
+    },
+    "Direction.html#id": {
+      "id": "Direction.html#id",
+      "kind": "member",
+      "title": "id :string",
+      "longname": "Direction#id",
+      "name": "id",
+      "tags": "Direction#id id",
+      "summary": "",
+      "description": "The unique ID representing the Direction"
+    },
+    "Direction.html#description": {
+      "id": "Direction.html#description",
+      "kind": "member",
+      "title": "description :string",
+      "longname": "Direction#description",
+      "name": "description",
+      "tags": "Direction#description description",
+      "summary": "",
+      "description": "The human-readable description of the Direction"
     },
     "TripSearchResultTransfer.html": {
       "id": "TripSearchResultTransfer.html",
@@ -32295,6 +32683,17 @@
       "description": "Right Track Abstract Classes These modules provide the abstract Right Track Classes used by modules implementing these data types",
       "body": ""
     },
+    "module-gtfs_Direction.html": {
+      "id": "module-gtfs_Direction.html",
+      "kind": "module",
+      "title": "gtfs/Direction",
+      "longname": "module:gtfs/Direction",
+      "name": "gtfs/Direction",
+      "tags": "module:gtfs/Direction",
+      "summary": "",
+      "description": "GTFS Direction Class",
+      "body": ""
+    },
     "module-gtfs_Service.html": {
       "id": "module-gtfs_Service.html",
       "kind": "module",
@@ -32392,6 +32791,17 @@
       "tags": "module:query/calendar",
       "summary": "",
       "description": "Service and ServiceException Query Functions These functions query the gtfs_calendar and gtfs_calendar_dates tables in the Right Track Database.",
+      "body": ""
+    },
+    "module-query_directions.html": {
+      "id": "module-query_directions.html",
+      "kind": "module",
+      "title": "query/directions",
+      "longname": "module:query/directions",
+      "name": "query/directions",
+      "tags": "module:query/directions",
+      "summary": "",
+      "description": "Direction Query Functions These functions query the gtfs_directions table in the Right Track Database.",
       "body": ""
     },
     "module-query_holiday.html": {

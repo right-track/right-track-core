@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>classes/RightTrackTransitAgency</title>
+		<title>query/directions</title>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -165,7 +165,7 @@
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
 				<span class="kind">module</span>
-				<h1><span class="name">classes/RightTrackTransitAgency</span></h1>
+				<h1><span class="name">query/directions</span></h1>
 			</div>
 		</div>
 	<div class="container content">
@@ -174,14 +174,15 @@
 						<ol class="breadcrumb">
 							<li><a href="index.html">Home</a></li>
 							<li><a href="list_module.html">Modules</a></li>
-							<li class="active">classes/RightTrackTransitAgency</li>
+							<li class="active">query/directions</li>
 						</ol>
 					<section>
 		<dl class="symbol">
 			<dt class="symbol-title "></dt>
 			<dd class="symbol-details ">
 				<div class="symbol-details-inner">
-					<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Right Track Transit Agency Abstract Class</p></div>
+					<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><h3>Direction Query Functions</h3>
+					<p>These functions query the <code>gtfs_directions</code> table in the Right Track Database.</p></div>
 					</div>					<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 					
 					
@@ -202,18 +203,11 @@
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Source</label>
 										<div class="col-sm-9">
-											<p class="form-control-static"><a href="classes_RightTrackTransitAgency_index.js.html">classes/RightTrackTransitAgency/index.js</a>, <a href="classes_RightTrackTransitAgency_index.js.html#line-6">line 6</a></p>
+											<p class="form-control-static"><a href="query_DirectionsTable.js.html">query/DirectionsTable.js</a>, <a href="query_DirectionsTable.js.html#line-3">line 3</a></p>
 										</div>
 									</div>
 					
 					
-									<!-- see -->
-									<div class="form-group">
-										<label class="col-sm-3 control-label">See</label>
-										<div class="col-sm-9">
-												<p class="form-control-static"><a href="RightTrackTransitAgency.html">RightTrackTransitAgency</a></p>
-										</div>
-									</div>
 					
 					
 							</form>
@@ -221,6 +215,204 @@
 			</dd>
 		</dl>
 							<article class="secondary">
+									<h3>Methods</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title function public">
+			<h4 id="~getDirections" class="function public"><span class="signature-attribs">&lt;inner> </span><span class="name">getDirections</span><span class="signature-params">( <span class="signature-param">db</span>, <span class="signature-param">callback</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Get the directions stored in the gtfs_directions table from
+			the passed database.</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>db</code></td>
+							<td><span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span></td>
+							<td class="last">
+									<p>The Right Track Database to query</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>callback</code></td>
+							<td><span class="param-type">function</span></td>
+							<td class="last">
+									<p>Callback function</p>
+										<table class="params table table-striped">
+											<thead>
+											<tr>
+													<th>Name</th>
+												<th>Type</th>
+													<th>Attributes</th>
+												<th class="last">Description</th>
+											</tr>
+											</thead>
+											<tbody>
+												<tr>
+														<td><code>error</code></td>
+													<td><span class="param-type">Error</span></td>
+														<td class="attributes"></td>
+													<td class="last">
+															<p>Database Query Error</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>directions</code></td>
+													<td><span class="param-type">Array.&lt;<a href="Direction.html">Direction</a>></span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+													<td class="last">
+															<p>The directions (id and description)</p>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="query_DirectionsTable.js.html">query/DirectionsTable.js</a>, <a href="query_DirectionsTable.js.html#line-26">line 26</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public">
+			<h4 id="~getDirection" class="function public"><span class="signature-attribs">&lt;inner> </span><span class="name">getDirection</span><span class="signature-params">( <span class="signature-param">db</span>, <span class="signature-param">id</span>, <span class="signature-param">callback</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Get the specified direction stored in the gtfs_directions table
+			from the passed database.</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>db</code></td>
+							<td><span class="param-type"><a href="RightTrackDB.html">RightTrackDB</a></span></td>
+							<td class="last">
+									<p>The Right Track Database to query</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>id</code></td>
+							<td><span class="param-type">String</span></td>
+							<td class="last">
+									<p>The Direction ID</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>callback</code></td>
+							<td><span class="param-type">function</span></td>
+							<td class="last">
+									<p>Callback function</p>
+										<table class="params table table-striped">
+											<thead>
+											<tr>
+													<th>Name</th>
+												<th>Type</th>
+													<th>Attributes</th>
+												<th class="last">Description</th>
+											</tr>
+											</thead>
+											<tbody>
+												<tr>
+														<td><code>error</code></td>
+													<td><span class="param-type">Error</span></td>
+														<td class="attributes"></td>
+													<td class="last">
+															<p>Database Query Error</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>direction</code></td>
+													<td><span class="param-type"><a href="Direction.html">Direction</a></span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+													<td class="last">
+															<p>The direction (id and description)</p>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="query_DirectionsTable.js.html">query/DirectionsTable.js</a>, <a href="query_DirectionsTable.js.html#line-81">line 81</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
 							</article>
 					</section>
 			</div>
