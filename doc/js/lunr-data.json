@@ -523,7 +523,7 @@
           "vehicl",
           "vehiclefe",
           "vf",
-          "vp.vehiclefe"
+          "vf.vehiclefe"
         ],
         "VehicleFeed.html#id": [
           "id",
@@ -600,6 +600,14 @@
           "recent",
           "vehicl",
           "vehiclefeedposition#lon"
+        ],
+        "VehicleFeedPosition.html#description": [
+          "descript",
+          "member",
+          "posit",
+          "string",
+          "vehicle'",
+          "vehiclefeedposition#descript"
         ],
         "VehicleFeedPosition.html#updated": [
           "date/tim",
@@ -3792,7 +3800,7 @@
           "utils/datetim"
         ]
       },
-      "length": 320
+      "length": 321
     },
     "tokenStore": {
       "root": {
@@ -7442,6 +7450,10 @@
                     "VehicleFeedPosition.html": {
                       "ref": "VehicleFeedPosition.html",
                       "tf": 3.8461538461538463
+                    },
+                    "VehicleFeedPosition.html#description": {
+                      "ref": "VehicleFeedPosition.html#description",
+                      "tf": 16.666666666666664
                     },
                     "VehicleFeedPosition.html#updated": {
                       "ref": "VehicleFeedPosition.html#updated",
@@ -14173,6 +14185,10 @@
                             "ref": "StationFeedDeparturePosition.html#description",
                             "tf": 712.5
                           },
+                          "VehicleFeedPosition.html#description": {
+                            "ref": "VehicleFeedPosition.html#description",
+                            "tf": 716.6666666666666
+                          },
                           "Direction.html": {
                             "ref": "Direction.html",
                             "tf": 2.941176470588235
@@ -17972,6 +17988,10 @@
                       },
                       "VehicleFeedPosition.html#lon": {
                         "ref": "VehicleFeedPosition.html#lon",
+                        "tf": 110
+                      },
+                      "VehicleFeedPosition.html#description": {
+                        "ref": "VehicleFeedPosition.html#description",
                         "tf": 110
                       },
                       "VehicleFeedPosition.html#updated": {
@@ -21873,6 +21893,10 @@
                       },
                       "VehicleFeed.html#id": {
                         "ref": "VehicleFeed.html#id",
+                        "tf": 50
+                      },
+                      "VehicleFeedPosition.html#description": {
+                        "ref": "VehicleFeedPosition.html#description",
                         "tf": 50
                       },
                       "VehicleFeedPosition.html#.VehicleStatus": {
@@ -28825,6 +28849,35 @@
                                                     }
                                                   }
                                                 },
+                                                "d": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "s": {
+                                                      "docs": {},
+                                                      "c": {
+                                                        "docs": {},
+                                                        "r": {
+                                                          "docs": {},
+                                                          "i": {
+                                                            "docs": {},
+                                                            "p": {
+                                                              "docs": {},
+                                                              "t": {
+                                                                "docs": {
+                                                                  "VehicleFeedPosition.html#description": {
+                                                                    "ref": "VehicleFeedPosition.html#description",
+                                                                    "tf": 1150
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
                                                 "u": {
                                                   "docs": {},
                                                   "p": {
@@ -28959,6 +29012,14 @@
                           }
                         }
                       },
+                      "'": {
+                        "docs": {
+                          "VehicleFeedPosition.html#description": {
+                            "ref": "VehicleFeedPosition.html#description",
+                            "tf": 16.666666666666664
+                          }
+                        }
+                      },
                       "s": {
                         "docs": {},
                         "t": {
@@ -29043,7 +29104,12 @@
                             "f": {
                               "docs": {},
                               "e": {
-                                "docs": {},
+                                "docs": {
+                                  "VehicleFeed.html": {
+                                    "ref": "VehicleFeed.html",
+                                    "tf": 2.380952380952381
+                                  }
+                                },
                                 "e": {
                                   "docs": {},
                                   "d": {
@@ -29068,44 +29134,6 @@
                                         }
                                       }
                                     }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "p": {
-            "docs": {},
-            ".": {
-              "docs": {},
-              "v": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "h": {
-                    "docs": {},
-                    "i": {
-                      "docs": {},
-                      "c": {
-                        "docs": {},
-                        "l": {
-                          "docs": {},
-                          "e": {
-                            "docs": {},
-                            "f": {
-                              "docs": {},
-                              "e": {
-                                "docs": {
-                                  "VehicleFeed.html": {
-                                    "ref": "VehicleFeed.html",
-                                    "tf": 2.380952380952381
                                   }
                                 }
                               }
@@ -30592,7 +30620,7 @@
           }
         }
       },
-      "length": 3112
+      "length": 3118
     },
     "corpusTokens": [
       "1",
@@ -31428,6 +31456,7 @@
       "valu",
       "variou",
       "vehicl",
+      "vehicle'",
       "vehiclefe",
       "vehiclefeed#id",
       "vehiclefeed#posit",
@@ -31435,6 +31464,7 @@
       "vehiclefeed#trip",
       "vehiclefeedposit",
       "vehiclefeedposition#bear",
+      "vehiclefeedposition#descript",
       "vehiclefeedposition#lat",
       "vehiclefeedposition#lon",
       "vehiclefeedposition#spe",
@@ -31445,10 +31475,10 @@
       "vehiclestatu",
       "version",
       "vf",
+      "vf.vehiclefe",
       "vf.vehiclefeedposit",
       "viewabl",
       "voic",
-      "vp.vehiclefe",
       "way",
       "web",
       "websit",
@@ -31932,7 +31962,7 @@
       "name": "VehicleFeed",
       "tags": "VehicleFeed",
       "summary": "",
-      "description": "Vehicle Feed Information about the real-time postions of a vehicle To access this Class directly: const core = require('right-track-core'); const VF = core.classes.VehicleFeed; const VehicleFeed = VP.VehicleFeed;",
+      "description": "Vehicle Feed Information about the real-time postions of a vehicle To access this Class directly: const core = require('right-track-core'); const VF = core.classes.VehicleFeed; const VehicleFeed = VF.VehicleFeed;",
       "body": ""
     },
     "VehicleFeed.html#id": {
@@ -32005,6 +32035,16 @@
       "tags": "VehicleFeedPosition#lon lon",
       "summary": "",
       "description": "The most recent vehicle longitude"
+    },
+    "VehicleFeedPosition.html#description": {
+      "id": "VehicleFeedPosition.html#description",
+      "kind": "member",
+      "title": "description :string",
+      "longname": "VehicleFeedPosition#description",
+      "name": "description",
+      "tags": "VehicleFeedPosition#description description",
+      "summary": "",
+      "description": "The description of the Vehicle's position"
     },
     "VehicleFeedPosition.html#updated": {
       "id": "VehicleFeedPosition.html#updated",
