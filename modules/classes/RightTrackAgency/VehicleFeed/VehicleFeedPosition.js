@@ -1,5 +1,7 @@
 'use strict';
 
+const DateTime = require('../../../utils/DateTime');
+
 /**
  * Vehicle Feed Position
  * ---------------------
