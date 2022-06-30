@@ -23,6 +23,7 @@ class VehicleFeedPosition {
      * @constructor
      * @param {number} lat The most recent vehicle latitude
      * @param {number} lon The most recent vehicle longitude
+     * @param {String} [description] The description of the real-time position (ie, "in transit to {next stop}")
      * @param {DateTime} updated The Date/Time of when the position was last updated
      * @param {Object} [properties] Additional vehicle position properties
      * @param {number} [properties.bearing] The most recent vehicle bearing
@@ -30,7 +31,20 @@ class VehicleFeedPosition {
      * @param {string} [properties.status] The current status of the vehicle
      * @param {Stop} [properties.stop] The Stop referenced by the status
      */
-    constructor(lat, lon, updated, properties) {
+    constructor(lat, lon, description, updated, properties) {
+
+        // Parse arguments
+        if ( !properties && !updated ) {
+            updated = description;
+            description = undefined;
+        }
+        else if ( !properties ) {
+            if ( typeof updated === 'object' && !(updated instanceof DateTime) ) {
+                properties = updated;
+                updated = description;
+                description = undefined;
+            }
+        }
 
         /**
          * The most recent vehicle latitude
@@ -43,6 +57,12 @@ class VehicleFeedPosition {
          * @type {number}
          */
         this.lon = lon;
+
+        /**
+         * The description of the Vehicle's position
+         * @type {string}
+         */
+        this.description = description;
 
         /**
          * The Date/Time of when the position was last updated

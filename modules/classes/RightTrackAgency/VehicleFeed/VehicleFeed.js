@@ -9,7 +9,7 @@
  * ```javascript
  * const core = require('right-track-core');
  * const VF = core.classes.VehicleFeed;
- * const VehicleFeed = VP.VehicleFeed;
+ * const VehicleFeed = VF.VehicleFeed;
  * ```
  * 
  * @class
