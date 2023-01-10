@@ -77,28 +77,28 @@ class VehicleFeedPosition {
          * @type {number}
          * @optional
          */
-        this.bearing = properties?.bearing;
+        this.bearing = properties ? properties.bearing : undefined;
 
         /**
          * The most recent vehicle speed, in m/s
          * @type {number}
          * @optional
          */
-        this.speed = properties?.speed;
+        this.speed = properties ? properties.speed : undefined;
 
         /**
          * The current status of the vehicle
          * @type {VehicleFeedPosition.VehicleStatus}
          * @optional
          */
-        this.status = properties?.status;
+        this.status = properties ? properties.status : undefined;
 
         /**
          * The Stop referenced by the status
          * @type {Stop}
          * @optional
          */
-        this.stop = properties?.stop;
+        this.stop = properties ? properties.stop : undefined;
 
     }
 

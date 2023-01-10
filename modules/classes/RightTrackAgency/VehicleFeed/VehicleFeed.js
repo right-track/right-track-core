@@ -47,14 +47,14 @@ class VehicleFeed {
          * @type {VehicleFeedStop[]}
          * @optional
          */
-        this.stops = properties?.stops;
+        this.stops = properties ? properties.stops : undefined;
 
         /**
          * The Trip the vehicle is operating
          * @type {Trip}
          * @optional
          */
-         this.trip = properties?.trip;
+         this.trip = properties ? properties.trip : undefined;
 
     }
 
